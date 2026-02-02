@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays (อาร์เรย์) | บันทึกการติว Java</title>
+    <meta name="description"
+        content="เรียนรู้การใช้ Array ในภาษา Java เก็บข้อมูลหลายค่าในตัวแปรเดียว พร้อมตัวอย่างโค้ด">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 20px 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #00d4ff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        nav a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        nav a:hover {
+            color: #00d4ff;
+        }
+
+        article {
+            background: #fff;
+            margin: 40px auto;
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ec4899, #db2777);
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: #1a1a2e;
+            margin-bottom: 15px;
+        }
+
+        .meta {
+            color: #888;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #fce7f3, #fbcfe8);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #ec4899;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #1a1a2e;
+            margin: 35px 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: '';
+            width: 5px;
+            height: 25px;
+            background: linear-gradient(180deg, #ec4899, #db2777);
+            border-radius: 3px;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            color: #333;
+            margin: 25px 0 15px;
+        }
+
+        p {
+            margin-bottom: 18px;
+        }
+
+        pre {
+            background: #1e1e3f;
+            color: #e0e0e0;
+            padding: 25px;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        pre::before {
+            content: 'Java';
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: #ec4899;
+            color: #fff;
+            padding: 2px 10px;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        code {
+            font-family: 'Consolas', monospace;
+        }
+
+        .keyword {
+            color: #cc7832;
+        }
+
+        .string {
+            color: #6a8759;
+        }
+
+        .comment {
+            color: #808080;
+        }
+
+        .number {
+            color: #6897bb;
+        }
+
+        ul,
+        ol {
+            margin: 20px 0 20px 25px;
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+
+        .note-box {
+            background: #fef3c7;
+            border-left: 5px solid #f59e0b;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+
+        .tip-box {
+            background: #f0fdf4;
+            border-left: 5px solid #22c55e;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+
+        .array-visual {
+            background: #f3f4f6;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .array-visual .cells {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin: 15px 0;
+        }
+
+        .array-visual .cell {
+            width: 50px;
+            height: 50px;
+            background: #ec4899;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .array-visual .index {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .array-visual .idx {
+            width: 50px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0 0;
+        }
+
+        .summary-box h3 {
+            color: #ec4899;
+            margin-top: 0;
+        }
+
+        .summary-box li {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .nav-links a {
+            color: #db2777;
+            text-decoration: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            article {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">📚 บันทึกการติว</a>
+            <nav>
+                <a href="index.html">หน้าแรก</a>
+                <a href="03-loops.html">บทที่ 3</a>
+                <a href="04-arrays.html">บทที่ 4</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <span class="badge">📖 บทที่ 4</span>
+            <h1>Arrays (อาร์เรย์)</h1>
+            <p class="meta">
+                <span>📅 <time datetime="2026-02-02">2 กุมภาพันธ์ 2026</time></span>
+                <span>⏱️ อ่าน 10 นาที</span>
+            </p>
+
+            <div class="intro">
+                <strong>📦 Array คืออะไร?</strong><br><br>
+                ลองนึกภาพว่าเราต้องเก็บคะแนนของนักเรียน 5 คน...<br><br>
+                ❌ แบบไม่ใช้ Array:<br>
+                <code>int score1=85; int score2=90; int score3=78; int score4=92; int score5=88;</code><br><br>
+                ✅ แบบใช้ Array:<br>
+                <code>int[] scores = {85, 90, 78, 92, 88};</code><br><br>
+                เหมือนมีกล่องใบใหญ่ที่มีหลายช่อง เก็บข้อมูลได้หลายค่าในชื่อเดียว!
+            </div>
+
+            <h2>🎯 ใช้ Array เมื่อไหร่?</h2>
+            <ul>
+                <li>เก็บคะแนนนักเรียนหลายคน</li>
+                <li>เก็บชื่อสินค้าในตะกร้า</li>
+                <li>เก็บอุณหภูมิ 7 วันที่ผ่านมา</li>
+                <li>เก็บเลือกตั้งของผู้สมัครแต่ละคน</li>
+            </ul>
+
+            <h2>การสร้าง Array</h2>
+            <pre><code><span class="comment">// วิธีที่ 1: ประกาศแล้วกำหนดขนาด</span>
+<span class="keyword">int</span>[] scores = <span class="keyword">new int</span>[<span class="number">5</span>]; <span class="comment">// เก็บได้ 5 ค่า</span>
+
+<span class="comment">// วิธีที่ 2: ประกาศพร้อมใส่ค่าเลย</span>
+<span class="keyword">int</span>[] scores = {<span class="number">85</span>, <span class="number">90</span>, <span class="number">78</span>, <span class="number">92</span>, <span class="number">88</span>};
+
+<span class="comment">// Array ของ String</span>
+String[] names = {<span class="string">"สมชาย"</span>, <span class="string">"สมหญิง"</span>, <span class="string">"สมศรี"</span>};</code></pre>
+
+            <h2>Index เริ่มที่ 0!</h2>
+            <div class="array-visual">
+                <p><strong>int[] scores = {85, 90, 78, 92, 88};</strong></p>
+                <div class="cells">
+                    <div class="cell">85</div>
+                    <div class="cell">90</div>
+                    <div class="cell">78</div>
+                    <div class="cell">92</div>
+                    <div class="cell">88</div>
+                </div>
+                <div class="index">
+                    <div class="idx">[0]</div>
+                    <div class="idx">[1]</div>
+                    <div class="idx">[2]</div>
+                    <div class="idx">[3]</div>
+                    <div class="idx">[4]</div>
+                </div>
+            </div>
+
+            <div class="note-box">
+                <strong>⚠️ สำคัญมาก!</strong> Index เริ่มจาก <strong>0</strong> ไม่ใช่ 1!<br>
+                Array ขนาด 5 จะมี index: 0, 1, 2, 3, 4
+            </div>
+
+            <h2>การเข้าถึงและแก้ไขค่า</h2>
+            <pre><code><span class="keyword">int</span>[] scores = {<span class="number">85</span>, <span class="number">90</span>, <span class="number">78</span>, <span class="number">92</span>, <span class="number">88</span>};
+
+<span class="comment">// อ่านค่า</span>
+System.out.println(scores[<span class="number">0</span>]); <span class="comment">// 85</span>
+System.out.println(scores[<span class="number">2</span>]); <span class="comment">// 78</span>
+
+<span class="comment">// แก้ไขค่า</span>
+scores[<span class="number">2</span>] = <span class="number">80</span>; <span class="comment">// เปลี่ยนจาก 78 เป็น 80</span>
+
+<span class="comment">// หาความยาว</span>
+System.out.println(scores.length); <span class="comment">// 5</span></code></pre>
+
+            <h2>วนลูปกับ Array</h2>
+            <h3>แบบ for loop ธรรมดา</h3>
+            <pre><code><span class="keyword">int</span>[] scores = {<span class="number">85</span>, <span class="number">90</span>, <span class="number">78</span>, <span class="number">92</span>, <span class="number">88</span>};
+
+<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i < scores.length; i++) {
+    System.out.println(<span class="string">"คะแนนที่ "</span> + (i+<span class="number">1</span>) + <span class="string">": "</span> + scores[i]);
+}</code></pre>
+
+            <h3>แบบ for-each (ง่ายกว่า)</h3>
+            <pre><code><span class="keyword">int</span>[] scores = {<span class="number">85</span>, <span class="number">90</span>, <span class="number">78</span>, <span class="number">92</span>, <span class="number">88</span>};
+
+<span class="keyword">for</span> (<span class="keyword">int</span> score : scores) {
+    System.out.println(score);
+}</code></pre>
+
+            <div class="tip-box">
+                <strong>💡 for-each ใช้เมื่อ:</strong>
+                <ul style="margin-top: 10px;">
+                    <li>ต้องการอ่านค่าทุกตัวตั้งแต่ต้นจนจบ</li>
+                    <li>ไม่ต้องการรู้ index</li>
+                    <li>ไม่ต้องการแก้ไขค่าใน array</li>
+                </ul>
+            </div>
+
+            <h2>ตัวอย่าง: หาค่าสูงสุด</h2>
+            <pre><code><span class="keyword">int</span>[] scores = {<span class="number">85</span>, <span class="number">90</span>, <span class="number">78</span>, <span class="number">92</span>, <span class="number">88</span>};
+<span class="keyword">int</span> max = scores[<span class="number">0</span>]; <span class="comment">// สมมติตัวแรกมากสุด</span>
+
+<span class="keyword">for</span> (<span class="keyword">int</span> score : scores) {
+    <span class="keyword">if</span> (score > max) {
+        max = score;
+    }
+}
+
+System.out.println(<span class="string">"คะแนนสูงสุด: "</span> + max); <span class="comment">// 92</span></code></pre>
+
+            <h2>ตัวอย่าง: หาค่าเฉลี่ย</h2>
+            <pre><code><span class="keyword">int</span>[] scores = {<span class="number">85</span>, <span class="number">90</span>, <span class="number">78</span>, <span class="number">92</span>, <span class="number">88</span>};
+<span class="keyword">int</span> sum = <span class="number">0</span>;
+
+<span class="keyword">for</span> (<span class="keyword">int</span> score : scores) {
+    sum += score;
+}
+
+<span class="keyword">double</span> avg = (<span class="keyword">double</span>) sum / scores.length;
+System.out.println(<span class="string">"คะแนนเฉลี่ย: "</span> + avg); <span class="comment">// 86.6</span></code></pre>
+
+            <div class="summary-box">
+                <h3>📝 สรุปสิ่งที่ต้องจำ</h3>
+                <ul>
+                    <li>Array เก็บข้อมูลหลายค่าในตัวแปรเดียว</li>
+                    <li><strong>Index เริ่มจาก 0</strong> ไม่ใช่ 1!</li>
+                    <li>ใช้ <code>.length</code> หาความยาว</li>
+                    <li>for-each ใช้อ่านค่าได้ง่าย</li>
+                    <li>ระวัง ArrayIndexOutOfBoundsException!</li>
+                </ul>
+                <p style="margin-top: 20px; opacity: 0.8;">งงตรงไหน? <a href="https://instabio.cc/4021411ZGCpLW"
+                        target="_blank" style="color: #ec4899; text-decoration: underline;">ทักมาถามได้เลยนะ! 💬</a></p>
+            </div>
+
+            <div class="nav-links">
+                <a href="03-loops.html">← บทที่ 3: Loops</a>
+                <a href="05-methods.html">บทที่ 5: Methods →</a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>บันทึกการติว | เตรียมสอบกันเถอะ! 📚</p>
+    </footer>
+</body>
+
+</html>

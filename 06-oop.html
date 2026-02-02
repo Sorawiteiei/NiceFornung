@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP: Object-Oriented Programming | บันทึกการติว Java</title>
+    <meta name="description"
+        content="เรียนรู้ OOP ในภาษา Java: Class, Object, Inheritance, Polymorphism, Encapsulation พร้อมตัวอย่างโค้ด">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 20px 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #00d4ff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        nav a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        nav a:hover {
+            color: #00d4ff;
+        }
+
+        article {
+            background: #fff;
+            margin: 40px auto;
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+
+        .exam-badge {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            margin-left: 10px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: #1a1a2e;
+            margin-bottom: 15px;
+        }
+
+        .meta {
+            color: #888;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #fee2e2, #fecaca);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #ef4444;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #1a1a2e;
+            margin: 35px 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: '';
+            width: 5px;
+            height: 25px;
+            background: linear-gradient(180deg, #ef4444, #dc2626);
+            border-radius: 3px;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            color: #333;
+            margin: 25px 0 15px;
+        }
+
+        p {
+            margin-bottom: 18px;
+        }
+
+        pre {
+            background: #1e1e3f;
+            color: #e0e0e0;
+            padding: 25px;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-size: 0.9rem;
+            position: relative;
+        }
+
+        pre::before {
+            content: 'Java';
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: #ef4444;
+            color: #fff;
+            padding: 2px 10px;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        code {
+            font-family: 'Consolas', monospace;
+        }
+
+        .keyword {
+            color: #cc7832;
+        }
+
+        .string {
+            color: #6a8759;
+        }
+
+        .comment {
+            color: #808080;
+        }
+
+        .number {
+            color: #6897bb;
+        }
+
+        .class-name {
+            color: #ffc66d;
+        }
+
+        ul,
+        ol {
+            margin: 20px 0 20px 25px;
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+
+        .note-box {
+            background: #fef3c7;
+            border-left: 5px solid #f59e0b;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+
+        .tip-box {
+            background: #f0fdf4;
+            border-left: 5px solid #22c55e;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+
+        .concept-box {
+            background: #eff6ff;
+            border-left: 5px solid #3b82f6;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+
+        .four-pillars {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .pillar {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .pillar h4 {
+            color: #ef4444;
+            margin-bottom: 10px;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0 0;
+        }
+
+        .summary-box h3 {
+            color: #ef4444;
+            margin-top: 0;
+        }
+
+        .summary-box li {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .nav-links a {
+            color: #dc2626;
+            text-decoration: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            article {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            .four-pillars {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">📚 บันทึกการติว</a>
+            <nav>
+                <a href="index.html">หน้าแรก</a>
+                <a href="05-methods.html">บทที่ 5</a>
+                <a href="06-oop.html">บทที่ 6</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <span class="badge">📖 บทที่ 6</span>
+            <span class="badge exam-badge">⭐ ออกสอบแน่!</span>
+            <h1>OOP: Object-Oriented Programming</h1>
+            <p class="meta">
+                <span>📅 <time datetime="2026-02-02">2 กุมภาพันธ์ 2026</time></span>
+                <span>⏱️ อ่าน 20 นาที</span>
+            </p>
+
+            <div class="intro">
+                <strong>OOP (Object-Oriented Programming)</strong> คือแนวคิดในการเขียนโปรแกรมโดยมอง
+                <strong>ทุกอย่างเป็นวัตถุ (Object)</strong> ที่มีคุณสมบัติและความสามารถ
+            </div>
+
+            <h2>4 หลักการสำคัญของ OOP</h2>
+            <div class="four-pillars">
+                <div class="pillar">
+                    <h4>1. Encapsulation</h4>
+                    <p>ซ่อนข้อมูลภายใน ควบคุมการเข้าถึง</p>
+                </div>
+                <div class="pillar">
+                    <h4>2. Inheritance</h4>
+                    <p>สืบทอดคุณสมบัติจาก class อื่น</p>
+                </div>
+                <div class="pillar">
+                    <h4>3. Polymorphism</h4>
+                    <p>method เดียวกัน ทำงานต่างกันได้</p>
+                </div>
+                <div class="pillar">
+                    <h4>4. Abstraction</h4>
+                    <p>ซ่อนความซับซ้อน แสดงเฉพาะที่จำเป็น</p>
+                </div>
+            </div>
+
+            <h2>Class และ Object</h2>
+            <div class="concept-box">
+                <strong>Class</strong> = พิมพ์เขียว/แม่พิมพ์ (เช่น แบบบ้าน)<br>
+                <strong>Object</strong> = ของจริงที่สร้างจาก class (เช่น บ้านจริงๆ)
+            </div>
+
+            <h3>สร้าง Class</h3>
+            <pre><code><span class="keyword">public class</span> <span class="class-name">Student</span> {
+    <span class="comment">// Attributes (คุณสมบัติ)</span>
+    String name;
+    <span class="keyword">int</span> age;
+    <span class="keyword">double</span> gpa;
+    
+    <span class="comment">// Method (ความสามารถ)</span>
+    <span class="keyword">void</span> study() {
+        System.out.println(name + <span class="string">" กำลังอ่านหนังสือ"</span>);
+    }
+    
+    <span class="keyword">void</span> introduce() {
+        System.out.println(<span class="string">"สวัสดี ผมชื่อ "</span> + name + <span class="string">" อายุ "</span> + age);
+    }
+}</code></pre>
+
+            <h3>สร้าง Object</h3>
+            <pre><code><span class="keyword">public class</span> <span class="class-name">Main</span> {
+    <span class="keyword">public static void</span> main(String[] args) {
+        <span class="comment">// สร้าง object จาก class Student</span>
+        Student s1 = <span class="keyword">new</span> Student();
+        s1.name = <span class="string">"สมชาย"</span>;
+        s1.age = <span class="number">20</span>;
+        s1.gpa = <span class="number">3.5</span>;
+        
+        Student s2 = <span class="keyword">new</span> Student();
+        s2.name = <span class="string">"สมหญิง"</span>;
+        s2.age = <span class="number">19</span>;
+        
+        <span class="comment">// เรียกใช้ method</span>
+        s1.introduce(); <span class="comment">// สวัสดี ผมชื่อ สมชาย อายุ 20</span>
+        s2.study();      <span class="comment">// สมหญิง กำลังอ่านหนังสือ</span>
+    }
+}</code></pre>
+
+            <h2>Constructor</h2>
+            <p>Method พิเศษที่ทำงานตอนสร้าง object ใหม่:</p>
+            <pre><code><span class="keyword">public class</span> <span class="class-name">Student</span> {
+    String name;
+    <span class="keyword">int</span> age;
+    
+    <span class="comment">// Constructor - ชื่อต้องเหมือน class</span>
+    <span class="keyword">public</span> Student(String name, <span class="keyword">int</span> age) {
+        <span class="keyword">this</span>.name = name;
+        <span class="keyword">this</span>.age = age;
+    }
+}
+
+<span class="comment">// สร้าง object พร้อมกำหนดค่า</span>
+Student s1 = <span class="keyword">new</span> Student(<span class="string">"สมชาย"</span>, <span class="number">20</span>);</code></pre>
+
+            <div class="note-box">
+                <strong>⚠️ this คืออะไร?</strong><br>
+                <code>this</code> หมายถึง object ปัจจุบัน ใช้แยกระหว่าง attribute กับ parameter ที่ชื่อเหมือนกัน
+            </div>
+
+            <h2>Encapsulation (การห่อหุ้มข้อมูล)</h2>
+            <p>ซ่อน attribute ด้วย <code>private</code> แล้วเข้าถึงผ่าน getter/setter:</p>
+            <pre><code><span class="keyword">public class</span> <span class="class-name">BankAccount</span> {
+    <span class="keyword">private double</span> balance; <span class="comment">// ซ่อนไว้!</span>
+    
+    <span class="comment">// Getter - อ่านค่า</span>
+    <span class="keyword">public double</span> getBalance() {
+        <span class="keyword">return</span> balance;
+    }
+    
+    <span class="comment">// Setter - กำหนดค่า (มีเงื่อนไข)</span>
+    <span class="keyword">public void</span> deposit(<span class="keyword">double</span> amount) {
+        <span class="keyword">if</span> (amount > <span class="number">0</span>) {
+            balance += amount;
+        }
+    }
+}</code></pre>
+
+            <h2>Inheritance (การสืบทอด)</h2>
+            <p>สร้าง class ใหม่โดยสืบทอดจาก class เดิม ใช้ <code>extends</code>:</p>
+            <pre><code><span class="comment">// Parent class</span>
+<span class="keyword">public class</span> <span class="class-name">Animal</span> {
+    String name;
+    
+    <span class="keyword">void</span> eat() {
+        System.out.println(name + <span class="string">" กำลังกิน"</span>);
+    }
+}
+
+<span class="comment">// Child class</span>
+<span class="keyword">public class</span> <span class="class-name">Dog</span> <span class="keyword">extends</span> Animal {
+    <span class="keyword">void</span> bark() {
+        System.out.println(name + <span class="string">": โฮ่ง โฮ่ง!"</span>);
+    }
+}
+
+<span class="comment">// ใช้งาน</span>
+Dog d = <span class="keyword">new</span> Dog();
+d.name = <span class="string">"บ๊อบ"</span>;
+d.eat();  <span class="comment">// บ๊อบ กำลังกิน (สืบทอดมา)</span>
+d.bark(); <span class="comment">// บ๊อบ: โฮ่ง โฮ่ง! (ของตัวเอง)</span></code></pre>
+
+            <h2>Polymorphism (หลายรูปแบบ)</h2>
+            <p>Method เดียวกันแต่ทำงานต่างกันใน class ลูก (Override):</p>
+            <pre><code><span class="keyword">public class</span> <span class="class-name">Animal</span> {
+    <span class="keyword">void</span> makeSound() {
+        System.out.println(<span class="string">"..."</span>);
+    }
+}
+
+<span class="keyword">public class</span> <span class="class-name">Dog</span> <span class="keyword">extends</span> Animal {
+    <span class="keyword">@Override</span>
+    <span class="keyword">void</span> makeSound() {
+        System.out.println(<span class="string">"โฮ่ง โฮ่ง!"</span>);
+    }
+}
+
+<span class="keyword">public class</span> <span class="class-name">Cat</span> <span class="keyword">extends</span> Animal {
+    <span class="keyword">@Override</span>
+    <span class="keyword">void</span> makeSound() {
+        System.out.println(<span class="string">"เมี๊ยว~"</span>);
+    }
+}
+
+<span class="comment">// Polymorphism!</span>
+Animal a1 = <span class="keyword">new</span> Dog();
+Animal a2 = <span class="keyword">new</span> Cat();
+a1.makeSound(); <span class="comment">// โฮ่ง โฮ่ง!</span>
+a2.makeSound(); <span class="comment">// เมี๊ยว~</span></code></pre>
+
+            <div class="tip-box">
+                <strong>💡 @Override ทำไมต้องใส่?</strong><br>
+                ช่วยให้ compiler ตรวจสอบว่าเรา override method จริงๆ ถ้าพิมพ์ชื่อผิดจะ error
+            </div>
+
+            <h2>Access Modifiers</h2>
+            <pre><code><span class="keyword">public</span>    <span class="comment">// เข้าถึงได้จากทุกที่</span>
+<span class="keyword">private</span>   <span class="comment">// เข้าถึงได้เฉพาะใน class นี้</span>
+<span class="keyword">protected</span> <span class="comment">// เข้าถึงได้ใน class นี้ + class ลูก</span>
+(default)  <span class="comment">// เข้าถึงได้ใน package เดียวกัน</span></code></pre>
+
+            <div class="summary-box">
+                <h3>📝 สรุป OOP สำหรับสอบ</h3>
+                <ul>
+                    <li><strong>Class</strong> = แม่พิมพ์, <strong>Object</strong> = ของจริง</li>
+                    <li><strong>Constructor</strong> = สร้าง object พร้อมค่าเริ่มต้น</li>
+                    <li><strong>Encapsulation</strong> = private + getter/setter</li>
+                    <li><strong>Inheritance</strong> = extends สืบทอด</li>
+                    <li><strong>Polymorphism</strong> = @Override ทำต่างกัน</li>
+                    <li><strong>this</strong> = object ปัจจุบัน</li>
+                </ul>
+                <p style="margin-top: 20px;">งงตรงไหน? <a href="https://instabio.cc/4021411ZGCpLW" target="_blank"
+                        style="color: #ef4444; text-decoration: underline;">ทักมาถามได้เลยนะ!</a> สู้ๆ สอบผ่านแน่นอน 💪
+                </p>
+            </div>
+
+            <div class="nav-links">
+                <a href="05-methods.html">← บทที่ 5: Methods</a>
+                <a href="index.html">กลับหน้าแรก →</a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>บันทึกการติว | เตรียมสอบกันเถอะ! 📚</p>
+    </footer>
+</body>
+
+</html>

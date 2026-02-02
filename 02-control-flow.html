@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Flow: if-else และ switch | บันทึกการติว Java</title>
+    <meta name="description"
+        content="เรียนรู้การใช้ if-else และ switch ในภาษา Java สำหรับควบคุมการทำงานของโปรแกรม พร้อมตัวอย่างโค้ด">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 20px 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #00d4ff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        nav a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            margin-left: 25px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #00d4ff;
+        }
+
+        article {
+            background: #fff;
+            margin: 40px auto;
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: #1a1a2e;
+            margin-bottom: 15px;
+        }
+
+        .meta {
+            color: #888;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #f59e0b;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #1a1a2e;
+            margin: 35px 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: '';
+            width: 5px;
+            height: 25px;
+            background: linear-gradient(180deg, #f59e0b, #d97706);
+            border-radius: 3px;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            color: #333;
+            margin: 25px 0 15px;
+        }
+
+        p {
+            margin-bottom: 18px;
+        }
+
+        pre {
+            background: #1e1e3f;
+            color: #e0e0e0;
+            padding: 25px;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        pre::before {
+            content: 'Java';
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: #f59e0b;
+            color: #1e1e3f;
+            padding: 2px 10px;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        code {
+            font-family: 'Consolas', monospace;
+        }
+
+        .keyword {
+            color: #cc7832;
+        }
+
+        .class-name {
+            color: #ffc66d;
+        }
+
+        .string {
+            color: #6a8759;
+        }
+
+        .comment {
+            color: #808080;
+        }
+
+        .number {
+            color: #6897bb;
+        }
+
+        ul,
+        ol {
+            margin: 20px 0 20px 25px;
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+
+        .note-box {
+            background: #fffbeb;
+            border: 1px solid #fbbf24;
+            border-left: 5px solid #f59e0b;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+
+        .tip-box {
+            background: #f0fdf4;
+            border: 1px solid #86efac;
+            border-left: 5px solid #22c55e;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0 0;
+        }
+
+        .summary-box h3 {
+            color: #f59e0b;
+            margin-top: 0;
+        }
+
+        .summary-box ul {
+            margin-left: 20px;
+        }
+
+        .summary-box li {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .nav-links a {
+            color: #0099cc;
+            text-decoration: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            article {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">📚 บันทึกการติว</a>
+            <nav>
+                <a href="index.html">หน้าแรก</a>
+                <a href="blog-java-programming.html">บทที่ 1</a>
+                <a href="02-control-flow.html">บทที่ 2</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <span class="badge">📖 บทที่ 2</span>
+            <h1>Control Flow: if-else และ switch</h1>
+            <p class="meta">
+                <span>📅 <time datetime="2026-02-02">2 กุมภาพันธ์ 2026</time></span>
+                <span>⏱️ อ่าน 10 นาที</span>
+            </p>
+
+            <div class="intro">
+                <strong>🤔 Control Flow คืออะไร?</strong><br><br>
+                ลองนึกภาพว่าเรากำลังตัดสินใจในชีวิตจริง เช่น:<br>
+                - ถ้าฝนตก → เอาร่มไป<br>
+                - ถ้าไม่ตก → ไม่ต้องเอา<br><br>
+                <strong>Control Flow</strong> ก็เหมือนกัน! มันคือการสอนให้โปรแกรมตัดสินใจได้เอง ว่าถ้าเงื่อนไขเป็นแบบนี้
+                ให้ทำอะไร ถ้าเป็นแบบนั้น ให้ทำอะไร
+            </div>
+
+            <h2>🔍 ทำไมถึงสำคัญ?</h2>
+            <p>ถ้าไม่มี Control Flow โปรแกรมจะทำงานเหมือนกันทุกครั้ง ไม่สามารถ:</p>
+            <ul>
+                <li>ตรวจสอบว่า login ถูกหรือผิด</li>
+                <li>ให้เกรดตามคะแนน</li>
+                <li>แสดงข้อความแตกต่างกันตามเพศ/อายุ</li>
+                <li>ทำให้เกมมีหลายทางเลือก</li>
+            </ul>
+
+            <h2>if statement</h2>
+            <p>ใช้เมื่อต้องการให้โปรแกรมทำบางอย่าง <strong>เมื่อเงื่อนไขเป็นจริง</strong></p>
+            <pre><code><span class="keyword">int</span> score = <span class="number">75</span>;
+
+<span class="keyword">if</span> (score >= <span class="number">50</span>) {
+    System.out.println(<span class="string">"สอบผ่าน!"</span>);
+}</code></pre>
+
+            <h2>if-else statement</h2>
+            <p>เพิ่มทางเลือกเมื่อเงื่อนไข <strong>ไม่เป็นจริง</strong></p>
+            <pre><code><span class="keyword">int</span> score = <span class="number">45</span>;
+
+<span class="keyword">if</span> (score >= <span class="number">50</span>) {
+    System.out.println(<span class="string">"สอบผ่าน!"</span>);
+} <span class="keyword">else</span> {
+    System.out.println(<span class="string">"สอบไม่ผ่าน ต้องสอบซ่อม"</span>);
+}</code></pre>
+
+            <h2>if-else if-else (หลายเงื่อนไข)</h2>
+            <p>ใช้เมื่อมีหลายเงื่อนไขที่ต้องตรวจสอบ:</p>
+            <pre><code><span class="keyword">int</span> score = <span class="number">85</span>;
+
+<span class="keyword">if</span> (score >= <span class="number">80</span>) {
+    System.out.println(<span class="string">"เกรด A"</span>);
+} <span class="keyword">else if</span> (score >= <span class="number">70</span>) {
+    System.out.println(<span class="string">"เกรด B"</span>);
+} <span class="keyword">else if</span> (score >= <span class="number">60</span>) {
+    System.out.println(<span class="string">"เกรด C"</span>);
+} <span class="keyword">else if</span> (score >= <span class="number">50</span>) {
+    System.out.println(<span class="string">"เกรด D"</span>);
+} <span class="keyword">else</span> {
+    System.out.println(<span class="string">"เกรด F"</span>);
+}</code></pre>
+
+            <div class="note-box">
+                <strong>⚠️ ข้อควรระวัง:</strong> เงื่อนไขจะถูกตรวจสอบ <strong>จากบนลงล่าง</strong>
+                ถ้าเจอเงื่อนไขแรกที่เป็นจริง จะข้ามเงื่อนไขที่เหลือทั้งหมดเลย!
+            </div>
+
+            <h2>Logical Operators</h2>
+            <p>ใช้รวมหลายเงื่อนไขเข้าด้วยกัน:</p>
+
+            <div class="note-box">
+                <strong>🎯 จำง่ายๆ:</strong><br>
+                <code>&&</code> (AND) = ต้องจริง <u>ทั้งคู่</u> → "และ"<br>
+                <code>||</code> (OR) = จริง <u>อันใดอันหนึ่ง</u> ก็พอ → "หรือ"<br>
+                <code>!</code> (NOT) = กลับค่า จริงเป็นเท็จ เท็จเป็นจริง → "ไม่"
+            </div>
+
+            <pre><code><span class="comment">// AND (&&) - ต้องจริงทั้งคู่</span>
+<span class="keyword">if</span> (age >= <span class="number">18</span> && hasLicense) {
+    System.out.println(<span class="string">"ขับรถได้"</span>);
+}
+
+<span class="comment">// OR (||) - จริงอย่างน้อยหนึ่งอัน</span>
+<span class="keyword">if</span> (day == <span class="string">"Saturday"</span> || day == <span class="string">"Sunday"</span>) {
+    System.out.println(<span class="string">"วันหยุด!"</span>);
+}
+
+<span class="comment">// NOT (!) - กลับค่า</span>
+<span class="keyword">if</span> (!isRaining) {
+    System.out.println(<span class="string">"ออกไปเที่ยวได้"</span>);
+}</code></pre>
+
+            <h2>switch statement</h2>
+            <p>ใช้แทน if-else หลายๆ อัน เมื่อต้องเปรียบเทียบ <strong>ค่าเดียวกับหลายๆ กรณี</strong>:</p>
+            <pre><code><span class="keyword">int</span> day = <span class="number">3</span>;
+
+<span class="keyword">switch</span> (day) {
+    <span class="keyword">case</span> <span class="number">1</span>:
+        System.out.println(<span class="string">"วันจันทร์"</span>);
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> <span class="number">2</span>:
+        System.out.println(<span class="string">"วันอังคาร"</span>);
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> <span class="number">3</span>:
+        System.out.println(<span class="string">"วันพุธ"</span>);
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> <span class="number">4</span>:
+        System.out.println(<span class="string">"วันพฤหัส"</span>);
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> <span class="number">5</span>:
+        System.out.println(<span class="string">"วันศุกร์"</span>);
+        <span class="keyword">break</span>;
+    <span class="keyword">default</span>:
+        System.out.println(<span class="string">"วันหยุด"</span>);
+}</code></pre>
+
+            <div class="tip-box">
+                <strong>💡 เคล็ดลับ:</strong> อย่าลืม <code>break;</code> หลังแต่ละ case! ถ้าลืมใส่ โปรแกรมจะทำ case
+                ถัดไปด้วย (fall-through)
+            </div>
+
+            <h2>Ternary Operator (แบบย่อ)</h2>
+            <p>เขียน if-else สั้นๆ ได้ในบรรทัดเดียว:</p>
+            <pre><code><span class="keyword">int</span> score = <span class="number">75</span>;
+String result = (score >= <span class="number">50</span>) ? <span class="string">"ผ่าน"</span> : <span class="string">"ไม่ผ่าน"</span>;
+System.out.println(result); <span class="comment">// ผ่าน</span></code></pre>
+
+            <div class="summary-box">
+                <h3>📝 สรุปสิ่งที่ต้องจำ</h3>
+                <ul>
+                    <li><code>if</code> - ทำเมื่อเงื่อนไขจริง</li>
+                    <li><code>if-else</code> - มี 2 ทางเลือก</li>
+                    <li><code>if-else if-else</code> - หลายเงื่อนไข</li>
+                    <li><code>switch</code> - เปรียบเทียบค่าเดียวกับหลาย case</li>
+                    <li>Operators: <code>&&</code> (AND), <code>||</code> (OR), <code>!</code> (NOT)</li>
+                </ul>
+                <p style="margin-top: 20px; opacity: 0.8;">งงตรงไหน? <a href="https://instabio.cc/4021411ZGCpLW"
+                        target="_blank" style="color: #f59e0b; text-decoration: underline;">ทักมาถามได้เลยนะ! 💬</a></p>
+            </div>
+
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="quiz-02-control-flow.html"
+                    style="display: inline-block; background: linear-gradient(135deg, #f59e0b, #d97706); color: #fff; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 1.1rem; box-shadow: 0 5px 20px rgba(245,158,11,0.3);">🎯
+                    ทำแบบทดสอบบทที่ 2</a>
+            </div>
+
+            <div class="nav-links">
+                <a href="blog-java-programming.html">← บทที่ 1: พื้นฐาน Java</a>
+                <a href="03-loops.html">บทที่ 3: Loops →</a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>บันทึกการติว | เตรียมสอบกันเถอะ! 📚</p>
+    </footer>
+</body>
+
+</html>
