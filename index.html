@@ -8,6 +8,7 @@
     <meta name="description"
         content="บันทึกการติววิชาการเขียนโปรแกรมพื้นฐานด้วยภาษา Java ครอบคลุมตั้งแต่พื้นฐานจนถึง OOP">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="music-player.css">
     <style>
         * {
             margin: 0;
@@ -633,12 +634,12 @@
 
             <div class="stats">
                 <div class="stat-card">
-                    <div class="stat-number">6</div>
-                    <div class="stat-label">บทเรียน</div>
+                    <div class="stat-number" id="lessons-completed">0</div>
+                    <div class="stat-label">บทเรียนที่อ่านแล้ว / 6</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">180</div>
-                    <div class="stat-label">ข้อสอบ</div>
+                    <div class="stat-number" id="questions-answered">0</div>
+                    <div class="stat-label">ข้อสอบที่ทำแล้ว / 180</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">3</div>
@@ -854,7 +855,28 @@
                 setTimeout(() => particle.remove(), 600);
             }
         });
+
+        // --- Progress Tracking ---
+        function loadProgress() {
+            // Lessons completed
+            const lessonsVisited = JSON.parse(localStorage.getItem('java_lessons_visited') || '[]');
+            const uniqueLessons = [...new Set(lessonsVisited)].length;
+            document.getElementById('lessons-completed').textContent = uniqueLessons;
+
+            // Questions answered (from quiz completion data)
+            const completedQuizzes = JSON.parse(localStorage.getItem('java_quizzes_completed') || '{}');
+            let totalQuestions = 0;
+
+            Object.values(completedQuizzes).forEach(questionCount => {
+                totalQuestions += questionCount;
+            });
+
+            document.getElementById('questions-answered').textContent = totalQuestions;
+        }
+
+        loadProgress();
     </script>
+    <script src="music-player.js"></script>
 </body>
 
 </html>

@@ -391,6 +391,15 @@ add(<span class="number">2.5</span>, <span class="number">3.5</span>);    <span 
     <footer>
         <p>บันทึกการติว | เตรียมสอบกันเถอะ! 📚</p>
     </footer>
+    <script>
+        const lessonId = 'lesson-05';
+        let visited = JSON.parse(localStorage.getItem('java_lessons_visited') || '[]');
+        if (!visited.includes(lessonId)) {
+            visited.push(lessonId);
+            localStorage.setItem('java_lessons_visited', JSON.stringify(visited));
+        }
+    </script>
+    <script src="music-player.js"></script>
 </body>
 
 </html>

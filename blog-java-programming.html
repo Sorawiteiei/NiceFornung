@@ -444,6 +444,16 @@ java HelloWorld</code></pre>
     <footer>
         <p>บันทึกการติว | สร้างขึ้นเพื่อช่วยเหลือเพื่อนๆ ในการเรียน 📚</p>
     </footer>
+    <script>
+        // Track lesson visit
+        const lessonId = 'lesson-01';
+        let visited = JSON.parse(localStorage.getItem('java_lessons_visited') || '[]');
+        if (!visited.includes(lessonId)) {
+            visited.push(lessonId);
+            localStorage.setItem('java_lessons_visited', JSON.stringify(visited));
+        }
+    </script>
+    <script src="music-player.js"></script>
 </body>
 
 </html>

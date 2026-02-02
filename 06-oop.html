@@ -498,6 +498,15 @@ a2.makeSound(); <span class="comment">// เมี๊ยว~</span></code></pre>
     <footer>
         <p>บันทึกการติว | เตรียมสอบกันเถอะ! 📚</p>
     </footer>
+    <script>
+        const lessonId = 'lesson-06';
+        let visited = JSON.parse(localStorage.getItem('java_lessons_visited') || '[]');
+        if (!visited.includes(lessonId)) {
+            visited.push(lessonId);
+            localStorage.setItem('java_lessons_visited', JSON.stringify(visited));
+        }
+    </script>
+    <script src="music-player.js"></script>
 </body>
 
 </html>

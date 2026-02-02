@@ -68,6 +68,22 @@ function submitQuiz() {
     // Record History (Push current score)
     quizHistory.push(s);
 
+    // --- Save to localStorage for Progress Tracking ---
+    // Get quiz ID from URL
+    const path = window.location.pathname;
+    let quizId = 'unknown';
+    if (path.includes('quiz-01')) quizId = 'quiz-01';
+    else if (path.includes('quiz-02')) quizId = 'quiz-02';
+    else if (path.includes('quiz-03')) quizId = 'quiz-03';
+    else if (path.includes('quiz-04')) quizId = 'quiz-04';
+    else if (path.includes('quiz-05')) quizId = 'quiz-05';
+    else if (path.includes('quiz-06')) quizId = 'quiz-06';
+
+    // Mark this quiz as completed (with number of questions)
+    const completedQuizzes = JSON.parse(localStorage.getItem('java_quizzes_completed') || '{}');
+    completedQuizzes[quizId] = qs.length; // Store number of questions for this quiz
+    localStorage.setItem('java_quizzes_completed', JSON.stringify(completedQuizzes));
+
     // Update Scores
     const scoreEl = document.getElementById('current-score');
     if (scoreEl) scoreEl.textContent = s;
@@ -157,6 +173,43 @@ function submitQuiz() {
 
             // Append after history
             resultBox.appendChild(restartBtn);
+
+            // Logic for Next Chapter Button
+            let nextUrl = '';
+            const path = window.location.pathname;
+
+            if (path.includes('quiz-01')) nextUrl = '02-control-flow.html';
+            else if (path.includes('quiz-02')) nextUrl = '03-loops.html';
+            else if (path.includes('quiz-03')) nextUrl = '04-arrays.html';
+            else if (path.includes('quiz-04')) nextUrl = '05-methods.html';
+            else if (path.includes('quiz-05')) nextUrl = '06-oop.html';
+            else if (path.includes('quiz-06')) nextUrl = 'index.html';
+
+            if (nextUrl && !document.getElementById('next-chapter-btn')) {
+                const nextBtn = document.createElement('a');
+                nextBtn.id = 'next-chapter-btn';
+                nextBtn.href = nextUrl;
+                nextBtn.textContent = path.includes('quiz-06') ? '🏠 กลับหน้าหลัก' : 'บทเรียนถัดไป ➡️';
+
+                nextBtn.style.cssText = `
+                    display: inline-block;
+                    background: linear-gradient(135deg, var(--accent-green), #059669);
+                    color: #fff;
+                    text-decoration: none;
+                    padding: 10px 25px;
+                    font-size: 1rem;
+                    border-radius: 50px;
+                    margin-left: 15px;
+                    margin-top: 20px;
+                    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+                    transition: transform 0.2s;
+                    font-weight: bold;
+                `;
+                nextBtn.onmouseover = () => nextBtn.style.transform = 'scale(1.05)';
+                nextBtn.onmouseout = () => nextBtn.style.transform = 'scale(1)';
+
+                resultBox.appendChild(nextBtn);
+            }
         } else {
             // If button exists, ensure it is below history (by appending history first logic above)
         }
@@ -244,3 +297,17 @@ document.addEventListener('click', function (e) {
         setTimeout(() => particle.remove(), 600);
     }
 });
+
+// Auto-Load Music Player for Quizzes
+(function () {
+    // Add CSS
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'music-player.css';
+    document.head.appendChild(link);
+
+    // Add JS
+    const script = document.createElement('script');
+    script.src = 'music-player.js';
+    document.body.appendChild(script);
+})();

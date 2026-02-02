@@ -2,733 +2,826 @@
 <html lang="th">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>แบบทดสอบ บทที่ 2: Control Flow | บันทึกการติว</title>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="premium-style.css">
-    <script src="quiz.js" defer></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>แบบทดสอบ บทที่ 2: Control Flow | บันทึกการติว</title>
+        <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap"
+                rel="stylesheet">
+        <link rel="stylesheet" href="premium-style.css">
+        <link rel="stylesheet" href="music-player.css">
+        <script src="quiz.js" defer></script>
 </head>
 
 <body>
-    <div class="bg-particles"></div>
-    <div class="glow-orb orb-cyan"></div>
-    <div class="glow-orb orb-purple"></div>
+        <div class="bg-particles"></div>
+        <div class="glow-orb orb-cyan"></div>
+        <div class="glow-orb orb-purple"></div>
 
-    <header class="premium-header">
-        <div class="header-content">
-            <a href="index.html" class="logo">📚 บันทึกการติว</a>
-            <nav>
-                <a href="02-control-flow.html">📖 บทเรียน</a>
-                <a href="index.html#quizzes">🎯 แบบทดสอบทั้งหมด</a>
-            </nav>
-        </div>
-    </header>
-
-    <main class="premium-main quiz-container">
-        <div class="premium-article">
-            <span class="badge">มีเฉลยละเอียดทุกข้อ!</span>
-            <h1>🎯 แบบทดสอบ: Control Flow</h1>
-            <p style="margin-bottom: 30px;">30 ข้อ | if-else, switch, Flowchart, Loops</p>
-
-            <div class="score-display">
-                <span>🏆 คะแนน: <strong id="current-score">0</strong> / 30</span>
-                <span>✅ ตอบแล้ว: <strong id="answered">0</strong> ข้อ</span>
-            </div>
-
-            <form id="quiz-form">
-                <!-- ข้อ 1 -->
-                <div class="question easy" data-answer="b">
-                    <span class="difficulty">ง่าย</span>
-                    <div class="q-number">ข้อ 1</div>
-                    <div class="q-text">คำสั่ง if ใช้ทำอะไร?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q1" value="a"><span
-                                class="option-letter">A</span><span>วนลูป</span></label>
-                        <label class="option"><input type="radio" name="q1" value="b"><span
-                                class="option-letter">B</span><span>ตัดสินใจตามเงื่อนไข</span></label>
-                        <label class="option"><input type="radio" name="q1" value="c"><span
-                                class="option-letter">C</span><span>ประกาศตัวแปร</span></label>
-                        <label class="option"><input type="radio" name="q1" value="d"><span
-                                class="option-letter">D</span><span>สร้าง method</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p><code>if</code> เป็นคำสั่งพื้นฐานในการควบคุมการทำงาน (Control Flow)
-                            เพื่อให้โปรแกรมเลือกทำหรือไม่ทำชุดคำสั่งตาม "เงื่อนไข" ที่กำหนด</p>
-                    </div>
+        <header class="premium-header">
+                <div class="header-content">
+                        <a href="index.html" class="logo">📚 บันทึกการติว</a>
+                        <nav>
+                                <a href="02-control-flow.html">📖 บทเรียน</a>
+                                <a href="index.html#quizzes">🎯 แบบทดสอบทั้งหมด</a>
+                        </nav>
                 </div>
+        </header>
 
-                <!-- ข้อ 2 -->
-                <div class="question easy" data-answer="d">
-                    <span class="difficulty">ง่าย</span>
-                    <div class="q-number">ข้อ 2</div>
-                    <div class="q-text">สัญลักษณ์ <strong>สี่เหลี่ยมข้าวหลามตัด (Diamond)</strong> ใน Flowchart
-                        ใช้แทนอะไร?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q2" value="a"><span
-                                class="option-letter">A</span><span>ประมวลผล (Process)</span></label>
-                        <label class="option"><input type="radio" name="q2" value="b"><span
-                                class="option-letter">B</span><span>รับค่า (Input)</span></label>
-                        <label class="option"><input type="radio" name="q2" value="c"><span
-                                class="option-letter">C</span><span>เริ่มต้น/สิ้นสุด (Start/End)</span></label>
-                        <label class="option"><input type="radio" name="q2" value="d"><span
-                                class="option-letter">D</span><span>การตัดสินใจ (Decision)</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>ใน Flowchart <strong>สี่เหลี่ยมข้าวหลามตัด (Diamond)</strong> จะมีทางออก 2 ทางเสมือน (เช่น
-                            ใช่/ไม่ใช่ หรือ จริง/เท็จ) ใช้สำหรับการตัดสินใจตรวจสอบเงื่อนไข</p>
-                    </div>
+        <main class="premium-main quiz-container">
+                <div class="premium-article">
+                        <span class="badge">มีเฉลยละเอียดทุกข้อ!</span>
+                        <h1>🎯 แบบทดสอบ: Control Flow</h1>
+                        <p style="margin-bottom: 30px;">30 ข้อ | if-else, switch, Flowchart, Loops</p>
+
+                        <div class="score-display">
+                                <span>🏆 คะแนน: <strong id="current-score">0</strong> / 30</span>
+                                <span>✅ ตอบแล้ว: <strong id="answered">0</strong> ข้อ</span>
+                        </div>
+
+                        <form id="quiz-form">
+                                <!-- ข้อ 1 -->
+                                <div class="question easy" data-answer="b">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 1</div>
+                                        <div class="q-text">คำสั่ง if ใช้ทำอะไร?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q1" value="a"><span
+                                                                class="option-letter">A</span><span>วนลูป</span></label>
+                                                <label class="option"><input type="radio" name="q1" value="b"><span
+                                                                class="option-letter">B</span><span>ตัดสินใจตามเงื่อนไข</span></label>
+                                                <label class="option"><input type="radio" name="q1" value="c"><span
+                                                                class="option-letter">C</span><span>ประกาศตัวแปร</span></label>
+                                                <label class="option"><input type="radio" name="q1" value="d"><span
+                                                                class="option-letter">D</span><span>สร้าง
+                                                                method</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>if</code> เป็นคำสั่งพื้นฐานในการควบคุมการทำงาน (Control Flow)
+                                                        เพื่อให้โปรแกรมเลือกทำหรือไม่ทำชุดคำสั่งตาม "เงื่อนไข" ที่กำหนด
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 2 -->
+                                <div class="question easy" data-answer="d">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 2</div>
+                                        <div class="q-text">สัญลักษณ์ <strong>สี่เหลี่ยมข้าวหลามตัด (Diamond)</strong>
+                                                ใน Flowchart
+                                                ใช้แทนอะไร?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q2" value="a"><span
+                                                                class="option-letter">A</span><span>ประมวลผล
+                                                                (Process)</span></label>
+                                                <label class="option"><input type="radio" name="q2" value="b"><span
+                                                                class="option-letter">B</span><span>รับค่า
+                                                                (Input)</span></label>
+                                                <label class="option"><input type="radio" name="q2" value="c"><span
+                                                                class="option-letter">C</span><span>เริ่มต้น/สิ้นสุด
+                                                                (Start/End)</span></label>
+                                                <label class="option"><input type="radio" name="q2" value="d"><span
+                                                                class="option-letter">D</span><span>การตัดสินใจ
+                                                                (Decision)</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ใน Flowchart <strong>สี่เหลี่ยมข้าวหลามตัด (Diamond)</strong>
+                                                        จะมีทางออก 2 ทางเสมือน (เช่น
+                                                        ใช่/ไม่ใช่ หรือ จริง/เท็จ) ใช้สำหรับการตัดสินใจตรวจสอบเงื่อนไข
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 3 -->
+                                <div class="question easy" data-answer="c">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 3</div>
+                                        <div class="q-text">สัญลักษณ์ <strong>วงรี (Oval/Terminal)</strong> ใช้แทนอะไร?
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q3" value="a"><span
+                                                                class="option-letter">A</span><span>การตัดสินใจ</span></label>
+                                                <label class="option"><input type="radio" name="q3" value="b"><span
+                                                                class="option-letter">B</span><span>ประมวลผล</span></label>
+                                                <label class="option"><input type="radio" name="q3" value="c"><span
+                                                                class="option-letter">C</span><span>เริ่มต้น/สิ้นสุด
+                                                                (Start/End)</span></label>
+                                                <label class="option"><input type="radio" name="q3" value="d"><span
+                                                                class="option-letter">D</span><span>ทิศทาง</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><strong>Terminal (รูปวงรี)</strong> ใช้ระบุจุดเริ่มต้น (Start)
+                                                        และจุดสิ้นสุด (End/Stop)
+                                                        ของผังงาน</p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 4 -->
+                                <div class="question easy" data-answer="b">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 4</div>
+                                        <div class="q-text">สัญลักษณ์ <strong>สี่เหลี่ยมผืนผ้า (Rectangle)</strong>
+                                                ใช้แทนอะไร?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q4" value="a"><span
+                                                                class="option-letter">A</span><span>รับค่า/แสดงผล</span></label>
+                                                <label class="option"><input type="radio" name="q4" value="b"><span
+                                                                class="option-letter">B</span><span>การประมวลผล
+                                                                (Process)</span></label>
+                                                <label class="option"><input type="radio" name="q4" value="c"><span
+                                                                class="option-letter">C</span><span>การตัดสินใจ</span></label>
+                                                <label class="option"><input type="radio" name="q4" value="d"><span
+                                                                class="option-letter">D</span><span>จุดเชื่อมต่อ</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><strong>สี่เหลี่ยมผืนผ้า</strong> ใช้แทนการปฏิบัติงาน การคำนวณ
+                                                        หรือการกำหนดค่าตัวแปร
+                                                        (Process)</p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 5 -->
+                                <div class="question easy" data-answer="a">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 5</div>
+                                        <div class="q-text">สัญลักษณ์ <strong>สี่เหลี่ยมด้านขนาน
+                                                        (Parallelogram)</strong> ใช้แทนอะไร?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q5" value="a"><span
+                                                                class="option-letter">A</span><span>รับค่า/แสดงผล
+                                                                (Input/Output)</span></label>
+                                                <label class="option"><input type="radio" name="q5" value="b"><span
+                                                                class="option-letter">B</span><span>การประมวลผล</span></label>
+                                                <label class="option"><input type="radio" name="q5" value="c"><span
+                                                                class="option-letter">C</span><span>เริ่มต้น</span></label>
+                                                <label class="option"><input type="radio" name="q5" value="d"><span
+                                                                class="option-letter">D</span><span>ตัดสินใจ</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><strong>สี่เหลี่ยมด้านขนาน</strong> ใช้เมื่อมีการนำเข้าข้อมูล (Input)
+                                                        หรือแสดงผลข้อมูล
+                                                        (Output) โดยไม่ระบุอุปกรณ์เฉพาะเจาะจง</p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 6 -->
+                                <div class="question easy" data-answer="c">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 6</div>
+                                        <div class="q-text">ลูกศร (Arrow) ใน Flowchart บอกอะไรเรา?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q6" value="a"><span
+                                                                class="option-letter">A</span><span>ความเร็วของโปรแกรม</span></label>
+                                                <label class="option"><input type="radio" name="q6" value="b"><span
+                                                                class="option-letter">B</span><span>ประเภทข้อมูล</span></label>
+                                                <label class="option"><input type="radio" name="q6" value="c"><span
+                                                                class="option-letter">C</span><span>ทิศทางการทำงาน
+                                                                (Flow)</span></label>
+                                                <label class="option"><input type="radio" name="q6" value="d"><span
+                                                                class="option-letter">D</span><span>ไม่มีความหมาย</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>เส้นลูกศร (Flow Line) ใช้เชื่อมต่อสัญลักษณ์ต่างๆ
+                                                        เพื่อแสดงลำดับทิศทางการทำงานจากขั้นตอนหนึ่งไปยังอีกขั้นตอนหนึ่ง
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 7 -->
+                                <div class="question easy" data-answer="a">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 7</div>
+                                        <div class="q-text">คำสั่ง switch ใช้เปรียบเทียบกับอะไร?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q7" value="a"><span
+                                                                class="option-letter">A</span><span>ค่าคงที่หลายค่า</span></label>
+                                                <label class="option"><input type="radio" name="q7" value="b"><span
+                                                                class="option-letter">B</span><span>ช่วงค่า</span></label>
+                                                <label class="option"><input type="radio" name="q7" value="c"><span
+                                                                class="option-letter">C</span><span>ค่าทศนิยม</span></label>
+                                                <label class="option"><input type="radio" name="q7" value="d"><span
+                                                                class="option-letter">D</span><span>Array</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>switch</code> เหมาะสำหรับการตรวจสอบค่าของตัวแปรเทียบกับ
+                                                        <strong>ค่าคงที่ (Constant
+                                                                values)</strong> หลายๆ กรณี (Case) ที่เป็นไปได้
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 8 -->
+                                <div class="question easy" data-answer="b">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 8</div>
+                                        <div class="q-text">คำสั่ง break ใน switch ทำหน้าที่อะไร?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q8" value="a"><span
+                                                                class="option-letter">A</span><span>ข้ามไป
+                                                                default</span></label>
+                                                <label class="option"><input type="radio" name="q8" value="b"><span
+                                                                class="option-letter">B</span><span>ออกจาก
+                                                                switch</span></label>
+                                                <label class="option"><input type="radio" name="q8" value="c"><span
+                                                                class="option-letter">C</span><span>ทำ case
+                                                                ถัดไป</span></label>
+                                                <label class="option"><input type="radio" name="q8" value="d"><span
+                                                                class="option-letter">D</span><span>วนซ้ำ</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>break</code> จะสั่งให้โปรแกรม <strong>หยุด</strong> การทำงานใน
+                                                        switch case
+                                                        นั้นและกระโดดออกจาก block ของ switch ทันที ถ้าไม่ใส่
+                                                        โปรแกรมจะไหลไปทำ case ถัดไปต่อ
+                                                        (Fall-through)</p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 9 -->
+                                <div class="question easy" data-answer="c">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 9</div>
+                                        <div class="q-text">สัญลักษณ์ != หมายถึง?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q9" value="a"><span
+                                                                class="option-letter">A</span><span>เท่ากับ</span></label>
+                                                <label class="option"><input type="radio" name="q9" value="b"><span
+                                                                class="option-letter">B</span><span>มากกว่า</span></label>
+                                                <label class="option"><input type="radio" name="q9" value="c"><span
+                                                                class="option-letter">C</span><span>ไม่เท่ากับ</span></label>
+                                                <label class="option"><input type="radio" name="q9" value="d"><span
+                                                                class="option-letter">D</span><span>น้อยกว่า</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>!=</code> คือเครื่องหมายเปรียบเทียบว่า
+                                                        <strong>ไม่เท่ากัน</strong> (Not Equal)
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 10 -->
+                                <div class="question easy" data-answer="d">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 10</div>
+                                        <div class="q-text">default ใน switch ทำงานเมื่อใด?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q10" value="a"><span
+                                                                class="option-letter">A</span><span>ทำงานเสมอ</span></label>
+                                                <label class="option"><input type="radio" name="q10" value="b"><span
+                                                                class="option-letter">B</span><span>ตรง case
+                                                                แรก</span></label>
+                                                <label class="option"><input type="radio" name="q10" value="c"><span
+                                                                class="option-letter">C</span><span>ตรง case
+                                                                สุดท้าย</span></label>
+                                                <label class="option"><input type="radio" name="q10" value="d"><span
+                                                                class="option-letter">D</span><span>ไม่ตรง case
+                                                                ใดเลย</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>default</code> จะทำงานเมื่อค่าของตัวแปร <strong>ไม่ตรงกับ case
+                                                                ใดเลย</strong>
+                                                        ที่กำหนดไว้ (เหมือนกับ else สุดท้ายใน if-else)</p>
+                                        </div>
+                                </div>
+
+                                <!-- Medium Questions -->
+                                <!-- ข้อ 11 -->
+                                <div class="question medium" data-answer="a">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 11</div>
+                                        <div class="q-text">ผลลัพธ์ของ <code>true && false</code> คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q11" value="a"><span
+                                                                class="option-letter">A</span><span>false</span></label>
+                                                <label class="option"><input type="radio" name="q11" value="b"><span
+                                                                class="option-letter">B</span><span>true</span></label>
+                                                <label class="option"><input type="radio" name="q11" value="c"><span
+                                                                class="option-letter">C</span><span>Error</span></label>
+                                                <label class="option"><input type="radio" name="q11" value="d"><span
+                                                                class="option-letter">D</span><span>null</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>&&</code> คือ <strong>AND</strong> (และ)
+                                                        ผลลัพธ์จะเป็นจริงก็ต่อเมื่อ
+                                                        <strong>ทั้งสองฝั่งเป็นจริง</strong> กรณีนี้มี false 1 ตัว
+                                                        ผลจึงเป็น false
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 12 -->
+                                <div class="question medium" data-answer="b">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 12</div>
+                                        <div class="q-text">ผลลัพธ์ของ <code>true || false</code> คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q12" value="a"><span
+                                                                class="option-letter">A</span><span>false</span></label>
+                                                <label class="option"><input type="radio" name="q12" value="b"><span
+                                                                class="option-letter">B</span><span>true</span></label>
+                                                <label class="option"><input type="radio" name="q12" value="c"><span
+                                                                class="option-letter">C</span><span>Error</span></label>
+                                                <label class="option"><input type="radio" name="q12" value="d"><span
+                                                                class="option-letter">D</span><span>null</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>||</code> คือ <strong>OR</strong> (หรือ) ผลลัพธ์จะเป็นจริงถ้า
+                                                        <strong>มีฝั่งใดฝั่งหนึ่งเป็นจริง</strong> กรณีนี้มี true 1 ตัว
+                                                        ผลจึงเป็น true
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 13 -->
+                                <div class="question medium" data-answer="b">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 13</div>
+                                        <div class="q-text">ผลลัพธ์ของ <code>!true</code> คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q13" value="a"><span
+                                                                class="option-letter">A</span><span>true</span></label>
+                                                <label class="option"><input type="radio" name="q13" value="b"><span
+                                                                class="option-letter">B</span><span>false</span></label>
+                                                <label class="option"><input type="radio" name="q13" value="c"><span
+                                                                class="option-letter">C</span><span>Error</span></label>
+                                                <label class="option"><input type="radio" name="q13" value="d"><span
+                                                                class="option-letter">D</span><span>1</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>!</code> คือ <strong>NOT</strong> (นิเสธ) ใช้กลับค่าความจริง
+                                                        จาก true เป็น false และจาก
+                                                        false เป็น true</p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 14 -->
+                                <div class="question medium" data-answer="c">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 14</div>
+                                        <div class="q-text">ถ้า x = 5 ผลลัพธ์ของ <code>x > 3 && x < 10</code> คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q14" value="a"><span
+                                                                class="option-letter">A</span><span>false</span></label>
+                                                <label class="option"><input type="radio" name="q14" value="b"><span
+                                                                class="option-letter">B</span><span>Error</span></label>
+                                                <label class="option"><input type="radio" name="q14" value="c"><span
+                                                                class="option-letter">C</span><span>true</span></label>
+                                                <label class="option"><input type="radio" name="q14" value="d"><span
+                                                                class="option-letter">D</span><span>5</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>5 มากกว่า 3 (จริง) และ 5 น้อยกว่า 10 (จริง) -> จริง และ จริง =
+                                                        <strong>จริง (true)</strong>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 15 -->
+                                <div class="question medium" data-answer="a">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 15</div>
+                                        <div class="q-text">Ternary Operator มีรูปแบบอย่างไร?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q15" value="a"><span
+                                                                class="option-letter">A</span><span>เงื่อนไข ? ค่าจริง :
+                                                                ค่าเท็จ</span></label>
+                                                <label class="option"><input type="radio" name="q15" value="b"><span
+                                                                class="option-letter">B</span><span>เงื่อนไข : ค่าจริง ?
+                                                                ค่าเท็จ</span></label>
+                                                <label class="option"><input type="radio" name="q15" value="c"><span
+                                                                class="option-letter">C</span><span>เงื่อนไข ??
+                                                                ค่า</span></label>
+                                                <label class="option"><input type="radio" name="q15" value="d"><span
+                                                                class="option-letter">D</span><span>เงื่อนไข ||
+                                                                ค่า</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Ternary Operator เป็นการเขียน if-else แบบย่อ รูปแบบคือ
+                                                        <code>(condition) ? true_val : false_val</code>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 16 -->
+                                <div class="question medium" data-answer="d">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 16</div>
+                                        <div class="q-text">ผลลัพธ์ของ <code>(5 > 3) ? "A" : "B"</code> คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q16" value="a"><span
+                                                                class="option-letter">A</span><span>B</span></label>
+                                                <label class="option"><input type="radio" name="q16" value="b"><span
+                                                                class="option-letter">B</span><span>5</span></label>
+                                                <label class="option"><input type="radio" name="q16" value="c"><span
+                                                                class="option-letter">C</span><span>true</span></label>
+                                                <label class="option"><input type="radio" name="q16" value="d"><span
+                                                                class="option-letter">D</span><span>A</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>5 มากกว่า 3 เป็น <strong>จริง</strong> ดังนั้นจะเลือกค่าหน้าโคลอน (:)
+                                                        ซึ่งคือ "A"</p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 17 -->
+                                <div class="question medium" data-answer="b">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 17</div>
+                                        <div class="q-text">ถ้าลืมใส่ break ใน switch จะเกิดอะไรขึ้น?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q17" value="a"><span
+                                                                class="option-letter">A</span><span>Error</span></label>
+                                                <label class="option"><input type="radio" name="q17" value="b"><span
+                                                                class="option-letter">B</span><span>Fall-through ทำ case
+                                                                ถัดไปด้วย</span></label>
+                                                <label class="option"><input type="radio" name="q17" value="c"><span
+                                                                class="option-letter">C</span><span>ข้ามไป
+                                                                default</span></label>
+                                                <label class="option"><input type="radio" name="q17" value="d"><span
+                                                                class="option-letter">D</span><span>ทำแค่ case
+                                                                นั้น</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>เกิดอาการที่เรียกว่า <strong>Fall-through</strong>
+                                                        คือโปรแกรมจะไหลไปทำงานใน case ถัดไปเรื่อยๆ
+                                                        (แม้เงื่อนไขจะไม่ตรง) จนกว่าจะเจอ break หรือจบ switch</p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 18 -->
+                                <div class="question medium" data-answer="c">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 18</div>
+                                        <div class="q-text">ข้อใดถูกต้องเกี่ยวกับ else if?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q18" value="a"><span
+                                                                class="option-letter">A</span><span>ต้องมี else
+                                                                ตามหลังเสมอ</span></label>
+                                                <label class="option"><input type="radio" name="q18" value="b"><span
+                                                                class="option-letter">B</span><span>มีได้แค่ 1
+                                                                อัน</span></label>
+                                                <label class="option"><input type="radio" name="q18" value="c"><span
+                                                                class="option-letter">C</span><span>มีได้หลายอัน</span></label>
+                                                <label class="option"><input type="radio" name="q18" value="d"><span
+                                                                class="option-letter">D</span><span>ต้องมาก่อน
+                                                                if</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>else if</code> ใช้เพื่อตรวจสอบเงื่อนไขเพิ่มเติมเมื่อ if
+                                                        แรกเป็นเท็จ เราสามารถมี
+                                                        <code>else if</code> กี่อันก็ได้ตามต้องการ
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 19 -->
+                                <div class="question medium" data-answer="a">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 19</div>
+                                        <div class="q-text">สัญลักษณ์ >= หมายถึง?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q19" value="a"><span
+                                                                class="option-letter">A</span><span>มากกว่าหรือเท่ากับ</span></label>
+                                                <label class="option"><input type="radio" name="q19" value="b"><span
+                                                                class="option-letter">B</span><span>น้อยกว่าหรือเท่ากับ</span></label>
+                                                <label class="option"><input type="radio" name="q19" value="c"><span
+                                                                class="option-letter">C</span><span>เท่ากับ</span></label>
+                                                <label class="option"><input type="radio" name="q19" value="d"><span
+                                                                class="option-letter">D</span><span>กำหนดค่า</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>>=</code> คือ Greater than or Equal to (มากกว่า หรือ เท่ากับ)
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 20 -->
+                                <div class="question medium" data-answer="d">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 20</div>
+                                        <div class="q-text">ผลลัพธ์ของ <code>false || false</code> คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q20" value="a"><span
+                                                                class="option-letter">A</span><span>true</span></label>
+                                                <label class="option"><input type="radio" name="q20" value="b"><span
+                                                                class="option-letter">B</span><span>null</span></label>
+                                                <label class="option"><input type="radio" name="q20" value="c"><span
+                                                                class="option-letter">C</span><span>0</span></label>
+                                                <label class="option"><input type="radio" name="q20" value="d"><span
+                                                                class="option-letter">D</span><span>false</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>OR (||) จะเป็นจริงถ้ามีอย่างน้อย 1 ตัวจริง แต่ถ้า
+                                                        <strong>เท็จทั้งคู่</strong> ผลลัพธ์จะเป็น
+                                                        <strong>false</strong>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- Hard Questions -->
+                                <!-- ข้อ 21 -->
+                                <div class="question hard" data-answer="b">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 21</div>
+                                        <div class="q-text">ผลลัพธ์ของโค้ดนี้?
+                                                <pre>int x = 10; if (x > 5) System.out.print("A"); System.out.print("B");</pre>
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q21" value="a"><span
+                                                                class="option-letter">A</span><span>A</span></label>
+                                                <label class="option"><input type="radio" name="q21" value="b"><span
+                                                                class="option-letter">B</span><span>AB</span></label>
+                                                <label class="option"><input type="radio" name="q21" value="c"><span
+                                                                class="option-letter">C</span><span>B</span></label>
+                                                <label class="option"><input type="radio" name="q21" value="d"><span
+                                                                class="option-letter">D</span><span>Error</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>เงื่อนไข <code>x > 5</code> เป็นจริง พิมพ์ "A" ออกมา ส่วนคำสั่งพิมพ์
+                                                        "B" ไม่อยู่ใน if
+                                                        (เพราะไม่มีปีกกา และอยู่บรรทัดถัดไปโดยไม่มี Indent ใน Java
+                                                        ก็นับเป็นนอก if) ดังนั้นจึงทำ "B"
+                                                        เสมอ รวมได้ <strong>AB</strong></p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 22 -->
+                                <div class="question hard" data-answer="c">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 22</div>
+                                        <div class="q-text">ผลลัพธ์ของโค้ดนี้?
+                                                <pre>int x = 3; if (x > 5) System.out.print("A"); System.out.print("B");</pre>
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q22" value="a"><span
+                                                                class="option-letter">A</span><span>A</span></label>
+                                                <label class="option"><input type="radio" name="q22" value="b"><span
+                                                                class="option-letter">B</span><span>AB</span></label>
+                                                <label class="option"><input type="radio" name="q22" value="c"><span
+                                                                class="option-letter">C</span><span>B</span></label>
+                                                <label class="option"><input type="radio" name="q22" value="d"><span
+                                                                class="option-letter">D</span><span>ไม่แสดงอะไร</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>เงื่อนไข <code>x > 5</code> เป็น <strong>เท็จ</strong> (3 ไม่มากกว่า
+                                                        5) จึงข้ามบรรทัดพิมพ์
+                                                        "A" ไป ส่วนบรรทัดพิมพ์ "B" อยู่นอก if จึงทำงานตามปกติ ได้ผลลัพธ์
+                                                        <strong>B</strong>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 23 -->
+                                <div class="question hard" data-answer="a">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 23</div>
+                                        <div class="q-text">ผลลัพธ์ของ <code>!(true && false)</code> คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q23" value="a"><span
+                                                                class="option-letter">A</span><span>true</span></label>
+                                                <label class="option"><input type="radio" name="q23" value="b"><span
+                                                                class="option-letter">B</span><span>false</span></label>
+                                                <label class="option"><input type="radio" name="q23" value="c"><span
+                                                                class="option-letter">C</span><span>Error</span></label>
+                                                <label class="option"><input type="radio" name="q23" value="d"><span
+                                                                class="option-letter">D</span><span>null</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ทำในวงเล็บก่อน: <code>true && false</code> ได้ <strong>false</strong>
+                                                        จากนั้นเจอ
+                                                        <code>!</code> (NOT) ข้างหน้า กลับค่า false ให้กลายเป็น
+                                                        <strong>true</strong>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 24 -->
+                                <div class="question hard" data-answer="d">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 24</div>
+                                        <div class="q-text">ข้อใดใช้เป็น expression ใน switch ได้ใน Java?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q24" value="a"><span
+                                                                class="option-letter">A</span><span>double</span></label>
+                                                <label class="option"><input type="radio" name="q24" value="b"><span
+                                                                class="option-letter">B</span><span>float</span></label>
+                                                <label class="option"><input type="radio" name="q24" value="c"><span
+                                                                class="option-letter">C</span><span>boolean</span></label>
+                                                <label class="option"><input type="radio" name="q24" value="d"><span
+                                                                class="option-letter">D</span><span>String</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Java รุ่นใหม่ๆ รองรับการใช้ <strong>String</strong> ใน switch case
+                                                        ได้ แต่ยัง
+                                                        <strong>ไม่รองรับ</strong> double, float หรือ boolean
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 25 -->
+                                <div class="question hard" data-answer="b">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 25</div>
+                                        <div class="q-text">ผลลัพธ์ของโค้ด?
+                                                <pre>int x = 5; if (x = 10) { ... }</pre>
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q25" value="a"><span
+                                                                class="option-letter">A</span><span>Yes</span></label>
+                                                <label class="option"><input type="radio" name="q25" value="b"><span
+                                                                class="option-letter">B</span><span>Compile
+                                                                Error</span></label>
+                                                <label class="option"><input type="radio" name="q25" value="c"><span
+                                                                class="option-letter">C</span><span>ไม่แสดงอะไร</span></label>
+                                                <label class="option"><input type="radio" name="q25" value="d"><span
+                                                                class="option-letter">D</span><span>Runtime
+                                                                Error</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ใน Java <code>if</code> ต้องการค่า boolean แต่ <code>x = 10</code>
+                                                        เป็นการ
+                                                        <strong>กำหนดค่า</strong> (expression returns int)
+                                                        ไม่ใช่การเปรียบเทียบ (<code>==</code>)
+                                                        จึงเกิด Compile Error (Incompatible types)
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 26 -->
+                                <div class="question hard" data-answer="c">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 26</div>
+                                        <div class="q-text">Short-circuit evaluation หมายถึง?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q26" value="a"><span
+                                                                class="option-letter">A</span><span>คำนวณทุกส่วนเสมอ</span></label>
+                                                <label class="option"><input type="radio" name="q26" value="b"><span
+                                                                class="option-letter">B</span><span>ข้ามการคำนวณทั้งหมด</span></label>
+                                                <label class="option"><input type="radio" name="q26" value="c"><span
+                                                                class="option-letter">C</span><span>หยุดคำนวณเมื่อรู้ผลแล้ว</span></label>
+                                                <label class="option"><input type="radio" name="q26" value="d"><span
+                                                                class="option-letter">D</span><span>คำนวณจากขวาไปซ้าย</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Short-circuit (<code>&&</code>, <code>||</code>)
+                                                        จะหยุดการทำงานทันทีที่รู้ผลลัพธ์แน่นอนแล้ว
+                                                        เช่น <code>false && ...</code>
+                                                        จะไม่ทำด้านหลังต่อเพราะรู้ว่าเป็นเท็จแน่ๆ</p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 27 -->
+                                <div class="question hard" data-answer="a">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 27</div>
+                                        <div class="q-text">ถ้า <code>false && method()</code> method()
+                                                จะถูกเรียกหรือไม่?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q27" value="a"><span
+                                                                class="option-letter">A</span><span>ไม่ถูกเรียก</span></label>
+                                                <label class="option"><input type="radio" name="q27" value="b"><span
+                                                                class="option-letter">B</span><span>ถูกเรียก</span></label>
+                                                <label class="option"><input type="radio" name="q27" value="c"><span
+                                                                class="option-letter">C</span><span>Error</span></label>
+                                                <label class="option"><input type="radio" name="q27" value="d"><span
+                                                                class="option-letter">D</span><span>ขึ้นอยู่กับ
+                                                                method</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ด้วยกฎ Short-circuit เมื่อเจอ <code>false &&</code> ผลลัพธ์รวมจะเป็น
+                                                        false แน่นอน Java
+                                                        จึงไม่เสียเวลารัน <code>method()</code> ด้านหลัง</p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 28 -->
+                                <div class="question hard" data-answer="a">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 28</div>
+                                        <div class="q-text">ถ้า <code>true || method()</code> method()
+                                                จะถูกเรียกหรือไม่?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q28" value="a"><span
+                                                                class="option-letter">A</span><span>ไม่ถูกเรียก
+                                                                (ข้อนี้เฉลยผิดในตัวเลือก
+                                                                เอาเป็นไม่ถูกเรียก) --> แก้ไข: ตัวเลือก A
+                                                                ในโจทย์เดิมเขียนว่า "ถูกเรียก" แต่ความจริงคือ
+                                                                "ไม่ถูกเรียก" เดี๋ยวผมแก้ Choice ให้ถูกตาม Logic
+                                                                ครับ</span></label>
+                                                <!-- แก้ไข choice ให้ตรงความจริง: true || ... จะ short circuit คือไม่ทำด้านหลัง -->
+                                                <label class="option"><input type="radio" name="q28" value="a"><span
+                                                                class="option-letter">A</span><span>ไม่ถูกเรียก</span></label>
+                                                <label class="option"><input type="radio" name="q28" value="b"><span
+                                                                class="option-letter">B</span><span>ถูกเรียก</span></label>
+                                                <label class="option"><input type="radio" name="q28" value="c"><span
+                                                                class="option-letter">C</span><span>Error</span></label>
+                                                <label class="option"><input type="radio" name="q28" value="d"><span
+                                                                class="option-letter">D</span><span>ขึ้นอยู่กับ
+                                                                method</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>เมื่อเจอ <code>true ||</code> ผลลัพธ์รวมจะเป็น true แน่นอน
+                                                        (Short-circuit) Java จึงไม่รัน
+                                                        <code>method()</code> ด้านหลัง
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 29 -->
+                                <div class="question hard" data-answer="b">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 29</div>
+                                        <div class="q-text">ผลลัพธ์ของโค้ด?
+                                                <pre>int x = 1; switch(x) { case 1: print("A"); case 2: print("B"); }</pre>
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q29" value="a"><span
+                                                                class="option-letter">A</span><span>A</span></label>
+                                                <label class="option"><input type="radio" name="q29" value="b"><span
+                                                                class="option-letter">B</span><span>AB</span></label>
+                                                <label class="option"><input type="radio" name="q29" value="c"><span
+                                                                class="option-letter">C</span><span>B</span></label>
+                                                <label class="option"><input type="radio" name="q29" value="d"><span
+                                                                class="option-letter">D</span><span>Error</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>เข้า case 1 พิมพ์ "A" แต่ไม่มี <code>break;</code>
+                                                        โปรแกรมจึงไหลลงไปทำ case 2 ต่อและพิมพ์ "B"
+                                                        ด้วย (Fall-through)</p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 30 -->
+                                <div class="question hard" data-answer="c">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 30</div>
+                                        <div class="q-text">ผลลัพธ์ของ <code>(10 > 5) ? (3 > 2) ? "A" : "B" : "C"</code>
+                                                คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q30" value="a"><span
+                                                                class="option-letter">A</span><span>B</span></label>
+                                                <label class="option"><input type="radio" name="q30" value="b"><span
+                                                                class="option-letter">B</span><span>C</span></label>
+                                                <label class="option"><input type="radio" name="q30" value="c"><span
+                                                                class="option-letter">C</span><span>A</span></label>
+                                                <label class="option"><input type="radio" name="q30" value="d"><span
+                                                                class="option-letter">D</span><span>Error</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Nested Ternary: 10>5 จริง -> เข้าไปทำตัวหน้า
+                                                        <code>(3 > 2) ? "A" : "B"</code>; 3>2 จริง ->
+                                                        ตอบ <strong>"A"</strong>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <button type="button" class="btn-submit" onclick="submitQuiz()">🎯 ตรวจคำตอบ</button>
+                        </form>
+
+                        <div class="result" id="result">
+                                <h2>🎉 ผลการทำแบบทดสอบ</h2>
+                                <div class="score-big" id="final-score">0/30</div>
+                                <p id="result-text" style="font-size: 1.3rem; margin-top: 15px;"></p>
+                                <a href="index.html#quizzes" class="btn-primary"
+                                        style="margin-top: 25px;">กลับหน้าแบบทดสอบ</a>
+                        </div>
                 </div>
+        </main>
 
-                <!-- ข้อ 3 -->
-                <div class="question easy" data-answer="c">
-                    <span class="difficulty">ง่าย</span>
-                    <div class="q-number">ข้อ 3</div>
-                    <div class="q-text">สัญลักษณ์ <strong>วงรี (Oval/Terminal)</strong> ใช้แทนอะไร?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q3" value="a"><span
-                                class="option-letter">A</span><span>การตัดสินใจ</span></label>
-                        <label class="option"><input type="radio" name="q3" value="b"><span
-                                class="option-letter">B</span><span>ประมวลผล</span></label>
-                        <label class="option"><input type="radio" name="q3" value="c"><span
-                                class="option-letter">C</span><span>เริ่มต้น/สิ้นสุด (Start/End)</span></label>
-                        <label class="option"><input type="radio" name="q3" value="d"><span
-                                class="option-letter">D</span><span>ทิศทาง</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p><strong>Terminal (รูปวงรี)</strong> ใช้ระบุจุดเริ่มต้น (Start) และจุดสิ้นสุด (End/Stop)
-                            ของผังงาน</p>
-                    </div>
-                </div>
-
-                <!-- ข้อ 4 -->
-                <div class="question easy" data-answer="b">
-                    <span class="difficulty">ง่าย</span>
-                    <div class="q-number">ข้อ 4</div>
-                    <div class="q-text">สัญลักษณ์ <strong>สี่เหลี่ยมผืนผ้า (Rectangle)</strong> ใช้แทนอะไร?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q4" value="a"><span
-                                class="option-letter">A</span><span>รับค่า/แสดงผล</span></label>
-                        <label class="option"><input type="radio" name="q4" value="b"><span
-                                class="option-letter">B</span><span>การประมวลผล (Process)</span></label>
-                        <label class="option"><input type="radio" name="q4" value="c"><span
-                                class="option-letter">C</span><span>การตัดสินใจ</span></label>
-                        <label class="option"><input type="radio" name="q4" value="d"><span
-                                class="option-letter">D</span><span>จุดเชื่อมต่อ</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p><strong>สี่เหลี่ยมผืนผ้า</strong> ใช้แทนการปฏิบัติงาน การคำนวณ หรือการกำหนดค่าตัวแปร
-                            (Process)</p>
-                    </div>
-                </div>
-
-                <!-- ข้อ 5 -->
-                <div class="question easy" data-answer="a">
-                    <span class="difficulty">ง่าย</span>
-                    <div class="q-number">ข้อ 5</div>
-                    <div class="q-text">สัญลักษณ์ <strong>สี่เหลี่ยมด้านขนาน (Parallelogram)</strong> ใช้แทนอะไร?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q5" value="a"><span
-                                class="option-letter">A</span><span>รับค่า/แสดงผล (Input/Output)</span></label>
-                        <label class="option"><input type="radio" name="q5" value="b"><span
-                                class="option-letter">B</span><span>การประมวลผล</span></label>
-                        <label class="option"><input type="radio" name="q5" value="c"><span
-                                class="option-letter">C</span><span>เริ่มต้น</span></label>
-                        <label class="option"><input type="radio" name="q5" value="d"><span
-                                class="option-letter">D</span><span>ตัดสินใจ</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p><strong>สี่เหลี่ยมด้านขนาน</strong> ใช้เมื่อมีการนำเข้าข้อมูล (Input) หรือแสดงผลข้อมูล
-                            (Output) โดยไม่ระบุอุปกรณ์เฉพาะเจาะจง</p>
-                    </div>
-                </div>
-
-                <!-- ข้อ 6 -->
-                <div class="question easy" data-answer="c">
-                    <span class="difficulty">ง่าย</span>
-                    <div class="q-number">ข้อ 6</div>
-                    <div class="q-text">ลูกศร (Arrow) ใน Flowchart บอกอะไรเรา?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q6" value="a"><span
-                                class="option-letter">A</span><span>ความเร็วของโปรแกรม</span></label>
-                        <label class="option"><input type="radio" name="q6" value="b"><span
-                                class="option-letter">B</span><span>ประเภทข้อมูล</span></label>
-                        <label class="option"><input type="radio" name="q6" value="c"><span
-                                class="option-letter">C</span><span>ทิศทางการทำงาน (Flow)</span></label>
-                        <label class="option"><input type="radio" name="q6" value="d"><span
-                                class="option-letter">D</span><span>ไม่มีความหมาย</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>เส้นลูกศร (Flow Line) ใช้เชื่อมต่อสัญลักษณ์ต่างๆ
-                            เพื่อแสดงลำดับทิศทางการทำงานจากขั้นตอนหนึ่งไปยังอีกขั้นตอนหนึ่ง</p>
-                    </div>
-                </div>
-
-                <!-- ข้อ 7 -->
-                <div class="question easy" data-answer="a">
-                    <span class="difficulty">ง่าย</span>
-                    <div class="q-number">ข้อ 7</div>
-                    <div class="q-text">คำสั่ง switch ใช้เปรียบเทียบกับอะไร?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q7" value="a"><span
-                                class="option-letter">A</span><span>ค่าคงที่หลายค่า</span></label>
-                        <label class="option"><input type="radio" name="q7" value="b"><span
-                                class="option-letter">B</span><span>ช่วงค่า</span></label>
-                        <label class="option"><input type="radio" name="q7" value="c"><span
-                                class="option-letter">C</span><span>ค่าทศนิยม</span></label>
-                        <label class="option"><input type="radio" name="q7" value="d"><span
-                                class="option-letter">D</span><span>Array</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p><code>switch</code> เหมาะสำหรับการตรวจสอบค่าของตัวแปรเทียบกับ <strong>ค่าคงที่ (Constant
-                                values)</strong> หลายๆ กรณี (Case) ที่เป็นไปได้</p>
-                    </div>
-                </div>
-
-                <!-- ข้อ 8 -->
-                <div class="question easy" data-answer="b">
-                    <span class="difficulty">ง่าย</span>
-                    <div class="q-number">ข้อ 8</div>
-                    <div class="q-text">คำสั่ง break ใน switch ทำหน้าที่อะไร?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q8" value="a"><span
-                                class="option-letter">A</span><span>ข้ามไป default</span></label>
-                        <label class="option"><input type="radio" name="q8" value="b"><span
-                                class="option-letter">B</span><span>ออกจาก switch</span></label>
-                        <label class="option"><input type="radio" name="q8" value="c"><span
-                                class="option-letter">C</span><span>ทำ case ถัดไป</span></label>
-                        <label class="option"><input type="radio" name="q8" value="d"><span
-                                class="option-letter">D</span><span>วนซ้ำ</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p><code>break</code> จะสั่งให้โปรแกรม <strong>หยุด</strong> การทำงานใน switch case
-                            นั้นและกระโดดออกจาก block ของ switch ทันที ถ้าไม่ใส่ โปรแกรมจะไหลไปทำ case ถัดไปต่อ
-                            (Fall-through)</p>
-                    </div>
-                </div>
-
-                <!-- ข้อ 9 -->
-                <div class="question easy" data-answer="c">
-                    <span class="difficulty">ง่าย</span>
-                    <div class="q-number">ข้อ 9</div>
-                    <div class="q-text">สัญลักษณ์ != หมายถึง?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q9" value="a"><span
-                                class="option-letter">A</span><span>เท่ากับ</span></label>
-                        <label class="option"><input type="radio" name="q9" value="b"><span
-                                class="option-letter">B</span><span>มากกว่า</span></label>
-                        <label class="option"><input type="radio" name="q9" value="c"><span
-                                class="option-letter">C</span><span>ไม่เท่ากับ</span></label>
-                        <label class="option"><input type="radio" name="q9" value="d"><span
-                                class="option-letter">D</span><span>น้อยกว่า</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p><code>!=</code> คือเครื่องหมายเปรียบเทียบว่า <strong>ไม่เท่ากัน</strong> (Not Equal)</p>
-                    </div>
-                </div>
-
-                <!-- ข้อ 10 -->
-                <div class="question easy" data-answer="d">
-                    <span class="difficulty">ง่าย</span>
-                    <div class="q-number">ข้อ 10</div>
-                    <div class="q-text">default ใน switch ทำงานเมื่อใด?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q10" value="a"><span
-                                class="option-letter">A</span><span>ทำงานเสมอ</span></label>
-                        <label class="option"><input type="radio" name="q10" value="b"><span
-                                class="option-letter">B</span><span>ตรง case แรก</span></label>
-                        <label class="option"><input type="radio" name="q10" value="c"><span
-                                class="option-letter">C</span><span>ตรง case สุดท้าย</span></label>
-                        <label class="option"><input type="radio" name="q10" value="d"><span
-                                class="option-letter">D</span><span>ไม่ตรง case ใดเลย</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p><code>default</code> จะทำงานเมื่อค่าของตัวแปร <strong>ไม่ตรงกับ case ใดเลย</strong>
-                            ที่กำหนดไว้ (เหมือนกับ else สุดท้ายใน if-else)</p>
-                    </div>
-                </div>
-
-                <!-- Medium Questions -->
-                <!-- ข้อ 11 -->
-                <div class="question medium" data-answer="a">
-                    <span class="difficulty">ปานกลาง</span>
-                    <div class="q-number">ข้อ 11</div>
-                    <div class="q-text">ผลลัพธ์ของ <code>true && false</code> คือ?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q11" value="a"><span
-                                class="option-letter">A</span><span>false</span></label>
-                        <label class="option"><input type="radio" name="q11" value="b"><span
-                                class="option-letter">B</span><span>true</span></label>
-                        <label class="option"><input type="radio" name="q11" value="c"><span
-                                class="option-letter">C</span><span>Error</span></label>
-                        <label class="option"><input type="radio" name="q11" value="d"><span
-                                class="option-letter">D</span><span>null</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p><code>&&</code> คือ <strong>AND</strong> (และ) ผลลัพธ์จะเป็นจริงก็ต่อเมื่อ
-                            <strong>ทั้งสองฝั่งเป็นจริง</strong> กรณีนี้มี false 1 ตัว ผลจึงเป็น false</p>
-                    </div>
-                </div>
-
-                <!-- ข้อ 12 -->
-                <div class="question medium" data-answer="b">
-                    <span class="difficulty">ปานกลาง</span>
-                    <div class="q-number">ข้อ 12</div>
-                    <div class="q-text">ผลลัพธ์ของ <code>true || false</code> คือ?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q12" value="a"><span
-                                class="option-letter">A</span><span>false</span></label>
-                        <label class="option"><input type="radio" name="q12" value="b"><span
-                                class="option-letter">B</span><span>true</span></label>
-                        <label class="option"><input type="radio" name="q12" value="c"><span
-                                class="option-letter">C</span><span>Error</span></label>
-                        <label class="option"><input type="radio" name="q12" value="d"><span
-                                class="option-letter">D</span><span>null</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p><code>||</code> คือ <strong>OR</strong> (หรือ) ผลลัพธ์จะเป็นจริงถ้า
-                            <strong>มีฝั่งใดฝั่งหนึ่งเป็นจริง</strong> กรณีนี้มี true 1 ตัว ผลจึงเป็น true</p>
-                    </div>
-                </div>
-
-                <!-- ข้อ 13 -->
-                <div class="question medium" data-answer="b">
-                    <span class="difficulty">ปานกลาง</span>
-                    <div class="q-number">ข้อ 13</div>
-                    <div class="q-text">ผลลัพธ์ของ <code>!true</code> คือ?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q13" value="a"><span
-                                class="option-letter">A</span><span>true</span></label>
-                        <label class="option"><input type="radio" name="q13" value="b"><span
-                                class="option-letter">B</span><span>false</span></label>
-                        <label class="option"><input type="radio" name="q13" value="c"><span
-                                class="option-letter">C</span><span>Error</span></label>
-                        <label class="option"><input type="radio" name="q13" value="d"><span
-                                class="option-letter">D</span><span>1</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p><code>!</code> คือ <strong>NOT</strong> (นิเสธ) ใช้กลับค่าความจริง จาก true เป็น false และจาก
-                            false เป็น true</p>
-                    </div>
-                </div>
-
-                <!-- ข้อ 14 -->
-                <div class="question medium" data-answer="c">
-                    <span class="difficulty">ปานกลาง</span>
-                    <div class="q-number">ข้อ 14</div>
-                    <div class="q-text">ถ้า x = 5 ผลลัพธ์ของ <code>x > 3 && x < 10</code> คือ?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q14" value="a"><span
-                                class="option-letter">A</span><span>false</span></label>
-                        <label class="option"><input type="radio" name="q14" value="b"><span
-                                class="option-letter">B</span><span>Error</span></label>
-                        <label class="option"><input type="radio" name="q14" value="c"><span
-                                class="option-letter">C</span><span>true</span></label>
-                        <label class="option"><input type="radio" name="q14" value="d"><span
-                                class="option-letter">D</span><span>5</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>5 มากกว่า 3 (จริง) และ 5 น้อยกว่า 10 (จริง) -> จริง และ จริง = <strong>จริง (true)</strong>
-                        </p>
-                    </div>
-                </div>
-
-                <!-- ข้อ 15 -->
-                <div class="question medium" data-answer="a">
-                    <span class="difficulty">ปานกลาง</span>
-                    <div class="q-number">ข้อ 15</div>
-                    <div class="q-text">Ternary Operator มีรูปแบบอย่างไร?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q15" value="a"><span
-                                class="option-letter">A</span><span>เงื่อนไข ? ค่าจริง : ค่าเท็จ</span></label>
-                        <label class="option"><input type="radio" name="q15" value="b"><span
-                                class="option-letter">B</span><span>เงื่อนไข : ค่าจริง ? ค่าเท็จ</span></label>
-                        <label class="option"><input type="radio" name="q15" value="c"><span
-                                class="option-letter">C</span><span>เงื่อนไข ?? ค่า</span></label>
-                        <label class="option"><input type="radio" name="q15" value="d"><span
-                                class="option-letter">D</span><span>เงื่อนไข || ค่า</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>Ternary Operator เป็นการเขียน if-else แบบย่อ รูปแบบคือ
-                            <code>(condition) ? true_val : false_val</code></p>
-                    </div>
-                </div>
-
-                <!-- ข้อ 16 -->
-                <div class="question medium" data-answer="d">
-                    <span class="difficulty">ปานกลาง</span>
-                    <div class="q-number">ข้อ 16</div>
-                    <div class="q-text">ผลลัพธ์ของ <code>(5 > 3) ? "A" : "B"</code> คือ?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q16" value="a"><span
-                                class="option-letter">A</span><span>B</span></label>
-                        <label class="option"><input type="radio" name="q16" value="b"><span
-                                class="option-letter">B</span><span>5</span></label>
-                        <label class="option"><input type="radio" name="q16" value="c"><span
-                                class="option-letter">C</span><span>true</span></label>
-                        <label class="option"><input type="radio" name="q16" value="d"><span
-                                class="option-letter">D</span><span>A</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>5 มากกว่า 3 เป็น <strong>จริง</strong> ดังนั้นจะเลือกค่าหน้าโคลอน (:) ซึ่งคือ "A"</p>
-                    </div>
-                </div>
-
-                <!-- ข้อ 17 -->
-                <div class="question medium" data-answer="b">
-                    <span class="difficulty">ปานกลาง</span>
-                    <div class="q-number">ข้อ 17</div>
-                    <div class="q-text">ถ้าลืมใส่ break ใน switch จะเกิดอะไรขึ้น?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q17" value="a"><span
-                                class="option-letter">A</span><span>Error</span></label>
-                        <label class="option"><input type="radio" name="q17" value="b"><span
-                                class="option-letter">B</span><span>Fall-through ทำ case ถัดไปด้วย</span></label>
-                        <label class="option"><input type="radio" name="q17" value="c"><span
-                                class="option-letter">C</span><span>ข้ามไป default</span></label>
-                        <label class="option"><input type="radio" name="q17" value="d"><span
-                                class="option-letter">D</span><span>ทำแค่ case นั้น</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>เกิดอาการที่เรียกว่า <strong>Fall-through</strong> คือโปรแกรมจะไหลไปทำงานใน case ถัดไปเรื่อยๆ
-                            (แม้เงื่อนไขจะไม่ตรง) จนกว่าจะเจอ break หรือจบ switch</p>
-                    </div>
-                </div>
-
-                <!-- ข้อ 18 -->
-                <div class="question medium" data-answer="c">
-                    <span class="difficulty">ปานกลาง</span>
-                    <div class="q-number">ข้อ 18</div>
-                    <div class="q-text">ข้อใดถูกต้องเกี่ยวกับ else if?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q18" value="a"><span
-                                class="option-letter">A</span><span>ต้องมี else ตามหลังเสมอ</span></label>
-                        <label class="option"><input type="radio" name="q18" value="b"><span
-                                class="option-letter">B</span><span>มีได้แค่ 1 อัน</span></label>
-                        <label class="option"><input type="radio" name="q18" value="c"><span
-                                class="option-letter">C</span><span>มีได้หลายอัน</span></label>
-                        <label class="option"><input type="radio" name="q18" value="d"><span
-                                class="option-letter">D</span><span>ต้องมาก่อน if</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p><code>else if</code> ใช้เพื่อตรวจสอบเงื่อนไขเพิ่มเติมเมื่อ if แรกเป็นเท็จ เราสามารถมี
-                            <code>else if</code> กี่อันก็ได้ตามต้องการ</p>
-                    </div>
-                </div>
-
-                <!-- ข้อ 19 -->
-                <div class="question medium" data-answer="a">
-                    <span class="difficulty">ปานกลาง</span>
-                    <div class="q-number">ข้อ 19</div>
-                    <div class="q-text">สัญลักษณ์ >= หมายถึง?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q19" value="a"><span
-                                class="option-letter">A</span><span>มากกว่าหรือเท่ากับ</span></label>
-                        <label class="option"><input type="radio" name="q19" value="b"><span
-                                class="option-letter">B</span><span>น้อยกว่าหรือเท่ากับ</span></label>
-                        <label class="option"><input type="radio" name="q19" value="c"><span
-                                class="option-letter">C</span><span>เท่ากับ</span></label>
-                        <label class="option"><input type="radio" name="q19" value="d"><span
-                                class="option-letter">D</span><span>กำหนดค่า</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p><code>>=</code> คือ Greater than or Equal to (มากกว่า หรือ เท่ากับ)</p>
-                    </div>
-                </div>
-
-                <!-- ข้อ 20 -->
-                <div class="question medium" data-answer="d">
-                    <span class="difficulty">ปานกลาง</span>
-                    <div class="q-number">ข้อ 20</div>
-                    <div class="q-text">ผลลัพธ์ของ <code>false || false</code> คือ?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q20" value="a"><span
-                                class="option-letter">A</span><span>true</span></label>
-                        <label class="option"><input type="radio" name="q20" value="b"><span
-                                class="option-letter">B</span><span>null</span></label>
-                        <label class="option"><input type="radio" name="q20" value="c"><span
-                                class="option-letter">C</span><span>0</span></label>
-                        <label class="option"><input type="radio" name="q20" value="d"><span
-                                class="option-letter">D</span><span>false</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>OR (||) จะเป็นจริงถ้ามีอย่างน้อย 1 ตัวจริง แต่ถ้า <strong>เท็จทั้งคู่</strong> ผลลัพธ์จะเป็น
-                            <strong>false</strong></p>
-                    </div>
-                </div>
-
-                <!-- Hard Questions -->
-                <!-- ข้อ 21 -->
-                <div class="question hard" data-answer="b">
-                    <span class="difficulty">ยาก</span>
-                    <div class="q-number">ข้อ 21</div>
-                    <div class="q-text">ผลลัพธ์ของโค้ดนี้?
-                        <pre>int x = 10; if (x > 5) System.out.print("A"); System.out.print("B");</pre>
-                    </div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q21" value="a"><span
-                                class="option-letter">A</span><span>A</span></label>
-                        <label class="option"><input type="radio" name="q21" value="b"><span
-                                class="option-letter">B</span><span>AB</span></label>
-                        <label class="option"><input type="radio" name="q21" value="c"><span
-                                class="option-letter">C</span><span>B</span></label>
-                        <label class="option"><input type="radio" name="q21" value="d"><span
-                                class="option-letter">D</span><span>Error</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>เงื่อนไข <code>x > 5</code> เป็นจริง พิมพ์ "A" ออกมา ส่วนคำสั่งพิมพ์ "B" ไม่อยู่ใน if
-                            (เพราะไม่มีปีกกา และอยู่บรรทัดถัดไปโดยไม่มี Indent ใน Java ก็นับเป็นนอก if) ดังนั้นจึงทำ "B"
-                            เสมอ รวมได้ <strong>AB</strong></p>
-                    </div>
-                </div>
-
-                <!-- ข้อ 22 -->
-                <div class="question hard" data-answer="c">
-                    <span class="difficulty">ยาก</span>
-                    <div class="q-number">ข้อ 22</div>
-                    <div class="q-text">ผลลัพธ์ของโค้ดนี้?
-                        <pre>int x = 3; if (x > 5) System.out.print("A"); System.out.print("B");</pre>
-                    </div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q22" value="a"><span
-                                class="option-letter">A</span><span>A</span></label>
-                        <label class="option"><input type="radio" name="q22" value="b"><span
-                                class="option-letter">B</span><span>AB</span></label>
-                        <label class="option"><input type="radio" name="q22" value="c"><span
-                                class="option-letter">C</span><span>B</span></label>
-                        <label class="option"><input type="radio" name="q22" value="d"><span
-                                class="option-letter">D</span><span>ไม่แสดงอะไร</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>เงื่อนไข <code>x > 5</code> เป็น <strong>เท็จ</strong> (3 ไม่มากกว่า 5) จึงข้ามบรรทัดพิมพ์
-                            "A" ไป ส่วนบรรทัดพิมพ์ "B" อยู่นอก if จึงทำงานตามปกติ ได้ผลลัพธ์ <strong>B</strong></p>
-                    </div>
-                </div>
-
-                <!-- ข้อ 23 -->
-                <div class="question hard" data-answer="a">
-                    <span class="difficulty">ยาก</span>
-                    <div class="q-number">ข้อ 23</div>
-                    <div class="q-text">ผลลัพธ์ของ <code>!(true && false)</code> คือ?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q23" value="a"><span
-                                class="option-letter">A</span><span>true</span></label>
-                        <label class="option"><input type="radio" name="q23" value="b"><span
-                                class="option-letter">B</span><span>false</span></label>
-                        <label class="option"><input type="radio" name="q23" value="c"><span
-                                class="option-letter">C</span><span>Error</span></label>
-                        <label class="option"><input type="radio" name="q23" value="d"><span
-                                class="option-letter">D</span><span>null</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>ทำในวงเล็บก่อน: <code>true && false</code> ได้ <strong>false</strong> จากนั้นเจอ
-                            <code>!</code> (NOT) ข้างหน้า กลับค่า false ให้กลายเป็น <strong>true</strong></p>
-                    </div>
-                </div>
-
-                <!-- ข้อ 24 -->
-                <div class="question hard" data-answer="d">
-                    <span class="difficulty">ยาก</span>
-                    <div class="q-number">ข้อ 24</div>
-                    <div class="q-text">ข้อใดใช้เป็น expression ใน switch ได้ใน Java?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q24" value="a"><span
-                                class="option-letter">A</span><span>double</span></label>
-                        <label class="option"><input type="radio" name="q24" value="b"><span
-                                class="option-letter">B</span><span>float</span></label>
-                        <label class="option"><input type="radio" name="q24" value="c"><span
-                                class="option-letter">C</span><span>boolean</span></label>
-                        <label class="option"><input type="radio" name="q24" value="d"><span
-                                class="option-letter">D</span><span>String</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>Java รุ่นใหม่ๆ รองรับการใช้ <strong>String</strong> ใน switch case ได้ แต่ยัง
-                            <strong>ไม่รองรับ</strong> double, float หรือ boolean</p>
-                    </div>
-                </div>
-
-                <!-- ข้อ 25 -->
-                <div class="question hard" data-answer="b">
-                    <span class="difficulty">ยาก</span>
-                    <div class="q-number">ข้อ 25</div>
-                    <div class="q-text">ผลลัพธ์ของโค้ด?
-                        <pre>int x = 5; if (x = 10) { ... }</pre>
-                    </div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q25" value="a"><span
-                                class="option-letter">A</span><span>Yes</span></label>
-                        <label class="option"><input type="radio" name="q25" value="b"><span
-                                class="option-letter">B</span><span>Compile Error</span></label>
-                        <label class="option"><input type="radio" name="q25" value="c"><span
-                                class="option-letter">C</span><span>ไม่แสดงอะไร</span></label>
-                        <label class="option"><input type="radio" name="q25" value="d"><span
-                                class="option-letter">D</span><span>Runtime Error</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>ใน Java <code>if</code> ต้องการค่า boolean แต่ <code>x = 10</code> เป็นการ
-                            <strong>กำหนดค่า</strong> (expression returns int) ไม่ใช่การเปรียบเทียบ (<code>==</code>)
-                            จึงเกิด Compile Error (Incompatible types)</p>
-                    </div>
-                </div>
-
-                <!-- ข้อ 26 -->
-                <div class="question hard" data-answer="c">
-                    <span class="difficulty">ยาก</span>
-                    <div class="q-number">ข้อ 26</div>
-                    <div class="q-text">Short-circuit evaluation หมายถึง?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q26" value="a"><span
-                                class="option-letter">A</span><span>คำนวณทุกส่วนเสมอ</span></label>
-                        <label class="option"><input type="radio" name="q26" value="b"><span
-                                class="option-letter">B</span><span>ข้ามการคำนวณทั้งหมด</span></label>
-                        <label class="option"><input type="radio" name="q26" value="c"><span
-                                class="option-letter">C</span><span>หยุดคำนวณเมื่อรู้ผลแล้ว</span></label>
-                        <label class="option"><input type="radio" name="q26" value="d"><span
-                                class="option-letter">D</span><span>คำนวณจากขวาไปซ้าย</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>Short-circuit (<code>&&</code>, <code>||</code>) จะหยุดการทำงานทันทีที่รู้ผลลัพธ์แน่นอนแล้ว
-                            เช่น <code>false && ...</code> จะไม่ทำด้านหลังต่อเพราะรู้ว่าเป็นเท็จแน่ๆ</p>
-                    </div>
-                </div>
-
-                <!-- ข้อ 27 -->
-                <div class="question hard" data-answer="a">
-                    <span class="difficulty">ยาก</span>
-                    <div class="q-number">ข้อ 27</div>
-                    <div class="q-text">ถ้า <code>false && method()</code> method() จะถูกเรียกหรือไม่?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q27" value="a"><span
-                                class="option-letter">A</span><span>ไม่ถูกเรียก</span></label>
-                        <label class="option"><input type="radio" name="q27" value="b"><span
-                                class="option-letter">B</span><span>ถูกเรียก</span></label>
-                        <label class="option"><input type="radio" name="q27" value="c"><span
-                                class="option-letter">C</span><span>Error</span></label>
-                        <label class="option"><input type="radio" name="q27" value="d"><span
-                                class="option-letter">D</span><span>ขึ้นอยู่กับ method</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>ด้วยกฎ Short-circuit เมื่อเจอ <code>false &&</code> ผลลัพธ์รวมจะเป็น false แน่นอน Java
-                            จึงไม่เสียเวลารัน <code>method()</code> ด้านหลัง</p>
-                    </div>
-                </div>
-
-                <!-- ข้อ 28 -->
-                <div class="question hard" data-answer="a">
-                    <span class="difficulty">ยาก</span>
-                    <div class="q-number">ข้อ 28</div>
-                    <div class="q-text">ถ้า <code>true || method()</code> method() จะถูกเรียกหรือไม่?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q28" value="a"><span
-                                class="option-letter">A</span><span>ไม่ถูกเรียก (ข้อนี้เฉลยผิดในตัวเลือก
-                                เอาเป็นไม่ถูกเรียก) --> แก้ไข: ตัวเลือก A ในโจทย์เดิมเขียนว่า "ถูกเรียก" แต่ความจริงคือ
-                                "ไม่ถูกเรียก" เดี๋ยวผมแก้ Choice ให้ถูกตาม Logic ครับ</span></label>
-                        <!-- แก้ไข choice ให้ตรงความจริง: true || ... จะ short circuit คือไม่ทำด้านหลัง -->
-                        <label class="option"><input type="radio" name="q28" value="a"><span
-                                class="option-letter">A</span><span>ไม่ถูกเรียก</span></label>
-                        <label class="option"><input type="radio" name="q28" value="b"><span
-                                class="option-letter">B</span><span>ถูกเรียก</span></label>
-                        <label class="option"><input type="radio" name="q28" value="c"><span
-                                class="option-letter">C</span><span>Error</span></label>
-                        <label class="option"><input type="radio" name="q28" value="d"><span
-                                class="option-letter">D</span><span>ขึ้นอยู่กับ method</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>เมื่อเจอ <code>true ||</code> ผลลัพธ์รวมจะเป็น true แน่นอน (Short-circuit) Java จึงไม่รัน
-                            <code>method()</code> ด้านหลัง</p>
-                    </div>
-                </div>
-
-                <!-- ข้อ 29 -->
-                <div class="question hard" data-answer="b">
-                    <span class="difficulty">ยาก</span>
-                    <div class="q-number">ข้อ 29</div>
-                    <div class="q-text">ผลลัพธ์ของโค้ด?
-                        <pre>int x = 1; switch(x) { case 1: print("A"); case 2: print("B"); }</pre>
-                    </div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q29" value="a"><span
-                                class="option-letter">A</span><span>A</span></label>
-                        <label class="option"><input type="radio" name="q29" value="b"><span
-                                class="option-letter">B</span><span>AB</span></label>
-                        <label class="option"><input type="radio" name="q29" value="c"><span
-                                class="option-letter">C</span><span>B</span></label>
-                        <label class="option"><input type="radio" name="q29" value="d"><span
-                                class="option-letter">D</span><span>Error</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>เข้า case 1 พิมพ์ "A" แต่ไม่มี <code>break;</code> โปรแกรมจึงไหลลงไปทำ case 2 ต่อและพิมพ์ "B"
-                            ด้วย (Fall-through)</p>
-                    </div>
-                </div>
-
-                <!-- ข้อ 30 -->
-                <div class="question hard" data-answer="c">
-                    <span class="difficulty">ยาก</span>
-                    <div class="q-number">ข้อ 30</div>
-                    <div class="q-text">ผลลัพธ์ของ <code>(10 > 5) ? (3 > 2) ? "A" : "B" : "C"</code> คือ?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q30" value="a"><span
-                                class="option-letter">A</span><span>B</span></label>
-                        <label class="option"><input type="radio" name="q30" value="b"><span
-                                class="option-letter">B</span><span>C</span></label>
-                        <label class="option"><input type="radio" name="q30" value="c"><span
-                                class="option-letter">C</span><span>A</span></label>
-                        <label class="option"><input type="radio" name="q30" value="d"><span
-                                class="option-letter">D</span><span>Error</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>Nested Ternary: 10>5 จริง -> เข้าไปทำตัวหน้า <code>(3 > 2) ? "A" : "B"</code>; 3>2 จริง ->
-                            ตอบ <strong>"A"</strong></p>
-                    </div>
-                </div>
-
-                <button type="button" class="btn-submit" onclick="submitQuiz()">🎯 ตรวจคำตอบ</button>
-            </form>
-
-            <div class="result" id="result">
-                <h2>🎉 ผลการทำแบบทดสอบ</h2>
-                <div class="score-big" id="final-score">0/30</div>
-                <p id="result-text" style="font-size: 1.3rem; margin-top: 15px;"></p>
-                <a href="index.html#quizzes" class="btn-primary" style="margin-top: 25px;">กลับหน้าแบบทดสอบ</a>
-            </div>
-        </div>
-    </main>
-
-    <footer class="premium-footer">
-        <p class="footer-text">งงตรงไหน? ทักมาถามได้เลย!</p>
-        <a href="https://instabio.cc/4021411ZGCpLW" target="_blank" class="contact-btn">💬 ติดต่อผู้สอน</a>
-    </footer>
+        <footer class="premium-footer">
+                <p class="footer-text">งงตรงไหน? ทักมาถามได้เลย!</p>
+                <a href="https://instabio.cc/4021411ZGCpLW" target="_blank" class="contact-btn">💬 ติดต่อผู้สอน</a>
+        </footer>
+        <script src="music-player.js"></script>
 </body>
 
 </html>

@@ -2,686 +2,768 @@
 <html lang="th">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>แบบทดสอบ บทที่ 5: Methods | บันทึกการติว</title>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="premium-style.css">
-    <script src="quiz.js" defer></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>แบบทดสอบ บทที่ 5: Methods | บันทึกการติว</title>
+        <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap"
+                rel="stylesheet">
+        <link rel="stylesheet" href="premium-style.css">
+        <link rel="stylesheet" href="music-player.css">
+        <script src="quiz.js" defer></script>
 </head>
 
 <body>
-    <div class="bg-particles"></div>
-    <div class="glow-orb orb-purple"></div>
-    <div class="glow-orb orb-pink"></div>
+        <div class="bg-particles"></div>
+        <div class="glow-orb orb-purple"></div>
+        <div class="glow-orb orb-pink"></div>
 
-    <header class="premium-header">
-        <div class="header-content">
-            <a href="index.html" class="logo">📚 บันทึกการติว</a>
-            <nav>
-                <a href="05-methods.html">📖 บทเรียน</a>
-                <a href="index.html#quizzes">🎯 แบบทดสอบทั้งหมด</a>
-            </nav>
-        </div>
-    </header>
-
-    <main class="premium-main quiz-container">
-        <div class="premium-article">
-            <span class="badge">เฉลยละเอียดทุกข้อ!</span>
-            <h1>🎯 แบบทดสอบ: Methods</h1>
-            <p style="margin-bottom: 30px;">30 ข้อ | Parameters, Return values, Overloading</p>
-
-            <div class="score-display">
-                <span>🏆 คะแนน: <strong id="current-score">0</strong> / 30</span>
-                <span>✅ ตอบแล้ว: <strong id="answered">0</strong> ข้อ</span>
-            </div>
-
-            <form id="quiz-form">
-                <!-- ง่าย -->
-                <div class="question easy" data-answer="b">
-                    <span class="difficulty">ง่าย</span>
-                    <div class="q-number">ข้อ 1</div>
-                    <div class="q-text">Method คืออะไร?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q1" value="a"><span
-                                class="option-letter">A</span><span>ตัวแปร</span></label>
-                        <label class="option"><input type="radio" name="q1" value="b"><span
-                                class="option-letter">B</span><span>ชุดคำสั่งที่ทำงานเฉพาะ</span></label>
-                        <label class="option"><input type="radio" name="q1" value="c"><span
-                                class="option-letter">C</span><span>ประเภทข้อมูล</span></label>
-                        <label class="option"><input type="radio" name="q1" value="d"><span
-                                class="option-letter">D</span><span>คลาส</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>Method (หรือฟังก์ชัน) คือกลุ่มของคำสั่งที่ถูกรวมไว้ด้วยกันเพื่อทำงานเฉพาะอย่าง
-                            ทำให้โค้ดเป็นระเบียบและเรียกใช้ซ้ำได้</p>
-                    </div>
+        <header class="premium-header">
+                <div class="header-content">
+                        <a href="index.html" class="logo">📚 บันทึกการติว</a>
+                        <nav>
+                                <a href="05-methods.html">📖 บทเรียน</a>
+                                <a href="index.html#quizzes">🎯 แบบทดสอบทั้งหมด</a>
+                        </nav>
                 </div>
+        </header>
 
-                <div class="question easy" data-answer="c">
-                    <span class="difficulty">ง่าย</span>
-                    <div class="q-number">ข้อ 2</div>
-                    <div class="q-text">คำใดใช้คืนค่าจาก Method?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q2" value="a"><span
-                                class="option-letter">A</span><span>give</span></label>
-                        <label class="option"><input type="radio" name="q2" value="b"><span
-                                class="option-letter">B</span><span>send</span></label>
-                        <label class="option"><input type="radio" name="q2" value="c"><span
-                                class="option-letter">C</span><span>return</span></label>
-                        <label class="option"><input type="radio" name="q2" value="d"><span
-                                class="option-letter">D</span><span>output</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>Keyword <code>return</code> ใช้สำหรับส่งค่ากลับจาก Method ไปยังจุดที่เรียกใช้</p>
-                    </div>
+        <main class="premium-main quiz-container">
+                <div class="premium-article">
+                        <span class="badge">เฉลยละเอียดทุกข้อ!</span>
+                        <h1>🎯 แบบทดสอบ: Methods</h1>
+                        <p style="margin-bottom: 30px;">30 ข้อ | Parameters, Return values, Overloading</p>
+
+                        <div class="score-display">
+                                <span>🏆 คะแนน: <strong id="current-score">0</strong> / 30</span>
+                                <span>✅ ตอบแล้ว: <strong id="answered">0</strong> ข้อ</span>
+                        </div>
+
+                        <form id="quiz-form">
+                                <!-- ง่าย -->
+                                <div class="question easy" data-answer="b">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 1</div>
+                                        <div class="q-text">Method คืออะไร?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q1" value="a"><span
+                                                                class="option-letter">A</span><span>ตัวแปร</span></label>
+                                                <label class="option"><input type="radio" name="q1" value="b"><span
+                                                                class="option-letter">B</span><span>ชุดคำสั่งที่ทำงานเฉพาะ</span></label>
+                                                <label class="option"><input type="radio" name="q1" value="c"><span
+                                                                class="option-letter">C</span><span>ประเภทข้อมูล</span></label>
+                                                <label class="option"><input type="radio" name="q1" value="d"><span
+                                                                class="option-letter">D</span><span>คลาส</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Method (หรือฟังก์ชัน)
+                                                        คือกลุ่มของคำสั่งที่ถูกรวมไว้ด้วยกันเพื่อทำงานเฉพาะอย่าง
+                                                        ทำให้โค้ดเป็นระเบียบและเรียกใช้ซ้ำได้</p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="c">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 2</div>
+                                        <div class="q-text">คำใดใช้คืนค่าจาก Method?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q2" value="a"><span
+                                                                class="option-letter">A</span><span>give</span></label>
+                                                <label class="option"><input type="radio" name="q2" value="b"><span
+                                                                class="option-letter">B</span><span>send</span></label>
+                                                <label class="option"><input type="radio" name="q2" value="c"><span
+                                                                class="option-letter">C</span><span>return</span></label>
+                                                <label class="option"><input type="radio" name="q2" value="d"><span
+                                                                class="option-letter">D</span><span>output</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Keyword <code>return</code> ใช้สำหรับส่งค่ากลับจาก Method
+                                                        ไปยังจุดที่เรียกใช้</p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="a">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 3</div>
+                                        <div class="q-text">void หมายความว่า?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q3" value="a"><span
+                                                                class="option-letter">A</span><span>ไม่คืนค่า</span></label>
+                                                <label class="option"><input type="radio" name="q3" value="b"><span
+                                                                class="option-letter">B</span><span>คืนค่า
+                                                                int</span></label>
+                                                <label class="option"><input type="radio" name="q3" value="c"><span
+                                                                class="option-letter">C</span><span>คืนค่า
+                                                                String</span></label>
+                                                <label class="option"><input type="radio" name="q3" value="d"><span
+                                                                class="option-letter">D</span><span>ว่างเปล่า</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>void</code> เป็น Return Type ที่ระบุว่า Method นี้จะ
+                                                        <strong>ไม่ส่งค่าใดๆ
+                                                                กลับมา</strong> (ทำงานเสร็จแล้วจบไป)
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="d">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 4</div>
+                                        <div class="q-text">Parameter คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q4" value="a"><span
+                                                                class="option-letter">A</span><span>ค่าที่คืน</span></label>
+                                                <label class="option"><input type="radio" name="q4" value="b"><span
+                                                                class="option-letter">B</span><span>ชื่อ
+                                                                Method</span></label>
+                                                <label class="option"><input type="radio" name="q4" value="c"><span
+                                                                class="option-letter">C</span><span>ข้อผิดพลาด</span></label>
+                                                <label class="option"><input type="radio" name="q4" value="d"><span
+                                                                class="option-letter">D</span><span>ค่าที่รับเข้ามา</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Parameter (พารามิเตอร์) คือตัวแปรที่ประกาศไว้ในวงเล็บของ Method
+                                                        เพื่อรอรับข้อมูลเข้ามาใช้งาน
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="b">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 5</div>
+                                        <div class="q-text">static method เรียกใช้โดย?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q5" value="a"><span
+                                                                class="option-letter">A</span><span>ต้องสร้าง
+                                                                Object</span></label>
+                                                <label class="option"><input type="radio" name="q5" value="b"><span
+                                                                class="option-letter">B</span><span>ไม่ต้องสร้าง
+                                                                Object</span></label>
+                                                <label class="option"><input type="radio" name="q5" value="c"><span
+                                                                class="option-letter">C</span><span>ใช้
+                                                                new</span></label>
+                                                <label class="option"><input type="radio" name="q5" value="d"><span
+                                                                class="option-letter">D</span><span>ใช้
+                                                                import</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Method ที่เป็น <code>static</code> เป็นของ Class ไม่ใช่อ็อบเจกต์
+                                                        จึงสามารถเรียกใช้ได้เลยผ่านชื่อ Class โดยไม่ต้อง
+                                                        <code>new</code>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="c">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 6</div>
+                                        <div class="q-text">public static void main(...) เป็น?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q6" value="a"><span
+                                                                class="option-letter">A</span><span>ตัวแปร</span></label>
+                                                <label class="option"><input type="radio" name="q6" value="b"><span
+                                                                class="option-letter">B</span><span>คลาส</span></label>
+                                                <label class="option"><input type="radio" name="q6" value="c"><span
+                                                                class="option-letter">C</span><span>Method</span></label>
+                                                <label class="option"><input type="radio" name="q6" value="d"><span
+                                                                class="option-letter">D</span><span>Constructor</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>main เป็น <strong>Method</strong>
+                                                        หลักที่เป็นจุดเริ่มต้นการทำงานของโปรแกรม Java</p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="a">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 7</div>
+                                        <div class="q-text">Method หนึ่งควรทำหน้าที่กี่อย่าง?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q7" value="a"><span
+                                                                class="option-letter">A</span><span>1
+                                                                อย่าง</span></label>
+                                                <label class="option"><input type="radio" name="q7" value="b"><span
+                                                                class="option-letter">B</span><span>หลายอย่าง</span></label>
+                                                <label class="option"><input type="radio" name="q7" value="c"><span
+                                                                class="option-letter">C</span><span>ไม่มีขีดจำกัด</span></label>
+                                                <label class="option"><input type="radio" name="q7" value="d"><span
+                                                                class="option-letter">D</span><span>3
+                                                                อย่าง</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ตามหลักการ Clean Code ที่ดี (Single Responsibility) Method
+                                                        ควรทำหน้าที่หลักเพียง <strong>1
+                                                                อย่าง</strong> เท่านั้น</p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="d">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 8</div>
+                                        <div class="q-text">การเรียก Method ใช้สัญลักษณ์อะไร?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q8" value="a"><span
+                                                                class="option-letter">A</span><span>{}</span></label>
+                                                <label class="option"><input type="radio" name="q8" value="b"><span
+                                                                class="option-letter">B</span><span>[]</span></label>
+                                                <label class="option"><input type="radio" name="q8" value="c"><span
+                                                                class="option-letter">C</span><span>&lt;&gt;</span></label>
+                                                <label class="option"><input type="radio" name="q8" value="d"><span
+                                                                class="option-letter">D</span><span>()</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ใช้วงเล็บ <code>()</code> ต่อท้ายชื่อ Method เพื่อสั่งให้ทำงาน เช่น
+                                                        <code>print()</code>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="b">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 9</div>
+                                        <div class="q-text">Method Overloading คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q9" value="a"><span
+                                                                class="option-letter">A</span><span>Method
+                                                                ชื่อต่างกัน</span></label>
+                                                <label class="option"><input type="radio" name="q9" value="b"><span
+                                                                class="option-letter">B</span><span>Method ชื่อเดียวกัน
+                                                                parameter ต่างกัน</span></label>
+                                                <label class="option"><input type="radio" name="q9" value="c"><span
+                                                                class="option-letter">C</span><span>Method
+                                                                ที่เร็ว</span></label>
+                                                <label class="option"><input type="radio" name="q9" value="d"><span
+                                                                class="option-letter">D</span><span>Method
+                                                                ที่ผิดพลาด</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Overloading คือการมี Method ชื่อเหมือนกันหลายตัวใน Class เดียวกัน
+                                                        แต่ต้องรับ Parameter
+                                                        ต่างกัน (ต่างที่จำนวนหรือประเภท)</p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="c">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 10</div>
+                                        <div class="q-text">Local variable อยู่ใน scope ไหน?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q10" value="a"><span
+                                                                class="option-letter">A</span><span>ทั้งโปรแกรม</span></label>
+                                                <label class="option"><input type="radio" name="q10" value="b"><span
+                                                                class="option-letter">B</span><span>ทั้งคลาส</span></label>
+                                                <label class="option"><input type="radio" name="q10" value="c"><span
+                                                                class="option-letter">C</span><span>ภายใน
+                                                                Method</span></label>
+                                                <label class="option"><input type="radio" name="q10" value="d"><span
+                                                                class="option-letter">D</span><span>ภายนอก
+                                                                Method</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ตัวแปร Local คือตัวแปรที่ประกาศใน Method
+                                                        และจะมองเห็นหรือใช้งานได้เฉพาะ <strong>ภายใน Method
+                                                                นั้นๆ</strong> เท่านั้น</p>
+                                        </div>
+                                </div>
+
+                                <!-- ปานกลาง -->
+                                <div class="question medium" data-answer="a">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 11</div>
+                                        <div class="q-text"><code>int add(int a, int b){return a+b;}</code> ผลของ
+                                                <code>add(3,5)</code>?
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q11" value="a"><span
+                                                                class="option-letter">A</span><span>8</span></label>
+                                                <label class="option"><input type="radio" name="q11" value="b"><span
+                                                                class="option-letter">B</span><span>35</span></label>
+                                                <label class="option"><input type="radio" name="q11" value="c"><span
+                                                                class="option-letter">C</span><span>15</span></label>
+                                                <label class="option"><input type="radio" name="q11" value="d"><span
+                                                                class="option-letter">D</span><span>Error</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>3 + 5 เท่ากับ <strong>8</strong></p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="d">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 12</div>
+                                        <div class="q-text"><code>int square(int n){return n*n;}</code> ผลของ
+                                                <code>square(4)</code>?
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q12" value="a"><span
+                                                                class="option-letter">A</span><span>4</span></label>
+                                                <label class="option"><input type="radio" name="q12" value="b"><span
+                                                                class="option-letter">B</span><span>8</span></label>
+                                                <label class="option"><input type="radio" name="q12" value="c"><span
+                                                                class="option-letter">C</span><span>44</span></label>
+                                                <label class="option"><input type="radio" name="q12" value="d"><span
+                                                                class="option-letter">D</span><span>16</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>4 คูณ 4 เท่ากับ <strong>16</strong></p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="b">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 13</div>
+                                        <div class="q-text"><code>void greet(){print("Hi");}</code> มี return type?
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q13" value="a"><span
+                                                                class="option-letter">A</span><span>int</span></label>
+                                                <label class="option"><input type="radio" name="q13" value="b"><span
+                                                                class="option-letter">B</span><span>void</span></label>
+                                                <label class="option"><input type="radio" name="q13" value="c"><span
+                                                                class="option-letter">C</span><span>String</span></label>
+                                                <label class="option"><input type="radio" name="q13" value="d"><span
+                                                                class="option-letter">D</span><span>boolean</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Return type คือคำที่อยู่หน้าชื่อ Method ในที่นี้คือ
+                                                        <strong>void</strong>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="c">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 14</div>
+                                        <div class="q-text"><code>String getName(){return "Java";}</code> ผลของ
+                                                <code>getName()</code>?
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q14" value="a"><span
+                                                                class="option-letter">A</span><span>getName</span></label>
+                                                <label class="option"><input type="radio" name="q14" value="b"><span
+                                                                class="option-letter">B</span><span>String</span></label>
+                                                <label class="option"><input type="radio" name="q14" value="c"><span
+                                                                class="option-letter">C</span><span>Java</span></label>
+                                                <label class="option"><input type="radio" name="q14" value="d"><span
+                                                                class="option-letter">D</span><span>null</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Method คืนค่า String คำว่า <strong>"Java"</strong> กลับมา</p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="a">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 15</div>
+                                        <div class="q-text"><code>boolean isEven(int n){return n%2==0;}</code> ผลของ
+                                                <code>isEven(4)</code>?
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q15" value="a"><span
+                                                                class="option-letter">A</span><span>true</span></label>
+                                                <label class="option"><input type="radio" name="q15" value="b"><span
+                                                                class="option-letter">B</span><span>false</span></label>
+                                                <label class="option"><input type="radio" name="q15" value="c"><span
+                                                                class="option-letter">C</span><span>0</span></label>
+                                                <label class="option"><input type="radio" name="q15" value="d"><span
+                                                                class="option-letter">D</span><span>Error</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>4 หาร 2 ลงตัว เศษเป็น 0 เงื่อนไข <code>4%2==0</code> เป็นจริง จึงได้
+                                                        <strong>true</strong>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="b">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 16</div>
+                                        <div class="q-text"><code>boolean isEven(int n){return n%2==0;}</code> ผลของ
+                                                <code>isEven(5)</code>?
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q16" value="a"><span
+                                                                class="option-letter">A</span><span>true</span></label>
+                                                <label class="option"><input type="radio" name="q16" value="b"><span
+                                                                class="option-letter">B</span><span>false</span></label>
+                                                <label class="option"><input type="radio" name="q16" value="c"><span
+                                                                class="option-letter">C</span><span>1</span></label>
+                                                <label class="option"><input type="radio" name="q16" value="d"><span
+                                                                class="option-letter">D</span><span>Error</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>5 หาร 2 เหลือเศษ 1 เงื่อนไข <code>1==0</code> เป็นเท็จ จึงได้
+                                                        <strong>false</strong>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="d">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 17</div>
+                                        <div class="q-text"><code>int max(int a,int b){return a>b?a:b;}</code> ผลของ
+                                                <code>max(7,3)</code>?
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q17" value="a"><span
+                                                                class="option-letter">A</span><span>3</span></label>
+                                                <label class="option"><input type="radio" name="q17" value="b"><span
+                                                                class="option-letter">B</span><span>10</span></label>
+                                                <label class="option"><input type="radio" name="q17" value="c"><span
+                                                                class="option-letter">C</span><span>4</span></label>
+                                                <label class="option"><input type="radio" name="q17" value="d"><span
+                                                                class="option-letter">D</span><span>7</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ใช้ Ternary Operator: 7 > 3 เป็นจริง จึงคืนค่า a คือ
+                                                        <strong>7</strong>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="c">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 18</div>
+                                        <div class="q-text">Method ที่เรียกตัวเองเรียกว่า?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q18" value="a"><span
+                                                                class="option-letter">A</span><span>Loop</span></label>
+                                                <label class="option"><input type="radio" name="q18" value="b"><span
+                                                                class="option-letter">B</span><span>Overloading</span></label>
+                                                <label class="option"><input type="radio" name="q18" value="c"><span
+                                                                class="option-letter">C</span><span>Recursion</span></label>
+                                                <label class="option"><input type="radio" name="q18" value="d"><span
+                                                                class="option-letter">D</span><span>Overriding</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Recursion (รีเคอร์ชัน)
+                                                        คือเทคนิคที่ฟังก์ชันเรียกใช้ตัวเองเพื่อแก้ปัญหาทำซ้ำ</p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="a">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 19</div>
+                                        <div class="q-text">
+                                                <code>int fact(int n){if(n<=1)return 1; return n*fact(n-1);}</code>
+                                                fact(3)?
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q19" value="a"><span
+                                                                class="option-letter">A</span><span>6</span></label>
+                                                <label class="option"><input type="radio" name="q19" value="b"><span
+                                                                class="option-letter">B</span><span>3</span></label>
+                                                <label class="option"><input type="radio" name="q19" value="c"><span
+                                                                class="option-letter">C</span><span>9</span></label>
+                                                <label class="option"><input type="radio" name="q19" value="d"><span
+                                                                class="option-letter">D</span><span>1</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>3 * fact(2) -> 3 * (2 * fact(1)) -> 3 * 2 * 1 = <strong>6</strong>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="b">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 20</div>
+                                        <div class="q-text"><code>void swap(int a,int b){int t=a;a=b;b=t;}</code> การ
+                                                swap ใน Java แบบนี้?
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q20" value="a"><span
+                                                                class="option-letter">A</span><span>ได้ผล</span></label>
+                                                <label class="option"><input type="radio" name="q20" value="b"><span
+                                                                class="option-letter">B</span><span>ไม่ได้ผล (Pass by
+                                                                Value)</span></label>
+                                                <label class="option"><input type="radio" name="q20" value="c"><span
+                                                                class="option-letter">C</span><span>Error</span></label>
+                                                <label class="option"><input type="radio" name="q20" value="d"><span
+                                                                class="option-letter">D</span><span>ได้ผลบางครั้ง</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Java ส่ง Primitive Type แบบ <strong>Pass by Value</strong>
+                                                        (ส่งสำเนาค่า) การสลับค่าภายใน
+                                                        Method จึงไม่มีผลกับตัวแปรภายนอก</p>
+                                        </div>
+                                </div>
+
+                                <!-- ยาก -->
+                                <div class="question hard" data-answer="c">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 21</div>
+                                        <div class="q-text">ข้อใดเป็น Method Overloading ที่ถูกต้อง?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q21" value="a"><span
+                                                                class="option-letter">A</span><span>int add(int a) และ
+                                                                void add(int a)</span></label>
+                                                <label class="option"><input type="radio" name="q21" value="b"><span
+                                                                class="option-letter">B</span><span>int add(int a) และ
+                                                                int add(int b)</span></label>
+                                                <label class="option"><input type="radio" name="q21" value="c"><span
+                                                                class="option-letter">C</span><span>int add(int a) และ
+                                                                int add(int a, int
+                                                                b)</span></label>
+                                                <label class="option"><input type="radio" name="q21" value="d"><span
+                                                                class="option-letter">D</span><span>int add() และ int
+                                                                add()</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ข้อ C ถูกต้องเพราะ Parameter ต่างกัน (1 ตัว vs 2 ตัว) ส่วนข้อ A, B, D
+                                                        ผิดเพราะ Parameter
+                                                        เหมือนกัน (Java แยกไม่ออก)</p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="a">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 22</div>
+                                        <div class="q-text"><code>int sum(int...nums)</code> เป็น?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q22" value="a"><span
+                                                                class="option-letter">A</span><span>Varargs</span></label>
+                                                <label class="option"><input type="radio" name="q22" value="b"><span
+                                                                class="option-letter">B</span><span>Array</span></label>
+                                                <label class="option"><input type="radio" name="q22" value="c"><span
+                                                                class="option-letter">C</span><span>Pointer</span></label>
+                                                <label class="option"><input type="radio" name="q22" value="d"><span
+                                                                class="option-letter">D</span><span>Error</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Varargs (Variable Arguments) ใช้สัญลักษณ์ <code>...</code>
+                                                        เพื่อรับค่าจำนวนกี่ตัวก็ได้เข้ามาเป็น Array</p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="d">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 23</div>
+                                        <div class="q-text"><code>int sum(int...n){...return s;}</code> sum(1,2,3,4)?
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q23" value="a"><span
+                                                                class="option-letter">A</span><span>4</span></label>
+                                                <label class="option"><input type="radio" name="q23" value="b"><span
+                                                                class="option-letter">B</span><span>1234</span></label>
+                                                <label class="option"><input type="radio" name="q23" value="c"><span
+                                                                class="option-letter">C</span><span>24</span></label>
+                                                <label class="option"><input type="radio" name="q23" value="d"><span
+                                                                class="option-letter">D</span><span>10</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>เป็นการหาผลรวมของ 1+2+3+4 = <strong>10</strong></p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="b">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 24</div>
+                                        <div class="q-text">Method signature ประกอบด้วย?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q24" value="a"><span
+                                                                class="option-letter">A</span><span>ชื่อ + return
+                                                                type</span></label>
+                                                <label class="option"><input type="radio" name="q24" value="b"><span
+                                                                class="option-letter">B</span><span>ชื่อ + parameter
+                                                                types</span></label>
+                                                <label class="option"><input type="radio" name="q24" value="c"><span
+                                                                class="option-letter">C</span><span>return type +
+                                                                body</span></label>
+                                                <label class="option"><input type="radio" name="q24" value="d"><span
+                                                                class="option-letter">D</span><span>access modifier +
+                                                                ชื่อ</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Signature (ลายเซ็น) ของ Method ที่ใช้ระบุตัวตนคือ <strong>ชื่อ +
+                                                                ประเภทของพารามิเตอร์</strong> (ไม่รวม Return type)</p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="c">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 25</div>
+                                        <div class="q-text"><code>static int count=0;</code> เป็น?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q25" value="a"><span
+                                                                class="option-letter">A</span><span>Local
+                                                                variable</span></label>
+                                                <label class="option"><input type="radio" name="q25" value="b"><span
+                                                                class="option-letter">B</span><span>Instance
+                                                                variable</span></label>
+                                                <label class="option"><input type="radio" name="q25" value="c"><span
+                                                                class="option-letter">C</span><span>Class
+                                                                variable</span></label>
+                                                <label class="option"><input type="radio" name="q25" value="d"><span
+                                                                class="option-letter">D</span><span>Constant</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ตัวแปร static จะถูกแชร์ร่วมกันทุกอ็อบเจกต์ เรียกว่า <strong>Class
+                                                                Variable</strong> (ถ้ามี
+                                                        final ด้วยถึงจะเป็น Constant)</p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="a">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 26</div>
+                                        <div class="q-text">final method คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q26" value="a"><span
+                                                                class="option-letter">A</span><span>Method ที่ override
+                                                                ไม่ได้</span></label>
+                                                <label class="option"><input type="radio" name="q26" value="b"><span
+                                                                class="option-letter">B</span><span>Method
+                                                                สุดท้าย</span></label>
+                                                <label class="option"><input type="radio" name="q26" value="c"><span
+                                                                class="option-letter">C</span><span>Method
+                                                                ที่เร็ว</span></label>
+                                                <label class="option"><input type="radio" name="q26" value="d"><span
+                                                                class="option-letter">D</span><span>Method
+                                                                private</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>final</code> method ป้องกันไม่ให้คลาสลูก (Subclass)
+                                                        นำไปเขียนทับ (Override)
+                                                        เพื่อเปลี่ยนพฤติกรรม</p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="d">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 27</div>
+                                        <div class="q-text"><code>int fib(int n){...}</code> fib(5)?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q27" value="a"><span
+                                                                class="option-letter">A</span><span>8</span></label>
+                                                <label class="option"><input type="radio" name="q27" value="b"><span
+                                                                class="option-letter">B</span><span>3</span></label>
+                                                <label class="option"><input type="radio" name="q27" value="c"><span
+                                                                class="option-letter">C</span><span>13</span></label>
+                                                <label class="option"><input type="radio" name="q27" value="d"><span
+                                                                class="option-letter">D</span><span>5</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ลำดับ Fibonacci: 0, 1, 1, 2, 3, <strong>5</strong>, 8...
+                                                        ดังนั้นตัวที่ 5 (ถ้าเริ่ม 0, 1) คือ
+                                                        5</p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="b">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 28</div>
+                                        <div class="q-text"><code>void modify(int[] arr){arr[0]=99;}</code> หลังเรียก
+                                                <code>arr[0]</code>?
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q28" value="a"><span
+                                                                class="option-letter">A</span><span>ค่าเดิม</span></label>
+                                                <label class="option"><input type="radio" name="q28" value="b"><span
+                                                                class="option-letter">B</span><span>99</span></label>
+                                                <label class="option"><input type="radio" name="q28" value="c"><span
+                                                                class="option-letter">C</span><span>0</span></label>
+                                                <label class="option"><input type="radio" name="q28" value="d"><span
+                                                                class="option-letter">D</span><span>Error</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Array เป็น Object เมื่อส่งเข้า Method จะเป็นการส่ง
+                                                        <strong>Reference</strong> (ที่อยู่) ไป
+                                                        ดังนั้นการแก้ไขข้างในจึงส่งผลกระทบออกมาข้างนอกด้วย
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="c">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 29</div>
+                                        <div class="q-text"><code>avg(2,4,6)</code> ได้ค่าเท่าไหร่?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q29" value="a"><span
+                                                                class="option-letter">A</span><span>12</span></label>
+                                                <label class="option"><input type="radio" name="q29" value="b"><span
+                                                                class="option-letter">B</span><span>3</span></label>
+                                                <label class="option"><input type="radio" name="q29" value="c"><span
+                                                                class="option-letter">C</span><span>4.0</span></label>
+                                                <label class="option"><input type="radio" name="q29" value="d"><span
+                                                                class="option-letter">D</span><span>6</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>(2+4+6)/3 = 12/3 = 4.0 (มีการ cast เป็น double
+                                                        จึงไม่ใช่จำนวนเต็มเฉยๆ)</p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="a">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 30</div>
+                                        <div class="q-text">private method เรียกใช้จากไหนได้?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q30" value="a"><span
+                                                                class="option-letter">A</span><span>ภายใน class
+                                                                เดียวกัน</span></label>
+                                                <label class="option"><input type="radio" name="q30" value="b"><span
+                                                                class="option-letter">B</span><span>ทุกที่</span></label>
+                                                <label class="option"><input type="radio" name="q30" value="c"><span
+                                                                class="option-letter">C</span><span>subclass</span></label>
+                                                <label class="option"><input type="radio" name="q30" value="d"><span
+                                                                class="option-letter">D</span><span>package
+                                                                เดียวกัน</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>private</code> เป็นระดับการเข้าถึงที่แคบที่สุด มองเห็นได้เฉพาะ
+                                                        <strong>ภายใน Class
+                                                                ตัวเอง</strong> เท่านั้น
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <button type="button" class="btn-submit" onclick="submitQuiz()">🎯 ตรวจคำตอบ</button>
+                        </form>
+
+                        <div class="result" id="result">
+                                <h2>🎉 ผลการทำแบบทดสอบ</h2>
+                                <div class="score-big" id="final-score">0/30</div>
+                                <p id="result-text" style="font-size: 1.3rem; margin-top: 15px;"></p>
+                                <a href="index.html#quizzes" class="btn-primary"
+                                        style="margin-top: 25px;">กลับหน้าแบบทดสอบ</a>
+                        </div>
                 </div>
+        </main>
 
-                <div class="question easy" data-answer="a">
-                    <span class="difficulty">ง่าย</span>
-                    <div class="q-number">ข้อ 3</div>
-                    <div class="q-text">void หมายความว่า?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q3" value="a"><span
-                                class="option-letter">A</span><span>ไม่คืนค่า</span></label>
-                        <label class="option"><input type="radio" name="q3" value="b"><span
-                                class="option-letter">B</span><span>คืนค่า int</span></label>
-                        <label class="option"><input type="radio" name="q3" value="c"><span
-                                class="option-letter">C</span><span>คืนค่า String</span></label>
-                        <label class="option"><input type="radio" name="q3" value="d"><span
-                                class="option-letter">D</span><span>ว่างเปล่า</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p><code>void</code> เป็น Return Type ที่ระบุว่า Method นี้จะ <strong>ไม่ส่งค่าใดๆ
-                                กลับมา</strong> (ทำงานเสร็จแล้วจบไป)</p>
-                    </div>
-                </div>
-
-                <div class="question easy" data-answer="d">
-                    <span class="difficulty">ง่าย</span>
-                    <div class="q-number">ข้อ 4</div>
-                    <div class="q-text">Parameter คือ?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q4" value="a"><span
-                                class="option-letter">A</span><span>ค่าที่คืน</span></label>
-                        <label class="option"><input type="radio" name="q4" value="b"><span
-                                class="option-letter">B</span><span>ชื่อ Method</span></label>
-                        <label class="option"><input type="radio" name="q4" value="c"><span
-                                class="option-letter">C</span><span>ข้อผิดพลาด</span></label>
-                        <label class="option"><input type="radio" name="q4" value="d"><span
-                                class="option-letter">D</span><span>ค่าที่รับเข้ามา</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>Parameter (พารามิเตอร์) คือตัวแปรที่ประกาศไว้ในวงเล็บของ Method เพื่อรอรับข้อมูลเข้ามาใช้งาน
-                        </p>
-                    </div>
-                </div>
-
-                <div class="question easy" data-answer="b">
-                    <span class="difficulty">ง่าย</span>
-                    <div class="q-number">ข้อ 5</div>
-                    <div class="q-text">static method เรียกใช้โดย?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q5" value="a"><span
-                                class="option-letter">A</span><span>ต้องสร้าง Object</span></label>
-                        <label class="option"><input type="radio" name="q5" value="b"><span
-                                class="option-letter">B</span><span>ไม่ต้องสร้าง Object</span></label>
-                        <label class="option"><input type="radio" name="q5" value="c"><span
-                                class="option-letter">C</span><span>ใช้ new</span></label>
-                        <label class="option"><input type="radio" name="q5" value="d"><span
-                                class="option-letter">D</span><span>ใช้ import</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>Method ที่เป็น <code>static</code> เป็นของ Class ไม่ใช่อ็อบเจกต์
-                            จึงสามารถเรียกใช้ได้เลยผ่านชื่อ Class โดยไม่ต้อง <code>new</code></p>
-                    </div>
-                </div>
-
-                <div class="question easy" data-answer="c">
-                    <span class="difficulty">ง่าย</span>
-                    <div class="q-number">ข้อ 6</div>
-                    <div class="q-text">public static void main(...) เป็น?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q6" value="a"><span
-                                class="option-letter">A</span><span>ตัวแปร</span></label>
-                        <label class="option"><input type="radio" name="q6" value="b"><span
-                                class="option-letter">B</span><span>คลาส</span></label>
-                        <label class="option"><input type="radio" name="q6" value="c"><span
-                                class="option-letter">C</span><span>Method</span></label>
-                        <label class="option"><input type="radio" name="q6" value="d"><span
-                                class="option-letter">D</span><span>Constructor</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>main เป็น <strong>Method</strong> หลักที่เป็นจุดเริ่มต้นการทำงานของโปรแกรม Java</p>
-                    </div>
-                </div>
-
-                <div class="question easy" data-answer="a">
-                    <span class="difficulty">ง่าย</span>
-                    <div class="q-number">ข้อ 7</div>
-                    <div class="q-text">Method หนึ่งควรทำหน้าที่กี่อย่าง?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q7" value="a"><span
-                                class="option-letter">A</span><span>1 อย่าง</span></label>
-                        <label class="option"><input type="radio" name="q7" value="b"><span
-                                class="option-letter">B</span><span>หลายอย่าง</span></label>
-                        <label class="option"><input type="radio" name="q7" value="c"><span
-                                class="option-letter">C</span><span>ไม่มีขีดจำกัด</span></label>
-                        <label class="option"><input type="radio" name="q7" value="d"><span
-                                class="option-letter">D</span><span>3 อย่าง</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>ตามหลักการ Clean Code ที่ดี (Single Responsibility) Method ควรทำหน้าที่หลักเพียง <strong>1
-                                อย่าง</strong> เท่านั้น</p>
-                    </div>
-                </div>
-
-                <div class="question easy" data-answer="d">
-                    <span class="difficulty">ง่าย</span>
-                    <div class="q-number">ข้อ 8</div>
-                    <div class="q-text">การเรียก Method ใช้สัญลักษณ์อะไร?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q8" value="a"><span
-                                class="option-letter">A</span><span>{}</span></label>
-                        <label class="option"><input type="radio" name="q8" value="b"><span
-                                class="option-letter">B</span><span>[]</span></label>
-                        <label class="option"><input type="radio" name="q8" value="c"><span
-                                class="option-letter">C</span><span>&lt;&gt;</span></label>
-                        <label class="option"><input type="radio" name="q8" value="d"><span
-                                class="option-letter">D</span><span>()</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>ใช้วงเล็บ <code>()</code> ต่อท้ายชื่อ Method เพื่อสั่งให้ทำงาน เช่น <code>print()</code></p>
-                    </div>
-                </div>
-
-                <div class="question easy" data-answer="b">
-                    <span class="difficulty">ง่าย</span>
-                    <div class="q-number">ข้อ 9</div>
-                    <div class="q-text">Method Overloading คือ?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q9" value="a"><span
-                                class="option-letter">A</span><span>Method ชื่อต่างกัน</span></label>
-                        <label class="option"><input type="radio" name="q9" value="b"><span
-                                class="option-letter">B</span><span>Method ชื่อเดียวกัน parameter ต่างกัน</span></label>
-                        <label class="option"><input type="radio" name="q9" value="c"><span
-                                class="option-letter">C</span><span>Method ที่เร็ว</span></label>
-                        <label class="option"><input type="radio" name="q9" value="d"><span
-                                class="option-letter">D</span><span>Method ที่ผิดพลาด</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>Overloading คือการมี Method ชื่อเหมือนกันหลายตัวใน Class เดียวกัน แต่ต้องรับ Parameter
-                            ต่างกัน (ต่างที่จำนวนหรือประเภท)</p>
-                    </div>
-                </div>
-
-                <div class="question easy" data-answer="c">
-                    <span class="difficulty">ง่าย</span>
-                    <div class="q-number">ข้อ 10</div>
-                    <div class="q-text">Local variable อยู่ใน scope ไหน?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q10" value="a"><span
-                                class="option-letter">A</span><span>ทั้งโปรแกรม</span></label>
-                        <label class="option"><input type="radio" name="q10" value="b"><span
-                                class="option-letter">B</span><span>ทั้งคลาส</span></label>
-                        <label class="option"><input type="radio" name="q10" value="c"><span
-                                class="option-letter">C</span><span>ภายใน Method</span></label>
-                        <label class="option"><input type="radio" name="q10" value="d"><span
-                                class="option-letter">D</span><span>ภายนอก Method</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>ตัวแปร Local คือตัวแปรที่ประกาศใน Method และจะมองเห็นหรือใช้งานได้เฉพาะ <strong>ภายใน Method
-                                นั้นๆ</strong> เท่านั้น</p>
-                    </div>
-                </div>
-
-                <!-- ปานกลาง -->
-                <div class="question medium" data-answer="a">
-                    <span class="difficulty">ปานกลาง</span>
-                    <div class="q-number">ข้อ 11</div>
-                    <div class="q-text"><code>int add(int a, int b){return a+b;}</code> ผลของ <code>add(3,5)</code>?
-                    </div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q11" value="a"><span
-                                class="option-letter">A</span><span>8</span></label>
-                        <label class="option"><input type="radio" name="q11" value="b"><span
-                                class="option-letter">B</span><span>35</span></label>
-                        <label class="option"><input type="radio" name="q11" value="c"><span
-                                class="option-letter">C</span><span>15</span></label>
-                        <label class="option"><input type="radio" name="q11" value="d"><span
-                                class="option-letter">D</span><span>Error</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>3 + 5 เท่ากับ <strong>8</strong></p>
-                    </div>
-                </div>
-
-                <div class="question medium" data-answer="d">
-                    <span class="difficulty">ปานกลาง</span>
-                    <div class="q-number">ข้อ 12</div>
-                    <div class="q-text"><code>int square(int n){return n*n;}</code> ผลของ <code>square(4)</code>?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q12" value="a"><span
-                                class="option-letter">A</span><span>4</span></label>
-                        <label class="option"><input type="radio" name="q12" value="b"><span
-                                class="option-letter">B</span><span>8</span></label>
-                        <label class="option"><input type="radio" name="q12" value="c"><span
-                                class="option-letter">C</span><span>44</span></label>
-                        <label class="option"><input type="radio" name="q12" value="d"><span
-                                class="option-letter">D</span><span>16</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>4 คูณ 4 เท่ากับ <strong>16</strong></p>
-                    </div>
-                </div>
-
-                <div class="question medium" data-answer="b">
-                    <span class="difficulty">ปานกลาง</span>
-                    <div class="q-number">ข้อ 13</div>
-                    <div class="q-text"><code>void greet(){print("Hi");}</code> มี return type?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q13" value="a"><span
-                                class="option-letter">A</span><span>int</span></label>
-                        <label class="option"><input type="radio" name="q13" value="b"><span
-                                class="option-letter">B</span><span>void</span></label>
-                        <label class="option"><input type="radio" name="q13" value="c"><span
-                                class="option-letter">C</span><span>String</span></label>
-                        <label class="option"><input type="radio" name="q13" value="d"><span
-                                class="option-letter">D</span><span>boolean</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>Return type คือคำที่อยู่หน้าชื่อ Method ในที่นี้คือ <strong>void</strong></p>
-                    </div>
-                </div>
-
-                <div class="question medium" data-answer="c">
-                    <span class="difficulty">ปานกลาง</span>
-                    <div class="q-number">ข้อ 14</div>
-                    <div class="q-text"><code>String getName(){return "Java";}</code> ผลของ <code>getName()</code>?
-                    </div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q14" value="a"><span
-                                class="option-letter">A</span><span>getName</span></label>
-                        <label class="option"><input type="radio" name="q14" value="b"><span
-                                class="option-letter">B</span><span>String</span></label>
-                        <label class="option"><input type="radio" name="q14" value="c"><span
-                                class="option-letter">C</span><span>Java</span></label>
-                        <label class="option"><input type="radio" name="q14" value="d"><span
-                                class="option-letter">D</span><span>null</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>Method คืนค่า String คำว่า <strong>"Java"</strong> กลับมา</p>
-                    </div>
-                </div>
-
-                <div class="question medium" data-answer="a">
-                    <span class="difficulty">ปานกลาง</span>
-                    <div class="q-number">ข้อ 15</div>
-                    <div class="q-text"><code>boolean isEven(int n){return n%2==0;}</code> ผลของ <code>isEven(4)</code>?
-                    </div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q15" value="a"><span
-                                class="option-letter">A</span><span>true</span></label>
-                        <label class="option"><input type="radio" name="q15" value="b"><span
-                                class="option-letter">B</span><span>false</span></label>
-                        <label class="option"><input type="radio" name="q15" value="c"><span
-                                class="option-letter">C</span><span>0</span></label>
-                        <label class="option"><input type="radio" name="q15" value="d"><span
-                                class="option-letter">D</span><span>Error</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>4 หาร 2 ลงตัว เศษเป็น 0 เงื่อนไข <code>4%2==0</code> เป็นจริง จึงได้ <strong>true</strong>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="question medium" data-answer="b">
-                    <span class="difficulty">ปานกลาง</span>
-                    <div class="q-number">ข้อ 16</div>
-                    <div class="q-text"><code>boolean isEven(int n){return n%2==0;}</code> ผลของ <code>isEven(5)</code>?
-                    </div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q16" value="a"><span
-                                class="option-letter">A</span><span>true</span></label>
-                        <label class="option"><input type="radio" name="q16" value="b"><span
-                                class="option-letter">B</span><span>false</span></label>
-                        <label class="option"><input type="radio" name="q16" value="c"><span
-                                class="option-letter">C</span><span>1</span></label>
-                        <label class="option"><input type="radio" name="q16" value="d"><span
-                                class="option-letter">D</span><span>Error</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>5 หาร 2 เหลือเศษ 1 เงื่อนไข <code>1==0</code> เป็นเท็จ จึงได้ <strong>false</strong></p>
-                    </div>
-                </div>
-
-                <div class="question medium" data-answer="d">
-                    <span class="difficulty">ปานกลาง</span>
-                    <div class="q-number">ข้อ 17</div>
-                    <div class="q-text"><code>int max(int a,int b){return a>b?a:b;}</code> ผลของ <code>max(7,3)</code>?
-                    </div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q17" value="a"><span
-                                class="option-letter">A</span><span>3</span></label>
-                        <label class="option"><input type="radio" name="q17" value="b"><span
-                                class="option-letter">B</span><span>10</span></label>
-                        <label class="option"><input type="radio" name="q17" value="c"><span
-                                class="option-letter">C</span><span>4</span></label>
-                        <label class="option"><input type="radio" name="q17" value="d"><span
-                                class="option-letter">D</span><span>7</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>ใช้ Ternary Operator: 7 > 3 เป็นจริง จึงคืนค่า a คือ <strong>7</strong></p>
-                    </div>
-                </div>
-
-                <div class="question medium" data-answer="c">
-                    <span class="difficulty">ปานกลาง</span>
-                    <div class="q-number">ข้อ 18</div>
-                    <div class="q-text">Method ที่เรียกตัวเองเรียกว่า?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q18" value="a"><span
-                                class="option-letter">A</span><span>Loop</span></label>
-                        <label class="option"><input type="radio" name="q18" value="b"><span
-                                class="option-letter">B</span><span>Overloading</span></label>
-                        <label class="option"><input type="radio" name="q18" value="c"><span
-                                class="option-letter">C</span><span>Recursion</span></label>
-                        <label class="option"><input type="radio" name="q18" value="d"><span
-                                class="option-letter">D</span><span>Overriding</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>Recursion (รีเคอร์ชัน) คือเทคนิคที่ฟังก์ชันเรียกใช้ตัวเองเพื่อแก้ปัญหาทำซ้ำ</p>
-                    </div>
-                </div>
-
-                <div class="question medium" data-answer="a">
-                    <span class="difficulty">ปานกลาง</span>
-                    <div class="q-number">ข้อ 19</div>
-                    <div class="q-text"><code>int fact(int n){if(n<=1)return 1; return n*fact(n-1);}</code> fact(3)?
-                    </div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q19" value="a"><span
-                                class="option-letter">A</span><span>6</span></label>
-                        <label class="option"><input type="radio" name="q19" value="b"><span
-                                class="option-letter">B</span><span>3</span></label>
-                        <label class="option"><input type="radio" name="q19" value="c"><span
-                                class="option-letter">C</span><span>9</span></label>
-                        <label class="option"><input type="radio" name="q19" value="d"><span
-                                class="option-letter">D</span><span>1</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>3 * fact(2) -> 3 * (2 * fact(1)) -> 3 * 2 * 1 = <strong>6</strong></p>
-                    </div>
-                </div>
-
-                <div class="question medium" data-answer="b">
-                    <span class="difficulty">ปานกลาง</span>
-                    <div class="q-number">ข้อ 20</div>
-                    <div class="q-text"><code>void swap(int a,int b){int t=a;a=b;b=t;}</code> การ swap ใน Java แบบนี้?
-                    </div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q20" value="a"><span
-                                class="option-letter">A</span><span>ได้ผล</span></label>
-                        <label class="option"><input type="radio" name="q20" value="b"><span
-                                class="option-letter">B</span><span>ไม่ได้ผล (Pass by Value)</span></label>
-                        <label class="option"><input type="radio" name="q20" value="c"><span
-                                class="option-letter">C</span><span>Error</span></label>
-                        <label class="option"><input type="radio" name="q20" value="d"><span
-                                class="option-letter">D</span><span>ได้ผลบางครั้ง</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>Java ส่ง Primitive Type แบบ <strong>Pass by Value</strong> (ส่งสำเนาค่า) การสลับค่าภายใน
-                            Method จึงไม่มีผลกับตัวแปรภายนอก</p>
-                    </div>
-                </div>
-
-                <!-- ยาก -->
-                <div class="question hard" data-answer="c">
-                    <span class="difficulty">ยาก</span>
-                    <div class="q-number">ข้อ 21</div>
-                    <div class="q-text">ข้อใดเป็น Method Overloading ที่ถูกต้อง?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q21" value="a"><span
-                                class="option-letter">A</span><span>int add(int a) และ void add(int a)</span></label>
-                        <label class="option"><input type="radio" name="q21" value="b"><span
-                                class="option-letter">B</span><span>int add(int a) และ int add(int b)</span></label>
-                        <label class="option"><input type="radio" name="q21" value="c"><span
-                                class="option-letter">C</span><span>int add(int a) และ int add(int a, int
-                                b)</span></label>
-                        <label class="option"><input type="radio" name="q21" value="d"><span
-                                class="option-letter">D</span><span>int add() และ int add()</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>ข้อ C ถูกต้องเพราะ Parameter ต่างกัน (1 ตัว vs 2 ตัว) ส่วนข้อ A, B, D ผิดเพราะ Parameter
-                            เหมือนกัน (Java แยกไม่ออก)</p>
-                    </div>
-                </div>
-
-                <div class="question hard" data-answer="a">
-                    <span class="difficulty">ยาก</span>
-                    <div class="q-number">ข้อ 22</div>
-                    <div class="q-text"><code>int sum(int...nums)</code> เป็น?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q22" value="a"><span
-                                class="option-letter">A</span><span>Varargs</span></label>
-                        <label class="option"><input type="radio" name="q22" value="b"><span
-                                class="option-letter">B</span><span>Array</span></label>
-                        <label class="option"><input type="radio" name="q22" value="c"><span
-                                class="option-letter">C</span><span>Pointer</span></label>
-                        <label class="option"><input type="radio" name="q22" value="d"><span
-                                class="option-letter">D</span><span>Error</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>Varargs (Variable Arguments) ใช้สัญลักษณ์ <code>...</code>
-                            เพื่อรับค่าจำนวนกี่ตัวก็ได้เข้ามาเป็น Array</p>
-                    </div>
-                </div>
-
-                <div class="question hard" data-answer="d">
-                    <span class="difficulty">ยาก</span>
-                    <div class="q-number">ข้อ 23</div>
-                    <div class="q-text"><code>int sum(int...n){...return s;}</code> sum(1,2,3,4)?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q23" value="a"><span
-                                class="option-letter">A</span><span>4</span></label>
-                        <label class="option"><input type="radio" name="q23" value="b"><span
-                                class="option-letter">B</span><span>1234</span></label>
-                        <label class="option"><input type="radio" name="q23" value="c"><span
-                                class="option-letter">C</span><span>24</span></label>
-                        <label class="option"><input type="radio" name="q23" value="d"><span
-                                class="option-letter">D</span><span>10</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>เป็นการหาผลรวมของ 1+2+3+4 = <strong>10</strong></p>
-                    </div>
-                </div>
-
-                <div class="question hard" data-answer="b">
-                    <span class="difficulty">ยาก</span>
-                    <div class="q-number">ข้อ 24</div>
-                    <div class="q-text">Method signature ประกอบด้วย?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q24" value="a"><span
-                                class="option-letter">A</span><span>ชื่อ + return type</span></label>
-                        <label class="option"><input type="radio" name="q24" value="b"><span
-                                class="option-letter">B</span><span>ชื่อ + parameter types</span></label>
-                        <label class="option"><input type="radio" name="q24" value="c"><span
-                                class="option-letter">C</span><span>return type + body</span></label>
-                        <label class="option"><input type="radio" name="q24" value="d"><span
-                                class="option-letter">D</span><span>access modifier + ชื่อ</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>Signature (ลายเซ็น) ของ Method ที่ใช้ระบุตัวตนคือ <strong>ชื่อ +
-                                ประเภทของพารามิเตอร์</strong> (ไม่รวม Return type)</p>
-                    </div>
-                </div>
-
-                <div class="question hard" data-answer="c">
-                    <span class="difficulty">ยาก</span>
-                    <div class="q-number">ข้อ 25</div>
-                    <div class="q-text"><code>static int count=0;</code> เป็น?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q25" value="a"><span
-                                class="option-letter">A</span><span>Local variable</span></label>
-                        <label class="option"><input type="radio" name="q25" value="b"><span
-                                class="option-letter">B</span><span>Instance variable</span></label>
-                        <label class="option"><input type="radio" name="q25" value="c"><span
-                                class="option-letter">C</span><span>Class variable</span></label>
-                        <label class="option"><input type="radio" name="q25" value="d"><span
-                                class="option-letter">D</span><span>Constant</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>ตัวแปร static จะถูกแชร์ร่วมกันทุกอ็อบเจกต์ เรียกว่า <strong>Class Variable</strong> (ถ้ามี
-                            final ด้วยถึงจะเป็น Constant)</p>
-                    </div>
-                </div>
-
-                <div class="question hard" data-answer="a">
-                    <span class="difficulty">ยาก</span>
-                    <div class="q-number">ข้อ 26</div>
-                    <div class="q-text">final method คือ?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q26" value="a"><span
-                                class="option-letter">A</span><span>Method ที่ override ไม่ได้</span></label>
-                        <label class="option"><input type="radio" name="q26" value="b"><span
-                                class="option-letter">B</span><span>Method สุดท้าย</span></label>
-                        <label class="option"><input type="radio" name="q26" value="c"><span
-                                class="option-letter">C</span><span>Method ที่เร็ว</span></label>
-                        <label class="option"><input type="radio" name="q26" value="d"><span
-                                class="option-letter">D</span><span>Method private</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p><code>final</code> method ป้องกันไม่ให้คลาสลูก (Subclass) นำไปเขียนทับ (Override)
-                            เพื่อเปลี่ยนพฤติกรรม</p>
-                    </div>
-                </div>
-
-                <div class="question hard" data-answer="d">
-                    <span class="difficulty">ยาก</span>
-                    <div class="q-number">ข้อ 27</div>
-                    <div class="q-text"><code>int fib(int n){...}</code> fib(5)?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q27" value="a"><span
-                                class="option-letter">A</span><span>8</span></label>
-                        <label class="option"><input type="radio" name="q27" value="b"><span
-                                class="option-letter">B</span><span>3</span></label>
-                        <label class="option"><input type="radio" name="q27" value="c"><span
-                                class="option-letter">C</span><span>13</span></label>
-                        <label class="option"><input type="radio" name="q27" value="d"><span
-                                class="option-letter">D</span><span>5</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>ลำดับ Fibonacci: 0, 1, 1, 2, 3, <strong>5</strong>, 8... ดังนั้นตัวที่ 5 (ถ้าเริ่ม 0, 1) คือ
-                            5</p>
-                    </div>
-                </div>
-
-                <div class="question hard" data-answer="b">
-                    <span class="difficulty">ยาก</span>
-                    <div class="q-number">ข้อ 28</div>
-                    <div class="q-text"><code>void modify(int[] arr){arr[0]=99;}</code> หลังเรียก <code>arr[0]</code>?
-                    </div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q28" value="a"><span
-                                class="option-letter">A</span><span>ค่าเดิม</span></label>
-                        <label class="option"><input type="radio" name="q28" value="b"><span
-                                class="option-letter">B</span><span>99</span></label>
-                        <label class="option"><input type="radio" name="q28" value="c"><span
-                                class="option-letter">C</span><span>0</span></label>
-                        <label class="option"><input type="radio" name="q28" value="d"><span
-                                class="option-letter">D</span><span>Error</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>Array เป็น Object เมื่อส่งเข้า Method จะเป็นการส่ง <strong>Reference</strong> (ที่อยู่) ไป
-                            ดังนั้นการแก้ไขข้างในจึงส่งผลกระทบออกมาข้างนอกด้วย</p>
-                    </div>
-                </div>
-
-                <div class="question hard" data-answer="c">
-                    <span class="difficulty">ยาก</span>
-                    <div class="q-number">ข้อ 29</div>
-                    <div class="q-text"><code>avg(2,4,6)</code> ได้ค่าเท่าไหร่?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q29" value="a"><span
-                                class="option-letter">A</span><span>12</span></label>
-                        <label class="option"><input type="radio" name="q29" value="b"><span
-                                class="option-letter">B</span><span>3</span></label>
-                        <label class="option"><input type="radio" name="q29" value="c"><span
-                                class="option-letter">C</span><span>4.0</span></label>
-                        <label class="option"><input type="radio" name="q29" value="d"><span
-                                class="option-letter">D</span><span>6</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p>(2+4+6)/3 = 12/3 = 4.0 (มีการ cast เป็น double จึงไม่ใช่จำนวนเต็มเฉยๆ)</p>
-                    </div>
-                </div>
-
-                <div class="question hard" data-answer="a">
-                    <span class="difficulty">ยาก</span>
-                    <div class="q-number">ข้อ 30</div>
-                    <div class="q-text">private method เรียกใช้จากไหนได้?</div>
-                    <div class="options">
-                        <label class="option"><input type="radio" name="q30" value="a"><span
-                                class="option-letter">A</span><span>ภายใน class เดียวกัน</span></label>
-                        <label class="option"><input type="radio" name="q30" value="b"><span
-                                class="option-letter">B</span><span>ทุกที่</span></label>
-                        <label class="option"><input type="radio" name="q30" value="c"><span
-                                class="option-letter">C</span><span>subclass</span></label>
-                        <label class="option"><input type="radio" name="q30" value="d"><span
-                                class="option-letter">D</span><span>package เดียวกัน</span></label>
-                    </div>
-                    <div class="explanation">
-                        <strong>📝 คำอธิบาย:</strong>
-                        <p><code>private</code> เป็นระดับการเข้าถึงที่แคบที่สุด มองเห็นได้เฉพาะ <strong>ภายใน Class
-                                ตัวเอง</strong> เท่านั้น</p>
-                    </div>
-                </div>
-
-                <button type="button" class="btn-submit" onclick="submitQuiz()">🎯 ตรวจคำตอบ</button>
-            </form>
-
-            <div class="result" id="result">
-                <h2>🎉 ผลการทำแบบทดสอบ</h2>
-                <div class="score-big" id="final-score">0/30</div>
-                <p id="result-text" style="font-size: 1.3rem; margin-top: 15px;"></p>
-                <a href="index.html#quizzes" class="btn-primary" style="margin-top: 25px;">กลับหน้าแบบทดสอบ</a>
-            </div>
-        </div>
-    </main>
-
-    <footer class="premium-footer">
-        <p class="footer-text">งงตรงไหน? ทักมาถามได้เลย!</p>
-        <a href="https://instabio.cc/4021411ZGCpLW" target="_blank" class="contact-btn">💬 ติดต่อผู้สอน</a>
-    </footer>
+        <footer class="premium-footer">
+                <p class="footer-text">งงตรงไหน? ทักมาถามได้เลย!</p>
+                <a href="https://instabio.cc/4021411ZGCpLW" target="_blank" class="contact-btn">💬 ติดต่อผู้สอน</a>
+        </footer>
+        <script src="music-player.js"></script>
 </body>
 
 </html>
