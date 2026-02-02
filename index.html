@@ -272,6 +272,44 @@
             }
         }
 
+        /* Leader Image Hover Animation */
+        @keyframes hoverLeader {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Click Effect */
+        .click-particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: radial-gradient(circle, #fff, transparent);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: scale(0);
+            animation: burst 0.6s ease-out forwards;
+            z-index: 9999;
+        }
+
+        @keyframes burst {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(var(--tx), var(--ty)) scale(0);
+                opacity: 0;
+            }
+        }
+
         /* Stats Section */
         .stats {
             display: grid;
@@ -584,120 +622,127 @@
             <h1>เตรียมสอบ <span>Java</span> กันเถอะ! 🚀</h1>
             <p>รวมเนื้อหาที่ติวกันไว้ทั้งหมด ตั้งแต่พื้นฐานจนถึง OOP พร้อมแบบทดสอบ 180 ข้อ</p>
             <div class="exam-alert">📅 สอบอาทิตย์หน้า - สู้ๆ นะ!</div>
-        </div>
 
-        <div class="stats">
-            <div class="stat-card">
-                <div class="stat-number">6</div>
-                <div class="stat-label">บทเรียน</div>
+            <div class="leader-cheer" style="margin-top: 35px; animation: hoverLeader 3s infinite ease-in-out;">
+                <img src="leader-thumb.jpg" alt="หัวหน้าให้กำลังใจ"
+                    style="width: 140px; height: 140px; border-radius: 50%; border: 4px solid rgba(255,255,255,0.9); box-shadow: 0 0 25px rgba(0, 212, 255, 0.6); object-fit: cover;">
+                <p
+                    style="margin-top: 15px; font-size: 1.2rem; color: #fff; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.5); background: linear-gradient(90deg, #00d4ff, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                    "หัวหน้าเชื่อว่าทุกคนทำได้"</p>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">180</div>
-                <div class="stat-label">ข้อสอบ</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">3</div>
-                <div class="stat-label">ระดับความยาก</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">∞</div>
-                <div class="stat-label">ทำซ้ำได้</div>
-            </div>
-        </div>
 
-        <h2 id="lessons">📖 บทเรียนทั้งหมด</h2>
-        <div class="lessons" style="margin-bottom: 40px;">
-            <a href="blog-java-programming.html" class="lesson-card lesson-1">
-                <div class="lesson-number">1</div>
-                <div class="lesson-content">
-                    <h3>พื้นฐาน Java</h3>
-                    <p>ติดตั้ง JDK, Hello World, ตัวแปร, รับ Input</p>
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">บทเรียน</div>
                 </div>
-                <span class="lesson-badge">พื้นฐาน</span>
-            </a>
-            <a href="02-control-flow.html" class="lesson-card lesson-2">
-                <div class="lesson-number">2</div>
-                <div class="lesson-content">
-                    <h3>Control Flow</h3>
-                    <p>if-else, switch-case, เปรียบเทียบ</p>
+                <div class="stat-card">
+                    <div class="stat-number">180</div>
+                    <div class="stat-label">ข้อสอบ</div>
                 </div>
-            </a>
-            <a href="03-loops.html" class="lesson-card lesson-3">
-                <div class="lesson-number">3</div>
-                <div class="lesson-content">
-                    <h3>Loops</h3>
-                    <p>for, while, do-while, break, continue</p>
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">ระดับความยาก</div>
                 </div>
-            </a>
-            <a href="04-arrays.html" class="lesson-card lesson-4">
-                <div class="lesson-number">4</div>
-                <div class="lesson-content">
-                    <h3>Arrays</h3>
-                    <p>สร้าง Array, Index, วนลูป, หาค่าสูงสุด/เฉลี่ย</p>
+                <div class="stat-card">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">ทำซ้ำได้</div>
                 </div>
-            </a>
-            <a href="05-methods.html" class="lesson-card lesson-5">
-                <div class="lesson-number">5</div>
-                <div class="lesson-content">
-                    <h3>Methods</h3>
-                    <p>สร้าง Method, Parameters, Return, Overloading</p>
-                </div>
-            </a>
-            <a href="06-oop.html" class="lesson-card lesson-6">
-                <div class="lesson-number">6</div>
-                <div class="lesson-content">
-                    <h3>OOP</h3>
-                    <p>Class, Object, Constructor, Inheritance, Polymorphism</p>
-                </div>
-                <span class="lesson-badge exam-badge">⭐ ออกสอบแน่!</span>
-            </a>
-        </div>
+            </div>
 
-        <h2 id="quizzes">🎯 แบบทดสอบทั้งหมด</h2>
-        <div class="lessons">
-            <a href="quiz-01-basics.html" class="lesson-card quiz-card lesson-1">
-                <div class="lesson-number">🎯</div>
-                <div class="lesson-content">
-                    <h3>แบบทดสอบบทที่ 1</h3>
-                    <p>พื้นฐาน Java | 30 ข้อ</p>
-                </div>
-            </a>
-            <a href="quiz-02-control-flow.html" class="lesson-card quiz-card lesson-2">
-                <div class="lesson-number">🎯</div>
-                <div class="lesson-content">
-                    <h3>แบบทดสอบบทที่ 2</h3>
-                    <p>Control Flow | 30 ข้อ</p>
-                </div>
-            </a>
-            <a href="quiz-03-loops.html" class="lesson-card quiz-card lesson-3">
-                <div class="lesson-number">🎯</div>
-                <div class="lesson-content">
-                    <h3>แบบทดสอบบทที่ 3</h3>
-                    <p>Loops | 30 ข้อ</p>
-                </div>
-            </a>
-            <a href="quiz-04-arrays.html" class="lesson-card quiz-card lesson-4">
-                <div class="lesson-number">🎯</div>
-                <div class="lesson-content">
-                    <h3>แบบทดสอบบทที่ 4</h3>
-                    <p>Arrays | 30 ข้อ</p>
-                </div>
-            </a>
-            <a href="quiz-05-methods.html" class="lesson-card quiz-card lesson-5">
-                <div class="lesson-number">🎯</div>
-                <div class="lesson-content">
-                    <h3>แบบทดสอบบทที่ 5</h3>
-                    <p>Methods | 30 ข้อ</p>
-                </div>
-            </a>
-            <a href="quiz-06-oop.html" class="lesson-card quiz-card lesson-6">
-                <div class="lesson-number">🎯</div>
-                <div class="lesson-content">
-                    <h3>แบบทดสอบบทที่ 6</h3>
-                    <p>OOP | 30 ข้อ ⭐ ออกสอบแน่!</p>
-                </div>
-            </a>
-        </div>
+            <h2 id="lessons">📖 บทเรียนทั้งหมด</h2>
+            <div class="lessons" style="margin-bottom: 40px;">
+                <a href="blog-java-programming.html" class="lesson-card lesson-1">
+                    <div class="lesson-number">1</div>
+                    <div class="lesson-content">
+                        <h3>พื้นฐาน Java</h3>
+                        <p>ติดตั้ง JDK, Hello World, ตัวแปร, รับ Input</p>
+                    </div>
+                    <span class="lesson-badge">พื้นฐาน</span>
+                </a>
+                <a href="02-control-flow.html" class="lesson-card lesson-2">
+                    <div class="lesson-number">2</div>
+                    <div class="lesson-content">
+                        <h3>Control Flow</h3>
+                        <p>if-else, switch-case, เปรียบเทียบ</p>
+                    </div>
+                </a>
+                <a href="03-loops.html" class="lesson-card lesson-3">
+                    <div class="lesson-number">3</div>
+                    <div class="lesson-content">
+                        <h3>Loops</h3>
+                        <p>for, while, do-while, break, continue</p>
+                    </div>
+                </a>
+                <a href="04-arrays.html" class="lesson-card lesson-4">
+                    <div class="lesson-number">4</div>
+                    <div class="lesson-content">
+                        <h3>Arrays</h3>
+                        <p>สร้าง Array, Index, วนลูป, หาค่าสูงสุด/เฉลี่ย</p>
+                    </div>
+                </a>
+                <a href="05-methods.html" class="lesson-card lesson-5">
+                    <div class="lesson-number">5</div>
+                    <div class="lesson-content">
+                        <h3>Methods</h3>
+                        <p>สร้าง Method, Parameters, Return, Overloading</p>
+                    </div>
+                </a>
+                <a href="06-oop.html" class="lesson-card lesson-6">
+                    <div class="lesson-number">6</div>
+                    <div class="lesson-content">
+                        <h3>OOP</h3>
+                        <p>Class, Object, Constructor, Inheritance, Polymorphism</p>
+                    </div>
+                    <span class="lesson-badge exam-badge">⭐ ออกสอบแน่!</span>
+                </a>
+            </div>
+
+            <h2 id="quizzes">🎯 แบบทดสอบทั้งหมด</h2>
+            <div class="lessons">
+                <a href="quiz-01-basics.html" class="lesson-card quiz-card lesson-1">
+                    <div class="lesson-number">🎯</div>
+                    <div class="lesson-content">
+                        <h3>แบบทดสอบบทที่ 1</h3>
+                        <p>พื้นฐาน Java | 30 ข้อ</p>
+                    </div>
+                </a>
+                <a href="quiz-02-control-flow.html" class="lesson-card quiz-card lesson-2">
+                    <div class="lesson-number">🎯</div>
+                    <div class="lesson-content">
+                        <h3>แบบทดสอบบทที่ 2</h3>
+                        <p>Control Flow | 30 ข้อ</p>
+                    </div>
+                </a>
+                <a href="quiz-03-loops.html" class="lesson-card quiz-card lesson-3">
+                    <div class="lesson-number">🎯</div>
+                    <div class="lesson-content">
+                        <h3>แบบทดสอบบทที่ 3</h3>
+                        <p>Loops | 30 ข้อ</p>
+                    </div>
+                </a>
+                <a href="quiz-04-arrays.html" class="lesson-card quiz-card lesson-4">
+                    <div class="lesson-number">🎯</div>
+                    <div class="lesson-content">
+                        <h3>แบบทดสอบบทที่ 4</h3>
+                        <p>Arrays | 30 ข้อ</p>
+                    </div>
+                </a>
+                <a href="quiz-05-methods.html" class="lesson-card quiz-card lesson-5">
+                    <div class="lesson-number">🎯</div>
+                    <div class="lesson-content">
+                        <h3>แบบทดสอบบทที่ 5</h3>
+                        <p>Methods | 30 ข้อ</p>
+                    </div>
+                </a>
+                <a href="quiz-06-oop.html" class="lesson-card quiz-card lesson-6">
+                    <div class="lesson-number">🎯</div>
+                    <div class="lesson-content">
+                        <h3>แบบทดสอบบทที่ 6</h3>
+                        <p>OOP | 30 ข้อ ⭐ ออกสอบแน่!</p>
+                    </div>
+                </a>
+            </div>
     </main>
 
     <footer>
@@ -710,10 +755,56 @@
         <a href="https://instabio.cc/4021411ZGCpLW" target="_blank" class="contact-btn">
             💬 งงตรงไหน? ทักมาถามได้เลย!
         </a>
-        <p class="footer-text" style="margin-top: 20px;">อัพเดทล่าสุด: 2 กุมภาพันธ์ 2026</p>
+        <div class="visitor-counter"
+            style="margin-top: 30px; background: rgba(0, 212, 255, 0.1); padding: 15px 30px; border-radius: 50px; border: 1px solid rgba(0, 212, 255, 0.2); display: inline-flex; align-items: center; gap: 10px;">
+            <span style="font-size: 1.2rem;">🚀</span>
+            <span style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">เพื่อนที่มาจาก App:</span>
+            <span id="visitor-count" style="color: #00d4ff; font-weight: 700; font-size: 1.2rem;">0</span>
+            <span style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">คน</span>
+        </div>
     </footer>
 
     <script>
+        // Visitor Counter Logic
+        // Visitor Counter Logic
+        (function () {
+            const STORAGE_KEY = 'nice_fornung_visitors_real'; // เปลี่ยน Key เพื่อ Reset ค่า
+            const BASE_COUNT = 0; // เริ่มนับจาก 0 ตามที่ User ต้องการ
+
+            // ดึงค่าล่าสุดจาก LocalStorage หรือเริ่มที่ 0
+            let localVisits = parseInt(localStorage.getItem(STORAGE_KEY)) || 0;
+
+            // ตรวจสอบ Session เพื่อไม่ให้นับซ้ำรัวๆ เวลา Refresh (นับ 1 ครั้งต่อการปิดเปิด Browser)
+            if (!sessionStorage.getItem('session_counted')) {
+                localVisits++;
+                localStorage.setItem(STORAGE_KEY, localVisits);
+                sessionStorage.setItem('session_counted', 'true');
+            }
+
+            // คำนวณยอดรวม (Base + Local)
+            const totalVisitors = BASE_COUNT + localVisits;
+
+            // แสดงผลและ Animation
+            const counterElement = document.getElementById('visitor-count');
+
+            // เริ่มต้นที่ 0 หรือค่าน้อยกว่าเล็กน้อยเพื่อความสวยงามตอนวิ่ง
+            let displayCount = totalVisitors - 100;
+            if (displayCount < 0) displayCount = 0;
+
+            const duration = 2000; // 2 วินาที
+            const frames = 60;
+            const step = (totalVisitors - displayCount) / frames;
+
+            const interval = setInterval(() => {
+                displayCount += step;
+                if (displayCount >= totalVisitors) {
+                    displayCount = totalVisitors;
+                    clearInterval(interval);
+                }
+                counterElement.textContent = Math.floor(displayCount).toLocaleString();
+            }, duration / frames);
+        })();
+
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -737,10 +828,31 @@
         }
 
         // Card hover sound effect (optional)
-        document.querySelectorAll('.lesson-card').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transition = 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-            });
+
+        // Click Sparkle Effect
+        document.addEventListener('click', function (e) {
+            const colors = ['#00d4ff', '#8b5cf6', '#ec4899', '#ffffff'];
+            const particleCount = 12;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('click-particle');
+
+                // Random position spread
+                const tx = (Math.random() - 0.5) * 100; // -50 to 50
+                const ty = (Math.random() - 0.5) * 100; // -50 to 50
+
+                particle.style.setProperty('--tx', `${tx}px`);
+                particle.style.setProperty('--ty', `${ty}px`);
+                particle.style.left = `${e.pageX}px`;
+                particle.style.top = `${e.pageY}px`;
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+                document.body.appendChild(particle);
+
+                // Clean up
+                setTimeout(() => particle.remove(), 600);
+            }
         });
     </script>
 </body>

@@ -55,10 +55,25 @@ body {
 }
 
 @keyframes particleFloat {
-    0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+
+    0%,
+    100% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-100vh) rotate(720deg);
+        opacity: 0;
+    }
 }
 
 .glow-orb {
@@ -70,13 +85,44 @@ body {
     z-index: 0;
 }
 
-.orb-cyan { width: 400px; height: 400px; background: var(--accent-cyan); top: -100px; left: -100px; }
-.orb-purple { width: 300px; height: 300px; background: var(--accent-purple); bottom: -50px; right: -50px; animation-delay: -4s; }
-.orb-pink { width: 250px; height: 250px; background: var(--accent-pink); top: 50%; left: 50%; animation-delay: -2s; }
+.orb-cyan {
+    width: 400px;
+    height: 400px;
+    background: var(--accent-cyan);
+    top: -100px;
+    left: -100px;
+}
+
+.orb-purple {
+    width: 300px;
+    height: 300px;
+    background: var(--accent-purple);
+    bottom: -50px;
+    right: -50px;
+    animation-delay: -4s;
+}
+
+.orb-pink {
+    width: 250px;
+    height: 250px;
+    background: var(--accent-pink);
+    top: 50%;
+    left: 50%;
+    animation-delay: -2s;
+}
 
 @keyframes orbPulse {
-    0%, 100% { transform: scale(1); opacity: 0.3; }
-    50% { transform: scale(1.2); opacity: 0.5; }
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.5;
+    }
 }
 
 /* Header */
@@ -153,8 +199,15 @@ nav a:hover {
 }
 
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Badges */
@@ -236,7 +289,8 @@ code {
 }
 
 /* Inline Code */
-p code, li code {
+p code,
+li code {
     background: rgba(139, 92, 246, 0.2);
     border: 1px solid rgba(139, 92, 246, 0.3);
     padding: 2px 8px;
@@ -270,7 +324,8 @@ p code, li code {
 }
 
 /* Lists */
-ul, ol {
+ul,
+ol {
     margin: 15px 0;
     padding-left: 25px;
 }
@@ -418,9 +473,17 @@ li::marker {
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
 
-.question.easy { border-left-color: var(--accent-green); }
-.question.medium { border-left-color: var(--accent-orange); }
-.question.hard { border-left-color: var(--accent-red); }
+.question.easy {
+    border-left-color: var(--accent-green);
+}
+
+.question.medium {
+    border-left-color: var(--accent-orange);
+}
+
+.question.hard {
+    border-left-color: var(--accent-red);
+}
 
 .difficulty {
     font-size: 0.75rem;
@@ -432,9 +495,17 @@ li::marker {
     font-weight: 600;
 }
 
-.easy .difficulty { background: var(--accent-green); }
-.medium .difficulty { background: var(--accent-orange); }
-.hard .difficulty { background: var(--accent-red); }
+.easy .difficulty {
+    background: var(--accent-green);
+}
+
+.medium .difficulty {
+    background: var(--accent-orange);
+}
+
+.hard .difficulty {
+    background: var(--accent-red);
+}
 
 .q-number {
     font-weight: 700;
@@ -486,7 +557,9 @@ li::marker {
     background: rgba(239, 68, 68, 0.2);
 }
 
-.option input { display: none; }
+.option input {
+    display: none;
+}
 
 .option-letter {
     width: 35px;
@@ -501,9 +574,20 @@ li::marker {
     flex-shrink: 0;
 }
 
-.selected .option-letter { background: var(--accent-purple); border-color: var(--accent-purple); }
-.correct .option-letter { background: var(--accent-green); border-color: var(--accent-green); }
-.wrong .option-letter { background: var(--accent-red); border-color: var(--accent-red); }
+.selected .option-letter {
+    background: var(--accent-purple);
+    border-color: var(--accent-purple);
+}
+
+.correct .option-letter {
+    background: var(--accent-green);
+    border-color: var(--accent-green);
+}
+
+.wrong .option-letter {
+    background: var(--accent-red);
+    border-color: var(--accent-red);
+}
 
 .btn-submit {
     display: block;
@@ -536,14 +620,88 @@ li::marker {
     display: none;
 }
 
-.result h2 { color: var(--accent-purple); margin-bottom: 20px; }
-.result .score-big { font-size: 4rem; font-weight: 700; color: #fff; }
+.result h2 {
+    color: var(--accent-purple);
+    margin-bottom: 20px;
+}
+
+.result .score-big {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #fff;
+}
 
 /* Responsive */
 @media (max-width: 768px) {
-    .header-content { flex-direction: column; gap: 15px; }
-    nav { flex-wrap: wrap; justify-content: center; }
-    h1 { font-size: 1.8rem; }
-    .premium-article { padding: 30px 20px; }
-    .nav-links { flex-direction: column; }
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .premium-article {
+        padding: 30px 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+    }
+}
+
+/* Additions for Quiz Explanations */
+.explanation {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    border-left: 4px solid var(--accent-cyan);
+    animation: fadeIn 0.5s ease-out;
+}
+
+.explanation strong {
+    color: var(--accent-cyan);
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.05rem;
+}
+
+.explanation p {
+    margin: 0;
+    color: #ddd;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Click Effect */
+.click-particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle, #fff, transparent);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: scale(0);
+    animation: burst 0.6s ease-out forwards;
+    z-index: 9999;
+}
+
+@keyframes burst {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(var(--tx), var(--ty)) scale(0);
+        opacity: 0;
+    }
 }
