@@ -7,191 +7,10 @@
     <title>Arrays (อาร์เรย์) | บันทึกการติว Java</title>
     <meta name="description"
         content="เรียนรู้การใช้ Array ในภาษา Java เก็บข้อมูลหลายค่าในตัวแปรเดียว พร้อมตัวอย่างโค้ด">
+    <link rel="stylesheet" href="lesson-style.css">
+    <link rel="stylesheet" href="music-player.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            line-height: 1.8;
-            color: #333;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            min-height: 100vh;
-        }
-
-        header {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            padding: 20px 40px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .header-content {
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            color: #00d4ff;
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-decoration: none;
-        }
-
-        nav a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            margin-left: 25px;
-        }
-
-        nav a:hover {
-            color: #00d4ff;
-        }
-
-        article {
-            background: #fff;
-            margin: 40px auto;
-            padding: 60px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 900px;
-        }
-
-        .badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #ec4899, #db2777);
-            color: #fff;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin-bottom: 15px;
-        }
-
-        h1 {
-            font-size: 2.2rem;
-            color: #1a1a2e;
-            margin-bottom: 15px;
-        }
-
-        .meta {
-            color: #888;
-            margin-bottom: 30px;
-            font-size: 0.9rem;
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .intro {
-            background: linear-gradient(135deg, #fce7f3, #fbcfe8);
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            border-left: 5px solid #ec4899;
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            color: #1a1a2e;
-            margin: 35px 0 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        h2::before {
-            content: '';
-            width: 5px;
-            height: 25px;
-            background: linear-gradient(180deg, #ec4899, #db2777);
-            border-radius: 3px;
-        }
-
-        h3 {
-            font-size: 1.2rem;
-            color: #333;
-            margin: 25px 0 15px;
-        }
-
-        p {
-            margin-bottom: 18px;
-        }
-
-        pre {
-            background: #1e1e3f;
-            color: #e0e0e0;
-            padding: 25px;
-            border-radius: 12px;
-            overflow-x: auto;
-            margin: 20px 0;
-            font-size: 0.95rem;
-            position: relative;
-        }
-
-        pre::before {
-            content: 'Java';
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            background: #ec4899;
-            color: #fff;
-            padding: 2px 10px;
-            border-radius: 5px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        code {
-            font-family: 'Consolas', monospace;
-        }
-
-        .keyword {
-            color: #cc7832;
-        }
-
-        .string {
-            color: #6a8759;
-        }
-
-        .comment {
-            color: #808080;
-        }
-
-        .number {
-            color: #6897bb;
-        }
-
-        ul,
-        ol {
-            margin: 20px 0 20px 25px;
-        }
-
-        li {
-            margin-bottom: 12px;
-        }
-
-        .note-box {
-            background: #fef3c7;
-            border-left: 5px solid #f59e0b;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 25px 0;
-        }
-
-        .tip-box {
-            background: #f0fdf4;
-            border-left: 5px solid #22c55e;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 25px 0;
-        }
-
+        /* Array visualization specific to this lesson */
         .array-visual {
             background: #f3f4f6;
             padding: 20px;
@@ -231,58 +50,10 @@
             font-size: 0.85rem;
             color: #666;
         }
-
-        .summary-box {
-            background: linear-gradient(135deg, #1a1a2e, #16213e);
-            color: #fff;
-            padding: 30px;
-            border-radius: 15px;
-            margin: 40px 0 0;
-        }
-
-        .summary-box h3 {
-            color: #ec4899;
-            margin-top: 0;
-        }
-
-        .summary-box li {
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .nav-links {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-        }
-
-        .nav-links a {
-            color: #db2777;
-            text-decoration: none;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            article {
-                padding: 30px 20px;
-                margin: 20px;
-            }
-
-            h1 {
-                font-size: 1.6rem;
-            }
-        }
     </style>
 </head>
 
-<body>
+<body class="theme-pink" data-lesson-id="lesson-04">
     <header>
         <div class="header-content">
             <a href="index.html" class="logo">📚 บันทึกการติว</a>
@@ -296,7 +67,7 @@
 
     <main>
         <article>
-            <span class="badge">📖 บทที่ 4</span>
+            <span class="badge badge-pink">📖 บทที่ 4</span>
             <h1>Arrays (อาร์เรย์)</h1>
             <p class="meta">
                 <span>📅 <time datetime="2026-02-02">2 กุมภาพันธ์ 2026</time></span>
@@ -428,6 +199,10 @@ System.out.println(<span class="string">"คะแนนเฉลี่ย: "</s
                         target="_blank" style="color: #ec4899; text-decoration: underline;">ทักมาถามได้เลยนะ! 💬</a></p>
             </div>
 
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="quiz-04-arrays.html" class="quiz-btn">🎯 ทำแบบทดสอบบทที่ 4</a>
+            </div>
+
             <div class="nav-links">
                 <a href="03-loops.html">← บทที่ 3: Loops</a>
                 <a href="05-methods.html">บทที่ 5: Methods →</a>
@@ -438,14 +213,7 @@ System.out.println(<span class="string">"คะแนนเฉลี่ย: "</s
     <footer>
         <p>บันทึกการติว | เตรียมสอบกันเถอะ! 📚</p>
     </footer>
-    <script>
-        const lessonId = 'lesson-04';
-        let visited = JSON.parse(localStorage.getItem('java_lessons_visited') || '[]');
-        if (!visited.includes(lessonId)) {
-            visited.push(lessonId);
-            localStorage.setItem('java_lessons_visited', JSON.stringify(visited));
-        }
-    </script>
+    <script src="lesson-tracking.js"></script>
     <script src="music-player.js"></script>
 </body>
 

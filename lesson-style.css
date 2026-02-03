@@ -1,0 +1,540 @@
+/* =====================================================
+   LESSON PAGES STYLES
+   บันทึกการติว Java - หน้าบทเรียน (01-06)
+   ===================================================== */
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    line-height: 1.8;
+    color: #333;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    min-height: 100vh;
+}
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+header {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 20px 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #00d4ff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+nav a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    margin-left: 25px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #00d4ff;
+}
+
+/* =====================================================
+   ARTICLE CONTENT
+   ===================================================== */
+article {
+    background: #fff;
+    margin: 40px auto;
+    padding: 60px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 900px;
+}
+
+/* Badge Colors (Theme per Chapter) */
+.badge {
+    display: inline-block;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+}
+
+/* Default (Chapter 1 - Blue/Cyan) */
+.badge {
+    background: linear-gradient(135deg, #00d4ff, #0099cc);
+}
+
+/* Chapter 1 - Cyan */
+.badge-cyan {
+    background: linear-gradient(135deg, #00d4ff, #0099cc);
+}
+
+/* Chapter 2 - Orange */
+.badge-orange {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+/* Chapter 3 - Purple */
+.badge-purple {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+}
+
+/* Chapter 4 - Pink */
+.badge-pink {
+    background: linear-gradient(135deg, #ec4899, #db2777);
+}
+
+/* Chapter 5 - Teal */
+.badge-teal {
+    background: linear-gradient(135deg, #14b8a6, #0d9488);
+}
+
+/* Chapter 6 - Red (Exam Important) */
+.badge-red {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+/* Exam Badge */
+.exam-badge {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    margin-left: 10px;
+}
+
+/* =====================================================
+   TYPOGRAPHY
+   ===================================================== */
+h1 {
+    font-size: 2.2rem;
+    color: #1a1a2e;
+    margin-bottom: 15px;
+}
+
+.meta {
+    color: #888;
+    margin-bottom: 30px;
+    font-size: 0.9rem;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #1a1a2e;
+    margin: 35px 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+h2::before {
+    content: '';
+    width: 5px;
+    height: 25px;
+    border-radius: 3px;
+}
+
+/* H2 Accent Colors per Theme */
+h2::before {
+    background: linear-gradient(180deg, #00d4ff, #0099cc);
+}
+
+/* Default/Cyan */
+.theme-cyan h2::before {
+    background: linear-gradient(180deg, #00d4ff, #0099cc);
+}
+
+/* Orange */
+.theme-orange h2::before {
+    background: linear-gradient(180deg, #f59e0b, #d97706);
+}
+
+.theme-purple h2::before {
+    background: linear-gradient(180deg, #8b5cf6, #7c3aed);
+}
+
+.theme-pink h2::before {
+    background: linear-gradient(180deg, #ec4899, #db2777);
+}
+
+.theme-teal h2::before {
+    background: linear-gradient(180deg, #14b8a6, #0d9488);
+}
+
+.theme-red h2::before {
+    background: linear-gradient(180deg, #ef4444, #dc2626);
+}
+
+h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 25px 0 15px;
+}
+
+p {
+    margin-bottom: 18px;
+}
+
+/* =====================================================
+   CODE BLOCKS
+   ===================================================== */
+pre {
+    background: #1e1e3f;
+    color: #e0e0e0;
+    padding: 25px;
+    border-radius: 12px;
+    overflow-x: auto;
+    margin: 20px 0;
+    font-size: 0.95rem;
+    position: relative;
+}
+
+pre::before {
+    content: 'Java';
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: #00d4ff;
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 5px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* Theme-specific code label */
+.theme-orange pre::before {
+    background: #f59e0b;
+    color: #1e1e3f;
+}
+
+.theme-purple pre::before {
+    background: #8b5cf6;
+}
+
+.theme-pink pre::before {
+    background: #ec4899;
+}
+
+.theme-teal pre::before {
+    background: #14b8a6;
+}
+
+.theme-red pre::before {
+    background: #ef4444;
+}
+
+code {
+    font-family: 'Consolas', monospace;
+}
+
+/* Syntax Highlighting */
+.keyword {
+    color: #cc7832;
+}
+
+.class-name {
+    color: #ffc66d;
+}
+
+.method-name {
+    color: #ffc66d;
+}
+
+.string {
+    color: #6a8759;
+}
+
+.comment {
+    color: #808080;
+}
+
+.number {
+    color: #6897bb;
+}
+
+/* =====================================================
+   LISTS
+   ===================================================== */
+ul,
+ol {
+    margin: 20px 0 20px 25px;
+}
+
+li {
+    margin-bottom: 12px;
+}
+
+/* =====================================================
+   INFO BOXES
+   ===================================================== */
+.intro {
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    border-left: 5px solid;
+}
+
+/* Default Intro (Cyan) */
+.intro {
+    background: linear-gradient(135deg, #e0f7ff, #b3ecff);
+    border-left-color: #00d4ff;
+}
+
+/* Theme-specific Intros */
+.theme-orange .intro {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    border-left-color: #f59e0b;
+}
+
+.theme-purple .intro {
+    background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+    border-left-color: #8b5cf6;
+}
+
+.theme-pink .intro {
+    background: linear-gradient(135deg, #fce7f3, #fbcfe8);
+    border-left-color: #ec4899;
+}
+
+.theme-teal .intro {
+    background: linear-gradient(135deg, #ccfbf1, #99f6e4);
+    border-left-color: #14b8a6;
+}
+
+.theme-red .intro {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    border-left-color: #ef4444;
+}
+
+.note-box {
+    background: #fffbeb;
+    border: 1px solid #fbbf24;
+    border-left: 5px solid #f59e0b;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 25px 0;
+}
+
+.tip-box {
+    background: #f0fdf4;
+    border: 1px solid #86efac;
+    border-left: 5px solid #22c55e;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 25px 0;
+}
+
+.concept-box {
+    background: #eff6ff;
+    border-left: 5px solid #3b82f6;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 25px 0;
+}
+
+.step-box {
+    background: #f0fdf4;
+    border: 1px solid #86efac;
+    border-left: 5px solid #22c55e;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 25px 0;
+}
+
+/* =====================================================
+   SUMMARY BOX
+   ===================================================== */
+.summary-box {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    margin: 40px 0 0;
+}
+
+.summary-box h3 {
+    margin-top: 0;
+}
+
+/* Theme-specific Summary Title Colors */
+.summary-box h3 {
+    color: #00d4ff;
+}
+
+.theme-orange .summary-box h3 {
+    color: #f59e0b;
+}
+
+.theme-purple .summary-box h3 {
+    color: #8b5cf6;
+}
+
+.theme-pink .summary-box h3 {
+    color: #ec4899;
+}
+
+.theme-teal .summary-box h3 {
+    color: #14b8a6;
+}
+
+.theme-red .summary-box h3 {
+    color: #ef4444;
+}
+
+.summary-box ul {
+    margin-left: 20px;
+}
+
+.summary-box li {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* =====================================================
+   NAVIGATION LINKS
+   ===================================================== */
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.nav-links a {
+    text-decoration: none;
+}
+
+/* Theme-specific Nav Link Colors */
+.nav-links a {
+    color: #0099cc;
+}
+
+.theme-orange .nav-links a {
+    color: #d97706;
+}
+
+.theme-purple .nav-links a {
+    color: #7c3aed;
+}
+
+.theme-pink .nav-links a {
+    color: #db2777;
+}
+
+.theme-teal .nav-links a {
+    color: #0d9488;
+}
+
+.theme-red .nav-links a {
+    color: #dc2626;
+}
+
+/* Quiz Button */
+.quiz-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+    margin: 30px 0;
+}
+
+.quiz-btn {
+    background: linear-gradient(135deg, #00d4ff, #0099cc);
+}
+
+.theme-orange .quiz-btn {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.theme-purple .quiz-btn {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+}
+
+.theme-pink .quiz-btn {
+    background: linear-gradient(135deg, #ec4899, #db2777);
+}
+
+.theme-teal .quiz-btn {
+    background: linear-gradient(135deg, #14b8a6, #0d9488);
+}
+
+.theme-red .quiz-btn {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.quiz-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* =====================================================
+   SPECIAL SECTIONS (OOP)
+   ===================================================== */
+.four-pillars {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.pillar {
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+}
+
+.pillar h4 {
+    color: #ef4444;
+    margin-bottom: 10px;
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+footer {
+    text-align: center;
+    padding: 40px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+@media (max-width: 768px) {
+    article {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    .four-pillars {
+        grid-template-columns: 1fr;
+    }
+}
