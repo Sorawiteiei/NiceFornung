@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แบบทดสอบ บทที่ 8: Inheritance | บันทึกการติว</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="premium-style.css">
+    <link rel="stylesheet" href="music-player.css">
+    <script src="quiz.js" defer></script>
+</head>
+
+<body>
+    <div class="bg-particles"></div>
+    <div class="glow-orb orb-purple"></div>
+    <div class="glow-orb orb-pink"></div>
+
+    <header class="premium-header">
+        <div class="header-content">
+            <a href="index.html" class="logo">📚 บันทึกการติว</a>
+            <nav>
+                <a href="08-inheritance.html">📖 บทเรียน</a>
+                <a href="index.html#quizzes">🎯 แบบทดสอบทั้งหมด</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="premium-main quiz-container">
+        <div class="premium-article">
+            <span class="badge">เฉลยละเอียดทุกข้อ!</span>
+            <h1>🎯 แบบทดสอบ: Java Inheritance</h1>
+            <p style="margin-bottom: 30px;">30 ข้อ | extends, super, override, abstract</p>
+
+            <div class="score-display">
+                <span>🏆 คะแนน: <strong id="current-score">0</strong> / 30</span>
+                <span>✅ ตอบแล้ว: <strong id="answered">0</strong> ข้อ</span>
+            </div>
+
+            <form id="quiz-form">
+                <!-- ง่าย 1-10 -->
+                <div class="question easy" data-answer="c">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 1</div>
+                    <div class="q-text">Keyword ใดใช้สำหรับสืบทอด Class?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q1" value="a"><span
+                                class="option-letter">A</span><span>implements</span></label>
+                        <label class="option"><input type="radio" name="q1" value="b"><span
+                                class="option-letter">B</span><span>inherits</span></label>
+                        <label class="option"><input type="radio" name="q1" value="c"><span
+                                class="option-letter">C</span><span>extends</span></label>
+                        <label class="option"><input type="radio" name="q1" value="d"><span
+                                class="option-letter">D</span><span>super</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>ใช้ keyword <code>extends</code> เพื่อสืบทอด Class เช่น <code>class Dog extends Animal</code>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="b">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 2</div>
+                    <div class="q-text">super ใช้อ้างถึง?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q2" value="a"><span
+                                class="option-letter">A</span><span>Object ปัจจุบัน</span></label>
+                        <label class="option"><input type="radio" name="q2" value="b"><span
+                                class="option-letter">B</span><span>Parent class</span></label>
+                        <label class="option"><input type="radio" name="q2" value="c"><span
+                                class="option-letter">C</span><span>Child class</span></label>
+                        <label class="option"><input type="radio" name="q2" value="d"><span
+                                class="option-letter">D</span><span>Static method</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><code>super</code> ใช้อ้างถึง<strong>Parent class</strong> (Class แม่) เพื่อเรียก constructor
+                            หรือ method ของ Parent</p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="a">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 3</div>
+                    <div class="q-text">Class แม่เรียกว่า?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q3" value="a"><span
+                                class="option-letter">A</span><span>Superclass</span></label>
+                        <label class="option"><input type="radio" name="q3" value="b"><span
+                                class="option-letter">B</span><span>Subclass</span></label>
+                        <label class="option"><input type="radio" name="q3" value="c"><span
+                                class="option-letter">C</span><span>Child class</span></label>
+                        <label class="option"><input type="radio" name="q3" value="d"><span
+                                class="option-letter">D</span><span>Derived class</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Class แม่เรียกว่า<strong>Superclass, Parent class, หรือ Base class</strong></p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="d">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 4</div>
+                    <div class="q-text">Class ลูกเรียกว่า?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q4" value="a"><span
+                                class="option-letter">A</span><span>Superclass</span></label>
+                        <label class="option"><input type="radio" name="q4" value="b"><span
+                                class="option-letter">B</span><span>Parent class</span></label>
+                        <label class="option"><input type="radio" name="q4" value="c"><span
+                                class="option-letter">C</span><span>Base class</span></label>
+                        <label class="option"><input type="radio" name="q4" value="d"><span
+                                class="option-letter">D</span><span>Subclass</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Class ลูกเรียกว่า<strong>Subclass, Child class, หรือ Derived class</strong></p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="b">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 5</div>
+                    <div class="q-text">@Override ใช้ทำอะไร?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q5" value="a"><span
+                                class="option-letter">A</span><span>สร้าง Object</span></label>
+                        <label class="option"><input type="radio" name="q5" value="b"><span
+                                class="option-letter">B</span><span>บอกว่าเขียนทับ method ของ Parent</span></label>
+                        <label class="option"><input type="radio" name="q5" value="c"><span
+                                class="option-letter">C</span><span>ลบ method</span></label>
+                        <label class="option"><input type="radio" name="q5" value="d"><span
+                                class="option-letter">D</span><span>สร้าง constructor</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><code>@Override</code> เป็น annotation ที่บอก compiler ว่า<strong>method นี้เขียนทับ method
+                                ของ Parent class</strong></p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="c">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 6</div>
+                    <div class="q-text">ทุก Class ใน Java สืบทอดจาก Class ใด?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q6" value="a"><span
+                                class="option-letter">A</span><span>System</span></label>
+                        <label class="option"><input type="radio" name="q6" value="b"><span
+                                class="option-letter">B</span><span>Main</span></label>
+                        <label class="option"><input type="radio" name="q6" value="c"><span
+                                class="option-letter">C</span><span>Object</span></label>
+                        <label class="option"><input type="radio" name="q6" value="d"><span
+                                class="option-letter">D</span><span>Class</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>ทุก Class ใน Java สืบทอดจาก<strong>java.lang.Object</strong> โดยอัตโนมัติ</p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="a">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 7</div>
+                    <div class="q-text">Java รองรับ Inheritance แบบใด?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q7" value="a"><span
+                                class="option-letter">A</span><span>Single Inheritance</span></label>
+                        <label class="option"><input type="radio" name="q7" value="b"><span
+                                class="option-letter">B</span><span>Multiple Inheritance</span></label>
+                        <label class="option"><input type="radio" name="q7" value="c"><span
+                                class="option-letter">C</span><span>ทั้งสองแบบ</span></label>
+                        <label class="option"><input type="radio" name="q7" value="d"><span
+                                class="option-letter">D</span><span>ไม่รองรับเลย</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Java รองรับ<strong>Single Inheritance</strong> เท่านั้น (extends ได้ Class เดียว)</p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="d">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 8</div>
+                    <div class="q-text">final class หมายถึง?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q8" value="a"><span
+                                class="option-letter">A</span><span>Class สุดท้ายในไฟล์</span></label>
+                        <label class="option"><input type="radio" name="q8" value="b"><span
+                                class="option-letter">B</span><span>Class ที่ทำงานเร็ว</span></label>
+                        <label class="option"><input type="radio" name="q8" value="c"><span
+                                class="option-letter">C</span><span>Class ที่สร้าง Object ไม่ได้</span></label>
+                        <label class="option"><input type="radio" name="q8" value="d"><span
+                                class="option-letter">D</span><span>Class ที่ห้ามสืบทอด</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><code>final class</code> คือ Class ที่<strong>ห้ามสืบทอด</strong> ไม่มี Class ใดสามารถ
+                            extends ได้</p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="b">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 9</div>
+                    <div class="q-text">abstract class คือ?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q9" value="a"><span
+                                class="option-letter">A</span><span>Class ที่สร้าง Object ได้</span></label>
+                        <label class="option"><input type="radio" name="q9" value="b"><span
+                                class="option-letter">B</span><span>Class ที่สร้าง Object โดยตรงไม่ได้</span></label>
+                        <label class="option"><input type="radio" name="q9" value="c"><span
+                                class="option-letter">C</span><span>Class ที่ห้ามสืบทอด</span></label>
+                        <label class="option"><input type="radio" name="q9" value="d"><span
+                                class="option-letter">D</span><span>Class ที่ทำงานเร็ว</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><code>abstract class</code> คือ Class ที่ไม่สมบูรณ์<strong>ไม่สามารถสร้าง Object
+                                โดยตรงได้</strong> ต้องถูกสืบทอดไปใช้</p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="a">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 10</div>
+                    <div class="q-text">this ใช้อ้างถึง?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q10" value="a"><span
+                                class="option-letter">A</span><span>Object ปัจจุบัน</span></label>
+                        <label class="option"><input type="radio" name="q10" value="b"><span
+                                class="option-letter">B</span><span>Parent class</span></label>
+                        <label class="option"><input type="radio" name="q10" value="c"><span
+                                class="option-letter">C</span><span>Child class</span></label>
+                        <label class="option"><input type="radio" name="q10" value="d"><span
+                                class="option-letter">D</span><span>Static variable</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><code>this</code> ใช้อ้างถึง<strong>Object ปัจจุบัน</strong> ที่กำลังทำงานอยู่</p>
+                    </div>
+                </div>
+
+                <!-- ปานกลาง 11-20 -->
+                <div class="question medium" data-answer="c">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 11</div>
+                    <div class="q-text">super() ต้องอยู่ที่ใดใน constructor?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q11" value="a"><span
+                                class="option-letter">A</span><span>บรรทัดสุดท้าย</span></label>
+                        <label class="option"><input type="radio" name="q11" value="b"><span
+                                class="option-letter">B</span><span>ตรงกลาง</span></label>
+                        <label class="option"><input type="radio" name="q11" value="c"><span
+                                class="option-letter">C</span><span>บรรทัดแรก</span></label>
+                        <label class="option"><input type="radio" name="q11" value="d"><span
+                                class="option-letter">D</span><span>ที่ไหนก็ได้</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><code>super()</code> ต้องเป็น<strong>บรรทัดแรก</strong>ใน constructor ของ Subclass เสมอ!</p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="b">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 12</div>
+                    <div class="q-text">final method หมายถึง?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q12" value="a"><span
+                                class="option-letter">A</span><span>Method สุดท้าย</span></label>
+                        <label class="option"><input type="radio" name="q12" value="b"><span
+                                class="option-letter">B</span><span>Method ที่ห้าม override</span></label>
+                        <label class="option"><input type="radio" name="q12" value="c"><span
+                                class="option-letter">C</span><span>Method ที่ทำงานเร็ว</span></label>
+                        <label class="option"><input type="radio" name="q12" value="d"><span
+                                class="option-letter">D</span><span>Method ที่เป็น abstract</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><code>final method</code> คือ method ที่<strong>ห้าม override</strong> Subclass
+                            ไม่สามารถเขียนทับได้</p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="a">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 13</div>
+                    <div class="q-text">instanceof ใช้ทำอะไร?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q13" value="a"><span
+                                class="option-letter">A</span><span>ตรวจสอบประเภทของ Object</span></label>
+                        <label class="option"><input type="radio" name="q13" value="b"><span
+                                class="option-letter">B</span><span>สร้าง Object ใหม่</span></label>
+                        <label class="option"><input type="radio" name="q13" value="c"><span
+                                class="option-letter">C</span><span>ลบ Object</span></label>
+                        <label class="option"><input type="radio" name="q13" value="d"><span
+                                class="option-letter">D</span><span>คัดลอก Object</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><code>instanceof</code> ใช้<strong>ตรวจสอบว่า Object เป็นประเภท (Class/Interface)
+                                นั้นหรือไม่</strong></p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="d">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 14</div>
+                    <div class="q-text">Animal a = new Dog(); เรียกว่า?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q14" value="a"><span
+                                class="option-letter">A</span><span>Downcasting</span></label>
+                        <label class="option"><input type="radio" name="q14" value="b"><span
+                                class="option-letter">B</span><span>Overloading</span></label>
+                        <label class="option"><input type="radio" name="q14" value="c"><span
+                                class="option-letter">C</span><span>Overriding</span></label>
+                        <label class="option"><input type="radio" name="q14" value="d"><span
+                                class="option-letter">D</span><span>Upcasting</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><strong>Upcasting</strong> คือการมอง Object ลูก (Dog) ในฐานะ Object แม่ (Animal) เป็นการแปลง
+                            "ขึ้น" ตาม hierarchy</p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="c">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 15</div>
+                    <div class="q-text">Dog d = (Dog) animal; เรียกว่า?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q15" value="a"><span
+                                class="option-letter">A</span><span>Upcasting</span></label>
+                        <label class="option"><input type="radio" name="q15" value="b"><span
+                                class="option-letter">B</span><span>Overloading</span></label>
+                        <label class="option"><input type="radio" name="q15" value="c"><span
+                                class="option-letter">C</span><span>Downcasting</span></label>
+                        <label class="option"><input type="radio" name="q15" value="d"><span
+                                class="option-letter">D</span><span>Overriding</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><strong>Downcasting</strong> คือการแปลง Object แม่กลับเป็น Object ลูก ต้องใช้ cast operator
+                            (Dog)</p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="b">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 16</div>
+                    <div class="q-text">abstract method มี body หรือไม่?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q16" value="a"><span
+                                class="option-letter">A</span><span>มี</span></label>
+                        <label class="option"><input type="radio" name="q16" value="b"><span
+                                class="option-letter">B</span><span>ไม่มี</span></label>
+                        <label class="option"><input type="radio" name="q16" value="c"><span
+                                class="option-letter">C</span><span>มีบางส่วน</span></label>
+                        <label class="option"><input type="radio" name="q16" value="d"><span
+                                class="option-letter">D</span><span>ขึ้นอยู่กับ Class</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><code>abstract method</code> <strong>ไม่มี body</strong> มีแค่ signature และ Subclass ต้อง
+                            implement</p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="a">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 17</div>
+                    <div class="q-text">protected เข้าถึงได้จาก?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q17" value="a"><span
+                                class="option-letter">A</span><span>Package เดียวกัน และ Subclass</span></label>
+                        <label class="option"><input type="radio" name="q17" value="b"><span
+                                class="option-letter">B</span><span>ทุกที่</span></label>
+                        <label class="option"><input type="radio" name="q17" value="c"><span
+                                class="option-letter">C</span><span>Class เดียวกันเท่านั้น</span></label>
+                        <label class="option"><input type="radio" name="q17" value="d"><span
+                                class="option-letter">D</span><span>Package เดียวกันเท่านั้น</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><code>protected</code> เข้าถึงได้จาก<strong>Package เดียวกัน</strong>
+                            และ<strong>Subclass</strong> (แม้ต่าง Package)</p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="d">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 18</div>
+                    <div class="q-text">Constructor สามารถ override ได้หรือไม่?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q18" value="a"><span
+                                class="option-letter">A</span><span>ได้</span></label>
+                        <label class="option"><input type="radio" name="q18" value="b"><span
+                                class="option-letter">B</span><span>ได้เฉพาะ public</span></label>
+                        <label class="option"><input type="radio" name="q18" value="c"><span
+                                class="option-letter">C</span><span>ได้เฉพาะ protected</span></label>
+                        <label class="option"><input type="radio" name="q18" value="d"><span
+                                class="option-letter">D</span><span>ไม่ได้</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Constructor <strong>ไม่สามารถ override ได้</strong> เพราะ constructor ไม่ได้ถูกสืบทอด</p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="c">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 19</div>
+                    <div class="q-text">Method ใดได้รับจาก Object class?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q19" value="a"><span
+                                class="option-letter">A</span><span>main()</span></label>
+                        <label class="option"><input type="radio" name="q19" value="b"><span
+                                class="option-letter">B</span><span>print()</span></label>
+                        <label class="option"><input type="radio" name="q19" value="c"><span
+                                class="option-letter">C</span><span>toString()</span></label>
+                        <label class="option"><input type="radio" name="q19" value="d"><span
+                                class="option-letter">D</span><span>run()</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><code>toString()</code> เป็น method ที่ได้รับจาก<strong>Object class</strong> (รวมถึง
+                            equals(), hashCode(), getClass())</p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="b">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 20</div>
+                    <div class="q-text">Subclass สามารถเข้าถึง private member ของ Parent ได้หรือไม่?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q20" value="a"><span
+                                class="option-letter">A</span><span>ได้</span></label>
+                        <label class="option"><input type="radio" name="q20" value="b"><span
+                                class="option-letter">B</span><span>ไม่ได้โดยตรง</span></label>
+                        <label class="option"><input type="radio" name="q20" value="c"><span
+                                class="option-letter">C</span><span>ได้เฉพาะ Package เดียวกัน</span></label>
+                        <label class="option"><input type="radio" name="q20" value="d"><span
+                                class="option-letter">D</span><span>ได้ถ้าใช้ super</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Subclass <strong>ไม่สามารถเข้าถึง private member โดยตรง</strong> ต้องใช้ผ่าน getter/setter
+                            ที่เป็น public หรือ protected</p>
+                    </div>
+                </div>
+
+                <!-- ยาก 21-30 -->
+                <div class="question hard" data-answer="a">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 21</div>
+                    <div class="q-text">ข้อใดถูกต้องเกี่ยวกับ Override?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q21" value="a"><span
+                                class="option-letter">A</span><span>Access modifier
+                                ต้องเท่าหรือเปิดกว้างกว่า</span></label>
+                        <label class="option"><input type="radio" name="q21" value="b"><span
+                                class="option-letter">B</span><span>Return type ต้องต่างกัน</span></label>
+                        <label class="option"><input type="radio" name="q21" value="c"><span
+                                class="option-letter">C</span><span>Parameter ต้องต่างกัน</span></label>
+                        <label class="option"><input type="radio" name="q21" value="d"><span
+                                class="option-letter">D</span><span>ชื่อ method ต้องต่างกัน</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>กฎของ Override: ชื่อ method, parameter, return type ต้องเหมือนกัน และ<strong>access modifier
+                                ต้องเท่าหรือเปิดกว้างกว่า</strong> Parent</p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="d">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 22</div>
+                    <div class="q-text">Diamond Problem คืออะไร?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q22" value="a"><span
+                                class="option-letter">A</span><span>ปัญหาเรื่อง constructor</span></label>
+                        <label class="option"><input type="radio" name="q22" value="b"><span
+                                class="option-letter">B</span><span>ปัญหาเรื่อง access modifier</span></label>
+                        <label class="option"><input type="radio" name="q22" value="c"><span
+                                class="option-letter">C</span><span>ปัญหาเรื่อง final class</span></label>
+                        <label class="option"><input type="radio" name="q22" value="d"><span
+                                class="option-letter">D</span><span>ปัญหาจาก multiple inheritance</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><strong>Diamond Problem</strong> คือปัญหาที่เกิดจาก multiple inheritance เมื่อ Class
+                            สืบทอดจาก 2 Parent ที่มี method ชื่อเดียวกัน</p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="b">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 23</div>
+                    <div class="q-text">Java แก้ปัญหา Diamond Problem อย่างไร?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q23" value="a"><span
+                                class="option-letter">A</span><span>ใช้ super หลายตัว</span></label>
+                        <label class="option"><input type="radio" name="q23" value="b"><span
+                                class="option-letter">B</span><span>ไม่อนุญาต multiple inheritance ของ
+                                class</span></label>
+                        <label class="option"><input type="radio" name="q23" value="c"><span
+                                class="option-letter">C</span><span>ใช้ virtual keyword</span></label>
+                        <label class="option"><input type="radio" name="q23" value="d"><span
+                                class="option-letter">D</span><span>ใช้ override บังคับ</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Java แก้ปัญหาโดย<strong>ไม่อนุญาตให้ extends หลาย Class</strong> แต่อนุญาตให้ implements หลาย
+                            Interface</p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="c">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 24</div>
+                    <div class="q-text">Covariant return type คือ?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q24" value="a"><span
+                                class="option-letter">A</span><span>Return type ต้องเหมือนกันเด๊ะ</span></label>
+                        <label class="option"><input type="radio" name="q24" value="b"><span
+                                class="option-letter">B</span><span>Return type ต่างกันได้เลย</span></label>
+                        <label class="option"><input type="radio" name="q24" value="c"><span
+                                class="option-letter">C</span><span>Override method คืน subtype ของ return type
+                                เดิมได้</span></label>
+                        <label class="option"><input type="radio" name="q24" value="d"><span
+                                class="option-letter">D</span><span>Override method คืน supertype ได้</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><strong>Covariant return type</strong> หมายความว่า Override method สามารถคืน subtype
+                            (ชนิดที่เฉพาะเจาะจงกว่า) ของ return type เดิมได้</p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="a">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 25</div>
+                    <div class="q-text">ถ้า Parent มี constructor ที่รับ parameter, Subclass ต้อง?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q25" value="a"><span
+                                class="option-letter">A</span><span>เรียก super() พร้อม argument</span></label>
+                        <label class="option"><input type="radio" name="q25" value="b"><span
+                                class="option-letter">B</span><span>ไม่ต้องทำอะไร</span></label>
+                        <label class="option"><input type="radio" name="q25" value="c"><span
+                                class="option-letter">C</span><span>สร้าง constructor เปล่า</span></label>
+                        <label class="option"><input type="radio" name="q25" value="d"><span
+                                class="option-letter">D</span><span>ใช้ this() แทน</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>ถ้า Parent ไม่มี default constructor Subclass <strong>ต้องเรียก super() พร้อม
+                                argument</strong> ที่ตรงกับ constructor ของ Parent</p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="d">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 26</div>
+                    <div class="q-text">static method สามารถ override ได้หรือไม่?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q26" value="a"><span
+                                class="option-letter">A</span><span>ได้</span></label>
+                        <label class="option"><input type="radio" name="q26" value="b"><span
+                                class="option-letter">B</span><span>ได้เฉพาะ public</span></label>
+                        <label class="option"><input type="radio" name="q26" value="c"><span
+                                class="option-letter">C</span><span>ได้เฉพาะใน abstract class</span></label>
+                        <label class="option"><input type="radio" name="q26" value="d"><span
+                                class="option-letter">D</span><span>ไม่ได้ (เป็น method hiding)</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>static method <strong>ไม่สามารถ override ได้</strong> ถ้า Subclass มี static method
+                            ชื่อเดียวกัน จะเรียกว่า "method hiding" ไม่ใช่ override</p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="b">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 27</div>
+                    <div class="q-text">ข้อใดถูกต้อง?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q27" value="a"><span
+                                class="option-letter">A</span><span>abstract class ต้องมี abstract method
+                                เท่านั้น</span></label>
+                        <label class="option"><input type="radio" name="q27" value="b"><span
+                                class="option-letter">B</span><span>abstract class มี concrete method ได้</span></label>
+                        <label class="option"><input type="radio" name="q27" value="c"><span
+                                class="option-letter">C</span><span>abstract method มี body ได้</span></label>
+                        <label class="option"><input type="radio" name="q27" value="d"><span
+                                class="option-letter">D</span><span>abstract class สร้าง Object ได้</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>abstract class <strong>สามารถมี concrete method (method ที่มี body)</strong> ได้
+                            ไม่จำเป็นต้องเป็น abstract ทั้งหมด</p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="c">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 28</div>
+                    <div class="q-text">ถ้า Subclass ไม่ implement abstract method ทั้งหมด จะต้อง?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q28" value="a"><span
+                                class="option-letter">A</span><span>เป็น final class</span></label>
+                        <label class="option"><input type="radio" name="q28" value="b"><span
+                                class="option-letter">B</span><span>เป็น interface</span></label>
+                        <label class="option"><input type="radio" name="q28" value="c"><span
+                                class="option-letter">C</span><span>เป็น abstract class ด้วย</span></label>
+                        <label class="option"><input type="radio" name="q28" value="d"><span
+                                class="option-letter">D</span><span>ใช้ super implement</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>ถ้า Subclass ไม่ implement abstract method ทั้งหมด<strong>Subclass นั้นต้องเป็น abstract
+                                class ด้วย</strong></p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="a">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 29</div>
+                    <div class="q-text">Order การเรียก constructor เป็นอย่างไร?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q29" value="a"><span
+                                class="option-letter">A</span><span>Parent ก่อน แล้ว Child</span></label>
+                        <label class="option"><input type="radio" name="q29" value="b"><span
+                                class="option-letter">B</span><span>Child ก่อน แล้ว Parent</span></label>
+                        <label class="option"><input type="radio" name="q29" value="c"><span
+                                class="option-letter">C</span><span>พร้อมกัน</span></label>
+                        <label class="option"><input type="radio" name="q29" value="d"><span
+                                class="option-letter">D</span><span>ไม่มี order แน่นอน</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Constructor จะถูกเรียกจาก<strong>Parent ก่อน แล้วค่อย Child</strong> (จากบนลงล่างตาม
+                            hierarchy)</p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="d">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 30</div>
+                    <div class="q-text">Private method สามารถ override ได้หรือไม่?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q30" value="a"><span
+                                class="option-letter">A</span><span>ได้</span></label>
+                        <label class="option"><input type="radio" name="q30" value="b"><span
+                                class="option-letter">B</span><span>ได้ถ้าใช้ super</span></label>
+                        <label class="option"><input type="radio" name="q30" value="c"><span
+                                class="option-letter">C</span><span>ได้ใน Package เดียวกัน</span></label>
+                        <label class="option"><input type="radio" name="q30" value="d"><span
+                                class="option-letter">D</span><span>ไม่ได้ (ไม่ถูกสืบทอด)</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Private method <strong>ไม่สามารถ override ได้</strong> เพราะ private member ไม่ถูกสืบทอดไปยัง
+                            Subclass</p>
+                    </div>
+                </div>
+
+                <button type="button" class="btn-submit" onclick="submitQuiz()">🎯 ตรวจคำตอบ</button>
+            </form>
+
+            <div class="result" id="result">
+                <h2>🎉 ผลการทำแบบทดสอบ</h2>
+                <div class="score-big" id="final-score">0/30</div>
+                <p id="result-text" style="font-size: 1.3rem; margin-top: 15px;"></p>
+                <a href="index.html#quizzes" class="btn-primary" style="margin-top: 25px;">กลับหน้าแบบทดสอบ</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="premium-footer">
+        <p class="footer-text">งงตรงไหน? ทักมาถามได้เลย!</p>
+        <a href="https://instabio.cc/4021411ZGCpLW" target="_blank" class="contact-btn">💬 ติดต่อผู้สอน</a>
+    </footer>
+    <script src="music-player.js"></script>
+</body>
+
+</html>

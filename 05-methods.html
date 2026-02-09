@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methods (ฟังก์ชัน) | บันทึกการติว Java</title>
+    <meta name="description"
+        content="เรียนรู้การสร้างและใช้งาน Methods ในภาษา Java รวมถึง parameters, return values และ method overloading">
+    <link rel="stylesheet" href="lesson-style.css">
+    <link rel="stylesheet" href="music-player.css">
+</head>
+
+<body class="theme-teal" data-lesson-id="lesson-05">
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">📚 บันทึกการติว</a>
+            <nav>
+                <a href="index.html">หน้าแรก</a>
+                <a href="04-arrays.html">บทที่ 4</a>
+                <a href="05-methods.html">บทที่ 5</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <span class="badge badge-teal">📖 บทที่ 5</span>
+            <h1>Methods (ฟังก์ชัน)</h1>
+            <p class="meta">
+                <span>📅 <time datetime="2026-02-02">2 กุมภาพันธ์ 2026</time></span>
+                <span>⏱️ อ่าน 12 นาที</span>
+            </p>
+
+            <div class="intro">
+                <strong>Method</strong> คือกลุ่มของโค้ดที่ทำงานเฉพาะอย่าง สามารถเรียกใช้ซ้ำได้หลายครั้ง
+                ช่วยให้โค้ดอ่านง่ายและไม่ต้องเขียนซ้ำ
+            </div>
+
+            <h2>โครงสร้างของ Method</h2>
+            <pre><code><span class="keyword">public static</span> returnType <span class="method-name">methodName</span>(parameters) {
+    <span class="comment">// คำสั่ง</span>
+    <span class="keyword">return</span> value; <span class="comment">// ถ้ามี return type</span>
+}</code></pre>
+
+            <h2>Method แบบไม่ return ค่า (void)</h2>
+            <pre><code><span class="keyword">public class</span> Main {
+    <span class="keyword">public static void</span> <span class="method-name">sayHello</span>() {
+        System.out.println(<span class="string">"สวัสดี!"</span>);
+    }
+    
+    <span class="keyword">public static void</span> main(String[] args) {
+        sayHello(); <span class="comment">// เรียกใช้</span>
+        sayHello(); <span class="comment">// เรียกอีกครั้ง</span>
+    }
+}</code></pre>
+
+            <h2>Method แบบมี Parameters</h2>
+            <pre><code><span class="keyword">public static void</span> <span class="method-name">greet</span>(String name) {
+    System.out.println(<span class="string">"สวัสดี "</span> + name);
+}
+
+<span class="comment">// เรียกใช้</span>
+greet(<span class="string">"สมชาย"</span>);  <span class="comment">// สวัสดี สมชาย</span>
+greet(<span class="string">"สมหญิง"</span>); <span class="comment">// สวัสดี สมหญิง</span></code></pre>
+
+            <h3>หลาย Parameters</h3>
+            <pre><code><span class="keyword">public static void</span> <span class="method-name">printInfo</span>(String name, <span class="keyword">int</span> age) {
+    System.out.println(name + <span class="string">" อายุ "</span> + age + <span class="string">" ปี"</span>);
+}
+
+<span class="comment">// เรียกใช้</span>
+printInfo(<span class="string">"สมชาย"</span>, <span class="number">20</span>); <span class="comment">// สมชาย อายุ 20 ปี</span></code></pre>
+
+            <h2>Method แบบ Return ค่า</h2>
+            <pre><code><span class="keyword">public static int</span> <span class="method-name">add</span>(<span class="keyword">int</span> a, <span class="keyword">int</span> b) {
+    <span class="keyword">return</span> a + b;
+}
+
+<span class="keyword">public static double</span> <span class="method-name">calculateArea</span>(<span class="keyword">double</span> radius) {
+    <span class="keyword">return</span> <span class="number">3.14159</span> * radius * radius;
+}
+
+<span class="comment">// เรียกใช้</span>
+<span class="keyword">int</span> sum = add(<span class="number">5</span>, <span class="number">3</span>);           <span class="comment">// sum = 8</span>
+<span class="keyword">double</span> area = calculateArea(<span class="number">5</span>); <span class="comment">// area = 78.54</span></code></pre>
+
+            <div class="note-box">
+                <strong>⚠️ สำคัญ:</strong>
+                <ul style="margin-top: 10px;">
+                    <li>ถ้า return type เป็น <code>void</code> = ไม่ต้อง return</li>
+                    <li>ถ้า return type เป็นอื่น (int, double, String) = ต้อง return ค่านั้น</li>
+                </ul>
+            </div>
+
+            <h2>ตัวอย่าง: เกรดจากคะแนน</h2>
+            <pre><code><span class="keyword">public static</span> String <span class="method-name">getGrade</span>(<span class="keyword">int</span> score) {
+    <span class="keyword">if</span> (score >= <span class="number">80</span>) <span class="keyword">return</span> <span class="string">"A"</span>;
+    <span class="keyword">else if</span> (score >= <span class="number">70</span>) <span class="keyword">return</span> <span class="string">"B"</span>;
+    <span class="keyword">else if</span> (score >= <span class="number">60</span>) <span class="keyword">return</span> <span class="string">"C"</span>;
+    <span class="keyword">else if</span> (score >= <span class="number">50</span>) <span class="keyword">return</span> <span class="string">"D"</span>;
+    <span class="keyword">else return</span> <span class="string">"F"</span>;
+}
+
+<span class="comment">// เรียกใช้</span>
+System.out.println(getGrade(<span class="number">85</span>)); <span class="comment">// A</span>
+System.out.println(getGrade(<span class="number">45</span>)); <span class="comment">// F</span></code></pre>
+
+            <h2>Method Overloading</h2>
+            <p>สร้าง method ชื่อเดียวกัน แต่ <strong>parameters ต่างกัน</strong>:</p>
+            <pre><code><span class="keyword">public static int</span> <span class="method-name">add</span>(<span class="keyword">int</span> a, <span class="keyword">int</span> b) {
+    <span class="keyword">return</span> a + b;
+}
+
+<span class="keyword">public static int</span> <span class="method-name">add</span>(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c) {
+    <span class="keyword">return</span> a + b + c;
+}
+
+<span class="keyword">public static double</span> <span class="method-name">add</span>(<span class="keyword">double</span> a, <span class="keyword">double</span> b) {
+    <span class="keyword">return</span> a + b;
+}
+
+<span class="comment">// Java เลือก method ที่เหมาะสมเอง</span>
+add(<span class="number">2</span>, <span class="number">3</span>);        <span class="comment">// เรียก add(int, int)</span>
+add(<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>);     <span class="comment">// เรียก add(int, int, int)</span>
+add(<span class="number">2.5</span>, <span class="number">3.5</span>);    <span class="comment">// เรียก add(double, double)</span></code></pre>
+
+            <div class="tip-box">
+                <strong>💡 ทำไมต้องใช้ Method?</strong>
+                <ul style="margin-top: 10px;">
+                    <li><strong>Reusability</strong> - เขียนครั้งเดียว ใช้ได้หลายที่</li>
+                    <li><strong>Readability</strong> - โค้ดอ่านง่ายขึ้น</li>
+                    <li><strong>Maintainability</strong> - แก้ไขที่เดียวมีผลทุกที่</li>
+                </ul>
+            </div>
+
+            <div class="summary-box">
+                <h3>📝 สรุปสิ่งที่ต้องจำ</h3>
+                <ul>
+                    <li><code>void</code> = ไม่ return ค่า</li>
+                    <li>Parameters คือตัวแปรที่รับเข้ามา</li>
+                    <li><code>return</code> ส่งค่ากลับและจบ method</li>
+                    <li>Overloading = ชื่อเดียวกัน parameters ต่างกัน</li>
+                </ul>
+                <p style="margin-top: 20px; opacity: 0.8;">งงตรงไหน? <a href="https://instabio.cc/4021411ZGCpLW"
+                        target="_blank" style="color: #14b8a6; text-decoration: underline;">ทักมาถามได้เลยนะ! 💬</a></p>
+            </div>
+
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="quiz-05-methods.html" class="quiz-btn">🎯 ทำแบบทดสอบบทที่ 5</a>
+            </div>
+
+            <div class="nav-links">
+                <a href="04-arrays.html">← บทที่ 4: Arrays</a>
+                <a href="06-oop.html">บทที่ 6: OOP →</a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>บันทึกการติว | เตรียมสอบกันเถอะ! 📚</p>
+    </footer>
+    <script src="lesson-tracking.js"></script>
+    <script src="music-player.js"></script>
+</body>
+
+</html>

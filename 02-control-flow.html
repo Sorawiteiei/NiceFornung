@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Flow: if-else และ switch | บันทึกการติว Java</title>
+    <meta name="description"
+        content="เรียนรู้การใช้ if-else และ switch ในภาษา Java สำหรับควบคุมการทำงานของโปรแกรม พร้อมตัวอย่างโค้ด">
+    <link rel="stylesheet" href="lesson-style.css">
+    <link rel="stylesheet" href="music-player.css">
+</head>
+
+<body class="theme-orange" data-lesson-id="lesson-02">
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">📚 บันทึกการติว</a>
+            <nav>
+                <a href="index.html">หน้าแรก</a>
+                <a href="blog-java-programming.html">บทที่ 1</a>
+                <a href="02-control-flow.html">บทที่ 2</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <span class="badge badge-orange">📖 บทที่ 2</span>
+            <h1>Control Flow: if-else และ switch</h1>
+            <p class="meta">
+                <span>📅 <time datetime="2026-02-02">2 กุมภาพันธ์ 2026</time></span>
+                <span>⏱️ อ่าน 10 นาที</span>
+            </p>
+
+            <div class="intro">
+                <strong>🤔 Control Flow คืออะไร?</strong><br><br>
+                ลองนึกภาพว่าเรากำลังตัดสินใจในชีวิตจริง เช่น:<br>
+                - ถ้าฝนตก → เอาร่มไป<br>
+                - ถ้าไม่ตก → ไม่ต้องเอา<br><br>
+                <strong>Control Flow</strong> ก็เหมือนกัน! มันคือการสอนให้โปรแกรมตัดสินใจได้เอง ว่าถ้าเงื่อนไขเป็นแบบนี้
+                ให้ทำอะไร ถ้าเป็นแบบนั้น ให้ทำอะไร
+            </div>
+
+            <h2>🔍 ทำไมถึงสำคัญ?</h2>
+            <p>ถ้าไม่มี Control Flow โปรแกรมจะทำงานเหมือนกันทุกครั้ง ไม่สามารถ:</p>
+            <ul>
+                <li>ตรวจสอบว่า login ถูกหรือผิด</li>
+                <li>ให้เกรดตามคะแนน</li>
+                <li>แสดงข้อความแตกต่างกันตามเพศ/อายุ</li>
+                <li>ทำให้เกมมีหลายทางเลือก</li>
+            </ul>
+
+            <h2>🗺️ Flowchart: คิดเป็นภาพก่อนเขียนโค้ด</h2>
+            <p>ก่อนจะเริ่มพิมพ์โค้ด การวาด <strong>Flowchart (ผังงาน)</strong>
+                ช่วยให้เรามองเห็นภาพรวมการทำงานของโปรแกรมได้ชัดเจนขึ้น โดยใช้สัญลักษณ์มาตรฐานครับ:</p>
+
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px;">
+                <div
+                    style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; text-align: center; border: 1px solid rgba(255,255,255,0.1);">
+                    <div
+                        style="background: #22d3ee; color: #000; padding: 10px 20px; border-radius: 25px; display: inline-block; margin-bottom: 10px; font-weight: bold;">
+                        Start / End</div>
+                    <p style="font-size: 0.9rem; margin: 0; color: #ccc;">จุดเริ่มต้นและสิ้นสุด</p>
+                </div>
+                <div
+                    style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; text-align: center; border: 1px solid rgba(255,255,255,0.1);">
+                    <div
+                        style="background: #f472b6; color: #000; padding: 10px 20px; clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%); display: inline-block; margin-bottom: 10px; font-weight: bold; min-width: 120px;">
+                        Input / Output</div>
+                    <p style="font-size: 0.9rem; margin: 0; color: #ccc;">รับค่า หรือ แสดงผล</p>
+                </div>
+                <div
+                    style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; text-align: center; border: 1px solid rgba(255,255,255,0.1);">
+                    <div
+                        style="background: #a78bfa; color: #000; padding: 10px 20px; display: inline-block; margin-bottom: 10px; font-weight: bold; min-width: 120px;">
+                        Process</div>
+                    <p style="font-size: 0.9rem; margin: 0; color: #ccc;">การคำนวณ / กำหนดค่า</p>
+                </div>
+                <div
+                    style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; text-align: center; border: 1px solid rgba(255,255,255,0.1);">
+                    <div
+                        style="width: 100px; height: 50px; background: #fbbf24; color: #000; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold; transform: skewX(-20deg) rotate(45deg);">
+                        <span style="transform: rotate(-45deg) skewX(20deg);">Condition</span>
+                    </div>
+                    <p style="font-size: 0.9rem; margin: 0; color: #ccc;">การตัดสินใจ (True/False)</p>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <strong>💡 ตัวอย่าง Flowchart ตรวจสอบคะแนนสอบ</strong>
+                <div style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
+                    <!-- Start -->
+                    <div
+                        style="background: #22d3ee; color: #000; padding: 8px 30px; border-radius: 20px; font-weight: bold; font-size: 0.9rem;">
+                        Start</div>
+                    <div style="width: 2px; height: 20px; background: #666;"></div>
+                    <div
+                        style="width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 8px solid #666; margin-bottom: 5px;">
+                    </div>
+
+                    <!-- Condition -->
+                    <div style="position: relative; width: 140px; height: 60px;">
+                        <div
+                            style="position: absolute; width: 100%; height: 100%; background: #fbbf24; transform: skewX(-20deg) rotate(0deg) scale(0.8) rotate(45deg); left: 15px;">
+                        </div>
+                        <div
+                            style="position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #000; font-weight: bold; font-size: 0.9rem; z-index: 2;">
+                            Score >= 50?
+                        </div>
+                    </div>
+
+                    <!-- Arrows split -->
+                    <div style="display: flex; justify-content: space-between; width: 200px; margin-top: 5px;">
+                        <div style="text-align: center; width: 50%;">
+                            <div style="color: #22c55e; font-size: 0.8rem; font-weight: bold;">True (ใช่)</div>
+                            <div style="width: 2px; height: 30px; background: #22c55e; margin: 0 auto;"></div>
+                            <div
+                                style="width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 8px solid #22c55e; margin: 0 auto 5px;">
+                            </div>
+                            <div
+                                style="background: #f472b6; color: #000; padding: 8px 15px; clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%); font-weight: bold; font-size: 0.9rem;">
+                                Print "Pass"</div>
+                        </div>
+                        <div style="text-align: center; width: 50%;">
+                            <div style="color: #ef4444; font-size: 0.8rem; font-weight: bold;">False (ไม่)</div>
+                            <div style="width: 2px; height: 30px; background: #ef4444; margin: 0 auto;"></div>
+                            <div
+                                style="width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 8px solid #ef4444; margin: 0 auto 5px;">
+                            </div>
+                            <div
+                                style="background: #f472b6; color: #000; padding: 8px 15px; clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%); font-weight: bold; font-size: 0.9rem;">
+                                Print "Fail"</div>
+                        </div>
+                    </div>
+
+                    <!-- Merge back -->
+                    <div style="display: flex; justify-content: center; width: 200px; margin-top: 10px;">
+                        <div
+                            style="width: 100px; height: 2px; background: #666; position: relative; top: -10px; border-left: 1px solid #666; border-right: 1px solid #666; height: 10px; border-bottom: none;">
+                        </div>
+                    </div>
+                    <div style="width: 2px; height: 20px; background: #666; margin-top: -10px;"></div>
+                    <div
+                        style="width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 8px solid #666; margin-bottom: 5px;">
+                    </div>
+
+                    <!-- End -->
+                    <div
+                        style="background: #22d3ee; color: #000; padding: 8px 30px; border-radius: 20px; font-weight: bold; font-size: 0.9rem;">
+                        End</div>
+                </div>
+            </div>
+            <p>ใช้เมื่อต้องการให้โปรแกรมทำบางอย่าง <strong>เมื่อเงื่อนไขเป็นจริง</strong></p>
+            <pre><code><span class="keyword">int</span> score = <span class="number">75</span>;
+
+<span class="keyword">if</span> (score >= <span class="number">50</span>) {
+    System.out.println(<span class="string">"สอบผ่าน!"</span>);
+}</code></pre>
+
+            <h2>if-else statement</h2>
+            <p>เพิ่มทางเลือกเมื่อเงื่อนไข <strong>ไม่เป็นจริง</strong></p>
+            <pre><code><span class="keyword">int</span> score = <span class="number">45</span>;
+
+<span class="keyword">if</span> (score >= <span class="number">50</span>) {
+    System.out.println(<span class="string">"สอบผ่าน!"</span>);
+} <span class="keyword">else</span> {
+    System.out.println(<span class="string">"สอบไม่ผ่าน ต้องสอบซ่อม"</span>);
+}</code></pre>
+
+            <h2>if-else if-else (หลายเงื่อนไข)</h2>
+            <p>ใช้เมื่อมีหลายเงื่อนไขที่ต้องตรวจสอบ:</p>
+            <pre><code><span class="keyword">int</span> score = <span class="number">85</span>;
+
+<span class="keyword">if</span> (score >= <span class="number">80</span>) {
+    System.out.println(<span class="string">"เกรด A"</span>);
+} <span class="keyword">else if</span> (score >= <span class="number">70</span>) {
+    System.out.println(<span class="string">"เกรด B"</span>);
+} <span class="keyword">else if</span> (score >= <span class="number">60</span>) {
+    System.out.println(<span class="string">"เกรด C"</span>);
+} <span class="keyword">else if</span> (score >= <span class="number">50</span>) {
+    System.out.println(<span class="string">"เกรด D"</span>);
+} <span class="keyword">else</span> {
+    System.out.println(<span class="string">"เกรด F"</span>);
+}</code></pre>
+
+            <div class="note-box">
+                <strong>⚠️ ข้อควรระวัง:</strong> เงื่อนไขจะถูกตรวจสอบ <strong>จากบนลงล่าง</strong>
+                ถ้าเจอเงื่อนไขแรกที่เป็นจริง จะข้ามเงื่อนไขที่เหลือทั้งหมดเลย!
+            </div>
+
+            <h2>Logical Operators</h2>
+            <p>ใช้รวมหลายเงื่อนไขเข้าด้วยกัน:</p>
+
+            <div class="note-box">
+                <strong>🎯 จำง่ายๆ:</strong><br>
+                <code>&&</code> (AND) = ต้องจริง <u>ทั้งคู่</u> → "และ"<br>
+                <code>||</code> (OR) = จริง <u>อันใดอันหนึ่ง</u> ก็พอ → "หรือ"<br>
+                <code>!</code> (NOT) = กลับค่า จริงเป็นเท็จ เท็จเป็นจริง → "ไม่"
+            </div>
+
+            <pre><code><span class="comment">// AND (&&) - ต้องจริงทั้งคู่</span>
+<span class="keyword">if</span> (age >= <span class="number">18</span> && hasLicense) {
+    System.out.println(<span class="string">"ขับรถได้"</span>);
+}
+
+<span class="comment">// OR (||) - จริงอย่างน้อยหนึ่งอัน</span>
+<span class="keyword">if</span> (day == <span class="string">"Saturday"</span> || day == <span class="string">"Sunday"</span>) {
+    System.out.println(<span class="string">"วันหยุด!"</span>);
+}
+
+<span class="comment">// NOT (!) - กลับค่า</span>
+<span class="keyword">if</span> (!isRaining) {
+    System.out.println(<span class="string">"ออกไปเที่ยวได้"</span>);
+}</code></pre>
+
+            <h2>switch statement</h2>
+            <p>ใช้แทน if-else หลายๆ อัน เมื่อต้องเปรียบเทียบ <strong>ค่าเดียวกับหลายๆ กรณี</strong>:</p>
+            <pre><code><span class="keyword">int</span> day = <span class="number">3</span>;
+
+<span class="keyword">switch</span> (day) {
+    <span class="keyword">case</span> <span class="number">1</span>:
+        System.out.println(<span class="string">"วันจันทร์"</span>);
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> <span class="number">2</span>:
+        System.out.println(<span class="string">"วันอังคาร"</span>);
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> <span class="number">3</span>:
+        System.out.println(<span class="string">"วันพุธ"</span>);
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> <span class="number">4</span>:
+        System.out.println(<span class="string">"วันพฤหัส"</span>);
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> <span class="number">5</span>:
+        System.out.println(<span class="string">"วันศุกร์"</span>);
+        <span class="keyword">break</span>;
+    <span class="keyword">default</span>:
+        System.out.println(<span class="string">"วันหยุด"</span>);
+}</code></pre>
+
+            <div class="tip-box">
+                <strong>💡 เคล็ดลับ:</strong> อย่าลืม <code>break;</code> หลังแต่ละ case! ถ้าลืมใส่ โปรแกรมจะทำ case
+                ถัดไปด้วย (fall-through)
+            </div>
+
+            <h2>Ternary Operator (แบบย่อ)</h2>
+            <p>เขียน if-else สั้นๆ ได้ในบรรทัดเดียว:</p>
+            <pre><code><span class="keyword">int</span> score = <span class="number">75</span>;
+String result = (score >= <span class="number">50</span>) ? <span class="string">"ผ่าน"</span> : <span class="string">"ไม่ผ่าน"</span>;
+System.out.println(result); <span class="comment">// ผ่าน</span></code></pre>
+
+            <div class="summary-box">
+                <h3>📝 สรุปสิ่งที่ต้องจำ</h3>
+                <ul>
+                    <li><code>if</code> - ทำเมื่อเงื่อนไขจริง</li>
+                    <li><code>if-else</code> - มี 2 ทางเลือก</li>
+                    <li><code>if-else if-else</code> - หลายเงื่อนไข</li>
+                    <li><code>switch</code> - เปรียบเทียบค่าเดียวกับหลาย case</li>
+                    <li>Operators: <code>&&</code> (AND), <code>||</code> (OR), <code>!</code> (NOT)</li>
+                </ul>
+                <p style="margin-top: 20px; opacity: 0.8;">งงตรงไหน? <a href="https://instabio.cc/4021411ZGCpLW"
+                        target="_blank" style="color: #f59e0b; text-decoration: underline;">ทักมาถามได้เลยนะ! 💬</a></p>
+            </div>
+
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="quiz-02-control-flow.html" class="quiz-btn">🎯 ทำแบบทดสอบบทที่ 2</a>
+            </div>
+
+            <div class="nav-links">
+                <a href="blog-java-programming.html">← บทที่ 1: พื้นฐาน Java</a>
+                <a href="03-loops.html">บทที่ 3: Loops →</a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>บันทึกการติว | เตรียมสอบกันเถอะ! 📚</p>
+    </footer>
+    <script src="lesson-tracking.js"></script>
+    <script src="music-player.js"></script>
+</body>
+
+</html>

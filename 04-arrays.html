@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays (อาร์เรย์) | บันทึกการติว Java</title>
+    <meta name="description"
+        content="เรียนรู้การใช้ Array ในภาษา Java เก็บข้อมูลหลายค่าในตัวแปรเดียว พร้อมตัวอย่างโค้ด">
+    <link rel="stylesheet" href="lesson-style.css">
+    <link rel="stylesheet" href="music-player.css">
+    <style>
+        /* Array visualization specific to this lesson */
+        .array-visual {
+            background: #f3f4f6;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .array-visual .cells {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin: 15px 0;
+        }
+
+        .array-visual .cell {
+            width: 50px;
+            height: 50px;
+            background: #ec4899;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .array-visual .index {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .array-visual .idx {
+            width: 50px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body class="theme-pink" data-lesson-id="lesson-04">
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">📚 บันทึกการติว</a>
+            <nav>
+                <a href="index.html">หน้าแรก</a>
+                <a href="03-loops.html">บทที่ 3</a>
+                <a href="04-arrays.html">บทที่ 4</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <span class="badge badge-pink">📖 บทที่ 4</span>
+            <h1>Arrays (อาร์เรย์)</h1>
+            <p class="meta">
+                <span>📅 <time datetime="2026-02-02">2 กุมภาพันธ์ 2026</time></span>
+                <span>⏱️ อ่าน 10 นาที</span>
+            </p>
+
+            <div class="intro">
+                <strong>📦 Array คืออะไร?</strong><br><br>
+                ลองนึกภาพว่าเราต้องเก็บคะแนนของนักเรียน 5 คน...<br><br>
+                ❌ แบบไม่ใช้ Array:<br>
+                <code>int score1=85; int score2=90; int score3=78; int score4=92; int score5=88;</code><br><br>
+                ✅ แบบใช้ Array:<br>
+                <code>int[] scores = {85, 90, 78, 92, 88};</code><br><br>
+                เหมือนมีกล่องใบใหญ่ที่มีหลายช่อง เก็บข้อมูลได้หลายค่าในชื่อเดียว!
+            </div>
+
+            <h2>🎯 ใช้ Array เมื่อไหร่?</h2>
+            <ul>
+                <li>เก็บคะแนนนักเรียนหลายคน</li>
+                <li>เก็บชื่อสินค้าในตะกร้า</li>
+                <li>เก็บอุณหภูมิ 7 วันที่ผ่านมา</li>
+                <li>เก็บเลือกตั้งของผู้สมัครแต่ละคน</li>
+            </ul>
+
+            <h2>การสร้าง Array</h2>
+            <pre><code><span class="comment">// วิธีที่ 1: ประกาศแล้วกำหนดขนาด</span>
+<span class="keyword">int</span>[] scores = <span class="keyword">new int</span>[<span class="number">5</span>]; <span class="comment">// เก็บได้ 5 ค่า</span>
+
+<span class="comment">// วิธีที่ 2: ประกาศพร้อมใส่ค่าเลย</span>
+<span class="keyword">int</span>[] scores = {<span class="number">85</span>, <span class="number">90</span>, <span class="number">78</span>, <span class="number">92</span>, <span class="number">88</span>};
+
+<span class="comment">// Array ของ String</span>
+String[] names = {<span class="string">"สมชาย"</span>, <span class="string">"สมหญิง"</span>, <span class="string">"สมศรี"</span>};</code></pre>
+
+            <h2>Index เริ่มที่ 0!</h2>
+            <div class="array-visual">
+                <p><strong>int[] scores = {85, 90, 78, 92, 88};</strong></p>
+                <div class="cells">
+                    <div class="cell">85</div>
+                    <div class="cell">90</div>
+                    <div class="cell">78</div>
+                    <div class="cell">92</div>
+                    <div class="cell">88</div>
+                </div>
+                <div class="index">
+                    <div class="idx">[0]</div>
+                    <div class="idx">[1]</div>
+                    <div class="idx">[2]</div>
+                    <div class="idx">[3]</div>
+                    <div class="idx">[4]</div>
+                </div>
+            </div>
+
+            <div class="note-box">
+                <strong>⚠️ สำคัญมาก!</strong> Index เริ่มจาก <strong>0</strong> ไม่ใช่ 1!<br>
+                Array ขนาด 5 จะมี index: 0, 1, 2, 3, 4
+            </div>
+
+            <h2>การเข้าถึงและแก้ไขค่า</h2>
+            <pre><code><span class="keyword">int</span>[] scores = {<span class="number">85</span>, <span class="number">90</span>, <span class="number">78</span>, <span class="number">92</span>, <span class="number">88</span>};
+
+<span class="comment">// อ่านค่า</span>
+System.out.println(scores[<span class="number">0</span>]); <span class="comment">// 85</span>
+System.out.println(scores[<span class="number">2</span>]); <span class="comment">// 78</span>
+
+<span class="comment">// แก้ไขค่า</span>
+scores[<span class="number">2</span>] = <span class="number">80</span>; <span class="comment">// เปลี่ยนจาก 78 เป็น 80</span>
+
+<span class="comment">// หาความยาว</span>
+System.out.println(scores.length); <span class="comment">// 5</span></code></pre>
+
+            <h2>วนลูปกับ Array</h2>
+            <h3>แบบ for loop ธรรมดา</h3>
+            <pre><code><span class="keyword">int</span>[] scores = {<span class="number">85</span>, <span class="number">90</span>, <span class="number">78</span>, <span class="number">92</span>, <span class="number">88</span>};
+
+<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i < scores.length; i++) {
+    System.out.println(<span class="string">"คะแนนที่ "</span> + (i+<span class="number">1</span>) + <span class="string">": "</span> + scores[i]);
+}</code></pre>
+
+            <h3>แบบ for-each (ง่ายกว่า)</h3>
+            <pre><code><span class="keyword">int</span>[] scores = {<span class="number">85</span>, <span class="number">90</span>, <span class="number">78</span>, <span class="number">92</span>, <span class="number">88</span>};
+
+<span class="keyword">for</span> (<span class="keyword">int</span> score : scores) {
+    System.out.println(score);
+}</code></pre>
+
+            <div class="tip-box">
+                <strong>💡 for-each ใช้เมื่อ:</strong>
+                <ul style="margin-top: 10px;">
+                    <li>ต้องการอ่านค่าทุกตัวตั้งแต่ต้นจนจบ</li>
+                    <li>ไม่ต้องการรู้ index</li>
+                    <li>ไม่ต้องการแก้ไขค่าใน array</li>
+                </ul>
+            </div>
+
+            <h2>ตัวอย่าง: หาค่าสูงสุด</h2>
+            <pre><code><span class="keyword">int</span>[] scores = {<span class="number">85</span>, <span class="number">90</span>, <span class="number">78</span>, <span class="number">92</span>, <span class="number">88</span>};
+<span class="keyword">int</span> max = scores[<span class="number">0</span>]; <span class="comment">// สมมติตัวแรกมากสุด</span>
+
+<span class="keyword">for</span> (<span class="keyword">int</span> score : scores) {
+    <span class="keyword">if</span> (score > max) {
+        max = score;
+    }
+}
+
+System.out.println(<span class="string">"คะแนนสูงสุด: "</span> + max); <span class="comment">// 92</span></code></pre>
+
+            <h2>ตัวอย่าง: หาค่าเฉลี่ย</h2>
+            <pre><code><span class="keyword">int</span>[] scores = {<span class="number">85</span>, <span class="number">90</span>, <span class="number">78</span>, <span class="number">92</span>, <span class="number">88</span>};
+<span class="keyword">int</span> sum = <span class="number">0</span>;
+
+<span class="keyword">for</span> (<span class="keyword">int</span> score : scores) {
+    sum += score;
+}
+
+<span class="keyword">double</span> avg = (<span class="keyword">double</span>) sum / scores.length;
+System.out.println(<span class="string">"คะแนนเฉลี่ย: "</span> + avg); <span class="comment">// 86.6</span></code></pre>
+
+            <div class="summary-box">
+                <h3>📝 สรุปสิ่งที่ต้องจำ</h3>
+                <ul>
+                    <li>Array เก็บข้อมูลหลายค่าในตัวแปรเดียว</li>
+                    <li><strong>Index เริ่มจาก 0</strong> ไม่ใช่ 1!</li>
+                    <li>ใช้ <code>.length</code> หาความยาว</li>
+                    <li>for-each ใช้อ่านค่าได้ง่าย</li>
+                    <li>ระวัง ArrayIndexOutOfBoundsException!</li>
+                </ul>
+                <p style="margin-top: 20px; opacity: 0.8;">งงตรงไหน? <a href="https://instabio.cc/4021411ZGCpLW"
+                        target="_blank" style="color: #ec4899; text-decoration: underline;">ทักมาถามได้เลยนะ! 💬</a></p>
+            </div>
+
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="quiz-04-arrays.html" class="quiz-btn">🎯 ทำแบบทดสอบบทที่ 4</a>
+            </div>
+
+            <div class="nav-links">
+                <a href="03-loops.html">← บทที่ 3: Loops</a>
+                <a href="05-methods.html">บทที่ 5: Methods →</a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>บันทึกการติว | เตรียมสอบกันเถอะ! 📚</p>
+    </footer>
+    <script src="lesson-tracking.js"></script>
+    <script src="music-player.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>บันทึกการติว Java | เตรียมสอบการเขียนโปรแกรมพื้นฐาน</title>
+    <meta name="description"
+        content="บันทึกการติววิชาการเขียนโปรแกรมพื้นฐานด้วยภาษา Java ครอบคลุมตั้งแต่พื้นฐานจนถึง OOP">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index-style.css">
+    <link rel="stylesheet" href="music-player.css">
+</head>
+
+<body>
+    <!-- Background Effects -->
+    <div class="particles">
+        <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="left: 20%; animation-delay: 2s;"></div>
+        <div class="particle" style="left: 30%; animation-delay: 4s;"></div>
+        <div class="particle" style="left: 40%; animation-delay: 1s;"></div>
+        <div class="particle" style="left: 50%; animation-delay: 3s;"></div>
+        <div class="particle" style="left: 60%; animation-delay: 5s;"></div>
+        <div class="particle" style="left: 70%; animation-delay: 2.5s;"></div>
+        <div class="particle" style="left: 80%; animation-delay: 1.5s;"></div>
+        <div class="particle" style="left: 90%; animation-delay: 4.5s;"></div>
+    </div>
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">📚 บันทึกการติว</a>
+            <nav>
+                <a href="#lessons">บทเรียน</a>
+                <a href="#quizzes">แบบทดสอบ</a>
+                <a href="https://instabio.cc/4021411ZGCpLW" target="_blank">ติดต่อ</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="hero">
+            <h1>เตรียมสอบ <span>Java</span> กันเถอะ! 🚀</h1>
+            <p>รวมเนื้อหาที่ติวกันไว้ทั้งหมด ตั้งแต่พื้นฐานจนถึง OOP และ Inheritance พร้อมแบบทดสอบ 240 ข้อ</p>
+            <div class="exam-alert">📅 สอบอาทิตย์หน้า - สู้ๆ นะ!</div>
+
+            <div class="leader-cheer" style="margin-top: 35px; animation: hoverLeader 3s infinite ease-in-out;">
+                <img src="leader-thumb.jpg" alt="หัวหน้าให้กำลังใจ"
+                    style="width: 140px; height: 140px; border-radius: 50%; border: 4px solid rgba(255,255,255,0.9); box-shadow: 0 0 25px rgba(0, 212, 255, 0.6); object-fit: cover;">
+                <p
+                    style="margin-top: 15px; font-size: 1.2rem; color: #fff; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.5); background: linear-gradient(90deg, #00d4ff, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                    "หัวหน้าเชื่อว่าทุกคนทำได้"</p>
+            </div>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number" id="lessons-completed">0</div>
+                    <div class="stat-label">บทเรียนที่อ่านแล้ว / 8</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="questions-answered">0</div>
+                    <div class="stat-label">ข้อสอบที่ทำแล้ว / 240</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">ระดับความยาก</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">ทำซ้ำได้</div>
+                </div>
+            </div>
+
+            <h2 id="lessons">📖 บทเรียนทั้งหมด</h2>
+            <div class="lessons" style="margin-bottom: 40px;">
+                <a href="blog-java-programming.html" class="lesson-card lesson-1">
+                    <div class="lesson-number">1</div>
+                    <div class="lesson-content">
+                        <h3>พื้นฐาน Java</h3>
+                        <p>ติดตั้ง JDK, Hello World, ตัวแปร, รับ Input</p>
+                    </div>
+                    <span class="lesson-badge">พื้นฐาน</span>
+                </a>
+                <a href="02-control-flow.html" class="lesson-card lesson-2">
+                    <div class="lesson-number">2</div>
+                    <div class="lesson-content">
+                        <h3>Control Flow</h3>
+                        <p>if-else, switch-case, เปรียบเทียบ</p>
+                    </div>
+                </a>
+                <a href="03-loops.html" class="lesson-card lesson-3">
+                    <div class="lesson-number">3</div>
+                    <div class="lesson-content">
+                        <h3>Loops</h3>
+                        <p>for, while, do-while, break, continue</p>
+                    </div>
+                </a>
+                <a href="04-arrays.html" class="lesson-card lesson-4">
+                    <div class="lesson-number">4</div>
+                    <div class="lesson-content">
+                        <h3>Arrays</h3>
+                        <p>สร้าง Array, Index, วนลูป, หาค่าสูงสุด/เฉลี่ย</p>
+                    </div>
+                </a>
+                <a href="05-methods.html" class="lesson-card lesson-5">
+                    <div class="lesson-number">5</div>
+                    <div class="lesson-content">
+                        <h3>Methods</h3>
+                        <p>สร้าง Method, Parameters, Return, Overloading</p>
+                    </div>
+                </a>
+                <a href="06-oop.html" class="lesson-card lesson-6">
+                    <div class="lesson-number">6</div>
+                    <div class="lesson-content">
+                        <h3>OOP</h3>
+                        <p>Class, Object, Constructor, Encapsulation, Polymorphism</p>
+                    </div>
+                    <span class="lesson-badge exam-badge">⭐ ออกสอบแน่!</span>
+                </a>
+                <a href="07-uml-diagrams.html" class="lesson-card lesson-7">
+                    <div class="lesson-number">7</div>
+                    <div class="lesson-content">
+                        <h3>UML Diagrams</h3>
+                        <p>Class Diagram, Object Diagram, Relationships</p>
+                    </div>
+                    <span class="lesson-badge exam-badge">⭐ ออกสอบแน่!</span>
+                </a>
+                <a href="08-inheritance.html" class="lesson-card lesson-8">
+                    <div class="lesson-number">8</div>
+                    <div class="lesson-content">
+                        <h3>Inheritance</h3>
+                        <p>extends, super, override, abstract class</p>
+                    </div>
+                    <span class="lesson-badge exam-badge">⭐ ออกสอบแน่!</span>
+                </a>
+            </div>
+
+            <h2 id="quizzes">🎯 แบบทดสอบ</h2>
+            <div class="lessons">
+                <a href="quiz-01-basics.html" class="lesson-card quiz-card lesson-1">
+                    <div class="lesson-number">🎯</div>
+                    <div class="lesson-content">
+                        <h3>Quiz: พื้นฐาน Java</h3>
+                        <p>30 ข้อ | Variables, Data Types</p>
+                    </div>
+                </a>
+                <a href="quiz-02-control-flow.html" class="lesson-card quiz-card lesson-2">
+                    <div class="lesson-number">🎯</div>
+                    <div class="lesson-content">
+                        <h3>Quiz: Control Flow</h3>
+                        <p>30 ข้อ | if-else, switch</p>
+                    </div>
+                </a>
+                <a href="quiz-03-loops.html" class="lesson-card quiz-card lesson-3">
+                    <div class="lesson-number">🎯</div>
+                    <div class="lesson-content">
+                        <h3>Quiz: Loops</h3>
+                        <p>30 ข้อ | for, while, do-while</p>
+                    </div>
+                </a>
+                <a href="quiz-04-arrays.html" class="lesson-card quiz-card lesson-4">
+                    <div class="lesson-number">🎯</div>
+                    <div class="lesson-content">
+                        <h3>Quiz: Arrays</h3>
+                        <p>30 ข้อ | Array 1D, 2D</p>
+                    </div>
+                </a>
+                <a href="quiz-05-methods.html" class="lesson-card quiz-card lesson-5">
+                    <div class="lesson-number">🎯</div>
+                    <div class="lesson-content">
+                        <h3>Quiz: Methods</h3>
+                        <p>30 ข้อ | Parameters, Return</p>
+                    </div>
+                </a>
+                <a href="quiz-06-oop.html" class="lesson-card quiz-card lesson-6">
+                    <div class="lesson-number">🎯</div>
+                    <div class="lesson-content">
+                        <h3>Quiz: OOP</h3>
+                        <p>30 ข้อ | Class, Encapsulation</p>
+                    </div>
+                    <span class="lesson-badge exam-badge">⭐ สำคัญที่สุด!</span>
+                </a>
+                <a href="quiz-07-uml-diagrams.html" class="lesson-card quiz-card lesson-7">
+                    <div class="lesson-number">🎯</div>
+                    <div class="lesson-content">
+                        <h3>Quiz: UML Diagrams</h3>
+                        <p>30 ข้อ | Class Diagram, Relationships</p>
+                    </div>
+                    <span class="lesson-badge exam-badge">⭐ สำคัญที่สุด!</span>
+                </a>
+                <a href="quiz-08-inheritance.html" class="lesson-card quiz-card lesson-8">
+                    <div class="lesson-number">🎯</div>
+                    <div class="lesson-content">
+                        <h3>Quiz: Inheritance</h3>
+                        <p>30 ข้อ | extends, super, abstract</p>
+                    </div>
+                    <span class="lesson-badge exam-badge">⭐ สำคัญที่สุด!</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#lessons">📖 บทเรียน</a>
+            <a href="#quizzes">🎯 แบบทดสอบ</a>
+            <a href="https://instabio.cc/4021411ZGCpLW" target="_blank">💬 ติดต่อ</a>
+        </div>
+        <p class="footer-text">เข้าเว็บมาแล้ว <strong id="visitor-count">0</strong> ครั้ง ✨</p>
+        <a href="https://instabio.cc/4021411ZGCpLW" target="_blank" class="contact-btn">💬 ติดต่อผู้สอน</a>
+    </footer>
+
+    <script src="index.js"></script>
+    <script src="music-player.js"></script>
+</body>
+
+</html>

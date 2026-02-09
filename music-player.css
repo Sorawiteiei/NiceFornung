@@ -1,0 +1,309 @@
+/* Music Player Styles */
+:root {
+    --player-bg: rgba(20, 20, 35, 0.85);
+    --player-border: rgba(255, 255, 255, 0.1);
+    --player-accent: #8b5cf6;
+    --player-text: #fff;
+    --player-text-dim: #aaa;
+}
+
+#music-player-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 10000;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Floating Toggle Button */
+.music-toggle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--player-accent), #ec4899);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    z-index: 2;
+}
+
+.music-toggle:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.7);
+}
+
+.music-toggle svg {
+    width: 28px;
+    height: 28px;
+    fill: white;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.music-toggle.playing svg {
+    animation: music-note-bounce 1s infinite alternate;
+}
+
+@keyframes music-note-bounce {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-3px);
+    }
+}
+
+/* Expanded Player Card */
+.music-card {
+    position: absolute;
+    bottom: 75px;
+    left: 0;
+    width: 300px;
+    background: var(--player-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--player-border);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform-origin: bottom left;
+}
+
+.music-card.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: all;
+}
+
+/* Cover Art */
+.music-cover {
+    width: 100%;
+    height: 150px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.music-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 10s linear;
+}
+
+.music-card.playing .music-cover img {
+    transform: scale(1.1);
+    /* Subtle zoom when playing */
+}
+
+/* Info */
+.music-info {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.music-title {
+    color: var(--player-text);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.music-artist {
+    color: var(--player-text-dim);
+    font-size: 0.85rem;
+}
+
+/* Controls */
+.music-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+/* Volume Control */
+.volume-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 15px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.volume-icon {
+    width: 16px;
+    height: 16px;
+    fill: var(--player-text-dim);
+}
+
+.volume-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    outline: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--player-accent);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.volume-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+.ctrl-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--player-text);
+    opacity: 0.8;
+    transition: all 0.2s;
+}
+
+.ctrl-btn:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.ctrl-btn.play-pause {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--player-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 10px rgba(139, 92, 246, 0.4);
+}
+
+.ctrl-btn.play-pause:hover {
+    background: #7c3aed;
+    transform: scale(1.05);
+}
+
+/* Progress Bar */
+.music-progress {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--player-accent);
+    border-radius: 2px;
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+.time-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--player-text-dim);
+    margin-top: 5px;
+}
+
+/* Playlist / Add Music (Optional/Simple) */
+.music-footer {
+    border-top: 1px solid var(--player-border);
+    padding-top: 10px;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: var(--player-text-dim);
+    text-align: center;
+}
+
+.add-music-btn {
+    background: none;
+    border: 1px dashed var(--player-border);
+    color: var(--player-text-dim);
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.add-music-btn:hover {
+    border-color: var(--player-accent);
+    color: var(--player-text);
+}
+
+/* YouTube Search */
+.youtube-search-container {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--player-border);
+}
+
+.youtube-search-input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 8px 15px;
+    color: var(--player-text);
+    font-size: 0.8rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.youtube-search-input::placeholder {
+    color: var(--player-text-dim);
+    font-size: 0.75rem;
+}
+
+.youtube-search-input:focus {
+    border-color: #FF0000;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+}
+
+.youtube-search-btn {
+    background: linear-gradient(135deg, #FF0000, #CC0000);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.youtube-search-btn:hover {
+    background: linear-gradient(135deg, #FF3333, #FF0000);
+    transform: scale(1.05);
+}

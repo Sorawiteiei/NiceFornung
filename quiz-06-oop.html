@@ -1,0 +1,792 @@
+﻿<!DOCTYPE html>
+<html lang="th">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>แบบทดสอบ บทที่ 6: OOP | บันทึกการติว</title>
+        <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap"
+                rel="stylesheet">
+        <link rel="stylesheet" href="premium-style.css">
+        <link rel="stylesheet" href="music-player.css">
+        <script src="quiz.js" defer></script>
+</head>
+
+<body>
+        <div class="bg-particles"></div>
+        <div class="glow-orb orb-purple"></div>
+        <div class="glow-orb orb-pink"></div>
+
+        <header class="premium-header">
+                <div class="header-content">
+                        <a href="index.html" class="logo">📚 บันทึกการติว</a>
+                        <nav>
+                                <a href="06-oop.html">📖 บทเรียน</a>
+                                <a href="index.html#quizzes">🎯 แบบทดสอบทั้งหมด</a>
+                        </nav>
+                </div>
+        </header>
+
+        <main class="premium-main quiz-container">
+                <div class="premium-article">
+                        <span class="badge">เฉลยละเอียดทุกข้อ!</span>
+                        <h1>🎯 แบบทดสอบ: Java OOP</h1>
+                        <p style="margin-bottom: 30px;">30 ข้อ | Class, Object, Inheritance, Polymorphism</p>
+
+                        <div class="score-display">
+                                <span>🏆 คะแนน: <strong id="current-score">0</strong> / 30</span>
+                                <span>✅ ตอบแล้ว: <strong id="answered">0</strong> ข้อ</span>
+                        </div>
+
+                        <form id="quiz-form">
+                                <!-- ง่าย -->
+                                <div class="question easy" data-answer="b">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 1</div>
+                                        <div class="q-text">OOP ย่อมาจาก?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q1" value="a"><span
+                                                                class="option-letter">A</span><span>Object Oriented
+                                                                Process</span></label>
+                                                <label class="option"><input type="radio" name="q1" value="b"><span
+                                                                class="option-letter">B</span><span>Object Oriented
+                                                                Programming</span></label>
+                                                <label class="option"><input type="radio" name="q1" value="c"><span
+                                                                class="option-letter">C</span><span>Online Oriented
+                                                                Programming</span></label>
+                                                <label class="option"><input type="radio" name="q1" value="d"><span
+                                                                class="option-letter">D</span><span>Object Online
+                                                                Protocol</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>OOP ย่อมาจาก <strong>Object Oriented Programming</strong>
+                                                        หรือการเขียนโปรแกรมเชิงวัตถุ
+                                                        ซึ่งเป็นหัวใจหลักของภาษา Java</p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="c">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 2</div>
+                                        <div class="q-text">Class คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q2" value="a"><span
+                                                                class="option-letter">A</span><span>ตัวแปร</span></label>
+                                                <label class="option"><input type="radio" name="q2" value="b"><span
+                                                                class="option-letter">B</span><span>Object</span></label>
+                                                <label class="option"><input type="radio" name="q2" value="c"><span
+                                                                class="option-letter">C</span><span>พิมพ์เขียว/แม่แบบ</span></label>
+                                                <label class="option"><input type="radio" name="q2" value="d"><span
+                                                                class="option-letter">D</span><span>Method</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Class เปรียบเสมือน <strong>พิมพ์เขียว (Blueprint)</strong>
+                                                        หรือแม่พิมพ์
+                                                        ที่ใช้กำหนดลักษณะและพฤติกรรมเพื่อสร้าง Object</p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="a">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 3</div>
+                                        <div class="q-text">Object คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q3" value="a"><span
+                                                                class="option-letter">A</span><span>Instance ของ
+                                                                Class</span></label>
+                                                <label class="option"><input type="radio" name="q3" value="b"><span
+                                                                class="option-letter">B</span><span>ตัวแปร</span></label>
+                                                <label class="option"><input type="radio" name="q3" value="c"><span
+                                                                class="option-letter">C</span><span>Method</span></label>
+                                                <label class="option"><input type="radio" name="q3" value="d"><span
+                                                                class="option-letter">D</span><span>Package</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Object คือสิ่งที่ถูกสร้างขึ้นมาจาก Class เรียกว่า
+                                                        <strong>Instance</strong>
+                                                        มีตัวตนและสถานะจับต้องได้ใน Memory
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="d">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 4</div>
+                                        <div class="q-text">คำใดใช้สร้าง Object?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q4" value="a"><span
+                                                                class="option-letter">A</span><span>create</span></label>
+                                                <label class="option"><input type="radio" name="q4" value="b"><span
+                                                                class="option-letter">B</span><span>make</span></label>
+                                                <label class="option"><input type="radio" name="q4" value="c"><span
+                                                                class="option-letter">C</span><span>object</span></label>
+                                                <label class="option"><input type="radio" name="q4" value="d"><span
+                                                                class="option-letter">D</span><span>new</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Keyword <code>new</code>
+                                                        ใช้สำหรับจัดสรรพื้นที่ในหน่วยความจำเพื่อสร้าง Object ใหม่</p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="b">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 5</div>
+                                        <div class="q-text">Constructor คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q5" value="a"><span
+                                                                class="option-letter">A</span><span>Method ทำลาย
+                                                                Object</span></label>
+                                                <label class="option"><input type="radio" name="q5" value="b"><span
+                                                                class="option-letter">B</span><span>Method สร้าง
+                                                                Object</span></label>
+                                                <label class="option"><input type="radio" name="q5" value="c"><span
+                                                                class="option-letter">C</span><span>ตัวแปร</span></label>
+                                                <label class="option"><input type="radio" name="q5" value="d"><span
+                                                                class="option-letter">D</span><span>Class</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Constructor คือ Method พิเศษที่จะถูกเรียกทำงานอัตโนมัติเมื่อมีการ
+                                                        <strong>สร้าง Object
+                                                                (new)</strong> ใช้สำหรับกำหนดค่าเริ่มต้น
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="c">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 6</div>
+                                        <div class="q-text">Encapsulation คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q6" value="a"><span
+                                                                class="option-letter">A</span><span>การสืบทอด</span></label>
+                                                <label class="option"><input type="radio" name="q6" value="b"><span
+                                                                class="option-letter">B</span><span>การแทนที่</span></label>
+                                                <label class="option"><input type="radio" name="q6" value="c"><span
+                                                                class="option-letter">C</span><span>การห่อหุ้มข้อมูล</span></label>
+                                                <label class="option"><input type="radio" name="q6" value="d"><span
+                                                                class="option-letter">D</span><span>การนามธรรม</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Encapsulation คือ <strong>การห่อหุ้มข้อมูล</strong>
+                                                        เพื่อซ่อนรายละเอียดภายในและป้องกันการเข้าถึงข้อมูลโดยตรงจากภายนอก
+                                                        (ใช้ private)</p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="a">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 7</div>
+                                        <div class="q-text">Inheritance คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q7" value="a"><span
+                                                                class="option-letter">A</span><span>การสืบทอด</span></label>
+                                                <label class="option"><input type="radio" name="q7" value="b"><span
+                                                                class="option-letter">B</span><span>การห่อหุ้ม</span></label>
+                                                <label class="option"><input type="radio" name="q7" value="c"><span
+                                                                class="option-letter">C</span><span>การแทนที่</span></label>
+                                                <label class="option"><input type="radio" name="q7" value="d"><span
+                                                                class="option-letter">D</span><span>การนามธรรม</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Inheritance (การสืบทอดคุณสมบัติ) คือการที่ Class
+                                                        ลูกได้รับคุณสมบัติและ Method มาจาก Class แม่
+                                                        ทำให้ไม่ต้องเขียนโค้ดซ้ำ</p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="d">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 8</div>
+                                        <div class="q-text">คำใดใช้สืบทอด Class?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q8" value="a"><span
+                                                                class="option-letter">A</span><span>inherits</span></label>
+                                                <label class="option"><input type="radio" name="q8" value="b"><span
+                                                                class="option-letter">B</span><span>implements</span></label>
+                                                <label class="option"><input type="radio" name="q8" value="c"><span
+                                                                class="option-letter">C</span><span>using</span></label>
+                                                <label class="option"><input type="radio" name="q8" value="d"><span
+                                                                class="option-letter">D</span><span>extends</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ใช้คำสั่ง <code>extends</code> เพื่อระบุว่า Class นี้สืบทอดมาจาก
+                                                        Class อื่น เช่น
+                                                        <code>class Dog extends Animal</code>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="b">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 9</div>
+                                        <div class="q-text">this ใช้อ้างถึง?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q9" value="a"><span
+                                                                class="option-letter">A</span><span>Parent
+                                                                class</span></label>
+                                                <label class="option"><input type="radio" name="q9" value="b"><span
+                                                                class="option-letter">B</span><span>Object
+                                                                ปัจจุบัน</span></label>
+                                                <label class="option"><input type="radio" name="q9" value="c"><span
+                                                                class="option-letter">C</span><span>Method</span></label>
+                                                <label class="option"><input type="radio" name="q9" value="d"><span
+                                                                class="option-letter">D</span><span>static
+                                                                variable</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>this</code> เป็น Reference ที่ชี้ไปยัง <strong>Object
+                                                                ตัวปัจจุบัน</strong>
+                                                        ที่กำลังทำงานอยู่</p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="c">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 10</div>
+                                        <div class="q-text">super ใช้อ้างถึง?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q10" value="a"><span
+                                                                class="option-letter">A</span><span>Object
+                                                                ปัจจุบัน</span></label>
+                                                <label class="option"><input type="radio" name="q10" value="b"><span
+                                                                class="option-letter">B</span><span>static
+                                                                method</span></label>
+                                                <label class="option"><input type="radio" name="q10" value="c"><span
+                                                                class="option-letter">C</span><span>Parent
+                                                                class</span></label>
+                                                <label class="option"><input type="radio" name="q10" value="d"><span
+                                                                class="option-letter">D</span><span>Child
+                                                                class</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>super</code> ใช้สำหรับอ้างถึงสมาชิก (ตัวแปรหรือ Method) ของ
+                                                        <strong>Parent
+                                                                Class</strong> (คลาสแม่)
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ปานกลาง -->
+                                <div class="question medium" data-answer="a">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 11</div>
+                                        <div class="q-text">private เข้าถึงได้จาก?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q11" value="a"><span
+                                                                class="option-letter">A</span><span>ภายใน Class
+                                                                เดียวกัน</span></label>
+                                                <label class="option"><input type="radio" name="q11" value="b"><span
+                                                                class="option-letter">B</span><span>ทุกที่</span></label>
+                                                <label class="option"><input type="radio" name="q11" value="c"><span
+                                                                class="option-letter">C</span><span>Subclass</span></label>
+                                                <label class="option"><input type="radio" name="q11" value="d"><span
+                                                                class="option-letter">D</span><span>Package
+                                                                เดียวกัน</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>private</code> เป็นระดับการเข้าถึงที่จำกัดที่สุด
+                                                        เข้าถึงได้เฉพาะ <strong>ภายใน Class
+                                                                ตัวเอง</strong> เท่านั้น</p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="b">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 12</div>
+                                        <div class="q-text">public เข้าถึงได้จาก?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q12" value="a"><span
+                                                                class="option-letter">A</span><span>ภายใน
+                                                                Class</span></label>
+                                                <label class="option"><input type="radio" name="q12" value="b"><span
+                                                                class="option-letter">B</span><span>ทุกที่</span></label>
+                                                <label class="option"><input type="radio" name="q12" value="c"><span
+                                                                class="option-letter">C</span><span>Package</span></label>
+                                                <label class="option"><input type="radio" name="q12" value="d"><span
+                                                                class="option-letter">D</span><span>Subclass</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>public</code> เปิดกว้างที่สุด สามารถเข้าถึงได้จาก
+                                                        <strong>ทุกที่</strong> ในโปรเจกต์
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="c">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 13</div>
+                                        <div class="q-text">protected เข้าถึงได้จาก?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q13" value="a"><span
+                                                                class="option-letter">A</span><span>ทุกที่</span></label>
+                                                <label class="option"><input type="radio" name="q13" value="b"><span
+                                                                class="option-letter">B</span><span>Class
+                                                                เดียวกัน</span></label>
+                                                <label class="option"><input type="radio" name="q13" value="c"><span
+                                                                class="option-letter">C</span><span>Package เดียวกัน และ
+                                                                Subclass</span></label>
+                                                <label class="option"><input type="radio" name="q13" value="d"><span
+                                                                class="option-letter">D</span><span>ไม่มีที่ไหน</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>protected</code> ยอมให้ Package เดียวกันเข้าถึงได้ และยอมให้
+                                                        <strong>Subclass ต่าง
+                                                                Package</strong> เข้าถึงได้ด้วย
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="d">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 14</div>
+                                        <div class="q-text">Getter/Setter ใช้ทำอะไร?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q14" value="a"><span
+                                                                class="option-letter">A</span><span>สร้าง
+                                                                Object</span></label>
+                                                <label class="option"><input type="radio" name="q14" value="b"><span
+                                                                class="option-letter">B</span><span>ลบ
+                                                                Object</span></label>
+                                                <label class="option"><input type="radio" name="q14" value="c"><span
+                                                                class="option-letter">C</span><span>สืบทอด</span></label>
+                                                <label class="option"><input type="radio" name="q14" value="d"><span
+                                                                class="option-letter">D</span><span>เข้าถึง/แก้ไข
+                                                                private variable</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>เป็น Method สาธารณะ (public) ที่ใช้สำหรับ <strong>อ่าน (get)</strong>
+                                                        หรือ <strong>แก้ไข
+                                                                (set)</strong> ค่าของตัวแปร private อย่างปลอดภัย</p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="a">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 15</div>
+                                        <div class="q-text">Method Overriding คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q15" value="a"><span
+                                                                class="option-letter">A</span><span>Subclass เขียน
+                                                                method ใหม่ทับ parent</span></label>
+                                                <label class="option"><input type="radio" name="q15" value="b"><span
+                                                                class="option-letter">B</span><span>Method ชื่อเดียวกัน
+                                                                parameter ต่าง</span></label>
+                                                <label class="option"><input type="radio" name="q15" value="c"><span
+                                                                class="option-letter">C</span><span>Method
+                                                                ที่เร็ว</span></label>
+                                                <label class="option"><input type="radio" name="q15" value="d"><span
+                                                                class="option-letter">D</span><span>Method ใน
+                                                                interface</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Overriding คือการที่ Class ลูกเขียน Method ซ้ำกับ Class แม่
+                                                        เพื่อเปลี่ยนแปลงการทำงานให้เป็นแบบของตัวเอง</p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="b">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 16</div>
+                                        <div class="q-text">Polymorphism คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q16" value="a"><span
+                                                                class="option-letter">A</span><span>การห่อหุ้ม</span></label>
+                                                <label class="option"><input type="radio" name="q16" value="b"><span
+                                                                class="option-letter">B</span><span>หลายรูปแบบ/พฤติกรรมต่างกัน</span></label>
+                                                <label class="option"><input type="radio" name="q16" value="c"><span
+                                                                class="option-letter">C</span><span>การสืบทอด</span></label>
+                                                <label class="option"><input type="radio" name="q16" value="d"><span
+                                                                class="option-letter">D</span><span>การสร้าง
+                                                                Object</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Polymorphism (พอลินอร์ฟิซึม) คือความสามารถที่ Object หนึ่งๆ
+                                                        สามารถแสดงออกได้
+                                                        <strong>หลายรูปแบบ</strong> หรือหลายพฤติกรรม
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="c">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 17</div>
+                                        <div class="q-text">abstract class คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q17" value="a"><span
+                                                                class="option-letter">A</span><span>Class ที่สร้าง
+                                                                Object ได้</span></label>
+                                                <label class="option"><input type="radio" name="q17" value="b"><span
+                                                                class="option-letter">B</span><span>Class
+                                                                สุดท้าย</span></label>
+                                                <label class="option"><input type="radio" name="q17" value="c"><span
+                                                                class="option-letter">C</span><span>Class ที่สร้าง
+                                                                Object ไม่ได้</span></label>
+                                                <label class="option"><input type="radio" name="q17" value="d"><span
+                                                                class="option-letter">D</span><span>Class
+                                                                ที่เร็ว</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Abstract Class คือคลาสที่เป็นเพียงโครงร่าง ไม่สมบูรณ์ จึง
+                                                        <strong>ไม่สามารถนำไปสร้าง Object
+                                                                (new) โดยตรงได้</strong> ต้องสืบทอดไปใช้
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="d">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 18</div>
+                                        <div class="q-text">interface คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q18" value="a"><span
+                                                                class="option-letter">A</span><span>Class ที่มี method
+                                                                ครบ</span></label>
+                                                <label class="option"><input type="radio" name="q18" value="b"><span
+                                                                class="option-letter">B</span><span>abstract
+                                                                class</span></label>
+                                                <label class="option"><input type="radio" name="q18" value="c"><span
+                                                                class="option-letter">C</span><span>Object</span></label>
+                                                <label class="option"><input type="radio" name="q18" value="d"><span
+                                                                class="option-letter">D</span><span>สัญญาที่ class ต้อง
+                                                                implement</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Interface เปรียบเสมือน <strong>สัญญา (Contract)</strong> ที่กำหนดว่า
+                                                        Class ที่นำไปใช้จะต้องมี
+                                                        Method อะไรบ้าง แต่ไม่ได้กำหนดวิธีการทำงานภายใน</p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="a">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 19</div>
+                                        <div class="q-text">คำใดใช้กับ interface?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q19" value="a"><span
+                                                                class="option-letter">A</span><span>implements</span></label>
+                                                <label class="option"><input type="radio" name="q19" value="b"><span
+                                                                class="option-letter">B</span><span>extends</span></label>
+                                                <label class="option"><input type="radio" name="q19" value="c"><span
+                                                                class="option-letter">C</span><span>inherits</span></label>
+                                                <label class="option"><input type="radio" name="q19" value="d"><span
+                                                                class="option-letter">D</span><span>uses</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Class ใช้คำสั่ง <code>implements</code> เพื่อนำ Interface
+                                                        เข้ามาใช้งาน (Implement)</p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="b">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 20</div>
+                                        <div class="q-text">Java รองรับ multiple inheritance ผ่าน?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q20" value="a"><span
+                                                                class="option-letter">A</span><span>extends หลาย
+                                                                class</span></label>
+                                                <label class="option"><input type="radio" name="q20" value="b"><span
+                                                                class="option-letter">B</span><span>implements หลาย
+                                                                interface</span></label>
+                                                <label class="option"><input type="radio" name="q20" value="c"><span
+                                                                class="option-letter">C</span><span>ไม่รองรับเลย</span></label>
+                                                <label class="option"><input type="radio" name="q20" value="d"><span
+                                                                class="option-letter">D</span><span>abstract
+                                                                class</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Java ไม่ยอมให้ extends หลาย Class แต่ยอมให้ Class หนึ่ง
+                                                        <strong>implements ได้หลาย
+                                                                Interface</strong> เพื่อแก้ปัญหา Multiple Inheritance
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ยาก -->
+                                <div class="question hard" data-answer="c">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 21</div>
+                                        <div class="q-text"><code>Animal a = new Dog();</code> เรียกว่า?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q21" value="a"><span
+                                                                class="option-letter">A</span><span>Downcasting</span></label>
+                                                <label class="option"><input type="radio" name="q21" value="b"><span
+                                                                class="option-letter">B</span><span>Overloading</span></label>
+                                                <label class="option"><input type="radio" name="q21" value="c"><span
+                                                                class="option-letter">C</span><span>Upcasting</span></label>
+                                                <label class="option"><input type="radio" name="q21" value="d"><span
+                                                                class="option-letter">D</span><span>Overriding</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Upcasting คือการมอง Object ลูก (Dog) ในฐานะ Object แม่ (Animal)
+                                                        เป็นการแปลงขึ้นบน</p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="a">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 22</div>
+                                        <div class="q-text">instanceof ใช้ทำอะไร?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q22" value="a"><span
+                                                                class="option-letter">A</span><span>ตรวจว่า Object
+                                                                เป็นประเภทนั้นหรือไม่</span></label>
+                                                <label class="option"><input type="radio" name="q22" value="b"><span
+                                                                class="option-letter">B</span><span>สร้าง
+                                                                Object</span></label>
+                                                <label class="option"><input type="radio" name="q22" value="c"><span
+                                                                class="option-letter">C</span><span>ลบ
+                                                                Object</span></label>
+                                                <label class="option"><input type="radio" name="q22" value="d"><span
+                                                                class="option-letter">D</span><span>คัดลอก
+                                                                Object</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Operator <code>instanceof</code> ใช้ตรวจสอบว่า Object
+                                                        นั้นถูกสร้างมาจาก Class หรือ Interface
+                                                        ที่ระบุหรือไม่</p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="d">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 23</div>
+                                        <div class="q-text">หลักการ OOP ที่สำคัญมี 4 ข้อคือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q23" value="a"><span
+                                                                class="option-letter">A</span><span>Class, Object,
+                                                                Method, Variable</span></label>
+                                                <label class="option"><input type="radio" name="q23" value="b"><span
+                                                                class="option-letter">B</span><span>Loop, Condition,
+                                                                Array, Method</span></label>
+                                                <label class="option"><input type="radio" name="q23" value="c"><span
+                                                                class="option-letter">C</span><span>Public, Private,
+                                                                Protected, Default</span></label>
+                                                <label class="option"><input type="radio" name="q23" value="d"><span
+                                                                class="option-letter">D</span><span>Encapsulation,
+                                                                Inheritance, Polymorphism,
+                                                                Abstraction</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>4 เสาหลักของ OOP คือ: 1.Encapsulation 2.Inheritance 3.Polymorphism
+                                                        4.Abstraction</p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="b">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 24</div>
+                                        <div class="q-text">Constructor ต้องมีชื่อเหมือน?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q24" value="a"><span
+                                                                class="option-letter">A</span><span>Method</span></label>
+                                                <label class="option"><input type="radio" name="q24" value="b"><span
+                                                                class="option-letter">B</span><span>Class</span></label>
+                                                <label class="option"><input type="radio" name="q24" value="c"><span
+                                                                class="option-letter">C</span><span>Object</span></label>
+                                                <label class="option"><input type="radio" name="q24" value="d"><span
+                                                                class="option-letter">D</span><span>Package</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>กฎเหล็กของ Constructor คือต้องมีชื่อ <strong>ตรงกับชื่อ Class
+                                                                เป๊ะๆ</strong> (และไม่มี return
+                                                        type)</p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="c">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 25</div>
+                                        <div class="q-text">final class คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q25" value="a"><span
+                                                                class="option-letter">A</span><span>Class ที่สร้าง
+                                                                Object ไม่ได้</span></label>
+                                                <label class="option"><input type="radio" name="q25" value="b"><span
+                                                                class="option-letter">B</span><span>Class
+                                                                แรก</span></label>
+                                                <label class="option"><input type="radio" name="q25" value="c"><span
+                                                                class="option-letter">C</span><span>Class ที่ extend
+                                                                ไม่ได้</span></label>
+                                                <label class="option"><input type="radio" name="q25" value="d"><span
+                                                                class="option-letter">D</span><span>Class
+                                                                ที่เร็ว</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>คลาสที่ประกาศเป็น <code>final</code> จะเป็นหมัน คือ
+                                                        <strong>ห้ามใครมาสืบทอด
+                                                                (extends)</strong> ต่อไปอีก
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="a">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 26</div>
+                                        <div class="q-text">@Override annotation ใช้ทำอะไร?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q26" value="a"><span
+                                                                class="option-letter">A</span><span>บอกว่า method นี้
+                                                                override จาก parent</span></label>
+                                                <label class="option"><input type="radio" name="q26" value="b"><span
+                                                                class="option-letter">B</span><span>สร้าง
+                                                                Object</span></label>
+                                                <label class="option"><input type="radio" name="q26" value="c"><span
+                                                                class="option-letter">C</span><span>ลบ
+                                                                method</span></label>
+                                                <label class="option"><input type="radio" name="q26" value="d"><span
+                                                                class="option-letter">D</span><span>ทำให้ method
+                                                                เร็วขึ้น</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ใส่ไว้เพื่อบอก Compiler (และโปรแกรมเมอร์) ว่า Method
+                                                        นี้ตั้งใจจะทับของพ่อนะ ถ้าชื่อผิด
+                                                        Compiler จะได้แจ้งเตือน</p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="d">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 27</div>
+                                        <div class="q-text">toString() method มาจาก class ใด?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q27" value="a"><span
+                                                                class="option-letter">A</span><span>System</span></label>
+                                                <label class="option"><input type="radio" name="q27" value="b"><span
+                                                                class="option-letter">B</span><span>String</span></label>
+                                                <label class="option"><input type="radio" name="q27" value="c"><span
+                                                                class="option-letter">C</span><span>Math</span></label>
+                                                <label class="option"><input type="radio" name="q27" value="d"><span
+                                                                class="option-letter">D</span><span>Object</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ทุก Class ใน Java สืบทอดมาจาก <code>java.lang.Object</code> ซึ่งมี
+                                                        Method มาตรฐานอย่าง
+                                                        <code>toString()</code> ติดตัวมาด้วยเสมอ
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="b">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 28</div>
+                                        <div class="q-text">static variable ใน class คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q28" value="a"><span
+                                                                class="option-letter">A</span><span>ตัวแปรของแต่ละ
+                                                                Object</span></label>
+                                                <label class="option"><input type="radio" name="q28" value="b"><span
+                                                                class="option-letter">B</span><span>ตัวแปรที่ใช้ร่วมกันทุก
+                                                                Object</span></label>
+                                                <label class="option"><input type="radio" name="q28" value="c"><span
+                                                                class="option-letter">C</span><span>ค่าคงที่</span></label>
+                                                <label class="option"><input type="radio" name="q28" value="d"><span
+                                                                class="option-letter">D</span><span>ตัวแปร
+                                                                local</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ตัวแปร static จะมีเพียงสำเนาเดียวใน Memory และถูกแชร์ให้ทุกๆ Object
+                                                        ของ Class นั้นใช้ร่วมกัน
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="c">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 29</div>
+                                        <div class="q-text">Default constructor คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q29" value="a"><span
+                                                                class="option-letter">A</span><span>Constructor ที่มี
+                                                                parameter</span></label>
+                                                <label class="option"><input type="radio" name="q29" value="b"><span
+                                                                class="option-letter">B</span><span>Constructor ที่
+                                                                return ค่า</span></label>
+                                                <label class="option"><input type="radio" name="q29" value="c"><span
+                                                                class="option-letter">C</span><span>Constructor ไม่มี
+                                                                parameter ที่ Java
+                                                                สร้างให้</span></label>
+                                                <label class="option"><input type="radio" name="q29" value="d"><span
+                                                                class="option-letter">D</span><span>Constructor
+                                                                ที่เร็ว</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ถ้าเราไม่ได้ประกาศ Constructor เลย Java จะแถม "Default Constructor"
+                                                        (แบบไม่มี Parameter)
+                                                        ให้ฟรีๆ</p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="a">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 30</div>
+                                        <div class="q-text">ทุก class ใน Java สืบทอดจาก?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q30" value="a"><span
+                                                                class="option-letter">A</span><span>Object</span></label>
+                                                <label class="option"><input type="radio" name="q30" value="b"><span
+                                                                class="option-letter">B</span><span>Class</span></label>
+                                                <label class="option"><input type="radio" name="q30" value="c"><span
+                                                                class="option-letter">C</span><span>System</span></label>
+                                                <label class="option"><input type="radio" name="q30" value="d"><span
+                                                                class="option-letter">D</span><span>Main</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>java.lang.Object</code> คือบรรพบุรุษสูงสุดของทุก Class ใน Java
+                                                        (ถ้าไม่ extends อะไร
+                                                        มันจะ extends Object นัยๆ)</p>
+                                        </div>
+                                </div>
+
+                                <button type="button" class="btn-submit" onclick="submitQuiz()">🎯 ตรวจคำตอบ</button>
+                        </form>
+
+                        <div class="result" id="result">
+                                <h2>🎉 ผลการทำแบบทดสอบ</h2>
+                                <div class="score-big" id="final-score">0/30</div>
+                                <p id="result-text" style="font-size: 1.3rem; margin-top: 15px;"></p>
+                                <a href="index.html#quizzes" class="btn-primary"
+                                        style="margin-top: 25px;">กลับหน้าแบบทดสอบ</a>
+                        </div>
+                </div>
+        </main>
+
+        <footer class="premium-footer">
+                <p class="footer-text">งงตรงไหน? ทักมาถามได้เลย!</p>
+                <a href="https://instabio.cc/4021411ZGCpLW" target="_blank" class="contact-btn">💬 ติดต่อผู้สอน</a>
+        </footer>
+        <script src="music-player.js"></script>
+</body>
+
+</html>

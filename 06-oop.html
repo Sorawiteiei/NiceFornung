@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP: Object-Oriented Programming | บันทึกการติว Java</title>
+    <meta name="description"
+        content="เรียนรู้ OOP ในภาษา Java: Class, Object, Inheritance, Polymorphism, Encapsulation พร้อมตัวอย่างโค้ด">
+    <link rel="stylesheet" href="lesson-style.css">
+    <link rel="stylesheet" href="music-player.css">
+</head>
+
+<body class="theme-red" data-lesson-id="lesson-06">
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">📚 บันทึกการติว</a>
+            <nav>
+                <a href="index.html">หน้าแรก</a>
+                <a href="05-methods.html">บทที่ 5</a>
+                <a href="06-oop.html">บทที่ 6</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <span class="badge badge-red">📖 บทที่ 6</span>
+            <span class="badge exam-badge">⭐ ออกสอบแน่!</span>
+            <h1>OOP: Object-Oriented Programming</h1>
+            <p class="meta">
+                <span>📅 <time datetime="2026-02-02">2 กุมภาพันธ์ 2026</time></span>
+                <span>⏱️ อ่าน 20 นาที</span>
+            </p>
+
+            <div class="intro">
+                <strong>OOP (Object-Oriented Programming)</strong> คือแนวคิดในการเขียนโปรแกรมโดยมอง
+                <strong>ทุกอย่างเป็นวัตถุ (Object)</strong> ที่มีคุณสมบัติและความสามารถ
+            </div>
+
+            <h2>4 หลักการสำคัญของ OOP</h2>
+            <div class="four-pillars">
+                <div class="pillar">
+                    <h4>1. Encapsulation</h4>
+                    <p>ซ่อนข้อมูลภายใน ควบคุมการเข้าถึง</p>
+                </div>
+                <div class="pillar">
+                    <h4>2. Inheritance</h4>
+                    <p>สืบทอดคุณสมบัติจาก class อื่น</p>
+                </div>
+                <div class="pillar">
+                    <h4>3. Polymorphism</h4>
+                    <p>method เดียวกัน ทำงานต่างกันได้</p>
+                </div>
+                <div class="pillar">
+                    <h4>4. Abstraction</h4>
+                    <p>ซ่อนความซับซ้อน แสดงเฉพาะที่จำเป็น</p>
+                </div>
+            </div>
+
+            <h2>Class และ Object</h2>
+            <div class="concept-box">
+                <strong>Class</strong> = พิมพ์เขียว/แม่พิมพ์ (เช่น แบบบ้าน)<br>
+                <strong>Object</strong> = ของจริงที่สร้างจาก class (เช่น บ้านจริงๆ)
+            </div>
+
+            <h3>สร้าง Class</h3>
+            <pre><code><span class="keyword">public class</span> <span class="class-name">Student</span> {
+    <span class="comment">// Attributes (คุณสมบัติ)</span>
+    String name;
+    <span class="keyword">int</span> age;
+    <span class="keyword">double</span> gpa;
+    
+    <span class="comment">// Method (ความสามารถ)</span>
+    <span class="keyword">void</span> study() {
+        System.out.println(name + <span class="string">" กำลังอ่านหนังสือ"</span>);
+    }
+    
+    <span class="keyword">void</span> introduce() {
+        System.out.println(<span class="string">"สวัสดี ผมชื่อ "</span> + name + <span class="string">" อายุ "</span> + age);
+    }
+}</code></pre>
+
+            <h3>สร้าง Object</h3>
+            <pre><code><span class="keyword">public class</span> <span class="class-name">Main</span> {
+    <span class="keyword">public static void</span> main(String[] args) {
+        <span class="comment">// สร้าง object จาก class Student</span>
+        Student s1 = <span class="keyword">new</span> Student();
+        s1.name = <span class="string">"สมชาย"</span>;
+        s1.age = <span class="number">20</span>;
+        s1.gpa = <span class="number">3.5</span>;
+        
+        Student s2 = <span class="keyword">new</span> Student();
+        s2.name = <span class="string">"สมหญิง"</span>;
+        s2.age = <span class="number">19</span>;
+        
+        <span class="comment">// เรียกใช้ method</span>
+        s1.introduce(); <span class="comment">// สวัสดี ผมชื่อ สมชาย อายุ 20</span>
+        s2.study();      <span class="comment">// สมหญิง กำลังอ่านหนังสือ</span>
+    }
+}</code></pre>
+
+            <h2>Constructor</h2>
+            <p>Method พิเศษที่ทำงานตอนสร้าง object ใหม่:</p>
+            <pre><code><span class="keyword">public class</span> <span class="class-name">Student</span> {
+    String name;
+    <span class="keyword">int</span> age;
+    
+    <span class="comment">// Constructor - ชื่อต้องเหมือน class</span>
+    <span class="keyword">public</span> Student(String name, <span class="keyword">int</span> age) {
+        <span class="keyword">this</span>.name = name;
+        <span class="keyword">this</span>.age = age;
+    }
+}
+
+<span class="comment">// สร้าง object พร้อมกำหนดค่า</span>
+Student s1 = <span class="keyword">new</span> Student(<span class="string">"สมชาย"</span>, <span class="number">20</span>);</code></pre>
+
+            <div class="note-box">
+                <strong>⚠️ this คืออะไร?</strong><br>
+                <code>this</code> หมายถึง object ปัจจุบัน ใช้แยกระหว่าง attribute กับ parameter ที่ชื่อเหมือนกัน
+            </div>
+
+            <h2>Encapsulation (การห่อหุ้มข้อมูล)</h2>
+            <p>ซ่อน attribute ด้วย <code>private</code> แล้วเข้าถึงผ่าน getter/setter:</p>
+            <pre><code><span class="keyword">public class</span> <span class="class-name">BankAccount</span> {
+    <span class="keyword">private double</span> balance; <span class="comment">// ซ่อนไว้!</span>
+    
+    <span class="comment">// Getter - อ่านค่า</span>
+    <span class="keyword">public double</span> getBalance() {
+        <span class="keyword">return</span> balance;
+    }
+    
+    <span class="comment">// Setter - กำหนดค่า (มีเงื่อนไข)</span>
+    <span class="keyword">public void</span> deposit(<span class="keyword">double</span> amount) {
+        <span class="keyword">if</span> (amount > <span class="number">0</span>) {
+            balance += amount;
+        }
+    }
+}</code></pre>
+
+            <h2>Inheritance (การสืบทอด)</h2>
+            <p>สร้าง class ใหม่โดยสืบทอดจาก class เดิม ใช้ <code>extends</code>:</p>
+            <pre><code><span class="comment">// Parent class</span>
+<span class="keyword">public class</span> <span class="class-name">Animal</span> {
+    String name;
+    
+    <span class="keyword">void</span> eat() {
+        System.out.println(name + <span class="string">" กำลังกิน"</span>);
+    }
+}
+
+<span class="comment">// Child class</span>
+<span class="keyword">public class</span> <span class="class-name">Dog</span> <span class="keyword">extends</span> Animal {
+    <span class="keyword">void</span> bark() {
+        System.out.println(name + <span class="string">": โฮ่ง โฮ่ง!"</span>);
+    }
+}
+
+<span class="comment">// ใช้งาน</span>
+Dog d = <span class="keyword">new</span> Dog();
+d.name = <span class="string">"บ๊อบ"</span>;
+d.eat();  <span class="comment">// บ๊อบ กำลังกิน (สืบทอดมา)</span>
+d.bark(); <span class="comment">// บ๊อบ: โฮ่ง โฮ่ง! (ของตัวเอง)</span></code></pre>
+
+            <h2>Polymorphism (หลายรูปแบบ)</h2>
+            <p>Method เดียวกันแต่ทำงานต่างกันใน class ลูก (Override):</p>
+            <pre><code><span class="keyword">public class</span> <span class="class-name">Animal</span> {
+    <span class="keyword">void</span> makeSound() {
+        System.out.println(<span class="string">"..."</span>);
+    }
+}
+
+<span class="keyword">public class</span> <span class="class-name">Dog</span> <span class="keyword">extends</span> Animal {
+    <span class="keyword">@Override</span>
+    <span class="keyword">void</span> makeSound() {
+        System.out.println(<span class="string">"โฮ่ง โฮ่ง!"</span>);
+    }
+}
+
+<span class="keyword">public class</span> <span class="class-name">Cat</span> <span class="keyword">extends</span> Animal {
+    <span class="keyword">@Override</span>
+    <span class="keyword">void</span> makeSound() {
+        System.out.println(<span class="string">"เมี๊ยว~"</span>);
+    }
+}
+
+<span class="comment">// Polymorphism!</span>
+Animal a1 = <span class="keyword">new</span> Dog();
+Animal a2 = <span class="keyword">new</span> Cat();
+a1.makeSound(); <span class="comment">// โฮ่ง โฮ่ง!</span>
+a2.makeSound(); <span class="comment">// เมี๊ยว~</span></code></pre>
+
+            <div class="tip-box">
+                <strong>💡 @Override ทำไมต้องใส่?</strong><br>
+                ช่วยให้ compiler ตรวจสอบว่าเรา override method จริงๆ ถ้าพิมพ์ชื่อผิดจะ error
+            </div>
+
+            <h2>Access Modifiers</h2>
+            <pre><code><span class="keyword">public</span>    <span class="comment">// เข้าถึงได้จากทุกที่</span>
+<span class="keyword">private</span>   <span class="comment">// เข้าถึงได้เฉพาะใน class นี้</span>
+<span class="keyword">protected</span> <span class="comment">// เข้าถึงได้ใน class นี้ + class ลูก</span>
+(default)  <span class="comment">// เข้าถึงได้ใน package เดียวกัน</span></code></pre>
+
+            <div class="summary-box">
+                <h3>📝 สรุป OOP สำหรับสอบ</h3>
+                <ul>
+                    <li><strong>Class</strong> = แม่พิมพ์, <strong>Object</strong> = ของจริง</li>
+                    <li><strong>Constructor</strong> = สร้าง object พร้อมค่าเริ่มต้น</li>
+                    <li><strong>Encapsulation</strong> = private + getter/setter</li>
+                    <li><strong>Inheritance</strong> = extends สืบทอด</li>
+                    <li><strong>Polymorphism</strong> = @Override ทำต่างกัน</li>
+                    <li><strong>this</strong> = object ปัจจุบัน</li>
+                </ul>
+                <p style="margin-top: 20px;">งงตรงไหน? <a href="https://instabio.cc/4021411ZGCpLW" target="_blank"
+                        style="color: #ef4444; text-decoration: underline;">ทักมาถามได้เลยนะ!</a> สู้ๆ สอบผ่านแน่นอน 💪
+                </p>
+            </div>
+
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="quiz-06-oop.html" class="quiz-btn">🎯 ทำแบบทดสอบบทที่ 6</a>
+            </div>
+
+            <div class="nav-links">
+                <a href="05-methods.html">← บทที่ 5: Methods</a>
+                <a href="index.html">กลับหน้าแรก →</a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>บันทึกการติว | เตรียมสอบกันเถอะ! 📚</p>
+    </footer>
+    <script src="lesson-tracking.js"></script>
+    <script src="music-player.js"></script>
+</body>
+
+</html>

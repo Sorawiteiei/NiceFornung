@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UML Class & Object Diagrams | บันทึกการติว Java</title>
+    <meta name="description" content="เรียนรู้ UML Diagram: Class Diagram, Object Diagram พร้อมวิธีเขียนและอ่านแผนภาพ">
+    <link rel="stylesheet" href="lesson-style.css">
+    <link rel="stylesheet" href="music-player.css">
+</head>
+
+<body class="theme-purple" data-lesson-id="lesson-07">
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">📚 บันทึกการติว</a>
+            <nav>
+                <a href="index.html">หน้าแรก</a>
+                <a href="06-oop.html">บทที่ 6</a>
+                <a href="07-uml-diagrams.html">บทที่ 7</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <span class="badge badge-purple">📖 บทที่ 7</span>
+            <span class="badge exam-badge">⭐ ออกสอบแน่!</span>
+            <h1>UML Class & Object Diagrams</h1>
+            <p class="meta">
+                <span>📅 <time datetime="2026-02-04">4 กุมภาพันธ์ 2026</time></span>
+                <span>⏱️ อ่าน 25 นาที</span>
+            </p>
+
+            <div class="intro">
+                <strong>UML (Unified Modeling Language)</strong> คือภาษามาตรฐานในการเขียนแผนภาพ
+                เพื่อ<strong>ออกแบบและสื่อสาร</strong>โครงสร้างของโปรแกรมก่อนลงมือเขียนโค้ดจริง
+            </div>
+
+            <h2>UML คืออะไร?</h2>
+            <div class="concept-box">
+                <strong>UML</strong> = Unified Modeling Language<br>
+                เป็นภาษาสำหรับวาดแผนภาพที่ใช้กันทั่วโลก ช่วยให้โปรแกรมเมอร์เข้าใจโครงสร้างของระบบได้ง่ายขึ้น
+            </div>
+
+            <h2>ประเภทของ UML Diagram</h2>
+            <div class="four-pillars">
+                <div class="pillar">
+                    <h4>1. Class Diagram</h4>
+                    <p>แสดงโครงสร้าง Class และความสัมพันธ์</p>
+                </div>
+                <div class="pillar">
+                    <h4>2. Object Diagram</h4>
+                    <p>แสดง Object จริงที่สร้างจาก Class</p>
+                </div>
+                <div class="pillar">
+                    <h4>3. Sequence Diagram</h4>
+                    <p>แสดงลำดับการทำงาน</p>
+                </div>
+                <div class="pillar">
+                    <h4>4. Use Case Diagram</h4>
+                    <p>แสดงการใช้งานระบบ</p>
+                </div>
+            </div>
+
+            <h2>Class Diagram</h2>
+            <p>แสดงโครงสร้างของ Class ประกอบด้วย 3 ส่วน:</p>
+
+            <div class="concept-box">
+                <pre
+                    style="text-align: center; font-family: monospace; background: #1a1a2e; padding: 20px; border-radius: 10px; color: #fff;">
+┌─────────────────────────┐
+│      <strong>ClassName</strong>          │  ← ชื่อ Class
+├─────────────────────────┤
+│ - name: String          │  ← Attributes
+│ - age: int              │
+│ # balance: double       │
+├─────────────────────────┤
+│ + getName(): String     │  ← Methods
+│ + setName(n: String)    │
+│ - calculate(): int      │
+└─────────────────────────┘
+                </pre>
+            </div>
+
+            <h3>สัญลักษณ์ Access Modifier</h3>
+            <pre><code><span class="keyword">+</span> public     <span class="comment">// เข้าถึงได้จากทุกที่</span>
+<span class="keyword">-</span> private    <span class="comment">// เข้าถึงได้เฉพาะใน Class</span>
+<span class="keyword">#</span> protected  <span class="comment">// เข้าถึงได้ใน Class และ Subclass</span>
+<span class="keyword">~</span> package    <span class="comment">// เข้าถึงได้ใน Package เดียวกัน</span></code></pre>
+
+            <h3>ตัวอย่าง Class Diagram</h3>
+            <div class="concept-box">
+                <pre
+                    style="text-align: center; font-family: monospace; background: #1a1a2e; padding: 20px; border-radius: 10px; color: #fff;">
+┌─────────────────────────┐
+│        <strong>Student</strong>          │
+├─────────────────────────┤
+│ - studentId: String     │
+│ - name: String          │
+│ - gpa: double           │
+├─────────────────────────┤
+│ + Student(id, name)     │
+│ + getName(): String     │
+│ + setName(n: String)    │
+│ + calculateGrade(): char│
+└─────────────────────────┘
+                </pre>
+            </div>
+
+            <p>แปลงเป็นโค้ด Java:</p>
+            <pre><code><span class="keyword">public class</span> <span class="class-name">Student</span> {
+    <span class="keyword">private</span> String studentId;
+    <span class="keyword">private</span> String name;
+    <span class="keyword">private double</span> gpa;
+    
+    <span class="keyword">public</span> Student(String id, String name) {
+        <span class="keyword">this</span>.studentId = id;
+        <span class="keyword">this</span>.name = name;
+    }
+    
+    <span class="keyword">public</span> String getName() {
+        <span class="keyword">return</span> name;
+    }
+    
+    <span class="keyword">public void</span> setName(String n) {
+        <span class="keyword">this</span>.name = n;
+    }
+    
+    <span class="keyword">public char</span> calculateGrade() {
+        <span class="keyword">if</span> (gpa >= <span class="number">3.5</span>) <span class="keyword">return</span> <span class="string">'A'</span>;
+        <span class="keyword">else if</span> (gpa >= <span class="number">2.5</span>) <span class="keyword">return</span> <span class="string">'B'</span>;
+        <span class="keyword">else</span> <span class="keyword">return</span> <span class="string">'C'</span>;
+    }
+}</code></pre>
+
+            <h2>Object Diagram</h2>
+            <p>แสดง <strong>Instance จริง</strong> ที่สร้างจาก Class พร้อมค่าข้อมูล:</p>
+
+            <div class="concept-box">
+                <pre
+                    style="text-align: center; font-family: monospace; background: #1a1a2e; padding: 20px; border-radius: 10px; color: #fff;">
+┌─────────────────────────────┐
+│   <strong><u>somchai: Student</u></strong>        │  ← ชื่อ object : ชื่อ Class
+├─────────────────────────────┤
+│ studentId = "64010001"      │  ← ค่าจริงใน attribute
+│ name = "สมชาย"              │
+│ gpa = 3.75                  │
+└─────────────────────────────┘
+                </pre>
+            </div>
+
+            <div class="note-box">
+                <strong>⚠️ ความแตกต่าง Class vs Object Diagram</strong><br>
+                <ul>
+                    <li><strong>Class Diagram:</strong> แสดงโครงสร้าง (ชนิดข้อมูล เช่น String, int)</li>
+                    <li><strong>Object Diagram:</strong> แสดงค่าจริง (ค่าข้อมูล เช่น "สมชาย", 3.75)</li>
+                </ul>
+            </div>
+
+            <h2>Relationship ใน Class Diagram</h2>
+
+            <h3>1. Association (ความสัมพันธ์ทั่วไป)</h3>
+            <p>แสดงว่า Class หนึ่งรู้จักหรือใช้งาน Class อื่น:</p>
+            <div class="concept-box">
+                <pre style="text-align: center; font-family: monospace;">
+┌──────────┐         ┌──────────┐
+│ Student  │─────────│  Course  │
+└──────────┘         └──────────┘
+   นักเรียน ลงทะเบียน วิชาเรียน
+                </pre>
+            </div>
+
+            <h3>2. Inheritance / Generalization (การสืบทอด)</h3>
+            <p>ใช้ลูกศรหัวสามเหลี่ยมกลวง ชี้ไปหา Parent:</p>
+            <div class="concept-box">
+                <pre style="text-align: center; font-family: monospace;">
+       ┌──────────┐
+       │  Animal  │  ← Parent Class
+       └────△─────┘
+            │
+     ┌──────┴──────┐
+     │             │
+┌────┴───┐   ┌─────┴────┐
+│   Dog  │   │   Cat    │  ← Child Classes
+└────────┘   └──────────┘
+                </pre>
+            </div>
+
+            <h3>3. Aggregation (มี/ประกอบด้วย - แบบหลวม)</h3>
+            <p>ใช้เพชรกลวง แสดงว่า "มี" แต่แยกจากกันได้:</p>
+            <div class="concept-box">
+                <pre style="text-align: center; font-family: monospace;">
+┌───────────┐       ┌──────────┐
+│Department │◇──────│ Employee │
+└───────────┘       └──────────┘
+  แผนก "มี" พนักงาน (แต่ลบแผนก พนักงานยังอยู่)
+                </pre>
+            </div>
+
+            <h3>4. Composition (มี/ประกอบด้วย - แบบแน่น)</h3>
+            <p>ใช้เพชรทึบ แสดงว่า "มี" และแยกจากกันไม่ได้:</p>
+            <div class="concept-box">
+                <pre style="text-align: center; font-family: monospace;">
+┌──────────┐       ┌──────────┐
+│  House   │◆──────│   Room   │
+└──────────┘       └──────────┘
+  บ้าน "มี" ห้อง (ลบบ้าน ห้องก็หายไปด้วย)
+                </pre>
+            </div>
+
+            <h3>5. Dependency (พึ่งพา)</h3>
+            <p>ใช้ลูกศรประ แสดงว่า Class หนึ่งใช้ Class อื่นชั่วคราว:</p>
+            <div class="concept-box">
+                <pre style="text-align: center; font-family: monospace;">
+┌──────────┐       ┌──────────┐
+│  Order   │- - - >│ Product  │
+└──────────┘       └──────────┘
+  Order ใช้ Product (เป็น parameter)
+                </pre>
+            </div>
+
+            <h2>Multiplicity (จำนวน)</h2>
+            <pre><code><span class="number">1</span>      <span class="comment">// มี 1 ตัว</span>
+<span class="number">0..1</span>   <span class="comment">// มี 0 หรือ 1 ตัว</span>
+<span class="number">*</span>      <span class="comment">// มีกี่ตัวก็ได้ (0 หรือมากกว่า)</span>
+<span class="number">1..*</span>   <span class="comment">// มีอย่างน้อย 1 ตัว</span>
+<span class="number">0..*</span>   <span class="comment">// มี 0 หรือมากกว่า (เหมือน *)</span>
+<span class="number">n..m</span>   <span class="comment">// มี n ถึง m ตัว เช่น 2..5</span></code></pre>
+
+            <div class="concept-box">
+                <pre style="text-align: center; font-family: monospace;">
+┌──────────┐ 1    * ┌──────────┐
+│ Teacher  │────────│ Student  │
+└──────────┘        └──────────┘
+  ครู 1 คน สอน นักเรียน หลายคน (*)
+                </pre>
+            </div>
+
+            <h2>สรุปสัญลักษณ์ที่ต้องจำ</h2>
+            <div class="summary-box">
+                <h3>📝 สรุป UML สำหรับสอบ</h3>
+                <ul>
+                    <li><strong>+ public</strong>, <strong>- private</strong>, <strong># protected</strong>, <strong>~
+                            package</strong></li>
+                    <li><strong>Class Diagram:</strong> แสดงโครงสร้าง Class (ชื่อ, Attributes, Methods)</li>
+                    <li><strong>Object Diagram:</strong> แสดง Instance จริง พร้อมค่าข้อมูล</li>
+                    <li><strong>△ Inheritance:</strong> ลูกศรหัวสามเหลี่ยมกลวง ชี้ไปหา Parent</li>
+                    <li><strong>◇ Aggregation:</strong> เพชรกลวง (has-a แบบหลวม)</li>
+                    <li><strong>◆ Composition:</strong> เพชรทึบ (has-a แบบแน่น)</li>
+                    <li><strong>Multiplicity:</strong> 1, 0..1, *, 1..*, n..m</li>
+                </ul>
+                <p style="margin-top: 20px;">งงตรงไหน? <a href="https://instabio.cc/4021411ZGCpLW" target="_blank"
+                        style="color: #8b5cf6; text-decoration: underline;">ทักมาถามได้เลยนะ!</a> สู้ๆ สอบผ่านแน่นอน 💪
+                </p>
+            </div>
+
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="quiz-07-uml-diagrams.html" class="quiz-btn">🎯 ทำแบบทดสอบบทที่ 7</a>
+            </div>
+
+            <div class="nav-links">
+                <a href="06-oop.html">← บทที่ 6: OOP</a>
+                <a href="08-inheritance.html">บทที่ 8: Inheritance →</a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>บันทึกการติว | เตรียมสอบกันเถอะ! 📚</p>
+    </footer>
+    <script src="lesson-tracking.js"></script>
+    <script src="music-player.js"></script>
+</body>
+
+</html>

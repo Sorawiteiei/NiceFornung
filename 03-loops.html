@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops: for, while, do-while | บันทึกการติว Java</title>
+    <meta name="description" content="เรียนรู้การใช้ลูปในภาษา Java: for, while, do-while พร้อมตัวอย่างโค้ดเข้าใจง่าย">
+    <link rel="stylesheet" href="lesson-style.css">
+    <link rel="stylesheet" href="music-player.css">
+    <style>
+        /* Table specific to this lesson */
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .compare-table th,
+        .compare-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .compare-table th {
+            background: #8b5cf6;
+            color: #fff;
+        }
+
+        .compare-table tr:nth-child(even) {
+            background: #f9fafb;
+        }
+    </style>
+</head>
+
+<body class="theme-purple" data-lesson-id="lesson-03">
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">📚 บันทึกการติว</a>
+            <nav>
+                <a href="index.html">หน้าแรก</a>
+                <a href="02-control-flow.html">บทที่ 2</a>
+                <a href="03-loops.html">บทที่ 3</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <span class="badge badge-purple">📖 บทที่ 3</span>
+            <h1>Loops: for, while, do-while</h1>
+            <p class="meta">
+                <span>📅 <time datetime="2026-02-02">2 กุมภาพันธ์ 2026</time></span>
+                <span>⏱️ อ่าน 12 นาที</span>
+            </p>
+
+            <div class="intro">
+                <strong>🔄 Loop คืออะไร?</strong><br><br>
+                ลองนึกภาพว่าอาจารย์ให้เขียน "สวัสดี" 100 รอบ...<br>
+                ❌ แบบไม่ใช้ Loop: เขียน System.out.println("สวัสดี"); 100 บรรทัด<br>
+                ✅ แบบใช้ Loop: เขียนแค่ 3 บรรทัด ให้โปรแกรมวนทำซ้ำเอง!
+            </div>
+
+            <h2>🤔 เลือกใช้ Loop แบบไหนดี?</h2>
+            <div class="tip-box">
+                <strong>จำง่ายๆ แบบนี้:</strong><br>
+                • รู้จำนวนรอบแน่นอน (เช่น นับ 1-10) → ใช้ <code>for</code><br>
+                • ไม่รู้จำนวนรอบ แต่รู้เงื่อนไข → ใช้ <code>while</code><br>
+                • ต้องทำอย่างน้อย 1 ครั้งก่อน → ใช้ <code>do-while</code>
+            </div>
+
+            <h2>for loop</h2>
+            <p>ใช้เมื่อ <strong>รู้จำนวนรอบที่แน่นอน</strong>:</p>
+            <pre><code><span class="comment">// นับ 1 ถึง 5</span>
+<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i <= <span class="number">5</span>; i++) {
+    System.out.println(<span class="string">"รอบที่ "</span> + i);
+}
+
+<span class="comment">// Output:
+// รอบที่ 1
+// รอบที่ 2
+// รอบที่ 3
+// รอบที่ 4
+// รอบที่ 5</span></code></pre>
+
+            <div class="tip-box">
+                <strong>💡 โครงสร้าง for loop:</strong>
+                <pre style="background: transparent; padding: 10px 0; margin: 10px 0;"><code>for (เริ่มต้น; เงื่อนไข; เพิ่ม/ลด) {
+    // คำสั่งที่ทำซ้ำ
+}</code></pre>
+            </div>
+
+            <h3>ตัวอย่าง: นับถอยหลัง</h3>
+            <pre><code><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">10</span>; i >= <span class="number">1</span>; i--) {
+    System.out.println(i);
+}
+System.out.println(<span class="string">"ปล่อยจรวด!"</span>);</code></pre>
+
+            <h2>while loop</h2>
+            <p>ใช้เมื่อ <strong>ไม่รู้จำนวนรอบ</strong> แต่รู้เงื่อนไขที่ต้องหยุด:</p>
+            <pre><code><span class="keyword">int</span> count = <span class="number">1</span>;
+
+<span class="keyword">while</span> (count <= <span class="number">5</span>) {
+    System.out.println(<span class="string">"รอบที่ "</span> + count);
+    count++;
+}</code></pre>
+
+            <h3>ตัวอย่าง: รับ input จนกว่าจะพิมพ์ "exit"</h3>
+            <pre><code>Scanner sc = <span class="keyword">new</span> Scanner(System.in);
+String input = <span class="string">""</span>;
+
+<span class="keyword">while</span> (!input.equals(<span class="string">"exit"</span>)) {
+    System.out.print(<span class="string">"พิมพ์อะไรก็ได้ (exit เพื่อออก): "</span>);
+    input = sc.nextLine();
+    System.out.println(<span class="string">"คุณพิมพ์: "</span> + input);
+}</code></pre>
+
+            <h2>do-while loop</h2>
+            <p>เหมือน while แต่ <strong>ทำอย่างน้อย 1 รอบก่อน</strong> แล้วค่อยเช็คเงื่อนไข:</p>
+            <pre><code><span class="keyword">int</span> num;
+Scanner sc = <span class="keyword">new</span> Scanner(System.in);
+
+<span class="keyword">do</span> {
+    System.out.print(<span class="string">"ใส่เลข 1-10: "</span>);
+    num = sc.nextInt();
+} <span class="keyword">while</span> (num < <span class="number">1</span> || num > <span class="number">10</span>);
+
+System.out.println(<span class="string">"คุณเลือกเลข: "</span> + num);</code></pre>
+
+            <h2>เปรียบเทียบ Loop ทั้ง 3 แบบ</h2>
+            <table class="compare-table">
+                <tr>
+                    <th>Loop</th>
+                    <th>ใช้เมื่อ</th>
+                    <th>ทำอย่างน้อย</th>
+                </tr>
+                <tr>
+                    <td><code>for</code></td>
+                    <td>รู้จำนวนรอบแน่นอน</td>
+                    <td>0 รอบ (ถ้าเงื่อนไขเท็จตั้งแต่แรก)</td>
+                </tr>
+                <tr>
+                    <td><code>while</code></td>
+                    <td>ไม่รู้จำนวนรอบ</td>
+                    <td>0 รอบ (ถ้าเงื่อนไขเท็จตั้งแต่แรก)</td>
+                </tr>
+                <tr>
+                    <td><code>do-while</code></td>
+                    <td>ต้องทำอย่างน้อย 1 รอบ</td>
+                    <td>1 รอบเสมอ</td>
+                </tr>
+            </table>
+
+            <h2>break และ continue</h2>
+            <pre><code><span class="comment">// break - หยุดลูปทันที</span>
+<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i <= <span class="number">10</span>; i++) {
+    <span class="keyword">if</span> (i == <span class="number">5</span>) {
+        <span class="keyword">break</span>; <span class="comment">// หยุดที่ 5</span>
+    }
+    System.out.println(i);
+}
+<span class="comment">// Output: 1 2 3 4</span>
+
+<span class="comment">// continue - ข้ามรอบนี้ ไปรอบถัดไป</span>
+<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i <= <span class="number">5</span>; i++) {
+    <span class="keyword">if</span> (i == <span class="number">3</span>) {
+        <span class="keyword">continue</span>; <span class="comment">// ข้ามเลข 3</span>
+    }
+    System.out.println(i);
+}
+<span class="comment">// Output: 1 2 4 5</span></code></pre>
+
+            <div class="note-box">
+                <strong>⚠️ ระวัง Infinite Loop!</strong>
+                <p style="margin-top: 10px;">ถ้าเงื่อนไขเป็นจริงตลอด โปรแกรมจะวนลูปไม่มีที่สิ้นสุด ต้องกด Ctrl+C
+                    เพื่อหยุด</p>
+                <pre style="background: #fee2e2; padding: 15px; margin-top: 10px;"><code><span class="comment">// ❌ ตัวอย่าง Infinite Loop</span>
+<span class="keyword">while</span> (<span class="keyword">true</span>) {
+    System.out.println(<span class="string">"ช่วยด้วย!"</span>);
+}</code></pre>
+            </div>
+
+            <div class="summary-box">
+                <h3>📝 สรุปสิ่งที่ต้องจำ</h3>
+                <ul>
+                    <li><code>for</code> - รู้จำนวนรอบ, ใช้นับเลข</li>
+                    <li><code>while</code> - ไม่รู้จำนวนรอบ, เช็คเงื่อนไขก่อนทำ</li>
+                    <li><code>do-while</code> - ทำก่อนเช็คทีหลัง</li>
+                    <li><code>break</code> - หยุดลูปทันที</li>
+                    <li><code>continue</code> - ข้ามไปรอบถัดไป</li>
+                </ul>
+                <p style="margin-top: 20px; opacity: 0.8;">งงตรงไหน? <a href="https://instabio.cc/4021411ZGCpLW"
+                        target="_blank" style="color: #8b5cf6; text-decoration: underline;">ทักมาถามได้เลยนะ! 💬</a></p>
+            </div>
+
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="quiz-03-loops.html" class="quiz-btn">🎯 ทำแบบทดสอบบทที่ 3</a>
+            </div>
+
+            <div class="nav-links">
+                <a href="02-control-flow.html">← บทที่ 2: Control Flow</a>
+                <a href="04-arrays.html">บทที่ 4: Arrays →</a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>บันทึกการติว | เตรียมสอบกันเถอะ! 📚</p>
+    </footer>
+    <script src="lesson-tracking.js"></script>
+    <script src="music-player.js"></script>
+</body>
+
+</html>

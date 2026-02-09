@@ -1,0 +1,745 @@
+﻿<!DOCTYPE html>
+<html lang="th">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>แบบทดสอบ บทที่ 4: Arrays | บันทึกการติว</title>
+        <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap"
+                rel="stylesheet">
+        <link rel="stylesheet" href="premium-style.css">
+        <link rel="stylesheet" href="music-player.css">
+        <script src="quiz.js" defer></script>
+</head>
+
+<body>
+        <div class="bg-particles"></div>
+        <div class="glow-orb orb-purple"></div>
+        <div class="glow-orb orb-pink"></div>
+
+        <header class="premium-header">
+                <div class="header-content">
+                        <a href="index.html" class="logo">📚 บันทึกการติว</a>
+                        <nav>
+                                <a href="04-arrays.html">📖 บทเรียน</a>
+                                <a href="index.html#quizzes">🎯 แบบทดสอบทั้งหมด</a>
+                        </nav>
+                </div>
+        </header>
+
+        <main class="premium-main quiz-container">
+                <div class="premium-article">
+                        <span class="badge">เฉลยละเอียดทุกข้อ!</span>
+                        <h1>🎯 แบบทดสอบ: Arrays</h1>
+                        <p style="margin-bottom: 30px;">30 ข้อ | Index, การวน Loop, 2D Arrays, Arrays Class</p>
+
+                        <div class="score-display">
+                                <span>🏆 คะแนน: <strong id="current-score">0</strong> / 30</span>
+                                <span>✅ ตอบแล้ว: <strong id="answered">0</strong> ข้อ</span>
+                        </div>
+
+                        <form id="quiz-form">
+                                <!-- ง่าย -->
+                                <div class="question easy" data-answer="b">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 1</div>
+                                        <div class="q-text">Index ของ Array ใน Java เริ่มจากเลขอะไร?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q1" value="a"><span
+                                                                class="option-letter">A</span><span>1</span></label>
+                                                <label class="option"><input type="radio" name="q1" value="b"><span
+                                                                class="option-letter">B</span><span>0</span></label>
+                                                <label class="option"><input type="radio" name="q1" value="c"><span
+                                                                class="option-letter">C</span><span>-1</span></label>
+                                                <label class="option"><input type="radio" name="q1" value="d"><span
+                                                                class="option-letter">D</span><span>10</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ใน Java (และภาษาตระกูล C) Index ของ Array จะเริ่มที่
+                                                        <strong>0</strong> เสมอ
+                                                        ดังนั้นตัวแรกสุดคือ index <code>0</code>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="c">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 2</div>
+                                        <div class="q-text">ข้อใดประกาศ Array ถูกต้อง?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q2" value="a"><span
+                                                                class="option-letter">A</span><span>int arr = new
+                                                                int[5];</span></label>
+                                                <label class="option"><input type="radio" name="q2" value="b"><span
+                                                                class="option-letter">B</span><span>int arr[] =
+                                                                int[5];</span></label>
+                                                <label class="option"><input type="radio" name="q2" value="c"><span
+                                                                class="option-letter">C</span><span>int[] arr = new
+                                                                int[5];</span></label>
+                                                <label class="option"><input type="radio" name="q2" value="d"><span
+                                                                class="option-letter">D</span><span>int[] arr =
+                                                                int(5);</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>รูปแบบที่ถูกต้องคือ <code>Type[] name = new Type[size];</code> ข้อ A
+                                                        ผิดที่ประเภทตัวแปร, B
+                                                        ขาด new, D ใช้วงเล็บผิด</p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="a">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 3</div>
+                                        <div class="q-text">คุณสมบัติใดใช้หาความยาวของ Array?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q3" value="a"><span
+                                                                class="option-letter">A</span><span>length</span></label>
+                                                <label class="option"><input type="radio" name="q3" value="b"><span
+                                                                class="option-letter">B</span><span>size()</span></label>
+                                                <label class="option"><input type="radio" name="q3" value="c"><span
+                                                                class="option-letter">C</span><span>count</span></label>
+                                                <label class="option"><input type="radio" name="q3" value="d"><span
+                                                                class="option-letter">D</span><span>len()</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Array ใช้ property <code>.length</code> (ไม่มีวงเล็บ) เพื่อบอกขนาด
+                                                        ต่างจาก String ที่ใช้
+                                                        <code>.length()</code> และ List ที่ใช้ <code>.size()</code>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="d">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 4</div>
+                                        <div class="q-text"><code>int[] arr = {1,2,3};</code> arr.length คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q4" value="a"><span
+                                                                class="option-letter">A</span><span>2</span></label>
+                                                <label class="option"><input type="radio" name="q4" value="b"><span
+                                                                class="option-letter">B</span><span>4</span></label>
+                                                <label class="option"><input type="radio" name="q4" value="c"><span
+                                                                class="option-letter">C</span><span>0</span></label>
+                                                <label class="option"><input type="radio" name="q4" value="d"><span
+                                                                class="option-letter">D</span><span>3</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Array มีสมาชิก 3 ตัว คือ 1, 2, และ 3 ดังนั้นความยาว (length) เท่ากับ
+                                                        <strong>3</strong>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="b">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 5</div>
+                                        <div class="q-text"><code>int[] arr = {10,20,30};</code> arr[1] คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q5" value="a"><span
+                                                                class="option-letter">A</span><span>10</span></label>
+                                                <label class="option"><input type="radio" name="q5" value="b"><span
+                                                                class="option-letter">B</span><span>20</span></label>
+                                                <label class="option"><input type="radio" name="q5" value="c"><span
+                                                                class="option-letter">C</span><span>30</span></label>
+                                                <label class="option"><input type="radio" name="q5" value="d"><span
+                                                                class="option-letter">D</span><span>Error</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Index เริ่มที่ 0 ดังนั้น <code>arr[0]=10</code>,
+                                                        <code>arr[1]=20</code>, และ
+                                                        <code>arr[2]=30</code>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="a">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 6</div>
+                                        <div class="q-text"><code>int[] arr = {5,10,15};</code> arr[0] คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q6" value="a"><span
+                                                                class="option-letter">A</span><span>5</span></label>
+                                                <label class="option"><input type="radio" name="q6" value="b"><span
+                                                                class="option-letter">B</span><span>10</span></label>
+                                                <label class="option"><input type="radio" name="q6" value="c"><span
+                                                                class="option-letter">C</span><span>15</span></label>
+                                                <label class="option"><input type="radio" name="q6" value="d"><span
+                                                                class="option-letter">D</span><span>0</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>arr[0]</code> คือสมาชิกตัวแรกของ Array ซึ่งในที่นี้คือเลข
+                                                        <strong>5</strong>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="c">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 7</div>
+                                        <div class="q-text">ข้อใดเป็นการกำหนดค่าให้ Array พร้อมประกาศ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q7" value="a"><span
+                                                                class="option-letter">A</span><span>int[] a = new
+                                                                int[];</span></label>
+                                                <label class="option"><input type="radio" name="q7" value="b"><span
+                                                                class="option-letter">B</span><span>int[] a =
+                                                                (1,2,3);</span></label>
+                                                <label class="option"><input type="radio" name="q7" value="c"><span
+                                                                class="option-letter">C</span><span>int[] a =
+                                                                {1,2,3};</span></label>
+                                                <label class="option"><input type="radio" name="q7" value="d"><span
+                                                                class="option-letter">D</span><span>int[] a =
+                                                                [1,2,3];</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ใน Java เราใช้ปีกกา <code>{}</code> ในการกำหนดค่าเริ่มต้น (Array
+                                                        Initializer) เช่น
+                                                        <code>{1, 2, 3}</code>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="d">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 8</div>
+                                        <div class="q-text">Array ขนาด 5 มี index สูงสุดเท่าไหร่?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q8" value="a"><span
+                                                                class="option-letter">A</span><span>5</span></label>
+                                                <label class="option"><input type="radio" name="q8" value="b"><span
+                                                                class="option-letter">B</span><span>6</span></label>
+                                                <label class="option"><input type="radio" name="q8" value="c"><span
+                                                                class="option-letter">C</span><span>0</span></label>
+                                                <label class="option"><input type="radio" name="q8" value="d"><span
+                                                                class="option-letter">D</span><span>4</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Index เริ่มที่ 0 ดังนั้นถ้าขนาด 5 ตัว Index จะเป็น 0, 1, 2, 3, 4
+                                                        (สูงสุดคือ <strong>size -
+                                                                1</strong>)</p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="b">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 9</div>
+                                        <div class="q-text">ค่าเริ่มต้นของ <code>int[]</code> คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q9" value="a"><span
+                                                                class="option-letter">A</span><span>null</span></label>
+                                                <label class="option"><input type="radio" name="q9" value="b"><span
+                                                                class="option-letter">B</span><span>0</span></label>
+                                                <label class="option"><input type="radio" name="q9" value="c"><span
+                                                                class="option-letter">C</span><span>-1</span></label>
+                                                <label class="option"><input type="radio" name="q9" value="d"><span
+                                                                class="option-letter">D</span><span>undefined</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>เมื่อสร้าง Array ของตัวเลข (int, long, double) ค่า Default
+                                                        ของแต่ละช่องจะเป็น
+                                                        <strong>0</strong> (หรือ 0.0)
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="a">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 10</div>
+                                        <div class="q-text">ค่าเริ่มต้นของ <code>String[]</code> คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q10" value="a"><span
+                                                                class="option-letter">A</span><span>null</span></label>
+                                                <label class="option"><input type="radio" name="q10" value="b"><span
+                                                                class="option-letter">B</span><span>""</span></label>
+                                                <label class="option"><input type="radio" name="q10" value="c"><span
+                                                                class="option-letter">C</span><span>0</span></label>
+                                                <label class="option"><input type="radio" name="q10" value="d"><span
+                                                                class="option-letter">D</span><span>"null"</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>String เป็น Object (Reference type) ค่า Default ของสมาชิกใน Array
+                                                        จึงเป็น
+                                                        <strong>null</strong>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ปานกลาง -->
+                                <div class="question medium" data-answer="c">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 11</div>
+                                        <div class="q-text"><code>int[] arr = {1,2,3};</code> arr[3] จะเกิด?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q11" value="a"><span
+                                                                class="option-letter">A</span><span>คืนค่า
+                                                                0</span></label>
+                                                <label class="option"><input type="radio" name="q11" value="b"><span
+                                                                class="option-letter">B</span><span>คืนค่า
+                                                                3</span></label>
+                                                <label class="option"><input type="radio" name="q11" value="c"><span
+                                                                class="option-letter">C</span><span>ArrayIndexOutOfBoundsException</span></label>
+                                                <label class="option"><input type="radio" name="q11" value="d"><span
+                                                                class="option-letter">D</span><span>NullPointerException</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Array มี index 0, 1, 2 การเรียก <code>arr[3]</code> (ช่องที่ 4)
+                                                        ถือว่าออกนอกขอบเขต จึงเกิด
+                                                        Error <strong>ArrayIndexOutOfBoundsException</strong></p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="a">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 12</div>
+                                        <div class="q-text">for-each loop ใช้กับ Array แบบ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q12" value="a"><span
+                                                                class="option-letter">A</span><span>for(int x :
+                                                                arr)</span></label>
+                                                <label class="option"><input type="radio" name="q12" value="b"><span
+                                                                class="option-letter">B</span><span>for(x in
+                                                                arr)</span></label>
+                                                <label class="option"><input type="radio" name="q12" value="c"><span
+                                                                class="option-letter">C</span><span>foreach(int x :
+                                                                arr)</span></label>
+                                                <label class="option"><input type="radio" name="q12" value="d"><span
+                                                                class="option-letter">D</span><span>for each x in
+                                                                arr</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Syntax ใน Java ใช้เครื่องหมาย <code>:</code> (colon) เช่น
+                                                        <code>for (Type item : array)</code>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="d">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 13</div>
+                                        <div class="q-text"><code>int[] a = {5,3,8};</code> ผลรวมทั้งหมด?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q13" value="a"><span
+                                                                class="option-letter">A</span><span>15</span></label>
+                                                <label class="option"><input type="radio" name="q13" value="b"><span
+                                                                class="option-letter">B</span><span>8</span></label>
+                                                <label class="option"><input type="radio" name="q13" value="c"><span
+                                                                class="option-letter">C</span><span>3</span></label>
+                                                <label class="option"><input type="radio" name="q13" value="d"><span
+                                                                class="option-letter">D</span><span>16</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>5 + 3 + 8 = <strong>16</strong></p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="b">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 14</div>
+                                        <div class="q-text"><code>int[] a = {2,4,6,8};</code> ค่าเฉลี่ย?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q14" value="a"><span
+                                                                class="option-letter">A</span><span>4</span></label>
+                                                <label class="option"><input type="radio" name="q14" value="b"><span
+                                                                class="option-letter">B</span><span>5</span></label>
+                                                <label class="option"><input type="radio" name="q14" value="c"><span
+                                                                class="option-letter">C</span><span>6</span></label>
+                                                <label class="option"><input type="radio" name="q14" value="d"><span
+                                                                class="option-letter">D</span><span>20</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ผลรวมคือ 20 หารด้วยจำนวนสมาชิก 4 ตัว (20/4) = <strong>5</strong></p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="c">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 15</div>
+                                        <div class="q-text"><code>int[] a = {9,3,7,1};</code> ค่ามากสุด?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q15" value="a"><span
+                                                                class="option-letter">A</span><span>1</span></label>
+                                                <label class="option"><input type="radio" name="q15" value="b"><span
+                                                                class="option-letter">B</span><span>3</span></label>
+                                                <label class="option"><input type="radio" name="q15" value="c"><span
+                                                                class="option-letter">C</span><span>9</span></label>
+                                                <label class="option"><input type="radio" name="q15" value="d"><span
+                                                                class="option-letter">D</span><span>7</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ตัวเลขที่มีค่ามากที่สุดในชุดนี้คือ <strong>9</strong></p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="a">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 16</div>
+                                        <div class="q-text"><code>int[] a = {9,3,7,1};</code> ค่าน้อยสุด?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q16" value="a"><span
+                                                                class="option-letter">A</span><span>1</span></label>
+                                                <label class="option"><input type="radio" name="q16" value="b"><span
+                                                                class="option-letter">B</span><span>3</span></label>
+                                                <label class="option"><input type="radio" name="q16" value="c"><span
+                                                                class="option-letter">C</span><span>9</span></label>
+                                                <label class="option"><input type="radio" name="q16" value="d"><span
+                                                                class="option-letter">D</span><span>7</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ตัวเลขที่มีค่าน้อยที่สุดในชุดนี้คือ <strong>1</strong></p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="d">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 17</div>
+                                        <div class="q-text"><code>int[] a = {1,2,3}; a[1]=5;</code> a[1] ตอนนี้คือ?
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q17" value="a"><span
+                                                                class="option-letter">A</span><span>1</span></label>
+                                                <label class="option"><input type="radio" name="q17" value="b"><span
+                                                                class="option-letter">B</span><span>2</span></label>
+                                                <label class="option"><input type="radio" name="q17" value="c"><span
+                                                                class="option-letter">C</span><span>3</span></label>
+                                                <label class="option"><input type="radio" name="q17" value="d"><span
+                                                                class="option-letter">D</span><span>5</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>เราทำการเปลี่ยนค่า index 1 (เดิมคือ 2) ให้เป็น <strong>5</strong></p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="b">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 18</div>
+                                        <div class="q-text"><code>String[] s = {"A","B","C"};</code> s.length?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q18" value="a"><span
+                                                                class="option-letter">A</span><span>2</span></label>
+                                                <label class="option"><input type="radio" name="q18" value="b"><span
+                                                                class="option-letter">B</span><span>3</span></label>
+                                                <label class="option"><input type="radio" name="q18" value="c"><span
+                                                                class="option-letter">C</span><span>4</span></label>
+                                                <label class="option"><input type="radio" name="q18" value="d"><span
+                                                                class="option-letter">D</span><span>1</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>มีสมาชิก String 3 ตัว ดังนั้นความยาวคือ <strong>3</strong></p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="c">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 19</div>
+                                        <div class="q-text"><code>double[] d = new double[3];</code> d[0] คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q19" value="a"><span
+                                                                class="option-letter">A</span><span>null</span></label>
+                                                <label class="option"><input type="radio" name="q19" value="b"><span
+                                                                class="option-letter">B</span><span>1.0</span></label>
+                                                <label class="option"><input type="radio" name="q19" value="c"><span
+                                                                class="option-letter">C</span><span>0.0</span></label>
+                                                <label class="option"><input type="radio" name="q19" value="d"><span
+                                                                class="option-letter">D</span><span>undefined</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ค่าเริ่มต้นของตัวแปรประเภททศนิยม (double/float) คือ
+                                                        <strong>0.0</strong>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="a">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 20</div>
+                                        <div class="q-text"><code>boolean[] b = new boolean[2];</code> b[0] คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q20" value="a"><span
+                                                                class="option-letter">A</span><span>false</span></label>
+                                                <label class="option"><input type="radio" name="q20" value="b"><span
+                                                                class="option-letter">B</span><span>true</span></label>
+                                                <label class="option"><input type="radio" name="q20" value="c"><span
+                                                                class="option-letter">C</span><span>null</span></label>
+                                                <label class="option"><input type="radio" name="q20" value="d"><span
+                                                                class="option-letter">D</span><span>0</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ค่าเริ่มต้นของ boolean คือ <strong>false</strong></p>
+                                        </div>
+                                </div>
+
+                                <!-- ยาก -->
+                                <div class="question hard" data-answer="b">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 21</div>
+                                        <div class="q-text">2D Array: <code>int[][] a = new int[2][3];</code> มีกี่
+                                                element?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q21" value="a"><span
+                                                                class="option-letter">A</span><span>2</span></label>
+                                                <label class="option"><input type="radio" name="q21" value="b"><span
+                                                                class="option-letter">B</span><span>6</span></label>
+                                                <label class="option"><input type="radio" name="q21" value="c"><span
+                                                                class="option-letter">C</span><span>5</span></label>
+                                                <label class="option"><input type="radio" name="q21" value="d"><span
+                                                                class="option-letter">D</span><span>3</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Array 2 มิติขนาด 2 แถว 3 คอลัมน์ จะมีจำนวนช่องข้อมูลทั้งหมด 2 x 3 =
+                                                        <strong>6</strong> ช่อง
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="c">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 22</div>
+                                        <div class="q-text"><code>int[][] a = {{1,2},{3,4}};</code> a[1][0] คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q22" value="a"><span
+                                                                class="option-letter">A</span><span>1</span></label>
+                                                <label class="option"><input type="radio" name="q22" value="b"><span
+                                                                class="option-letter">B</span><span>2</span></label>
+                                                <label class="option"><input type="radio" name="q22" value="c"><span
+                                                                class="option-letter">C</span><span>3</span></label>
+                                                <label class="option"><input type="radio" name="q22" value="d"><span
+                                                                class="option-letter">D</span><span>4</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>แถวที่ 1 (คือแถวที่สอง <code>{3,4}</code>) และคอลัมน์ที่ 0 (ตัวแรก)
+                                                        คือเลข <strong>3</strong>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="a">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 23</div>
+                                        <div class="q-text"><code>int[][] a = {{1,2,3},{4,5,6}};</code> a.length คือ?
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q23" value="a"><span
+                                                                class="option-letter">A</span><span>2</span></label>
+                                                <label class="option"><input type="radio" name="q23" value="b"><span
+                                                                class="option-letter">B</span><span>3</span></label>
+                                                <label class="option"><input type="radio" name="q23" value="c"><span
+                                                                class="option-letter">C</span><span>6</span></label>
+                                                <label class="option"><input type="radio" name="q23" value="d"><span
+                                                                class="option-letter">D</span><span>5</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>a.length</code> ของ Array 2 มิติคือ "จำนวนแถว" ในที่นี้มี 2 แถว
+                                                        คือ
+                                                        <code>{1,2,3}</code> และ <code>{4,5,6}</code> ดังนั้นตอบ
+                                                        <strong>2</strong>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="d">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 24</div>
+                                        <div class="q-text"><code>int[][] a = {{1,2,3},{4,5,6}};</code> a[0].length คือ?
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q24" value="a"><span
+                                                                class="option-letter">A</span><span>2</span></label>
+                                                <label class="option"><input type="radio" name="q24" value="b"><span
+                                                                class="option-letter">B</span><span>6</span></label>
+                                                <label class="option"><input type="radio" name="q24" value="c"><span
+                                                                class="option-letter">C</span><span>1</span></label>
+                                                <label class="option"><input type="radio" name="q24" value="d"><span
+                                                                class="option-letter">D</span><span>3</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>a[0].length</code> คือ "จำนวนสมาชิกในแถวที่ 0" แถวแรกมี 1,2,3
+                                                        ดังนั้นยาว
+                                                        <strong>3</strong>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="b">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 25</div>
+                                        <div class="q-text"><code>int[] a = {5,2,8}; Arrays.sort(a);</code> แล้ว a[0]
+                                                คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q25" value="a"><span
+                                                                class="option-letter">A</span><span>5</span></label>
+                                                <label class="option"><input type="radio" name="q25" value="b"><span
+                                                                class="option-letter">B</span><span>2</span></label>
+                                                <label class="option"><input type="radio" name="q25" value="c"><span
+                                                                class="option-letter">C</span><span>8</span></label>
+                                                <label class="option"><input type="radio" name="q25" value="d"><span
+                                                                class="option-letter">D</span><span>0</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>Arrays.sort(a)</code> เรียงลำดับจากน้อยไปมาก จะได้
+                                                        <code>{2, 5, 8}</code> ดังนั้น
+                                                        <code>a[0]</code> คือ <strong>2</strong>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="c">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 26</div>
+                                        <div class="q-text"><code>int[] a = {5,2,8}; Arrays.sort(a);</code> แล้ว a[2]
+                                                คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q26" value="a"><span
+                                                                class="option-letter">A</span><span>5</span></label>
+                                                <label class="option"><input type="radio" name="q26" value="b"><span
+                                                                class="option-letter">B</span><span>2</span></label>
+                                                <label class="option"><input type="radio" name="q26" value="c"><span
+                                                                class="option-letter">C</span><span>8</span></label>
+                                                <label class="option"><input type="radio" name="q26" value="d"><span
+                                                                class="option-letter">D</span><span>0</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>หลังจากเรียงแล้วได้ <code>{2, 5, 8}</code> ดังนั้น <code>a[2]</code>
+                                                        (ตัวท้ายสุด) คือ
+                                                        <strong>8</strong>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="a">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 27</div>
+                                        <div class="q-text">ข้อใดใช้คัดลอก Array?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q27" value="a"><span
+                                                                class="option-letter">A</span><span>Arrays.copyOf()</span></label>
+                                                <label class="option"><input type="radio" name="q27" value="b"><span
+                                                                class="option-letter">B</span><span>arr.copy()</span></label>
+                                                <label class="option"><input type="radio" name="q27" value="c"><span
+                                                                class="option-letter">C</span><span>copy(arr)</span></label>
+                                                <label class="option"><input type="radio" name="q27" value="d"><span
+                                                                class="option-letter">D</span><span>arr.clone()</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Method มาตรฐานในคลาส Arrays สำหรับคัดลอกคือ
+                                                        <code>Arrays.copyOf()</code> (ส่วน
+                                                        <code>clone()</code> ก็ใช้ได้แต่เป็น method ของ object array
+                                                        เอง)
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="d">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 28</div>
+                                        <div class="q-text"><code>int[] a = {1,2}; int[] b = a; b[0]=9;</code> a[0] คือ?
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q28" value="a"><span
+                                                                class="option-letter">A</span><span>1</span></label>
+                                                <label class="option"><input type="radio" name="q28" value="b"><span
+                                                                class="option-letter">B</span><span>2</span></label>
+                                                <label class="option"><input type="radio" name="q28" value="c"><span
+                                                                class="option-letter">C</span><span>0</span></label>
+                                                <label class="option"><input type="radio" name="q28" value="d"><span
+                                                                class="option-letter">D</span><span>9</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Array เป็น Reference Type การกำหนด <code>b = a</code> คือการชี้ไปที่
+                                                        Array ก้อนเดียวกัน
+                                                        เมื่อเปลี่ยน b ก็จะกระทบ a ด้วย ผลลัพธ์คือ <strong>9</strong>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="b">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 29</div>
+                                        <div class="q-text"><code>int[] a = {1,2,3,4,5};</code> นับเลขคู่ได้กี่ตัว?
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q29" value="a"><span
+                                                                class="option-letter">A</span><span>3</span></label>
+                                                <label class="option"><input type="radio" name="q29" value="b"><span
+                                                                class="option-letter">B</span><span>2</span></label>
+                                                <label class="option"><input type="radio" name="q29" value="c"><span
+                                                                class="option-letter">C</span><span>5</span></label>
+                                                <label class="option"><input type="radio" name="q29" value="d"><span
+                                                                class="option-letter">D</span><span>1</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>เลขคู่ในชุดนี้มีแค่ 2 และ 4 รวมทั้งหมด <strong>2 ตัว</strong></p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="c">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 30</div>
+                                        <div class="q-text"><code>char[] c = {'H','i'}; new String(c)</code> ได้?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q30" value="a"><span
+                                                                class="option-letter">A</span><span>['H','i']</span></label>
+                                                <label class="option"><input type="radio" name="q30" value="b"><span
+                                                                class="option-letter">B</span><span>H i</span></label>
+                                                <label class="option"><input type="radio" name="q30" value="c"><span
+                                                                class="option-letter">C</span><span>Hi</span></label>
+                                                <label class="option"><input type="radio" name="q30" value="d"><span
+                                                                class="option-letter">D</span><span>Error</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>การสร้าง String จาก char array จะนำตัวอักษรมาต่อกันเป็นข้อความ
+                                                        ได้คำว่า <strong>"Hi"</strong>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <button type="button" class="btn-submit" onclick="submitQuiz()">🎯 ตรวจคำตอบ</button>
+                        </form>
+
+                        <div class="result" id="result">
+                                <h2>🎉 ผลการทำแบบทดสอบ</h2>
+                                <div class="score-big" id="final-score">0/30</div>
+                                <p id="result-text" style="font-size: 1.3rem; margin-top: 15px;"></p>
+                                <a href="index.html#quizzes" class="btn-primary"
+                                        style="margin-top: 25px;">กลับหน้าแบบทดสอบ</a>
+                        </div>
+                </div>
+        </main>
+
+        <footer class="premium-footer">
+                <p class="footer-text">งงตรงไหน? ทักมาถามได้เลย!</p>
+                <a href="https://instabio.cc/4021411ZGCpLW" target="_blank" class="contact-btn">💬 ติดต่อผู้สอน</a>
+        </footer>
+        <script src="music-player.js"></script>
+</body>
+
+</html>

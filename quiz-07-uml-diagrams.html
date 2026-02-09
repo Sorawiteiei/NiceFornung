@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แบบทดสอบ บทที่ 7: UML Diagrams | บันทึกการติว</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="premium-style.css">
+    <link rel="stylesheet" href="music-player.css">
+    <script src="quiz.js" defer></script>
+</head>
+
+<body>
+    <div class="bg-particles"></div>
+    <div class="glow-orb orb-purple"></div>
+    <div class="glow-orb orb-pink"></div>
+
+    <header class="premium-header">
+        <div class="header-content">
+            <a href="index.html" class="logo">📚 บันทึกการติว</a>
+            <nav>
+                <a href="07-uml-diagrams.html">📖 บทเรียน</a>
+                <a href="index.html#quizzes">🎯 แบบทดสอบทั้งหมด</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="premium-main quiz-container">
+        <div class="premium-article">
+            <span class="badge">เฉลยละเอียดทุกข้อ!</span>
+            <h1>🎯 แบบทดสอบ: UML Diagrams</h1>
+            <p style="margin-bottom: 30px;">30 ข้อ | Class Diagram, Object Diagram, Relationships</p>
+
+            <div class="score-display">
+                <span>🏆 คะแนน: <strong id="current-score">0</strong> / 30</span>
+                <span>✅ ตอบแล้ว: <strong id="answered">0</strong> ข้อ</span>
+            </div>
+
+            <form id="quiz-form">
+                <!-- ง่าย 1-10 -->
+                <div class="question easy" data-answer="b">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 1</div>
+                    <div class="q-text">UML ย่อมาจาก?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q1" value="a"><span
+                                class="option-letter">A</span><span>Universal Modeling Language</span></label>
+                        <label class="option"><input type="radio" name="q1" value="b"><span
+                                class="option-letter">B</span><span>Unified Modeling Language</span></label>
+                        <label class="option"><input type="radio" name="q1" value="c"><span
+                                class="option-letter">C</span><span>Unique Modeling Language</span></label>
+                        <label class="option"><input type="radio" name="q1" value="d"><span
+                                class="option-letter">D</span><span>United Modeling Language</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>UML ย่อมาจาก <strong>Unified Modeling Language</strong>
+                            เป็นภาษามาตรฐานสากลในการวาดแผนภาพซอฟต์แวร์</p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="a">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 2</div>
+                    <div class="q-text">Class Diagram แสดงอะไร?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q2" value="a"><span
+                                class="option-letter">A</span><span>โครงสร้างของ Class</span></label>
+                        <label class="option"><input type="radio" name="q2" value="b"><span
+                                class="option-letter">B</span><span>ลำดับการทำงาน</span></label>
+                        <label class="option"><input type="radio" name="q2" value="c"><span
+                                class="option-letter">C</span><span>การใช้งานระบบ</span></label>
+                        <label class="option"><input type="radio" name="q2" value="d"><span
+                                class="option-letter">D</span><span>การไหลของข้อมูล</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Class Diagram ใช้แสดง<strong>โครงสร้างของ Class</strong> ได้แก่ ชื่อ Class, Attributes และ
+                            Methods</p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="c">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 3</div>
+                    <div class="q-text">สัญลักษณ์ + ใน UML หมายถึง?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q3" value="a"><span
+                                class="option-letter">A</span><span>private</span></label>
+                        <label class="option"><input type="radio" name="q3" value="b"><span
+                                class="option-letter">B</span><span>protected</span></label>
+                        <label class="option"><input type="radio" name="q3" value="c"><span
+                                class="option-letter">C</span><span>public</span></label>
+                        <label class="option"><input type="radio" name="q3" value="d"><span
+                                class="option-letter">D</span><span>package</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>สัญลักษณ์ <code>+</code> หมายถึง <strong>public</strong> ซึ่งเข้าถึงได้จากทุกที่</p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="d">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 4</div>
+                    <div class="q-text">สัญลักษณ์ - ใน UML หมายถึง?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q4" value="a"><span
+                                class="option-letter">A</span><span>public</span></label>
+                        <label class="option"><input type="radio" name="q4" value="b"><span
+                                class="option-letter">B</span><span>protected</span></label>
+                        <label class="option"><input type="radio" name="q4" value="c"><span
+                                class="option-letter">C</span><span>package</span></label>
+                        <label class="option"><input type="radio" name="q4" value="d"><span
+                                class="option-letter">D</span><span>private</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>สัญลักษณ์ <code>-</code> หมายถึง <strong>private</strong> ซึ่งเข้าถึงได้เฉพาะใน Class
+                            เท่านั้น</p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="b">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 5</div>
+                    <div class="q-text">สัญลักษณ์ # ใน UML หมายถึง?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q5" value="a"><span
+                                class="option-letter">A</span><span>public</span></label>
+                        <label class="option"><input type="radio" name="q5" value="b"><span
+                                class="option-letter">B</span><span>protected</span></label>
+                        <label class="option"><input type="radio" name="q5" value="c"><span
+                                class="option-letter">C</span><span>private</span></label>
+                        <label class="option"><input type="radio" name="q5" value="d"><span
+                                class="option-letter">D</span><span>static</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>สัญลักษณ์ <code>#</code> หมายถึง <strong>protected</strong> เข้าถึงได้ใน Class และ Subclass
+                        </p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="a">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 6</div>
+                    <div class="q-text">Class Diagram มีกี่ส่วน?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q6" value="a"><span
+                                class="option-letter">A</span><span>3 ส่วน</span></label>
+                        <label class="option"><input type="radio" name="q6" value="b"><span
+                                class="option-letter">B</span><span>2 ส่วน</span></label>
+                        <label class="option"><input type="radio" name="q6" value="c"><span
+                                class="option-letter">C</span><span>4 ส่วน</span></label>
+                        <label class="option"><input type="radio" name="q6" value="d"><span
+                                class="option-letter">D</span><span>5 ส่วน</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Class Diagram มี <strong>3 ส่วน</strong>: 1) ชื่อ Class 2) Attributes 3) Methods</p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="c">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 7</div>
+                    <div class="q-text">Object Diagram แสดงอะไร?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q7" value="a"><span
+                                class="option-letter">A</span><span>โครงสร้าง Class</span></label>
+                        <label class="option"><input type="radio" name="q7" value="b"><span
+                                class="option-letter">B</span><span>ลำดับการทำงาน</span></label>
+                        <label class="option"><input type="radio" name="q7" value="c"><span
+                                class="option-letter">C</span><span>Instance จริงพร้อมค่าข้อมูล</span></label>
+                        <label class="option"><input type="radio" name="q7" value="d"><span
+                                class="option-letter">D</span><span>Use Case</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Object Diagram แสดง<strong>Instance จริง</strong>ที่สร้างจาก Class พร้อมค่าข้อมูลจริง</p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="d">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 8</div>
+                    <div class="q-text">ใน Object Diagram ชื่อ object เขียนอย่างไร?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q8" value="a"><span
+                                class="option-letter">A</span><span>ClassName</span></label>
+                        <label class="option"><input type="radio" name="q8" value="b"><span
+                                class="option-letter">B</span><span>object.Class</span></label>
+                        <label class="option"><input type="radio" name="q8" value="c"><span
+                                class="option-letter">C</span><span>Class:object</span></label>
+                        <label class="option"><input type="radio" name="q8" value="d"><span
+                                class="option-letter">D</span><span>objectName: ClassName (ขีดเส้นใต้)</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>รูปแบบคือ <strong><u>objectName: ClassName</u></strong> และต้องขีดเส้นใต้ด้วย</p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="b">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 9</div>
+                    <div class="q-text">Attribute ใน Class Diagram เขียนรูปแบบใด?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q9" value="a"><span
+                                class="option-letter">A</span><span>type: name</span></label>
+                        <label class="option"><input type="radio" name="q9" value="b"><span
+                                class="option-letter">B</span><span>name: type</span></label>
+                        <label class="option"><input type="radio" name="q9" value="c"><span
+                                class="option-letter">C</span><span>name = type</span></label>
+                        <label class="option"><input type="radio" name="q9" value="d"><span
+                                class="option-letter">D</span><span>type(name)</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>รูปแบบ Attribute คือ <strong>name: type</strong> เช่น age: int, name: String</p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="a">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 10</div>
+                    <div class="q-text">Method ใน Class Diagram เขียนรูปแบบใด?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q10" value="a"><span
+                                class="option-letter">A</span><span>methodName(): returnType</span></label>
+                        <label class="option"><input type="radio" name="q10" value="b"><span
+                                class="option-letter">B</span><span>returnType methodName()</span></label>
+                        <label class="option"><input type="radio" name="q10" value="c"><span
+                                class="option-letter">C</span><span>methodName = returnType</span></label>
+                        <label class="option"><input type="radio" name="q10" value="d"><span
+                                class="option-letter">D</span><span>returnType: methodName</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>รูปแบบ Method คือ <strong>methodName(): returnType</strong> เช่น getName(): String</p>
+                    </div>
+                </div>
+
+                <!-- ปานกลาง 11-20 -->
+                <div class="question medium" data-answer="c">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 11</div>
+                    <div class="q-text">สัญลักษณ์ลูกศรหัวสามเหลี่ยมกลวง (△) แสดง?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q11" value="a"><span
+                                class="option-letter">A</span><span>Association</span></label>
+                        <label class="option"><input type="radio" name="q11" value="b"><span
+                                class="option-letter">B</span><span>Aggregation</span></label>
+                        <label class="option"><input type="radio" name="q11" value="c"><span
+                                class="option-letter">C</span><span>Inheritance/Generalization</span></label>
+                        <label class="option"><input type="radio" name="q11" value="d"><span
+                                class="option-letter">D</span><span>Composition</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>ลูกศรหัวสามเหลี่ยมกลวง △ ใช้แสดง<strong>Inheritance (การสืบทอด)</strong> โดยชี้ไปหา Parent
+                            Class</p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="a">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 12</div>
+                    <div class="q-text">สัญลักษณ์เพชรกลวง (◇) แสดง?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q12" value="a"><span
+                                class="option-letter">A</span><span>Aggregation</span></label>
+                        <label class="option"><input type="radio" name="q12" value="b"><span
+                                class="option-letter">B</span><span>Composition</span></label>
+                        <label class="option"><input type="radio" name="q12" value="c"><span
+                                class="option-letter">C</span><span>Inheritance</span></label>
+                        <label class="option"><input type="radio" name="q12" value="d"><span
+                                class="option-letter">D</span><span>Association</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>เพชรกลวง ◇ หมายถึง<strong>Aggregation</strong> แสดงความสัมพันธ์ "มี" แบบหลวม (แยกจากกันได้)
+                        </p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="b">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 13</div>
+                    <div class="q-text">สัญลักษณ์เพชรทึบ (◆) แสดง?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q13" value="a"><span
+                                class="option-letter">A</span><span>Aggregation</span></label>
+                        <label class="option"><input type="radio" name="q13" value="b"><span
+                                class="option-letter">B</span><span>Composition</span></label>
+                        <label class="option"><input type="radio" name="q13" value="c"><span
+                                class="option-letter">C</span><span>Inheritance</span></label>
+                        <label class="option"><input type="radio" name="q13" value="d"><span
+                                class="option-letter">D</span><span>Dependency</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>เพชรทึบ ◆ หมายถึง<strong>Composition</strong> แสดงความสัมพันธ์ "มี" แบบแน่น (แยกจากกันไม่ได้)
+                        </p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="d">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 14</div>
+                    <div class="q-text">Multiplicity * หมายถึง?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q14" value="a"><span
+                                class="option-letter">A</span><span>มี 1 ตัว</span></label>
+                        <label class="option"><input type="radio" name="q14" value="b"><span
+                                class="option-letter">B</span><span>มี 0 หรือ 1 ตัว</span></label>
+                        <label class="option"><input type="radio" name="q14" value="c"><span
+                                class="option-letter">C</span><span>มีอย่างน้อย 1 ตัว</span></label>
+                        <label class="option"><input type="radio" name="q14" value="d"><span
+                                class="option-letter">D</span><span>มีกี่ตัวก็ได้ (0 หรือมากกว่า)</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><code>*</code> หมายถึง<strong>มีกี่ตัวก็ได้</strong> ตั้งแต่ 0 ถึงไม่จำกัด (zero or more)</p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="c">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 15</div>
+                    <div class="q-text">Multiplicity 1..* หมายถึง?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q15" value="a"><span
+                                class="option-letter">A</span><span>มี 1 ตัว</span></label>
+                        <label class="option"><input type="radio" name="q15" value="b"><span
+                                class="option-letter">B</span><span>มี 0 หรือ 1 ตัว</span></label>
+                        <label class="option"><input type="radio" name="q15" value="c"><span
+                                class="option-letter">C</span><span>มีอย่างน้อย 1 ตัว</span></label>
+                        <label class="option"><input type="radio" name="q15" value="d"><span
+                                class="option-letter">D</span><span>มี 0 ตัวขึ้นไป</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><code>1..*</code> หมายถึง<strong>อย่างน้อย 1 ตัว</strong> (one or more)</p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="a">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 16</div>
+                    <div class="q-text">Multiplicity 0..1 หมายถึง?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q16" value="a"><span
+                                class="option-letter">A</span><span>มี 0 หรือ 1 ตัว</span></label>
+                        <label class="option"><input type="radio" name="q16" value="b"><span
+                                class="option-letter">B</span><span>มี 1 ตัว</span></label>
+                        <label class="option"><input type="radio" name="q16" value="c"><span
+                                class="option-letter">C</span><span>มีกี่ตัวก็ได้</span></label>
+                        <label class="option"><input type="radio" name="q16" value="d"><span
+                                class="option-letter">D</span><span>มีอย่างน้อย 1 ตัว</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><code>0..1</code> หมายถึง<strong>มี 0 หรือ 1 ตัว</strong> (optional, zero or one)</p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="b">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 17</div>
+                    <div class="q-text">ความสัมพันธ์ "บ้าน มี ห้อง" ควรใช้?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q17" value="a"><span
+                                class="option-letter">A</span><span>Aggregation</span></label>
+                        <label class="option"><input type="radio" name="q17" value="b"><span
+                                class="option-letter">B</span><span>Composition</span></label>
+                        <label class="option"><input type="radio" name="q17" value="c"><span
+                                class="option-letter">C</span><span>Inheritance</span></label>
+                        <label class="option"><input type="radio" name="q17" value="d"><span
+                                class="option-letter">D</span><span>Association</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>บ้านมีห้อง และถ้าลบบ้าน ห้องก็หายไปด้วย จึงเป็น<strong>Composition</strong>
+                            (ความสัมพันธ์แบบแน่น)</p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="a">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 18</div>
+                    <div class="q-text">ความสัมพันธ์ "แผนก มี พนักงาน" ควรใช้?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q18" value="a"><span
+                                class="option-letter">A</span><span>Aggregation</span></label>
+                        <label class="option"><input type="radio" name="q18" value="b"><span
+                                class="option-letter">B</span><span>Composition</span></label>
+                        <label class="option"><input type="radio" name="q18" value="c"><span
+                                class="option-letter">C</span><span>Inheritance</span></label>
+                        <label class="option"><input type="radio" name="q18" value="d"><span
+                                class="option-letter">D</span><span>Dependency</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>แผนกมีพนักงาน แต่ถ้าลบแผนก พนักงานยังอยู่ได้ จึงเป็น<strong>Aggregation</strong>
+                            (ความสัมพันธ์แบบหลวม)</p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="c">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 19</div>
+                    <div class="q-text">ความสัมพันธ์ "Dog is-a Animal" ควรใช้?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q19" value="a"><span
+                                class="option-letter">A</span><span>Aggregation</span></label>
+                        <label class="option"><input type="radio" name="q19" value="b"><span
+                                class="option-letter">B</span><span>Composition</span></label>
+                        <label class="option"><input type="radio" name="q19" value="c"><span
+                                class="option-letter">C</span><span>Inheritance</span></label>
+                        <label class="option"><input type="radio" name="q19" value="d"><span
+                                class="option-letter">D</span><span>Association</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>"is-a" relationship หมายถึง<strong>Inheritance</strong> เช่น Dog is-a Animal แปลว่า Dog
+                            เป็นประเภทหนึ่งของ Animal</p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="d">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 20</div>
+                    <div class="q-text">สัญลักษณ์ ~ ใน UML หมายถึง?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q20" value="a"><span
+                                class="option-letter">A</span><span>public</span></label>
+                        <label class="option"><input type="radio" name="q20" value="b"><span
+                                class="option-letter">B</span><span>private</span></label>
+                        <label class="option"><input type="radio" name="q20" value="c"><span
+                                class="option-letter">C</span><span>protected</span></label>
+                        <label class="option"><input type="radio" name="q20" value="d"><span
+                                class="option-letter">D</span><span>package (default)</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>สัญลักษณ์ <code>~</code> หมายถึง<strong>package</strong> หรือ default access modifier</p>
+                    </div>
+                </div>
+
+                <!-- ยาก 21-30 -->
+                <div class="question hard" data-answer="b">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 21</div>
+                    <div class="q-text">Dependency ใน UML ใช้สัญลักษณ์ใด?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q21" value="a"><span
+                                class="option-letter">A</span><span>เส้นทึบ</span></label>
+                        <label class="option"><input type="radio" name="q21" value="b"><span
+                                class="option-letter">B</span><span>เส้นประพร้อมลูกศร</span></label>
+                        <label class="option"><input type="radio" name="q21" value="c"><span
+                                class="option-letter">C</span><span>เพชรทึบ</span></label>
+                        <label class="option"><input type="radio" name="q21" value="d"><span
+                                class="option-letter">D</span><span>สามเหลี่ยมกลวง</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Dependency ใช้<strong>เส้นประพร้อมลูกศร (- - ->)</strong> แสดงว่า Class หนึ่งใช้ Class
+                            อื่นชั่วคราว</p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="a">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 22</div>
+                    <div class="q-text">Abstract class ใน UML เขียนชื่ออย่างไร?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q22" value="a"><span
+                                class="option-letter">A</span><span>ตัวเอียง (Italic)</span></label>
+                        <label class="option"><input type="radio" name="q22" value="b"><span
+                                class="option-letter">B</span><span>ตัวหนา (Bold)</span></label>
+                        <label class="option"><input type="radio" name="q22" value="c"><span
+                                class="option-letter">C</span><span>ขีดเส้นใต้</span></label>
+                        <label class="option"><input type="radio" name="q22" value="d"><span
+                                class="option-letter">D</span><span>ตัวพิมพ์ใหญ่ทั้งหมด</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Abstract class และ abstract method ใน UML เขียนด้วย<strong>ตัวเอียง (Italic)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="c">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 23</div>
+                    <div class="q-text">Interface ใน UML เขียนอย่างไร?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q23" value="a"><span
+                                class="option-letter">A</span><span>ชื่อตัวเอียง</span></label>
+                        <label class="option"><input type="radio" name="q23" value="b"><span
+                                class="option-letter">B</span><span>ขีดเส้นใต้</span></label>
+                        <label class="option"><input type="radio" name="q23" value="c"><span
+                                class="option-letter">C</span><span>&lt;&lt;interface&gt;&gt;</span></label>
+                        <label class="option"><input type="radio" name="q23" value="d"><span
+                                class="option-letter">D</span><span>[interface]</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Interface เขียนโดยใส่<strong>&lt;&lt;interface&gt;&gt;</strong> ไว้เหนือชื่อ</p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="d">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 24</div>
+                    <div class="q-text">Static member ใน UML เขียนอย่างไร?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q24" value="a"><span
+                                class="option-letter">A</span><span>ตัวเอียง</span></label>
+                        <label class="option"><input type="radio" name="q24" value="b"><span
+                                class="option-letter">B</span><span>ตัวหนา</span></label>
+                        <label class="option"><input type="radio" name="q24" value="c"><span
+                                class="option-letter">C</span><span>ใส่ {static}</span></label>
+                        <label class="option"><input type="radio" name="q24" value="d"><span
+                                class="option-letter">D</span><span>ขีดเส้นใต้</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Static member (ตัวแปรหรือ method) เขียนโดย<strong>ขีดเส้นใต้</strong></p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="b">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 25</div>
+                    <div class="q-text">Realization (implements interface) ใช้สัญลักษณ์ใด?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q25" value="a"><span
+                                class="option-letter">A</span><span>เส้นทึบ + สามเหลี่ยมกลวง</span></label>
+                        <label class="option"><input type="radio" name="q25" value="b"><span
+                                class="option-letter">B</span><span>เส้นประ + สามเหลี่ยมกลวง</span></label>
+                        <label class="option"><input type="radio" name="q25" value="c"><span
+                                class="option-letter">C</span><span>เส้นทึบ + เพชรกลวง</span></label>
+                        <label class="option"><input type="radio" name="q25" value="d"><span
+                                class="option-letter">D</span><span>เส้นประ + เพชรทึบ</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Realization (implements) ใช้<strong>เส้นประพร้อมหัวสามเหลี่ยมกลวง</strong> ชี้ไปที่ Interface
+                        </p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="a">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 26</div>
+                    <div class="q-text">Association class คืออะไร?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q26" value="a"><span
+                                class="option-letter">A</span><span>Class ที่เก็บข้อมูลของความสัมพันธ์</span></label>
+                        <label class="option"><input type="radio" name="q26" value="b"><span
+                                class="option-letter">B</span><span>Class ที่สืบทอด</span></label>
+                        <label class="option"><input type="radio" name="q26" value="c"><span
+                                class="option-letter">C</span><span>Abstract class</span></label>
+                        <label class="option"><input type="radio" name="q26" value="d"><span
+                                class="option-letter">D</span><span>Interface</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Association class คือ Class ที่<strong>เก็บข้อมูลเพิ่มเติมของความสัมพันธ์</strong>ระหว่าง 2
+                            Classes</p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="c">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 27</div>
+                    <div class="q-text">Navigability arrow แสดงอะไร?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q27" value="a"><span
+                                class="option-letter">A</span><span>การสืบทอด</span></label>
+                        <label class="option"><input type="radio" name="q27" value="b"><span
+                                class="option-letter">B</span><span>การพึ่งพา</span></label>
+                        <label class="option"><input type="radio" name="q27" value="c"><span
+                                class="option-letter">C</span><span>ทิศทางการเข้าถึง</span></label>
+                        <label class="option"><input type="radio" name="q27" value="d"><span
+                                class="option-letter">D</span><span>ลำดับการทำงาน</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Navigability arrow แสดง<strong>ทิศทางว่า Class ใดสามารถเข้าถึง Class ใดได้</strong></p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="d">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 28</div>
+                    <div class="q-text">Sequence Diagram แสดงอะไร?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q28" value="a"><span
+                                class="option-letter">A</span><span>โครงสร้าง Class</span></label>
+                        <label class="option"><input type="radio" name="q28" value="b"><span
+                                class="option-letter">B</span><span>ความสัมพันธ์ระหว่าง Class</span></label>
+                        <label class="option"><input type="radio" name="q28" value="c"><span
+                                class="option-letter">C</span><span>การใช้งานระบบ</span></label>
+                        <label class="option"><input type="radio" name="q28" value="d"><span
+                                class="option-letter">D</span><span>ลำดับการส่ง message ระหว่าง object</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Sequence Diagram แสดง<strong>ลำดับเวลาการส่ง message</strong> ระหว่าง object ต่างๆ</p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="b">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 29</div>
+                    <div class="q-text">Use Case Diagram ประกอบด้วย?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q29" value="a"><span
+                                class="option-letter">A</span><span>Class และ Object</span></label>
+                        <label class="option"><input type="radio" name="q29" value="b"><span
+                                class="option-letter">B</span><span>Actor และ Use Case</span></label>
+                        <label class="option"><input type="radio" name="q29" value="c"><span
+                                class="option-letter">C</span><span>Method และ Attribute</span></label>
+                        <label class="option"><input type="radio" name="q29" value="d"><span
+                                class="option-letter">D</span><span>Lifeline และ Message</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Use Case Diagram ประกอบด้วย<strong>Actor</strong> (ผู้ใช้งาน) และ<strong>Use Case</strong>
+                            (ฟังก์ชันการใช้งาน)</p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="a">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 30</div>
+                    <div class="q-text">ข้อใดเป็น Behavioral Diagram?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q30" value="a"><span
+                                class="option-letter">A</span><span>Sequence Diagram</span></label>
+                        <label class="option"><input type="radio" name="q30" value="b"><span
+                                class="option-letter">B</span><span>Class Diagram</span></label>
+                        <label class="option"><input type="radio" name="q30" value="c"><span
+                                class="option-letter">C</span><span>Object Diagram</span></label>
+                        <label class="option"><input type="radio" name="q30" value="d"><span
+                                class="option-letter">D</span><span>Component Diagram</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><strong>Sequence Diagram</strong> เป็น Behavioral Diagram เพราะแสดงพฤติกรรมและลำดับการทำงาน
+                            ส่วน Class, Object, Component เป็น Structural Diagram</p>
+                    </div>
+                </div>
+
+                <button type="button" class="btn-submit" onclick="submitQuiz()">🎯 ตรวจคำตอบ</button>
+            </form>
+
+            <div class="result" id="result">
+                <h2>🎉 ผลการทำแบบทดสอบ</h2>
+                <div class="score-big" id="final-score">0/30</div>
+                <p id="result-text" style="font-size: 1.3rem; margin-top: 15px;"></p>
+                <a href="index.html#quizzes" class="btn-primary" style="margin-top: 25px;">กลับหน้าแบบทดสอบ</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="premium-footer">
+        <p class="footer-text">งงตรงไหน? ทักมาถามได้เลย!</p>
+        <a href="https://instabio.cc/4021411ZGCpLW" target="_blank" class="contact-btn">💬 ติดต่อผู้สอน</a>
+    </footer>
+    <script src="music-player.js"></script>
+</body>
+
+</html>

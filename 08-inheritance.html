@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Inheritance (การสืบทอด) | บันทึกการติว Java</title>
+    <meta name="description"
+        content="เรียนรู้ Inheritance ในภาษา Java: extends, super, override, abstract class พร้อมตัวอย่างโค้ด">
+    <link rel="stylesheet" href="lesson-style.css">
+    <link rel="stylesheet" href="music-player.css">
+</head>
+
+<body class="theme-green" data-lesson-id="lesson-08">
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">📚 บันทึกการติว</a>
+            <nav>
+                <a href="index.html">หน้าแรก</a>
+                <a href="07-uml-diagrams.html">บทที่ 7</a>
+                <a href="08-inheritance.html">บทที่ 8</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <span class="badge badge-green">📖 บทที่ 8</span>
+            <span class="badge exam-badge">⭐ ออกสอบแน่!</span>
+            <h1>Java Inheritance (การสืบทอด)</h1>
+            <p class="meta">
+                <span>📅 <time datetime="2026-02-04">4 กุมภาพันธ์ 2026</time></span>
+                <span>⏱️ อ่าน 25 นาที</span>
+            </p>
+
+            <div class="intro">
+                <strong>Inheritance (การสืบทอด)</strong> คือการสร้าง Class ใหม่โดยรับคุณสมบัติมาจาก Class ที่มีอยู่แล้ว
+                ช่วยให้<strong>ไม่ต้องเขียนโค้ดซ้ำ</strong>และสามารถขยายความสามารถได้
+            </div>
+
+            <h2>ทำไมต้องใช้ Inheritance?</h2>
+            <div class="four-pillars">
+                <div class="pillar">
+                    <h4>1. Code Reuse</h4>
+                    <p>ใช้โค้ดซ้ำได้ ไม่ต้องเขียนใหม่</p>
+                </div>
+                <div class="pillar">
+                    <h4>2. Extensibility</h4>
+                    <p>ขยายความสามารถได้ง่าย</p>
+                </div>
+                <div class="pillar">
+                    <h4>3. Maintainability</h4>
+                    <p>แก้ไขที่เดียว มีผลทุก Class ลูก</p>
+                </div>
+                <div class="pillar">
+                    <h4>4. Polymorphism</h4>
+                    <p>รองรับการทำ Polymorphism</p>
+                </div>
+            </div>
+
+            <h2>คำศัพท์สำคัญ</h2>
+            <div class="concept-box">
+                <ul>
+                    <li><strong>Superclass / Parent class / Base class</strong> = Class แม่ (ถูกสืบทอด)</li>
+                    <li><strong>Subclass / Child class / Derived class</strong> = Class ลูก (ผู้สืบทอด)</li>
+                    <li><strong>extends</strong> = Keyword สำหรับสืบทอด Class</li>
+                    <li><strong>super</strong> = อ้างถึง Parent class</li>
+                </ul>
+            </div>
+
+            <h2>การใช้ extends</h2>
+            <p>ใช้ keyword <code>extends</code> เพื่อสืบทอด Class:</p>
+            <pre><code><span class="comment">// Parent Class</span>
+<span class="keyword">public class</span> <span class="class-name">Animal</span> {
+    <span class="keyword">protected</span> String name;
+    <span class="keyword">protected int</span> age;
+    
+    <span class="keyword">public void</span> eat() {
+        System.out.println(name + <span class="string">" is eating"</span>);
+    }
+    
+    <span class="keyword">public void</span> sleep() {
+        System.out.println(name + <span class="string">" is sleeping"</span>);
+    }
+}
+
+<span class="comment">// Child Class</span>
+<span class="keyword">public class</span> <span class="class-name">Dog</span> <span class="keyword">extends</span> Animal {
+    <span class="comment">// Dog สืบทอด name, age, eat(), sleep() มาจาก Animal</span>
+    
+    <span class="comment">// เพิ่ม method ใหม่</span>
+    <span class="keyword">public void</span> bark() {
+        System.out.println(name + <span class="string">": โฮ่ง โฮ่ง!"</span>);
+    }
+}
+
+<span class="comment">// การใช้งาน</span>
+Dog myDog = <span class="keyword">new</span> Dog();
+myDog.name = <span class="string">"บ๊อบ"</span>;
+myDog.eat();   <span class="comment">// บ๊อบ is eating (สืบทอดมา)</span>
+myDog.bark();  <span class="comment">// บ๊อบ: โฮ่ง โฮ่ง! (ของตัวเอง)</span></code></pre>
+
+            <h2>super Keyword</h2>
+            <p>ใช้ <code>super</code> เพื่ออ้างถึงสมาชิกของ Parent class:</p>
+
+            <h3>1. เรียก Constructor ของ Parent</h3>
+            <pre><code><span class="keyword">public class</span> <span class="class-name">Animal</span> {
+    <span class="keyword">protected</span> String name;
+    
+    <span class="keyword">public</span> Animal(String name) {
+        <span class="keyword">this</span>.name = name;
+    }
+}
+
+<span class="keyword">public class</span> <span class="class-name">Dog</span> <span class="keyword">extends</span> Animal {
+    <span class="keyword">private</span> String breed;
+    
+    <span class="keyword">public</span> Dog(String name, String breed) {
+        <span class="keyword">super</span>(name);  <span class="comment">// เรียก constructor ของ Animal</span>
+        <span class="keyword">this</span>.breed = breed;
+    }
+}</code></pre>
+
+            <div class="note-box">
+                <strong>⚠️ กฎสำคัญ!</strong><br>
+                <code>super()</code> ต้องเป็น<strong>บรรทัดแรก</strong>ใน constructor ของ Subclass เสมอ!
+            </div>
+
+            <h3>2. เรียก Method ของ Parent</h3>
+            <pre><code><span class="keyword">public class</span> <span class="class-name">Dog</span> <span class="keyword">extends</span> Animal {
+    <span class="keyword">@Override</span>
+    <span class="keyword">public void</span> eat() {
+        <span class="keyword">super</span>.eat();  <span class="comment">// เรียก eat() ของ Animal ก่อน</span>
+        System.out.println(<span class="string">"Dog eats dog food"</span>);
+    }
+}</code></pre>
+
+            <h2>Method Overriding</h2>
+            <p>Class ลูกสามารถ<strong>เขียนทับ</strong> method ของ Class แม่ได้:</p>
+            <pre><code><span class="keyword">public class</span> <span class="class-name">Animal</span> {
+    <span class="keyword">public void</span> makeSound() {
+        System.out.println(<span class="string">"..."</span>);
+    }
+}
+
+<span class="keyword">public class</span> <span class="class-name">Dog</span> <span class="keyword">extends</span> Animal {
+    <span class="keyword">@Override</span>
+    <span class="keyword">public void</span> makeSound() {
+        System.out.println(<span class="string">"โฮ่ง โฮ่ง!"</span>);
+    }
+}
+
+<span class="keyword">public class</span> <span class="class-name">Cat</span> <span class="keyword">extends</span> Animal {
+    <span class="keyword">@Override</span>
+    <span class="keyword">public void</span> makeSound() {
+        System.out.println(<span class="string">"เมี๊ยว~"</span>);
+    }
+}
+
+<span class="comment">// การใช้งาน</span>
+Animal dog = <span class="keyword">new</span> Dog();
+Animal cat = <span class="keyword">new</span> Cat();
+dog.makeSound();  <span class="comment">// โฮ่ง โฮ่ง!</span>
+cat.makeSound();  <span class="comment">// เมี๊ยว~</span></code></pre>
+
+            <div class="tip-box">
+                <strong>💡 กฎของ Override</strong><br>
+                <ul>
+                    <li>ชื่อ method ต้องเหมือนกัน</li>
+                    <li>Parameter ต้องเหมือนกัน</li>
+                    <li>Return type ต้องเหมือนกัน (หรือเป็น subtype)</li>
+                    <li>Access modifier ต้องเท่ากันหรือเปิดกว้างกว่า</li>
+                </ul>
+            </div>
+
+            <h2>Abstract Class</h2>
+            <p>Class ที่<strong>ไม่สามารถสร้าง Object ได้โดยตรง</strong> ต้องถูกสืบทอดไปใช้:</p>
+            <pre><code><span class="keyword">public abstract class</span> <span class="class-name">Shape</span> {
+    <span class="keyword">protected</span> String color;
+    
+    <span class="comment">// Abstract method - ไม่มี body</span>
+    <span class="keyword">public abstract double</span> getArea();
+    
+    <span class="comment">// Concrete method - มี body ปกติ</span>
+    <span class="keyword">public void</span> displayColor() {
+        System.out.println(<span class="string">"Color: "</span> + color);
+    }
+}
+
+<span class="keyword">public class</span> <span class="class-name">Circle</span> <span class="keyword">extends</span> Shape {
+    <span class="keyword">private double</span> radius;
+    
+    <span class="keyword">public</span> Circle(<span class="keyword">double</span> radius) {
+        <span class="keyword">this</span>.radius = radius;
+    }
+    
+    <span class="comment">// ต้อง implement abstract method</span>
+    <span class="keyword">@Override</span>
+    <span class="keyword">public double</span> getArea() {
+        <span class="keyword">return</span> Math.PI * radius * radius;
+    }
+}
+
+<span class="keyword">public class</span> <span class="class-name">Rectangle</span> <span class="keyword">extends</span> Shape {
+    <span class="keyword">private double</span> width, height;
+    
+    <span class="keyword">public</span> Rectangle(<span class="keyword">double</span> w, <span class="keyword">double</span> h) {
+        <span class="keyword">this</span>.width = w;
+        <span class="keyword">this</span>.height = h;
+    }
+    
+    <span class="keyword">@Override</span>
+    <span class="keyword">public double</span> getArea() {
+        <span class="keyword">return</span> width * height;
+    }
+}</code></pre>
+
+            <h2>final Keyword</h2>
+            <p>ใช้ <code>final</code> เพื่อป้องกันการเปลี่ยนแปลง:</p>
+            <pre><code><span class="comment">// final class - ห้ามสืบทอด</span>
+<span class="keyword">public final class</span> <span class="class-name">String</span> { }
+
+<span class="comment">// final method - ห้าม override</span>
+<span class="keyword">public final void</span> importantMethod() { }
+
+<span class="comment">// final variable - ค่าคงที่</span>
+<span class="keyword">final int</span> MAX_SIZE = <span class="number">100</span>;</code></pre>
+
+            <h2>instanceof Operator</h2>
+            <p>ตรวจสอบว่า Object เป็นประเภทใด:</p>
+            <pre><code>Animal animal = <span class="keyword">new</span> Dog();
+
+<span class="keyword">if</span> (animal <span class="keyword">instanceof</span> Dog) {
+    System.out.println(<span class="string">"This is a Dog"</span>);
+    Dog dog = (Dog) animal;  <span class="comment">// Downcasting</span>
+    dog.bark();
+}
+
+<span class="keyword">if</span> (animal <span class="keyword">instanceof</span> Cat) {
+    System.out.println(<span class="string">"This is a Cat"</span>);  <span class="comment">// ไม่ทำงาน</span>
+}</code></pre>
+
+            <h2>Upcasting และ Downcasting</h2>
+            <div class="concept-box">
+                <strong>Upcasting</strong> = มอง Object ลูกในฐานะ Object แม่ (อัตโนมัติ)<br>
+                <strong>Downcasting</strong> = แปลงกลับเป็น Object ลูก (ต้อง cast เอง)
+            </div>
+            <pre><code><span class="comment">// Upcasting (อัตโนมัติ)</span>
+Animal animal = <span class="keyword">new</span> Dog();  <span class="comment">// Dog → Animal</span>
+
+<span class="comment">// Downcasting (ต้อง cast เอง)</span>
+Dog dog = (Dog) animal;  <span class="comment">// Animal → Dog</span>
+
+<span class="comment">// Safe downcasting</span>
+<span class="keyword">if</span> (animal <span class="keyword">instanceof</span> Dog) {
+    Dog d = (Dog) animal;
+}</code></pre>
+
+            <h2>Java ไม่รองรับ Multiple Inheritance</h2>
+            <div class="note-box">
+                <strong>⚠️ ข้อจำกัดใน Java</strong><br>
+                Java ไม่อนุญาตให้ extends หลาย Class (เพื่อหลีกเลี่ยง Diamond Problem)<br>
+                แต่สามารถ implements หลาย Interface ได้!
+            </div>
+            <pre><code><span class="comment">// ❌ ผิด! ทำไม่ได้</span>
+<span class="keyword">class</span> Child <span class="keyword">extends</span> Parent1, Parent2 { }
+
+<span class="comment">// ✅ ถูก! ทำได้</span>
+<span class="keyword">class</span> Child <span class="keyword">extends</span> Parent <span class="keyword">implements</span> Interface1, Interface2 { }</code></pre>
+
+            <h2>Object Class</h2>
+            <p>ทุก Class ใน Java สืบทอดมาจาก <code>java.lang.Object</code> โดยอัตโนมัติ:</p>
+            <pre><code><span class="comment">// Method ที่ได้รับจาก Object class</span>
+toString()      <span class="comment">// แปลงเป็น String</span>
+equals()        <span class="comment">// เปรียบเทียบ Object</span>
+hashCode()      <span class="comment">// รหัส hash ของ Object</span>
+getClass()      <span class="comment">// ดูว่าเป็น Class อะไร</span>
+clone()         <span class="comment">// คัดลอก Object</span></code></pre>
+
+            <div class="summary-box">
+                <h3>📝 สรุป Inheritance สำหรับสอบ</h3>
+                <ul>
+                    <li><strong>extends</strong> = ใช้สืบทอด Class</li>
+                    <li><strong>super</strong> = อ้างถึง Parent class</li>
+                    <li><strong>super()</strong> = เรียก constructor ของ Parent (ต้องเป็นบรรทัดแรก!)</li>
+                    <li><strong>@Override</strong> = เขียนทับ method ของ Parent</li>
+                    <li><strong>abstract</strong> = Class/Method ที่ไม่สมบูรณ์ ต้อง implement</li>
+                    <li><strong>final class</strong> = ห้ามสืบทอด</li>
+                    <li><strong>final method</strong> = ห้าม override</li>
+                    <li><strong>instanceof</strong> = ตรวจสอบประเภท Object</li>
+                    <li>Java รองรับ <strong>Single Inheritance</strong> เท่านั้น (extends ได้ 1 Class)</li>
+                    <li>ทุก Class สืบทอดจาก <strong>Object</strong> โดยอัตโนมัติ</li>
+                </ul>
+                <p style="margin-top: 20px;">งงตรงไหน? <a href="https://instabio.cc/4021411ZGCpLW" target="_blank"
+                        style="color: #10b981; text-decoration: underline;">ทักมาถามได้เลยนะ!</a> สู้ๆ สอบผ่านแน่นอน 💪
+                </p>
+            </div>
+
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="quiz-08-inheritance.html" class="quiz-btn">🎯 ทำแบบทดสอบบทที่ 8</a>
+            </div>
+
+            <div class="nav-links">
+                <a href="07-uml-diagrams.html">← บทที่ 7: UML Diagrams</a>
+                <a href="index.html">กลับหน้าแรก →</a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>บันทึกการติว | เตรียมสอบกันเถอะ! 📚</p>
+    </footer>
+    <script src="lesson-tracking.js"></script>
+    <script src="music-player.js"></script>
+</body>
+
+</html>

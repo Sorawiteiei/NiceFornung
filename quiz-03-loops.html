@@ -1,0 +1,761 @@
+﻿<!DOCTYPE html>
+<html lang="th">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>แบบทดสอบ บทที่ 3: Loops | บันทึกการติว</title>
+        <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap"
+                rel="stylesheet">
+        <link rel="stylesheet" href="premium-style.css">
+        <link rel="stylesheet" href="music-player.css">
+        <script src="quiz.js" defer></script>
+</head>
+
+<body>
+        <div class="bg-particles"></div>
+        <div class="glow-orb orb-purple"></div>
+        <div class="glow-orb orb-pink"></div>
+
+        <header class="premium-header">
+                <div class="header-content">
+                        <a href="index.html" class="logo">📚 บันทึกการติว</a>
+                        <nav>
+                                <a href="03-loops.html">📖 บทเรียน</a>
+                                <a href="index.html#quizzes">🎯 แบบทดสอบทั้งหมด</a>
+                        </nav>
+                </div>
+        </header>
+
+        <main class="premium-main quiz-container">
+                <div class="premium-article">
+                        <span class="badge">เฉลยละเอียดทุกข้อ!</span>
+                        <h1>🎯 แบบทดสอบ: Loops</h1>
+                        <p style="margin-bottom: 30px;">30 ข้อ | for, while, do-while, break, continue</p>
+
+                        <div class="score-display">
+                                <span>🏆 คะแนน: <strong id="current-score">0</strong> / 30</span>
+                                <span>✅ ตอบแล้ว: <strong id="answered">0</strong> ข้อ</span>
+                        </div>
+
+                        <form id="quiz-form">
+                                <!-- ง่าย -->
+                                <div class="question easy" data-answer="b">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 1</div>
+                                        <div class="q-text">Loop ใดเหมาะสำหรับเมื่อรู้จำนวนรอบแน่นอน?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q1" value="a"><span
+                                                                class="option-letter">A</span><span>while</span></label>
+                                                <label class="option"><input type="radio" name="q1" value="b"><span
+                                                                class="option-letter">B</span><span>for</span></label>
+                                                <label class="option"><input type="radio" name="q1" value="c"><span
+                                                                class="option-letter">C</span><span>do-while</span></label>
+                                                <label class="option"><input type="radio" name="q1" value="d"><span
+                                                                class="option-letter">D</span><span>foreach</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>for</code> loop
+                                                        ออกแบบมาให้กำหนดจุดเริ่มต้นและจุดสิ้นสุดได้ชัดเจน
+                                                        จึงเหมาะที่สุดเมื่อเรารู้จำนวนรอบที่แน่นอนตั้งแต่แรก</p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="c">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 2</div>
+                                        <div class="q-text">คำสั่ง <code>break</code> ใช้ทำอะไร?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q2" value="a"><span
+                                                                class="option-letter">A</span><span>ข้ามไปรอบถัดไป</span></label>
+                                                <label class="option"><input type="radio" name="q2" value="b"><span
+                                                                class="option-letter">B</span><span>เริ่มลูปใหม่</span></label>
+                                                <label class="option"><input type="radio" name="q2" value="c"><span
+                                                                class="option-letter">C</span><span>ออกจากลูป</span></label>
+                                                <label class="option"><input type="radio" name="q2" value="d"><span
+                                                                class="option-letter">D</span><span>หยุดโปรแกรม</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>break</code> ใช้สั่งให้โปรแกรม <strong>หยุด</strong>
+                                                        การทำงานของลูปทันที
+                                                        และกระโดดออกไปทำคำสั่งต่อจากลูป</p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="a">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 3</div>
+                                        <div class="q-text">คำสั่ง <code>continue</code> ใช้ทำอะไร?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q3" value="a"><span
+                                                                class="option-letter">A</span><span>ข้ามไปรอบถัดไป</span></label>
+                                                <label class="option"><input type="radio" name="q3" value="b"><span
+                                                                class="option-letter">B</span><span>ออกจากลูป</span></label>
+                                                <label class="option"><input type="radio" name="q3" value="c"><span
+                                                                class="option-letter">C</span><span>หยุดโปรแกรม</span></label>
+                                                <label class="option"><input type="radio" name="q3" value="d"><span
+                                                                class="option-letter">D</span><span>เริ่มลูปใหม่</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>continue</code> จะสั่งให้ลูป <strong>ข้าม</strong>
+                                                        การทำงานที่เหลือในรอบปัจจุบัน
+                                                        แล้วกระโดดไปเริ่มรอบถัดไปทันที</p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="d">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 4</div>
+                                        <div class="q-text">Loop ใดรับประกันว่าจะทำงานอย่างน้อย 1 รอบ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q4" value="a"><span
+                                                                class="option-letter">A</span><span>for</span></label>
+                                                <label class="option"><input type="radio" name="q4" value="b"><span
+                                                                class="option-letter">B</span><span>while</span></label>
+                                                <label class="option"><input type="radio" name="q4" value="c"><span
+                                                                class="option-letter">C</span><span>foreach</span></label>
+                                                <label class="option"><input type="radio" name="q4" value="d"><span
+                                                                class="option-letter">D</span><span>do-while</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>do-while</code> จะทำคำสั่งใน body ก่อน 1 ครั้งเสมอ
+                                                        แล้วค่อยเช็คเงื่อนไขทีหลัง
+                                                        (Post-test loop)</p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="b">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 5</div>
+                                        <div class="q-text"><code>for(int i=0; i&lt;5; i++)</code> วนกี่รอบ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q5" value="a"><span
+                                                                class="option-letter">A</span><span>4</span></label>
+                                                <label class="option"><input type="radio" name="q5" value="b"><span
+                                                                class="option-letter">B</span><span>5</span></label>
+                                                <label class="option"><input type="radio" name="q5" value="c"><span
+                                                                class="option-letter">C</span><span>6</span></label>
+                                                <label class="option"><input type="radio" name="q5" value="d"><span
+                                                                class="option-letter">D</span><span>0</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>เริ่มที่ 0 และทำตราบใดที่น้อยกว่า 5 คือ 0, 1, 2, 3, 4 รวมทั้งหมด
+                                                        <strong>5 รอบ</strong>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="c">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 6</div>
+                                        <div class="q-text"><code>while</code> loop เช็คเงื่อนไขเมื่อไหร่?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q6" value="a"><span
+                                                                class="option-letter">A</span><span>หลังทำงาน</span></label>
+                                                <label class="option"><input type="radio" name="q6" value="b"><span
+                                                                class="option-letter">B</span><span>ตรงกลาง</span></label>
+                                                <label class="option"><input type="radio" name="q6" value="c"><span
+                                                                class="option-letter">C</span><span>ก่อนเข้าลูป</span></label>
+                                                <label class="option"><input type="radio" name="q6" value="d"><span
+                                                                class="option-letter">D</span><span>ไม่เช็ค</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>while</code> เป็น Pre-test loop คือจะตรวจสอบเงื่อนไข
+                                                        <strong>ก่อน</strong>
+                                                        เข้าไปทำงานในลูป ถ้าเงื่อนไขเป็นเท็จตั้งแต่แรก จะไม่ทำเลย
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="a">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 7</div>
+                                        <div class="q-text"><code>do-while</code> เช็คเงื่อนไขเมื่อไหร่?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q7" value="a"><span
+                                                                class="option-letter">A</span><span>หลังทำงาน</span></label>
+                                                <label class="option"><input type="radio" name="q7" value="b"><span
+                                                                class="option-letter">B</span><span>ก่อนทำงาน</span></label>
+                                                <label class="option"><input type="radio" name="q7" value="c"><span
+                                                                class="option-letter">C</span><span>ไม่เช็ค</span></label>
+                                                <label class="option"><input type="radio" name="q7" value="d"><span
+                                                                class="option-letter">D</span><span>ตรงกลาง</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>do-while</code> จะทำงานก่อน 1 รอบ แล้วค่อยเช็คเงื่อนไขตอน
+                                                        <strong>ท้ายลูป</strong>
+                                                        (หลังทำงานเสร็จ)
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="d">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 8</div>
+                                        <div class="q-text">Infinite loop คืออะไร?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q8" value="a"><span
+                                                                class="option-letter">A</span><span>ลูปที่ทำงานเร็ว</span></label>
+                                                <label class="option"><input type="radio" name="q8" value="b"><span
+                                                                class="option-letter">B</span><span>ลูปที่ทำงาน 1
+                                                                รอบ</span></label>
+                                                <label class="option"><input type="radio" name="q8" value="c"><span
+                                                                class="option-letter">C</span><span>ลูปที่ทำงาน 100
+                                                                รอบ</span></label>
+                                                <label class="option"><input type="radio" name="q8" value="d"><span
+                                                                class="option-letter">D</span><span>ลูปไม่มีที่สิ้นสุด</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Infinite loop (ลูปไม่รู้จบ) คือลูปที่เงื่อนไขเป็นจริงตลอดกาล
+                                                        โปรแกรมจะวนซ้ำไปเรื่อยๆ
+                                                        ไม่มีวันหยุด ซึ่งอาจทำให้โปรแกรมค้างได้</p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="b">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 9</div>
+                                        <div class="q-text"><code>i++</code> ใน for loop เรียกว่าอะไร?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q9" value="a"><span
+                                                                class="option-letter">A</span><span>Initialization</span></label>
+                                                <label class="option"><input type="radio" name="q9" value="b"><span
+                                                                class="option-letter">B</span><span>Update</span></label>
+                                                <label class="option"><input type="radio" name="q9" value="c"><span
+                                                                class="option-letter">C</span><span>Condition</span></label>
+                                                <label class="option"><input type="radio" name="q9" value="d"><span
+                                                                class="option-letter">D</span><span>Declaration</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ส่วนที่ 3 ของ for loop (<code>for(init; condition; update)</code>)
+                                                        หน้าที่ของมันคือการ
+                                                        <strong>เปลี่ยนแปลงค่าตัวแปร</strong> (Update)
+                                                        เพื่อให้นำไปสู่จุดสิ้นสุดของลูป
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question easy" data-answer="c">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 10</div>
+                                        <div class="q-text"><code>i&lt;5</code> ใน for loop เรียกว่าอะไร?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q10" value="a"><span
+                                                                class="option-letter">A</span><span>Initialization</span></label>
+                                                <label class="option"><input type="radio" name="q10" value="b"><span
+                                                                class="option-letter">B</span><span>Update</span></label>
+                                                <label class="option"><input type="radio" name="q10" value="c"><span
+                                                                class="option-letter">C</span><span>Condition</span></label>
+                                                <label class="option"><input type="radio" name="q10" value="d"><span
+                                                                class="option-letter">D</span><span>Declaration</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ส่วนที่ 2 ของ for loop คือ <strong>เงื่อนไข</strong> (Condition)
+                                                        ที่ใช้ตรวจสอบว่าควรทำวนลูปต่อหรือไม่</p>
+                                        </div>
+                                </div>
+
+                                <!-- ปานกลาง -->
+                                <div class="question medium" data-answer="c">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 11</div>
+                                        <div class="q-text">ผลลัพธ์ของ <code>for(int i=1; i&lt;=3; i++) print(i)</code>
+                                                คืออะไร?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q11" value="a"><span
+                                                                class="option-letter">A</span><span>012</span></label>
+                                                <label class="option"><input type="radio" name="q11" value="b"><span
+                                                                class="option-letter">B</span><span>1234</span></label>
+                                                <label class="option"><input type="radio" name="q11" value="c"><span
+                                                                class="option-letter">C</span><span>123</span></label>
+                                                <label class="option"><input type="radio" name="q11" value="d"><span
+                                                                class="option-letter">D</span><span>321</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>เริ่ม i=1 (พิมพ์ 1), i=2 (พิมพ์ 2), i=3 (พิมพ์ 3), i=4 (เงื่อนไขเท็จ
+                                                        หยุด) ผลลัพธ์คือ
+                                                        <strong>123</strong>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="a">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 12</div>
+                                        <div class="q-text">ผลลัพธ์ของ
+                                                <code>int i=0; while(i&lt;3) {print(i); i++;}</code>
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q12" value="a"><span
+                                                                class="option-letter">A</span><span>012</span></label>
+                                                <label class="option"><input type="radio" name="q12" value="b"><span
+                                                                class="option-letter">B</span><span>123</span></label>
+                                                <label class="option"><input type="radio" name="q12" value="c"><span
+                                                                class="option-letter">C</span><span>0123</span></label>
+                                                <label class="option"><input type="radio" name="q12" value="d"><span
+                                                                class="option-letter">D</span><span>1234</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>เริ่ม 0 (พิมพ์ 0) -> i=1 (พิมพ์ 1) -> i=2 (พิมพ์ 2) -> i=3 (หยุด)
+                                                        ผลลัพธ์คือ
+                                                        <strong>012</strong>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="b">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 13</div>
+                                        <div class="q-text">ผลลัพธ์ของ <code>int i=5; do{print(i);}while(i&lt;3);</code>
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q13" value="a"><span
+                                                                class="option-letter">A</span><span>ไม่แสดงอะไร</span></label>
+                                                <label class="option"><input type="radio" name="q13" value="b"><span
+                                                                class="option-letter">B</span><span>5</span></label>
+                                                <label class="option"><input type="radio" name="q13" value="c"><span
+                                                                class="option-letter">C</span><span>012</span></label>
+                                                <label class="option"><input type="radio" name="q13" value="d"><span
+                                                                class="option-letter">D</span><span>Error</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>do-while ทำก่อน 1 ครั้งเสมอแม้เงื่อนไขจะเป็นเท็จ จึงพิมพ์
+                                                        <strong>5</strong> ออกมาก่อน
+                                                        แล้วเช็ค i<3 (5<3 เท็จ) จึงจบการทำงาน</p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="d">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 14</div>
+                                        <div class="q-text">ผลลัพธ์ของ
+                                                <code>for(i=0;i&lt;5;i++){if(i==3)break; print(i);}</code>
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q14" value="a"><span
+                                                                class="option-letter">A</span><span>01234</span></label>
+                                                <label class="option"><input type="radio" name="q14" value="b"><span
+                                                                class="option-letter">B</span><span>0124</span></label>
+                                                <label class="option"><input type="radio" name="q14" value="c"><span
+                                                                class="option-letter">C</span><span>3</span></label>
+                                                <label class="option"><input type="radio" name="q14" value="d"><span
+                                                                class="option-letter">D</span><span>012</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>เมื่อ i=3 จะเจอคำสั่ง <code>break</code> ทำให้หลุดออกจากลูปทันทีโดย
+                                                        <strong>ไม่พิมพ์</strong>
+                                                        เลข 3 ออกมา ดังนั้นจะได้แค่ 012
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="b">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 15</div>
+                                        <div class="q-text">ผลลัพธ์ของ
+                                                <code>for(i=0;i&lt;5;i++){if(i==3)continue; print(i);}</code>
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q15" value="a"><span
+                                                                class="option-letter">A</span><span>012</span></label>
+                                                <label class="option"><input type="radio" name="q15" value="b"><span
+                                                                class="option-letter">B</span><span>0124</span></label>
+                                                <label class="option"><input type="radio" name="q15" value="c"><span
+                                                                class="option-letter">C</span><span>01234</span></label>
+                                                <label class="option"><input type="radio" name="q15" value="d"><span
+                                                                class="option-letter">D</span><span>3</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>เมื่อ i=3 เจอคำสั่ง <code>continue</code> จะข้ามการพิมพ์เลข 3
+                                                        ไปทำรอบถัดไป (i=4) ทันที
+                                                        ผลลัพธ์จึงเป็น 0124 (ขาดเลข 3)</p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="a">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 16</div>
+                                        <div class="q-text"><code>while(true){print("Hi");}</code> ทำให้เกิดอะไร?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q16" value="a"><span
+                                                                class="option-letter">A</span><span>Infinite
+                                                                loop</span></label>
+                                                <label class="option"><input type="radio" name="q16" value="b"><span
+                                                                class="option-letter">B</span><span>พิมพ์ Hi 1
+                                                                ครั้ง</span></label>
+                                                <label class="option"><input type="radio" name="q16" value="c"><span
+                                                                class="option-letter">C</span><span>Error</span></label>
+                                                <label class="option"><input type="radio" name="q16" value="d"><span
+                                                                class="option-letter">D</span><span>ไม่ทำงาน</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>while(true)</code> เงื่อนไขเป็นจริงเสมอ ทำให้โปรแกรมพิมพ์ "Hi"
+                                                        ไปเรื่อยๆ
+                                                        อย่างไม่มีที่สิ้นสุด (Infinite Loop)</p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="b">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 17</div>
+                                        <div class="q-text">ผลลัพธ์ของ <code>for(i=5;i&gt;0;i--) print(i)</code></div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q17" value="a"><span
+                                                                class="option-letter">A</span><span>12345</span></label>
+                                                <label class="option"><input type="radio" name="q17" value="b"><span
+                                                                class="option-letter">B</span><span>54321</span></label>
+                                                <label class="option"><input type="radio" name="q17" value="c"><span
+                                                                class="option-letter">C</span><span>43210</span></label>
+                                                <label class="option"><input type="radio" name="q17" value="d"><span
+                                                                class="option-letter">D</span><span>01234</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>เป็นลูปถอยหลัง เริ่มที่ 5 ลดลงทีละ 1 (<code>i--</code>) จนกว่าจะถึง 1
+                                                        (เพราะ i>0) ผลลัพธ์คือ
+                                                        <strong>54321</strong>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="d">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 18</div>
+                                        <div class="q-text"><code>sum=0; for(i=1;i&lt;=4;i++) sum+=i; print(sum)</code>
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q18" value="a"><span
+                                                                class="option-letter">A</span><span>4</span></label>
+                                                <label class="option"><input type="radio" name="q18" value="b"><span
+                                                                class="option-letter">B</span><span>6</span></label>
+                                                <label class="option"><input type="radio" name="q18" value="c"><span
+                                                                class="option-letter">C</span><span>15</span></label>
+                                                <label class="option"><input type="radio" name="q18" value="d"><span
+                                                                class="option-letter">D</span><span>10</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>คือการหาผลรวม 1+2+3+4 = <strong>10</strong></p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="b">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 19</div>
+                                        <div class="q-text"><code>for(i=0;i&lt;10;i+=2)</code> วนกี่รอบ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q19" value="a"><span
+                                                                class="option-letter">A</span><span>10</span></label>
+                                                <label class="option"><input type="radio" name="q19" value="b"><span
+                                                                class="option-letter">B</span><span>5</span></label>
+                                                <label class="option"><input type="radio" name="q19" value="c"><span
+                                                                class="option-letter">C</span><span>4</span></label>
+                                                <label class="option"><input type="radio" name="q19" value="d"><span
+                                                                class="option-letter">D</span><span>6</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>i เพิ่มทีละ 2: 0, 2, 4, 6, 8 (พอเป็น 10 จะหลุดเงื่อนไข i<10)
+                                                                รวมทั้งหมด <strong>5
+                                                                รอบ</strong></p>
+                                        </div>
+                                </div>
+
+                                <div class="question medium" data-answer="a">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 20</div>
+                                        <div class="q-text"><code>while(false) {...}</code> จะเกิดอะไรขึ้น?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q20" value="a"><span
+                                                                class="option-letter">A</span><span>ไม่ทำงานเลย</span></label>
+                                                <label class="option"><input type="radio" name="q20" value="b"><span
+                                                                class="option-letter">B</span><span>ทำงาน 1
+                                                                รอบ</span></label>
+                                                <label class="option"><input type="radio" name="q20" value="c"><span
+                                                                class="option-letter">C</span><span>Infinite
+                                                                loop</span></label>
+                                                <label class="option"><input type="radio" name="q20" value="d"><span
+                                                                class="option-letter">D</span><span>Error</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>เงื่อนไขเป็นเท็จตั้งแต่แรก <code>while</code>
+                                                        ลูปจะไม่ทำงานเลยแม้แต่รอบเดียว (Code
+                                                        ในปีกกาจะไม่ถูกรัน)</p>
+                                        </div>
+                                </div>
+
+                                <!-- ยาก -->
+                                <div class="question hard" data-answer="c">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 21</div>
+                                        <div class="q-text">Nested loop:
+                                                <code>for(i=0;i&lt;3;i++){for(j=0;j&lt;2;j++){print("*")}}</code>
+                                                พิมพ์กี่ดาว?
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q21" value="a"><span
+                                                                class="option-letter">A</span><span>3</span></label>
+                                                <label class="option"><input type="radio" name="q21" value="b"><span
+                                                                class="option-letter">B</span><span>2</span></label>
+                                                <label class="option"><input type="radio" name="q21" value="c"><span
+                                                                class="option-letter">C</span><span>6</span></label>
+                                                <label class="option"><input type="radio" name="q21" value="d"><span
+                                                                class="option-letter">D</span><span>5</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ลูปนอก 3 รอบ x ลูปใน 2 รอบ = ทำงานทั้งหมด 3*2 = <strong>6
+                                                                รอบ</strong> (6 ดวง)</p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="b">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 22</div>
+                                        <div class="q-text"><code>x=10; while(x&gt;0){x=x/2; print(x);}</code> ผลลัพธ์?
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q22" value="a"><span
+                                                                class="option-letter">A</span><span>10520</span></label>
+                                                <label class="option"><input type="radio" name="q22" value="b"><span
+                                                                class="option-letter">B</span><span>5210</span></label>
+                                                <label class="option"><input type="radio" name="q22" value="c"><span
+                                                                class="option-letter">C</span><span>521</span></label>
+                                                <label class="option"><input type="radio" name="q22" value="d"><span
+                                                                class="option-letter">D</span><span>1025</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>รอบ 1: x=10/2=5 (พิมพ์ 5) -> รอบ 2: x=5/2=2 (พิมพ์ 2) -> รอบ 3:
+                                                        x=2/2=1 (พิมพ์ 1) -> รอบ 4:
+                                                        x=1/2=0 (พิมพ์ 0) -> จบ. ผลคือ <strong>5210</strong></p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="a">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 23</div>
+                                        <div class="q-text"><code>for(i=2;i&lt;=10;i+=2)</code> นับเลขคู่จาก 2
+                                                ถึงเลขอะไร?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q23" value="a"><span
+                                                                class="option-letter">A</span><span>10</span></label>
+                                                <label class="option"><input type="radio" name="q23" value="b"><span
+                                                                class="option-letter">B</span><span>8</span></label>
+                                                <label class="option"><input type="radio" name="q23" value="c"><span
+                                                                class="option-letter">C</span><span>12</span></label>
+                                                <label class="option"><input type="radio" name="q23" value="d"><span
+                                                                class="option-letter">D</span><span>9</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>เงื่อนไขคือ <code>i<=10</code> ดังนั้นเลขสุดท้ายที่จะทำคือ
+                                                        <strong>10</strong> (เพราะ 10<=10 เป็นจริง)</p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="d">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 24</div>
+                                        <div class="q-text"><code>f=1; for(i=1;i&lt;=4;i++){f*=i;} print(f)</code> คำนวณ
+                                                4! ได้เท่าไหร่?
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q24" value="a"><span
+                                                                class="option-letter">A</span><span>10</span></label>
+                                                <label class="option"><input type="radio" name="q24" value="b"><span
+                                                                class="option-letter">B</span><span>4</span></label>
+                                                <label class="option"><input type="radio" name="q24" value="c"><span
+                                                                class="option-letter">C</span><span>120</span></label>
+                                                <label class="option"><input type="radio" name="q24" value="d"><span
+                                                                class="option-letter">D</span><span>24</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>เป็นการหา Factorial: 1 * 2 * 3 * 4 = <strong>24</strong></p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="c">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 25</div>
+                                        <div class="q-text">
+                                                <code>outer: for(i=0;i&lt;3;i++){for(j=0;j&lt;3;j++){if(j==1)break outer; print(i+""+j);}}</code>
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q25" value="a"><span
+                                                                class="option-letter">A</span><span>001020</span></label>
+                                                <label class="option"><input type="radio" name="q25" value="b"><span
+                                                                class="option-letter">B</span><span>010203</span></label>
+                                                <label class="option"><input type="radio" name="q25" value="c"><span
+                                                                class="option-letter">C</span><span>00</span></label>
+                                                <label class="option"><input type="radio" name="q25" value="d"><span
+                                                                class="option-letter">D</span><span>000102</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>i=0, j=0 (พิมพ์ 00) -> i=0, j=1 (เจอ break outer) ->
+                                                        หลุดลูปนอกสุดทันที -> จบการทำงาน
+                                                        ดังนั้นได้แค่ <strong>00</strong></p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="a">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 26</div>
+                                        <div class="q-text">โค้ดใดพิมพ์เลข 1 ถึง 5?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q26" value="a"><span
+                                                                class="option-letter">A</span><span>for(i=1;i&lt;=5;i++)</span></label>
+                                                <label class="option"><input type="radio" name="q26" value="b"><span
+                                                                class="option-letter">B</span><span>for(i=0;i&lt;5;i++)</span></label>
+                                                <label class="option"><input type="radio" name="q26" value="c"><span
+                                                                class="option-letter">C</span><span>for(i=1;i&lt;5;i++)</span></label>
+                                                <label class="option"><input type="radio" name="q26" value="d"><span
+                                                                class="option-letter">D</span><span>for(i=0;i&lt;=5;i++)</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>เริ่มที่ 1 และจบที่ 5 ต้องใช้เงื่อนไข <code>i<=5</code> (ข้อ B จะได้
+                                                        0-4, ข้อ C ได้ 1-4)</p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="b">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 27</div>
+                                        <div class="q-text">สิ่งสำคัญที่ต้องระวังใน while loop คืออะไร?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q27" value="a"><span
+                                                                class="option-letter">A</span><span>ใส่ ; หลัง
+                                                                while</span></label>
+                                                <label class="option"><input type="radio" name="q27" value="b"><span
+                                                                class="option-letter">B</span><span>อัพเดทตัวแปรเงื่อนไข</span></label>
+                                                <label class="option"><input type="radio" name="q27" value="c"><span
+                                                                class="option-letter">C</span><span>ใส่ break
+                                                                เสมอ</span></label>
+                                                <label class="option"><input type="radio" name="q27" value="d"><span
+                                                                class="option-letter">D</span><span>ใช้ int
+                                                                เท่านั้น</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ต้องระวังการ <strong>อัพเดทตัวแปรเงื่อนไข</strong> (เช่น i++) ใน Loop
+                                                        body เสมอ
+                                                        ไม่เช่นนั้นจะกลายเป็น Infinite Loop</p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="d">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 28</div>
+                                        <div class="q-text">
+                                                <code>c=0; for(i=0;i&lt;5;i++){if(i%2==0)c++;} print(c)</code>
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q28" value="a"><span
+                                                                class="option-letter">A</span><span>2</span></label>
+                                                <label class="option"><input type="radio" name="q28" value="b"><span
+                                                                class="option-letter">B</span><span>5</span></label>
+                                                <label class="option"><input type="radio" name="q28" value="c"><span
+                                                                class="option-letter">C</span><span>4</span></label>
+                                                <label class="option"><input type="radio" name="q28" value="d"><span
+                                                                class="option-letter">D</span><span>3</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>นับจำนวนเลขคู่ (0, 2, 4) ในช่วง 0-4 -> มีทั้งหมด <strong>3</strong>
+                                                        ตัว</p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="c">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 29</div>
+                                        <div class="q-text">ข้อใดเป็น for loop ที่ถูกต้อง?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q29" value="a"><span
+                                                                class="option-letter">A</span><span>for(i=0, i&lt;5,
+                                                                i++)</span></label>
+                                                <label class="option"><input type="radio" name="q29" value="b"><span
+                                                                class="option-letter">B</span><span>for(int i=0 i&lt;5
+                                                                i++)</span></label>
+                                                <label class="option"><input type="radio" name="q29" value="c"><span
+                                                                class="option-letter">C</span><span>for(int i=0; i&lt;5;
+                                                                i++)</span></label>
+                                                <label class="option"><input type="radio" name="q29" value="d"><span
+                                                                class="option-letter">D</span><span>for int i=0; i&lt;5;
+                                                                i++</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Syntax ที่ถูกต้องของ for ต้องใช้ Semi-colon (<code>;</code>)
+                                                        คั่นระหว่าง 3 ส่วน:
+                                                        <code>for(init; condition; update)</code>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="question hard" data-answer="a">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 30</div>
+                                        <div class="q-text"><code>for(;;){print("X");break;}</code> ผลลัพธ์คืออะไร?
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q30" value="a"><span
+                                                                class="option-letter">A</span><span>X</span></label>
+                                                <label class="option"><input type="radio" name="q30" value="b"><span
+                                                                class="option-letter">B</span><span>Error</span></label>
+                                                <label class="option"><input type="radio" name="q30" value="c"><span
+                                                                class="option-letter">C</span><span>Infinite
+                                                                X</span></label>
+                                                <label class="option"><input type="radio" name="q30" value="d"><span
+                                                                class="option-letter">D</span><span>ไม่แสดงอะไร</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>for(;;)</code> เป็น Infinite loop แต่มีคำสั่ง
+                                                        <code>break</code> ข้างใน ทำให้ทำงาน 1
+                                                        รอบ (พิมพ์ X) แล้วจบการทำงานทันที
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <button type="button" class="btn-submit" onclick="submitQuiz()">🎯 ตรวจคำตอบ</button>
+                        </form>
+
+                        <div class="result" id="result">
+                                <h2>🎉 ผลการทำแบบทดสอบ</h2>
+                                <div class="score-big" id="final-score">0/30</div>
+                                <p id="result-text" style="font-size: 1.3rem; margin-top: 15px;"></p>
+                                <a href="index.html#quizzes" class="btn-primary"
+                                        style="margin-top: 25px;">กลับหน้าแบบทดสอบ</a>
+                        </div>
+                </div>
+        </main>
+
+        <footer class="premium-footer">
+                <p class="footer-text">งงตรงไหน? ทักมาถามได้เลย!</p>
+                <a href="https://instabio.cc/4021411ZGCpLW" target="_blank" class="contact-btn">💬 ติดต่อผู้สอน</a>
+        </footer>
+        <script src="music-player.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>การเริ่มเขียนโปรแกรมด้วยภาษา Java | บันทึกการติว</title>
+    <meta name="description"
+        content="บันทึกการติววิชาการเขียนโปรแกรมพื้นฐานด้วยภาษา Java สำหรับเพื่อนๆ พร้อมตัวอย่างโค้ดและคำอธิบายเข้าใจง่าย">
+    <meta name="keywords" content="ติว Java, เรียน Java, การเขียนโปรแกรมพื้นฐาน, สอน Java เพื่อน">
+    <meta name="author" content="บันทึกการติว">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://example.com/tutor/java-basics">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="การเริ่มเขียนโปรแกรมด้วยภาษา Java | บันทึกการติว">
+    <meta property="og:description" content="บันทึกการติววิชาการเขียนโปรแกรมพื้นฐานด้วยภาษา Java">
+    <meta property="og:type" content="article">
+
+    <!-- Schema.org Article -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "การเริ่มเขียนโปรแกรมด้วยภาษา Java",
+        "description": "บันทึกการติววิชาการเขียนโปรแกรมพื้นฐานด้วยภาษา Java",
+        "datePublished": "2026-02-02",
+        "dateModified": "2026-02-02"
+    }
+    </script>
+
+    <link rel="stylesheet" href="lesson-style.css">
+    <link rel="stylesheet" href="music-player.css">
+</head>
+
+<body class="theme-cyan" data-lesson-id="lesson-01">
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">📚 บันทึกการติว</a>
+            <nav>
+                <a href="index.html">หน้าแรก</a>
+                <a href="blog-java-programming.html">บทที่ 1</a>
+                <a href="02-control-flow.html">บทที่ 2</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <span class="badge badge-cyan">📖 บทที่ 1</span>
+            <h1>การเริ่มเขียนโปรแกรมด้วยภาษา Java</h1>
+            <p class="meta">
+                <span>📅 <time datetime="2026-02-02">2 กุมภาพันธ์ 2026</time></span>
+                <span>⏱️ อ่าน 8 นาที</span>
+                <span>🏷️ Java, พื้นฐาน</span>
+            </p>
+
+            <div class="intro">
+                <strong>สวัสดีเพื่อนๆ!</strong> บันทึกนี้สรุปเนื้อหาที่เราติวกันเรื่อง <strong>ภาษา Java</strong>
+                ซึ่งเป็นภาษาที่เราใช้เรียนในวิชาการเขียนโปรแกรมพื้นฐาน อ่านแล้วงงตรงไหนทักมาถามได้เลยนะ!
+            </div>
+
+            <h2>ทำไมเราถึงเรียน Java?</h2>
+            <p>อาจารย์เลือกให้เราเรียน Java เพราะ:</p>
+            <ul>
+                <li><strong>เข้าใจง่าย</strong> - รูปแบบการเขียนชัดเจน เหมาะกับผู้เริ่มต้น</li>
+                <li><strong>Object-Oriented</strong> - เป็นพื้นฐานที่ดีสำหรับเรียนภาษาอื่นต่อ</li>
+                <li><strong>ใช้งานจริงได้</strong> - ใช้ทำ Android App และระบบต่างๆ ได้</li>
+            </ul>
+
+            <h2>ขั้นตอนการติดตั้ง</h2>
+
+            <h3>1. ดาวน์โหลด JDK</h3>
+            <p>เข้าไปที่ <a href="https://adoptium.net/" target="_blank" rel="noopener">Eclipse Temurin</a> (ฟรี
+                ไม่ต้องสมัคร) แล้วโหลด JDK เวอร์ชันล่าสุด</p>
+
+            <h3>2. ตั้งค่า Environment Variable (Windows)</h3>
+            <div class="step-box">
+                <ol>
+                    <li>กด <strong>Win + R</strong> พิมพ์ <code>sysdm.cpl</code> แล้ว Enter</li>
+                    <li>ไปที่ <strong>Advanced</strong> → <strong>Environment Variables</strong></li>
+                    <li>เพิ่ม <code>JAVA_HOME</code> = <code>C:\Program Files\Eclipse Adoptium\jdk-21</code></li>
+                    <li>แก้ไข <code>Path</code> เพิ่ม <code>%JAVA_HOME%\bin</code></li>
+                </ol>
+            </div>
+
+            <h3>3. ตรวจสอบการติดตั้ง</h3>
+            <p>เปิด Command Prompt แล้วพิมพ์:</p>
+            <pre><code>java -version
+javac -version</code></pre>
+            <p>ถ้าขึ้นเลข version แสดงว่าติดตั้งสำเร็จแล้ว ✅</p>
+
+            <h2>โปรแกรมแรกของเรา: Hello World</h2>
+            <p>สร้างไฟล์ชื่อ <code>HelloWorld.java</code> แล้วเขียนโค้ดนี้:</p>
+            <pre><code><span class="keyword">public class</span> <span class="class-name">HelloWorld</span> {
+    <span class="keyword">public static void</span> main(String[] args) {
+        System.out.println(<span class="string">"สวัสดี Java!"</span>);
+    }
+}</code></pre>
+
+            <div class="note-box">
+                <strong>⚠️ ข้อควรระวัง:</strong>
+                <ul style="margin-top: 10px;">
+                    <li>ชื่อไฟล์ต้องตรงกับชื่อ class (HelloWorld.java = class HelloWorld)</li>
+                    <li>Java แยก พิมพ์เล็ก-พิมพ์ใหญ่ (case-sensitive)</li>
+                    <li>อย่าลืม semicolon <code>;</code> ท้ายบรรทัด</li>
+                </ul>
+            </div>
+
+            <h3>วิธี Compile และ Run</h3>
+            <pre><code><span class="comment">// Compile (แปลงเป็น .class)</span>
+javac HelloWorld.java
+
+<span class="comment">// Run (รันโปรแกรม)</span>
+java HelloWorld</code></pre>
+
+            <h2>ตัวแปรและชนิดข้อมูล</h2>
+            <p>ตัวแปรที่เราใช้บ่อยๆ ในวิชานี้:</p>
+            <pre><code><span class="comment">// ตัวเลขจำนวนเต็ม</span>
+<span class="keyword">int</span> age = 20;
+<span class="keyword">int</span> score = 85;
+
+<span class="comment">// ตัวเลขทศนิยม</span>
+<span class="keyword">double</span> gpa = 3.25;
+<span class="keyword">double</span> price = 199.50;
+
+<span class="comment">// ข้อความ</span>
+<span class="keyword">String</span> name = <span class="string">"สมชาย"</span>;
+<span class="keyword">String</span> id = <span class="string">"65010001"</span>;
+
+<span class="comment">// จริง/เท็จ</span>
+<span class="keyword">boolean</span> isPassed = <span class="keyword">true</span>;
+<span class="keyword">boolean</span> isAbsent = <span class="keyword">false</span>;</code></pre>
+
+            <h2>การรับ Input จากผู้ใช้</h2>
+            <p>ใช้ <code>Scanner</code> สำหรับรับข้อมูลจาก keyboard:</p>
+            <pre><code><span class="keyword">import</span> java.util.Scanner;
+
+<span class="keyword">public class</span> <span class="class-name">InputExample</span> {
+    <span class="keyword">public static void</span> main(String[] args) {
+        Scanner sc = <span class="keyword">new</span> Scanner(System.in);
+        
+        System.out.print(<span class="string">"ใส่ชื่อ: "</span>);
+        String name = sc.nextLine();
+        
+        System.out.print(<span class="string">"ใส่อายุ: "</span>);
+        <span class="keyword">int</span> age = sc.nextInt();
+        
+        System.out.println(<span class="string">"สวัสดี "</span> + name + <span class="string">" อายุ "</span> + age + <span class="string">" ปี"</span>);
+        
+        sc.close();
+    }
+}</code></pre>
+
+            <div class="summary-box">
+                <h3>📝 สรุปสิ่งที่ต้องจำ</h3>
+                <ul>
+                    <li>ติดตั้ง JDK และตั้งค่า JAVA_HOME</li>
+                    <li>ชื่อไฟล์ต้องตรงกับชื่อ class</li>
+                    <li><code>javac</code> สำหรับ compile, <code>java</code> สำหรับ run</li>
+                    <li>ตัวแปรพื้นฐาน: int, double, String, boolean</li>
+                    <li>ใช้ Scanner สำหรับรับ input</li>
+                </ul>
+                <p style="margin-top: 20px; opacity: 0.8;">งงตรงไหน? <a href="https://instabio.cc/4021411ZGCpLW"
+                        target="_blank" style="color: #00d4ff; text-decoration: underline;">ทักมาถามได้เลยนะ! 💬</a></p>
+            </div>
+
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="quiz-01-basics.html" class="quiz-btn">🎯 ทำแบบทดสอบบทที่ 1</a>
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html">← กลับหน้าแรก</a>
+                <a href="02-control-flow.html">บทที่ 2: Control Flow →</a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>บันทึกการติว | สร้างขึ้นเพื่อช่วยเหลือเพื่อนๆ ในการเรียน 📚</p>
+    </footer>
+    <script src="lesson-tracking.js"></script>
+    <script src="music-player.js"></script>
+</body>
+
+</html>

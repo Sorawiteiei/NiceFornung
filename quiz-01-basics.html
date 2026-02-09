@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>แบบทดสอบ บทที่ 1: พื้นฐาน Java | บันทึกการติว</title>
+        <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap"
+                rel="stylesheet">
+        <link rel="stylesheet" href="premium-style.css">
+        <link rel="stylesheet" href="music-player.css">
+        <script src="quiz.js" defer></script>
+</head>
+
+<body>
+        <!-- Background Effects -->
+        <div class="bg-particles"></div>
+        <div class="glow-orb orb-cyan"></div>
+        <div class="glow-orb orb-purple"></div>
+
+        <header class="premium-header">
+                <div class="header-content">
+                        <a href="index.html" class="logo">📚 บันทึกการติว</a>
+                        <nav>
+                                <a href="blog-java-programming.html">📖 บทเรียน</a>
+                                <a href="index.html#quizzes">🎯 แบบทดสอบทั้งหมด</a>
+                        </nav>
+                </div>
+        </header>
+
+        <main class="premium-main quiz-container">
+                <div class="premium-article">
+                        <span class="badge">ไม่ต้องกลัวผิด! เฉลยมีอธิบายละเอียด</span>
+                        <h1>🎯 แบบทดสอบ: พื้นฐาน Java</h1>
+                        <p style="margin-bottom: 30px;">30 ข้อ | Variables, Data Types, Operators, Input/Output</p>
+
+                        <div class="score-display">
+                                <span>🏆 คะแนน: <strong id="current-score">0</strong> / 30</span>
+                                <span>✅ ตอบแล้ว: <strong id="answered">0</strong> ข้อ</span>
+                        </div>
+
+                        <form id="quiz-form">
+                                <!-- ข้อ 1 -->
+                                <div class="question easy" data-answer="b">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 1</div>
+                                        <div class="q-text">ไฟล์ซอร์สโค้ดของ Java ใช้นามสกุลอะไร?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q1" value="a"><span
+                                                                class="option-letter">A</span><span>.class</span></label>
+                                                <label class="option"><input type="radio" name="q1" value="b"><span
+                                                                class="option-letter">B</span><span>.java</span></label>
+                                                <label class="option"><input type="radio" name="q1" value="c"><span
+                                                                class="option-letter">C</span><span>.jar</span></label>
+                                                <label class="option"><input type="radio" name="q1" value="d"><span
+                                                                class="option-letter">D</span><span>.jdk</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ไฟล์ Source Code ที่เราเขียนด้วยภาษา Java จะต้องบันทึกเป็นนามสกุล
+                                                        <code>.java</code> เสมอ
+                                                        ส่วน <code>.class</code> คือไฟล์ที่ผ่านการ compile แล้ว และ
+                                                        <code>.jar</code>
+                                                        คือไฟล์ที่รวบรวมคลาสหลายๆ ตัวเข้าด้วยกัน (คล้าย .zip)
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 2 -->
+                                <div class="question easy" data-answer="c">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 2</div>
+                                        <div class="q-text">คำสั่งใดใช้สำหรับ compile โปรแกรม Java?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q2" value="a"><span
+                                                                class="option-letter">A</span><span>java</span></label>
+                                                <label class="option"><input type="radio" name="q2" value="b"><span
+                                                                class="option-letter">B</span><span>run</span></label>
+                                                <label class="option"><input type="radio" name="q2" value="c"><span
+                                                                class="option-letter">C</span><span>javac</span></label>
+                                                <label class="option"><input type="radio" name="q2" value="d"><span
+                                                                class="option-letter">D</span><span>compile</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>javac</code> ย่อมาจาก <strong>Java Compiler</strong>
+                                                        ใช้สำหรับแปลงไฟล์
+                                                        <code>.java</code> ให้เป็น Bytecode (<code>.class</code>)
+                                                        ส่วนคำสั่ง <code>java</code>
+                                                        ใช้สำหรับรันโปรแกรม
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 3 -->
+                                <div class="question easy" data-answer="a">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 3</div>
+                                        <div class="q-text">ชนิดข้อมูลใดใช้เก็บจำนวนเต็ม?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q3" value="a"><span
+                                                                class="option-letter">A</span><span>int</span></label>
+                                                <label class="option"><input type="radio" name="q3" value="b"><span
+                                                                class="option-letter">B</span><span>double</span></label>
+                                                <label class="option"><input type="radio" name="q3" value="c"><span
+                                                                class="option-letter">C</span><span>String</span></label>
+                                                <label class="option"><input type="radio" name="q3" value="d"><span
+                                                                class="option-letter">D</span><span>boolean</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>int</code> (Integer) ใช้เก็บเลขจำนวนเต็ม เช่น -1, 0, 100 ส่วน
+                                                        <code>double</code>
+                                                        ใช้เก็บทศนิยม, <code>String</code> เก็บข้อความ และ
+                                                        <code>boolean</code> เก็บค่าความจริง
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 4 -->
+                                <div class="question easy" data-answer="d">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 4</div>
+                                        <div class="q-text">ข้อใดคือค่าของ boolean?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q4" value="a"><span
+                                                                class="option-letter">A</span><span>0 และ
+                                                                1</span></label>
+                                                <label class="option"><input type="radio" name="q4" value="b"><span
+                                                                class="option-letter">B</span><span>yes และ
+                                                                no</span></label>
+                                                <label class="option"><input type="radio" name="q4" value="c"><span
+                                                                class="option-letter">C</span><span>"true" และ
+                                                                "false"</span></label>
+                                                <label class="option"><input type="radio" name="q4" value="d"><span
+                                                                class="option-letter">D</span><span>true และ
+                                                                false</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ใน Java, <code>boolean</code> มีค่าได้แค่ 2 อย่างคือ
+                                                        <code>true</code> (จริง) และ
+                                                        <code>false</code> (เท็จ) เท่านั้น (ห้ามใช้ 0, 1
+                                                        หรือใส่เครื่องหมายคำพูด)
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 5 -->
+                                <div class="question easy" data-answer="b">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 5</div>
+                                        <div class="q-text">คำสั่งใดใช้แสดงผลออกหน้าจอ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q5" value="a"><span
+                                                                class="option-letter">A</span><span>print()</span></label>
+                                                <label class="option"><input type="radio" name="q5" value="b"><span
+                                                                class="option-letter">B</span><span>System.out.println()</span></label>
+                                                <label class="option"><input type="radio" name="q5" value="c"><span
+                                                                class="option-letter">C</span><span>console.log()</span></label>
+                                                <label class="option"><input type="radio" name="q5" value="d"><span
+                                                                class="option-letter">D</span><span>echo()</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>คำสั่งมาตรฐานใน Java คือ <code>System.out.println()</code> (print
+                                                        line)
+                                                        ซึ่งจะแสดงผลและขึ้นบรรทัดใหม่</p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 6 -->
+                                <div class="question easy" data-answer="c">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 6</div>
+                                        <div class="q-text">ชนิดข้อมูลใดใช้เก็บทศนิยม?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q6" value="a"><span
+                                                                class="option-letter">A</span><span>int</span></label>
+                                                <label class="option"><input type="radio" name="q6" value="b"><span
+                                                                class="option-letter">B</span><span>long</span></label>
+                                                <label class="option"><input type="radio" name="q6" value="c"><span
+                                                                class="option-letter">C</span><span>double</span></label>
+                                                <label class="option"><input type="radio" name="q6" value="d"><span
+                                                                class="option-letter">D</span><span>char</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>double</code> และ <code>float</code> ใช้เก็บทศนิยม แต่
+                                                        <code>double</code>
+                                                        นิยมใช้มากกว่าเพราะมีความแม่นยำสูงกว่า
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 7 -->
+                                <div class="question easy" data-answer="a">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 7</div>
+                                        <div class="q-text">JDK ย่อมาจากอะไร?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q7" value="a"><span
+                                                                class="option-letter">A</span><span>Java Development
+                                                                Kit</span></label>
+                                                <label class="option"><input type="radio" name="q7" value="b"><span
+                                                                class="option-letter">B</span><span>Java Display
+                                                                Kit</span></label>
+                                                <label class="option"><input type="radio" name="q7" value="c"><span
+                                                                class="option-letter">C</span><span>Java Debug
+                                                                Kit</span></label>
+                                                <label class="option"><input type="radio" name="q7" value="d"><span
+                                                                class="option-letter">D</span><span>Java Design
+                                                                Kit</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><strong>JDK (Java Development Kit)</strong>
+                                                        คือชุดเครื่องมือสำหรับนักพัฒนาที่จำเป็นต้องใช้ในการเขียนและ
+                                                        Compile โปรแกรม Java</p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 8 -->
+                                <div class="question easy" data-answer="c">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 8</div>
+                                        <div class="q-text">สัญลักษณ์ <code>//</code> ใช้สำหรับอะไร?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q8" value="a"><span
+                                                                class="option-letter">A</span><span>หาร</span></label>
+                                                <label class="option"><input type="radio" name="q8" value="b"><span
+                                                                class="option-letter">B</span><span>เริ่มบรรทัดใหม่</span></label>
+                                                <label class="option"><input type="radio" name="q8" value="c"><span
+                                                                class="option-letter">C</span><span>Comment
+                                                                บรรทัดเดียว</span></label>
+                                                <label class="option"><input type="radio" name="q8" value="d"><span
+                                                                class="option-letter">D</span><span>Comment
+                                                                หลายบรรทัด</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>//</code> ใช้สำหรับ Single-line comment
+                                                        คือคอมเมนต์ตั้งแต่จุดนั้นไปจนจบหนึ่งบรรทัด ส่วน
+                                                        <code>/* ... */</code> ใช้สำหรับหลายบรรทัด
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 9 -->
+                                <div class="question easy" data-answer="b">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 9</div>
+                                        <div class="q-text">ตัวแปรชนิด <code>char</code> ใช้เก็บค่าแบบใด?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q9" value="a"><span
+                                                                class="option-letter">A</span><span>ข้อความยาวๆ</span></label>
+                                                <label class="option"><input type="radio" name="q9" value="b"><span
+                                                                class="option-letter">B</span><span>ตัวอักษร 1
+                                                                ตัว</span></label>
+                                                <label class="option"><input type="radio" name="q9" value="c"><span
+                                                                class="option-letter">C</span><span>ตัวเลขจำนวนเต็ม</span></label>
+                                                <label class="option"><input type="radio" name="q9" value="d"><span
+                                                                class="option-letter">D</span><span>ค่าความจริง</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>char</code> (Character) ใช้เก็บตัวอักษร <strong>1 ตัว</strong>
+                                                        ภายใต้เครื่องหมาย Single
+                                                        Quote เช่น <code>'A'</code></p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 10 -->
+                                <div class="question easy" data-answer="b">
+                                        <span class="difficulty">ง่าย</span>
+                                        <div class="q-number">ข้อ 10</div>
+                                        <div class="q-text">ข้อใดประกาศตัวแปรถูกต้อง?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q10" value="a"><span
+                                                                class="option-letter">A</span><span>num int =
+                                                                10;</span></label>
+                                                <label class="option"><input type="radio" name="q10" value="b"><span
+                                                                class="option-letter">B</span><span>int num =
+                                                                10;</span></label>
+                                                <label class="option"><input type="radio" name="q10" value="c"><span
+                                                                class="option-letter">C</span><span>int num =
+                                                                "10";</span></label>
+                                                <label class="option"><input type="radio" name="q10" value="d"><span
+                                                                class="option-letter">D</span><span>var num : int =
+                                                                10;</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>รูปแบบการประกาศตัวแปรใน Java คือ
+                                                        <code>Type variableName = value;</code> เช่น
+                                                        <code>int num = 10;</code> เอาชนิดข้อมูลขึ้นก่อนเสมอ
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- Medium Questions -->
+                                <!-- ข้อ 11 -->
+                                <div class="question medium" data-answer="c">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 11</div>
+                                        <div class="q-text">ผลลัพธ์ของ <code>10 % 3</code> คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q11" value="a"><span
+                                                                class="option-letter">A</span><span>3.33</span></label>
+                                                <label class="option"><input type="radio" name="q11" value="b"><span
+                                                                class="option-letter">B</span><span>3</span></label>
+                                                <label class="option"><input type="radio" name="q11" value="c"><span
+                                                                class="option-letter">C</span><span>1</span></label>
+                                                <label class="option"><input type="radio" name="q11" value="d"><span
+                                                                class="option-letter">D</span><span>0</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>%</code> คือ Modulo operator เป็นการหา
+                                                        <strong>เศษเหลือ</strong> จากการหาร 10 หาร 3 ได้
+                                                        3 เศษ <strong>1</strong>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 12 -->
+                                <div class="question medium" data-answer="b">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 12</div>
+                                        <div class="q-text">ผลลัพธ์ของ <code>"5" + 5</code> คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q12" value="a"><span
+                                                                class="option-letter">A</span><span>10</span></label>
+                                                <label class="option"><input type="radio" name="q12" value="b"><span
+                                                                class="option-letter">B</span><span>"55"</span></label>
+                                                <label class="option"><input type="radio" name="q12" value="c"><span
+                                                                class="option-letter">C</span><span>Error</span></label>
+                                                <label class="option"><input type="radio" name="q12" value="d"><span
+                                                                class="option-letter">D</span><span>5</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>เมื่อ String บวกกับตัวเลข จะเป็นการ <strong>Concatenation</strong>
+                                                        (ต่อข้อความ)
+                                                        ไม่ใช่การบวกเลข ดังนั้น "5" ต่อกับ 5 จึงได้ "55"</p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 13 -->
+                                <div class="question medium" data-answer="a">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 13</div>
+                                        <div class="q-text">การตั้งชื่อตัวแปรที่ <strong>ผิด</strong> กฎ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q13" value="a"><span
+                                                                class="option-letter">A</span><span>2number</span></label>
+                                                <label class="option"><input type="radio" name="q13" value="b"><span
+                                                                class="option-letter">B</span><span>number2</span></label>
+                                                <label class="option"><input type="radio" name="q13" value="c"><span
+                                                                class="option-letter">C</span><span>_number</span></label>
+                                                <label class="option"><input type="radio" name="q13" value="d"><span
+                                                                class="option-letter">D</span><span>$number</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ชื่อตัวแปรใน Java ห้ามขึ้นต้นด้วยตัวเลข (แต่มีตัวเลขอยู่ข้างหลังได้)
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 14 -->
+                                <div class="question medium" data-answer="b">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 14</div>
+                                        <div class="q-text">คำสั่ง <code>Scanner</code> ใช้ทำอะไร?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q14" value="a"><span
+                                                                class="option-letter">A</span><span>แสดงผลทางหน้าจอ</span></label>
+                                                <label class="option"><input type="radio" name="q14" value="b"><span
+                                                                class="option-letter">B</span><span>รับค่าจากคีย์บอร์ด</span></label>
+                                                <label class="option"><input type="radio" name="q14" value="c"><span
+                                                                class="option-letter">C</span><span>เชื่อมต่ออินเตอร์เน็ต</span></label>
+                                                <label class="option"><input type="radio" name="q14" value="d"><span
+                                                                class="option-letter">D</span><span>สแกนไวรัส</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>คลาส <code>Scanner</code> ใน <code>java.util</code> ใช้สำหรับรับ
+                                                        Input จากผู้ใช้ผ่านทาง
+                                                        System.in (คีย์บอร์ด)</p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 15 -->
+                                <div class="question medium" data-answer="d">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 15</div>
+                                        <div class="q-text">ข้อใดเป็น Keyword ห้ามตั้งชื่อตัวแปร?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q15" value="a"><span
+                                                                class="option-letter">A</span><span>myClass</span></label>
+                                                <label class="option"><input type="radio" name="q15" value="b"><span
+                                                                class="option-letter">B</span><span>data</span></label>
+                                                <label class="option"><input type="radio" name="q15" value="c"><span
+                                                                class="option-letter">C</span><span>value</span></label>
+                                                <label class="option"><input type="radio" name="q15" value="d"><span
+                                                                class="option-letter">D</span><span>class</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>class</code> เป็น <strong>Java Keyword</strong> (คำสงวน)
+                                                        ที่ใช้กำหนดโครงสร้างภาษา
+                                                        ห้ามนำมาตั้งเป็นชื่อตัวแปร</p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 16 -->
+                                <div class="question medium" data-answer="c">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 16</div>
+                                        <div class="q-text">ผลลัพธ์ของ <code>int x = 5; x++;</code> คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q16" value="a"><span
+                                                                class="option-letter">A</span><span>5</span></label>
+                                                <label class="option"><input type="radio" name="q16" value="b"><span
+                                                                class="option-letter">B</span><span>4</span></label>
+                                                <label class="option"><input type="radio" name="q16" value="c"><span
+                                                                class="option-letter">C</span><span>6</span></label>
+                                                <label class="option"><input type="radio" name="q16" value="d"><span
+                                                                class="option-letter">D</span><span>Error</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>x++</code> คือการเพิ่มค่าตัวแปร x ขึ้นทีละ 1 (Increment) จาก 5
+                                                        จึงกลายเป็น 6</p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 17 -->
+                                <div class="question medium" data-answer="a">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 17</div>
+                                        <div class="q-text"><code>float</code> ต้องลงท้ายด้วยตัวอักษรอะไร?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q17" value="a"><span
+                                                                class="option-letter">A</span><span>f หรือ
+                                                                F</span></label>
+                                                <label class="option"><input type="radio" name="q17" value="b"><span
+                                                                class="option-letter">B</span><span>d หรือ
+                                                                D</span></label>
+                                                <label class="option"><input type="radio" name="q17" value="c"><span
+                                                                class="option-letter">C</span><span>l หรือ
+                                                                L</span></label>
+                                                <label class="option"><input type="radio" name="q17" value="d"><span
+                                                                class="option-letter">D</span><span>ไม่ต้องใส่</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ใน Java ทศนิยมปกติจะเป็น double เสมอ ถ้าจะประกาศเป็น float ต้องเติม f
+                                                        ต่อท้าย เช่น
+                                                        <code>float pi = 3.14f;</code>
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 18 -->
+                                <div class="question medium" data-answer="b">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 18</div>
+                                        <div class="q-text">Method หลัก (Main Method) เขียนยังไง?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q18" value="a"><span
+                                                                class="option-letter">A</span><span>void
+                                                                main()</span></label>
+                                                <label class="option"><input type="radio" name="q18" value="b"><span
+                                                                class="option-letter">B</span><span>public static void
+                                                                main(String[]
+                                                                args)</span></label>
+                                                <label class="option"><input type="radio" name="q18" value="c"><span
+                                                                class="option-letter">C</span><span>static void
+                                                                main()</span></label>
+                                                <label class="option"><input type="radio" name="q18" value="d"><span
+                                                                class="option-letter">D</span><span>public main(String
+                                                                args)</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>Signature มาตรฐานของ Main method คือ
+                                                        <code>public static void main(String[] args)</code>
+                                                        ซึ่งเป็นจุดเริ่มต้นทำงานของโปรแกรม
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 19 -->
+                                <div class="question medium" data-answer="c">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 19</div>
+                                        <div class="q-text"><code>\n</code> ใน String หมายถึงอะไร?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q19" value="a"><span
+                                                                class="option-letter">A</span><span>Tab</span></label>
+                                                <label class="option"><input type="radio" name="q19" value="b"><span
+                                                                class="option-letter">B</span><span>Space</span></label>
+                                                <label class="option"><input type="radio" name="q19" value="c"><span
+                                                                class="option-letter">C</span><span>ขึ้นบรรทัดใหม่
+                                                                (Newline)</span></label>
+                                                <label class="option"><input type="radio" name="q19" value="d"><span
+                                                                class="option-letter">D</span><span>Backslash</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>\n</code> เป็น Escape Sequence ที่ใช้บอกให้โปรแกรม
+                                                        <strong>ขึ้นบรรทัดใหม่</strong>
+                                                        (Newline) เมื่อแสดงผล
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 20 -->
+                                <div class="question medium" data-answer="d">
+                                        <span class="difficulty">ปานกลาง</span>
+                                        <div class="q-number">ข้อ 20</div>
+                                        <div class="q-text">ข้อใดประกาศ String ผิด?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q20" value="a"><span
+                                                                class="option-letter">A</span><span>String s =
+                                                                "Hello";</span></label>
+                                                <label class="option"><input type="radio" name="q20" value="b"><span
+                                                                class="option-letter">B</span><span>String s =
+                                                                "";</span></label>
+                                                <label class="option"><input type="radio" name="q20" value="c"><span
+                                                                class="option-letter">C</span><span>String s =
+                                                                "A";</span></label>
+                                                <label class="option"><input type="radio" name="q20" value="d"><span
+                                                                class="option-letter">D</span><span>String s =
+                                                                'Hello';</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>String ต้องใช้ <strong>Double Quote (")</strong> เท่านั้น ส่วน
+                                                        <code>'Hello'</code> ที่ใช้
+                                                        Single Quote เป็นรูปแบบที่ผิด (Single Quote ใช้กับ char
+                                                        เท่านั้น)
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- Hard Questions -->
+                                <!-- ข้อ 21 -->
+                                <div class="question hard" data-answer="b">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 21</div>
+                                        <div class="q-text">Casting จาก double -> int จะเกิดอะไรขึ้น?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q21" value="a"><span
+                                                                class="option-letter">A</span><span>ปัดเศษขึ้น</span></label>
+                                                <label class="option"><input type="radio" name="q21" value="b"><span
+                                                                class="option-letter">B</span><span>ตัดเศษทิ้ง (Data
+                                                                loss)</span></label>
+                                                <label class="option"><input type="radio" name="q21" value="c"><span
+                                                                class="option-letter">C</span><span>ปัดเศษลง</span></label>
+                                                <label class="option"><input type="radio" name="q21" value="d"><span
+                                                                class="option-letter">D</span><span>Compile
+                                                                Error</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>การแปลงจากทศนิยมเป็นจำนวนเต็ม จะทำให้เกิด <strong>Data loss</strong>
+                                                        คือเศษทศนิยมจะถูกตัดทิ้งไปเลย ไม่มีการปัดเศษ เช่น 3.9 จะเหลือ 3
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 22 -->
+                                <div class="question hard" data-answer="a">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 22</div>
+                                        <div class="q-text">Range ของ byte คือเท่าไหร่?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q22" value="a"><span
+                                                                class="option-letter">A</span><span>-128 ถึง
+                                                                127</span></label>
+                                                <label class="option"><input type="radio" name="q22" value="b"><span
+                                                                class="option-letter">B</span><span>0 ถึง
+                                                                255</span></label>
+                                                <label class="option"><input type="radio" name="q22" value="c"><span
+                                                                class="option-letter">C</span><span>-256 ถึง
+                                                                255</span></label>
+                                                <label class="option"><input type="radio" name="q22" value="d"><span
+                                                                class="option-letter">D</span><span>ไม่จำกัด</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>byte</code> มีขนาด 8-bit เก็บค่าได้ 2^8 = 256 ค่า
+                                                        แบบมีเครื่องหมาย (Signed)
+                                                        จึงเก็บได้ตั้งแต่ -128 ถึง 127</p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 23 -->
+                                <div class="question hard" data-answer="c">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 23</div>
+                                        <div class="q-text">ถ้า <code>int x = 5; int y = ++x;</code> y มีค่าเท่าไหร่?
+                                        </div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q23" value="a"><span
+                                                                class="option-letter">A</span><span>5</span></label>
+                                                <label class="option"><input type="radio" name="q23" value="b"><span
+                                                                class="option-letter">B</span><span>7</span></label>
+                                                <label class="option"><input type="radio" name="q23" value="c"><span
+                                                                class="option-letter">C</span><span>6</span></label>
+                                                <label class="option"><input type="radio" name="q23" value="d"><span
+                                                                class="option-letter">D</span><span>Error</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>++x</code> (Pre-increment) จะเพิ่มค่า x ก่อน
+                                                        แล้วค่อยเอาค่าใหม่ไปกำหนดให้ y ดังนั้น x=6
+                                                        และ y ก็เท่ากับ 6</p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 24 -->
+                                <div class="question hard" data-answer="b">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 24</div>
+                                        <div class="q-text">ข้อใดเป็น Primitive Data Type ทั้งหมด?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q24" value="a"><span
+                                                                class="option-letter">A</span><span>int, String,
+                                                                double</span></label>
+                                                <label class="option"><input type="radio" name="q24" value="b"><span
+                                                                class="option-letter">B</span><span>int, boolean,
+                                                                char</span></label>
+                                                <label class="option"><input type="radio" name="q24" value="c"><span
+                                                                class="option-letter">C</span><span>Integer, Boolean,
+                                                                Float</span></label>
+                                                <label class="option"><input type="radio" name="q24" value="d"><span
+                                                                class="option-letter">D</span><span>Scanner, System,
+                                                                Math</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>String</code> ไม่ใช่ Primitive type (เป็น Class) ส่วน
+                                                        <code>Integer, Boolean</code>
+                                                        เป็น Wrapper Class. ข้อ B ถูกต้อง:
+                                                        <code>int, boolean, char</code> เป็นพื้นฐานทั้งหมด
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 25 -->
+                                <div class="question hard" data-answer="d">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 25</div>
+                                        <div class="q-text">ผลลัพธ์ของ <code>3 + 4 * 2</code> คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q25" value="a"><span
+                                                                class="option-letter">A</span><span>14</span></label>
+                                                <label class="option"><input type="radio" name="q25" value="b"><span
+                                                                class="option-letter">B</span><span>24</span></label>
+                                                <label class="option"><input type="radio" name="q25" value="c"><span
+                                                                class="option-letter">C</span><span>7</span></label>
+                                                <label class="option"><input type="radio" name="q25" value="d"><span
+                                                                class="option-letter">D</span><span>11</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>ต้องทำตามลำดับความสำคัญ (Order of Operations): การคูณ
+                                                        (<code>*</code>) ทำก่อนการบวก
+                                                        (<code>+</code>) ดังนั้น 4*2 = 8 แล้วค่อย +3 = 11</p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 26 -->
+                                <div class="question hard" data-answer="a">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 26</div>
+                                        <div class="q-text">การใช้ <code>next()</code> กับ <code>nextLine()</code>
+                                                ต่างกันอย่างไร?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q26" value="a"><span
+                                                                class="option-letter">A</span><span>next() อ่านถึงวรรค,
+                                                                nextLine()
+                                                                อ่านทั้งบรรทัด</span></label>
+                                                <label class="option"><input type="radio" name="q26" value="b"><span
+                                                                class="option-letter">B</span><span>เหมือนกัน</span></label>
+                                                <label class="option"><input type="radio" name="q26" value="c"><span
+                                                                class="option-letter">C</span><span>next() อ่านตัวเลข,
+                                                                nextLine()
+                                                                อ่านตัวอักษร</span></label>
+                                                <label class="option"><input type="radio" name="q26" value="d"><span
+                                                                class="option-letter">D</span><span>nextLine()
+                                                                ใช้กับตัวเลขเท่านั้น</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><code>next()</code> จะหยุดอ่านเมื่อเจอเว้นวรรค (Space) แต่
+                                                        <code>nextLine()</code>
+                                                        จะอ่านยาวไปจนถึงการกด Enter (ขึ้นบรรทัดใหม่)
+                                                        ทำให้เก็บประโยคที่มีเว้นวรรคได้
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 27 -->
+                                <div class="question hard" data-answer="c">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 27</div>
+                                        <div class="q-text">ผลลัพธ์ของ <code>5 / 2</code> ใน Java คือ?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q27" value="a"><span
+                                                                class="option-letter">A</span><span>2.5</span></label>
+                                                <label class="option"><input type="radio" name="q27" value="b"><span
+                                                                class="option-letter">B</span><span>3</span></label>
+                                                <label class="option"><input type="radio" name="q27" value="c"><span
+                                                                class="option-letter">C</span><span>2</span></label>
+                                                <label class="option"><input type="radio" name="q27" value="d"><span
+                                                                class="option-letter">D</span><span>Error</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>เมื่อนำ จำนวนเต็ม หาร จำนวนเต็ม (Integer Division)
+                                                        ผลลัพธ์จะได้จำนวนเต็มเสมอ โดยตัดเศษทิ้ง 5
+                                                        / 2 ได้ 2.5 ก็จะเหลือแค่ <strong>2</strong></p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 28 -->
+                                <div class="question hard" data-answer="b">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 28</div>
+                                        <div class="q-text"><code>final int MAX = 100;</code> หมายความว่า?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q28" value="a"><span
+                                                                class="option-letter">A</span><span>ตัวแปรนี้มีค่ามากที่สุด</span></label>
+                                                <label class="option"><input type="radio" name="q28" value="b"><span
+                                                                class="option-letter">B</span><span>ค่าเปลี่ยนไม่ได้
+                                                                (Constant)</span></label>
+                                                <label class="option"><input type="radio" name="q28" value="c"><span
+                                                                class="option-letter">C</span><span>ตัวแปรสุดท้ายของโปรแกรม</span></label>
+                                                <label class="option"><input type="radio" name="q28" value="d"><span
+                                                                class="option-letter">D</span><span>ต้องเป็น public
+                                                                เสมอ</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>คีย์เวิร์ด <code>final</code> ใช้ประกาศค่าคงที่ (Constant)
+                                                        หมายความว่าค่าของตัวแปรนี้จะถูกกำหนดได้แค่ครั้งเดียว
+                                                        และแก้ไขไม่ได้อีกตลอดโปรแกรม</p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 29 -->
+                                <div class="question hard" data-answer="a">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 29</div>
+                                        <div class="q-text">ตัวแปรชนิดใดใช้หน่วยความจำน้อยที่สุด?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q29" value="a"><span
+                                                                class="option-letter">A</span><span>byte</span></label>
+                                                <label class="option"><input type="radio" name="q29" value="b"><span
+                                                                class="option-letter">B</span><span>int</span></label>
+                                                <label class="option"><input type="radio" name="q29" value="c"><span
+                                                                class="option-letter">C</span><span>short</span></label>
+                                                <label class="option"><input type="radio" name="q29" value="d"><span
+                                                                class="option-letter">D</span><span>long</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p>เรียงลำดับจากเล็กไปใหญ่: <code>byte</code> (8 bit),
+                                                        <code>short</code> (16 bit),
+                                                        <code>int</code> (32 bit), <code>long</code> (64 bit)
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ข้อ 30 -->
+                                <div class="question hard" data-answer="d">
+                                        <span class="difficulty">ยาก</span>
+                                        <div class="q-number">ข้อ 30</div>
+                                        <div class="q-text">อะไรคือ Syntax Error?</div>
+                                        <div class="options">
+                                                <label class="option"><input type="radio" name="q30" value="a"><span
+                                                                class="option-letter">A</span><span>โปรแกรมทำงานผิด</span></label>
+                                                <label class="option"><input type="radio" name="q30" value="b"><span
+                                                                class="option-letter">B</span><span>โปรแกรมช้า</span></label>
+                                                <label class="option"><input type="radio" name="q30" value="c"><span
+                                                                class="option-letter">C</span><span>เครื่องร้อน</span></label>
+                                                <label class="option"><input type="radio" name="q30" value="d"><span
+                                                                class="option-letter">D</span><span>เขียนผิดไวยากรณ์ภาษา</span></label>
+                                        </div>
+                                        <div class="explanation">
+                                                <strong>📝 คำอธิบาย:</strong>
+                                                <p><strong>Syntax Error</strong>
+                                                        คือข้อผิดพลาดจากการเขียนโค้ดไม่ถูกต้องตามกฎของภาษา (Compile
+                                                        ไม่ผ่าน) เช่น ลืม <code>;</code> หรือวงเล็บไม่ครบ</p>
+                                        </div>
+                                </div>
+
+                                <button type="button" class="btn-submit" onclick="submitQuiz()">🎯 ตรวจคำตอบ</button>
+                        </form>
+
+                        <div class="result" id="result">
+                                <h2>🎉 ผลการทำแบบทดสอบ</h2>
+                                <div class="score-big" id="final-score">0/30</div>
+                                <p id="result-text" style="font-size: 1.3rem; margin-top: 15px;"></p>
+                                <a href="index.html#quizzes" class="btn-primary"
+                                        style="margin-top: 25px;">กลับหน้าแบบทดสอบ</a>
+                        </div>
+                </div>
+        </main>
+
+        <footer class="premium-footer">
+                <p class="footer-text">งงตรงไหน? ทักมาถามได้เลย!</p>
+                <a href="https://instabio.cc/4021411ZGCpLW" target="_blank" class="contact-btn">💬 ติดต่อผู้สอน</a>
+        </footer>
+        <script src="music-player.js"></script>
+</body>
+
+</html>
