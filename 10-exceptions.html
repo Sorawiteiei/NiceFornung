@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exceptions (การจัดการข้อผิดพลาด) | บันทึกการติว Java</title>
+    <meta name="description"
+        content="เรียนรู้ Exceptions ในภาษา Java: try-catch, throw, throws, finally และ Custom Exception พร้อมตัวอย่างโค้ด">
+    <link rel="stylesheet" href="lesson-style.css">
+    <link rel="stylesheet" href="music-player.css">
+</head>
+
+<body class="theme-orange" data-lesson-id="lesson-10">
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">📚 บันทึกการติว</a>
+            <nav>
+                <a href="index.html">หน้าแรก</a>
+                <a href="09-class.html">บทที่ 9</a>
+                <a href="10-exceptions.html">บทที่ 10</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <span class="badge badge-orange">📖 บทที่ 10</span>
+            <h1>Exceptions (การจัดการข้อผิดพลาด)</h1>
+            <p class="meta">
+                <span>📅 <time datetime="2026-02-10">10 กุมภาพันธ์ 2026</time></span>
+                <span>⏱️ อ่าน 20 นาที</span>
+            </p>
+
+            <div class="intro">
+                <strong>Exception</strong> คือข้อผิดพลาดที่เกิดขึ้น<strong>ระหว่างโปรแกรมทำงาน</strong> (runtime)
+                ถ้าไม่จัดการ โปรแกรมจะ<strong>หยุดทำงานทันที!</strong>
+                Java มีระบบ Exception Handling ที่ช่วยให้เรารับมือกับ error ได้อย่างสง่างาม 💪
+            </div>
+
+            <!-- ==================== WHY EXCEPTIONS ==================== -->
+            <h2>ทำไมต้องจัดการ Exception?</h2>
+            <pre><code><span class="comment">// ❌ ถ้าไม่จัดการ - โปรแกรมพังทันที!</span>
+<span class="keyword">int</span>[] arr = {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>};
+System.out.println(arr[<span class="number">5</span>]); <span class="comment">// ArrayIndexOutOfBoundsException!</span>
+System.out.println(<span class="string">"บรรทัดนี้จะไม่ถูกทำงาน"</span>); <span class="comment">// ❌ ไม่ทำงาน</span></code></pre>
+
+            <pre><code><span class="comment">// ✅ จัดการแล้ว - โปรแกรมทำงานต่อได้</span>
+<span class="keyword">int</span>[] arr = {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>};
+<span class="keyword">try</span> {
+    System.out.println(arr[<span class="number">5</span>]);
+} <span class="keyword">catch</span> (ArrayIndexOutOfBoundsException e) {
+    System.out.println(<span class="string">"Index ไม่ถูกต้อง!"</span>);
+}
+System.out.println(<span class="string">"โปรแกรมยังทำงานต่อได้ ✅"</span>);</code></pre>
+
+            <!-- ==================== HIERARCHY ==================== -->
+            <div class="hierarchy-tree">
+                <div class="tree-title">🌳 Exception Hierarchy</div>
+                <div class="tree-node tree-node-root">
+                    <span class="tree-node-label">Throwable</span>
+                </div>
+                <div class="tree-connector">│</div>
+                <div class="tree-connector">├────────────────────┤</div>
+                <div class="tree-row">
+                    <div class="tree-node tree-node-error">
+                        <span class="tree-node-label">❌ Error</span>
+                    </div>
+                    <div class="tree-node tree-node-exception">
+                        <span class="tree-node-label">⚠️ Exception</span>
+                    </div>
+                </div>
+                <div class="tree-connector">│</div>
+                <div class="tree-connector">├────────────────────┤</div>
+                <div class="tree-row">
+                    <div class="tree-node tree-node-checked">
+                        <span class="tree-node-label">✅ Checked (IOException)</span>
+                    </div>
+                    <div class="tree-node tree-node-runtime">
+                        <span class="tree-node-label">🟡 RuntimeException</span>
+                    </div>
+                </div>
+                <div class="tree-connector">│</div>
+                <div class="tree-row">
+                    <div class="tree-node tree-node-leaf">
+                        <span class="tree-node-label">NullPointerException</span>
+                    </div>
+                    <div class="tree-node tree-node-leaf">
+                        <span class="tree-node-label">ArithmeticException</span>
+                    </div>
+                    <div class="tree-node tree-node-leaf">
+                        <span class="tree-node-label">ArrayIndexOutOfBounds</span>
+                    </div>
+                </div>
+            </div>
+
+            <h3>🎨 Checked vs Unchecked Exception</h3>
+            <div class="vs-container">
+                <div class="vs-card vs-card-left">
+                    <h4>✅ Checked Exception</h4>
+                    <ul>
+                        <li><strong>ต้อง</strong> try-catch หรือ throws</li>
+                        <li>Compile error ถ้าไม่จัดการ</li>
+                        <li>เช่น IOException, SQLException</li>
+                        <li><span class="key-tag key-tag-checked">Checked</span></li>
+                    </ul>
+                </div>
+                <div class="vs-badge"><span>VS</span></div>
+                <div class="vs-card vs-card-right">
+                    <h4>⚠️ Unchecked Exception</h4>
+                    <ul>
+                        <li><strong>ไม่บังคับ</strong>จัดการ (แต่ควรทำ!)</li>
+                        <li>extends RuntimeException</li>
+                        <li>เช่น NullPointer, Arithmetic</li>
+                        <li><span class="key-tag key-tag-unchecked">Unchecked</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ==================== TRY-CATCH ==================== -->
+            <h2>try-catch Block</h2>
+            <p>โครงสร้างพื้นฐานในการจัดการ Exception:</p>
+
+            <div class="flow-diagram">
+                <div class="flow-step flow-try">
+                    <div class="flow-icon">📝</div>
+                    <div class="flow-label">try</div>
+                    <div class="flow-desc">โค้ดที่อาจเกิด error</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step flow-catch">
+                    <div class="flow-icon">🤚</div>
+                    <div class="flow-label">catch</div>
+                    <div class="flow-desc">จับ error ไว้</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step flow-finally">
+                    <div class="flow-icon">✅</div>
+                    <div class="flow-label">finally</div>
+                    <div class="flow-desc">ทำงานเสมอ!</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step flow-success">
+                    <div class="flow-icon">🚀</div>
+                    <div class="flow-label">ทำงานต่อ</div>
+                    <div class="flow-desc">โปรแกรมไม่พัง</div>
+                </div>
+            </div>
+
+            <h3>จับหลาย Exception</h3>
+            <pre><code><span class="keyword">try</span> {
+    String text = <span class="keyword">null</span>;
+    System.out.println(text.length()); <span class="comment">// NullPointerException</span>
+} <span class="keyword">catch</span> (NullPointerException e) {
+    System.out.println(<span class="string">"ตัวแปรเป็น null!"</span>);
+} <span class="keyword">catch</span> (ArrayIndexOutOfBoundsException e) {
+    System.out.println(<span class="string">"Index เกินขอบเขต!"</span>);
+} <span class="keyword">catch</span> (Exception e) {
+    <span class="comment">// จับ Exception ทุกชนิดที่เหลือ (ใส่ไว้ท้ายสุด!)</span>
+    System.out.println(<span class="string">"เกิดข้อผิดพลาด: "</span> + e.getMessage());
+}</code></pre>
+
+            <div class="tip-box">
+                <strong>💡 Multi-catch (Java 7+)</strong>
+                <p style="margin-top: 10px;">รวมหลาย Exception ในบรรทัดเดียวด้วย <code>|</code>:</p>
+                <pre style="margin-top: 10px;"><code><span class="keyword">try</span> {
+    <span class="comment">// โค้ด</span>
+} <span class="keyword">catch</span> (NullPointerException | ArithmeticException e) {
+    System.out.println(<span class="string">"Error: "</span> + e.getMessage());
+}</code></pre>
+            </div>
+
+            <!-- ==================== FINALLY ==================== -->
+            <h2>finally Block</h2>
+            <p><code>finally</code> จะ<strong>ทำงานเสมอ</strong>ไม่ว่าจะเกิด error หรือไม่:</p>
+            <pre><code><span class="keyword">try</span> {
+    <span class="keyword">int</span> result = <span class="number">10</span> / <span class="number">2</span>;
+    System.out.println(<span class="string">"ผลลัพธ์: "</span> + result);
+} <span class="keyword">catch</span> (ArithmeticException e) {
+    System.out.println(<span class="string">"หารไม่ได้!"</span>);
+} <span class="keyword">finally</span> {
+    System.out.println(<span class="string">"🔚 จบการทำงาน (ทำงานเสมอ!)"</span>);
+}
+
+<span class="comment">// Output:</span>
+<span class="comment">// ผลลัพธ์: 5</span>
+<span class="comment">// 🔚 จบการทำงาน (ทำงานเสมอ!)</span></code></pre>
+
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <span class="card-icon">📁</span>
+                    <div class="card-title">ปิดไฟล์</div>
+                    <p class="card-desc">ปิดไฟล์ที่เปิดค้างไว้</p>
+                </div>
+                <div class="feature-card">
+                    <span class="card-icon">🗄️</span>
+                    <div class="card-title">ปิด Database</div>
+                    <p class="card-desc">ปิดการเชื่อมต่อกับ DB</p>
+                </div>
+                <div class="feature-card">
+                    <span class="card-icon">🔓</span>
+                    <div class="card-title">ปล่อย resource</div>
+                    <p class="card-desc">ปล่อย resource ที่ถูกจอง</p>
+                </div>
+                <div class="feature-card">
+                    <span class="card-icon">🧹</span>
+                    <div class="card-title">Cleanup</div>
+                    <p class="card-desc">Cleanup code ที่ต้องทำเสมอ</p>
+                </div>
+            </div>
+
+            <!-- ==================== THROW ==================== -->
+            <h2>throw - โยน Exception เอง</h2>
+            <p>ใช้ <code>throw</code> เพื่อ<strong>โยน Exception ด้วยตัวเอง</strong>:</p>
+            <pre><code><span class="keyword">public static void</span> <span class="method-name">setAge</span>(<span class="keyword">int</span> age) {
+    <span class="keyword">if</span> (age < <span class="number">0</span>) {
+        <span class="keyword">throw new</span> IllegalArgumentException(<span class="string">"อายุต้องไม่ติดลบ! ได้รับ: "</span> + age);
+    }
+    <span class="keyword">if</span> (age > <span class="number">150</span>) {
+        <span class="keyword">throw new</span> IllegalArgumentException(<span class="string">"อายุเกินจริง!"</span>);
+    }
+    System.out.println(<span class="string">"ตั้งอายุ: "</span> + age);
+}
+
+<span class="comment">// เรียกใช้</span>
+setAge(<span class="number">25</span>);   <span class="comment">// ✅ ตั้งอายุ: 25</span>
+setAge(-<span class="number">5</span>);   <span class="comment">// ❌ IllegalArgumentException!</span></code></pre>
+
+            <!-- ==================== THROWS ==================== -->
+            <h2>throws - ประกาศว่า method อาจเกิด Exception</h2>
+            <p>ใช้ <code>throws</code> ใน method signature เพื่อบอกว่า method นี้<strong>อาจโยน Exception</strong> —
+                ผู้เรียกต้องจัดการเอง:</p>
+            <pre><code><span class="keyword">import</span> java.io.*;
+
+<span class="comment">// ประกาศว่า method นี้อาจเกิด IOException</span>
+<span class="keyword">public static void</span> <span class="method-name">readFile</span>(String filename) <span class="keyword">throws</span> IOException {
+    FileReader reader = <span class="keyword">new</span> FileReader(filename);
+    <span class="comment">// อ่านไฟล์...</span>
+    reader.close();
+}
+
+<span class="comment">// ผู้เรียกต้อง try-catch</span>
+<span class="keyword">try</span> {
+    readFile(<span class="string">"data.txt"</span>);
+} <span class="keyword">catch</span> (IOException e) {
+    System.out.println(<span class="string">"อ่านไฟล์ไม่ได้: "</span> + e.getMessage());
+}</code></pre>
+
+            <div class="note-box">
+                <strong>⚠️ throw vs throws ระวังสับสน!</strong>
+                <ul style="margin-top: 10px;">
+                    <li><strong>throw</strong>: ใช้<em>ข้างใน</em> method เพื่อ<strong>โยน</strong> Exception
+                        (<code>throw new Exception()</code>)</li>
+                    <li><strong>throws</strong>: ใช้ใน <em>method signature</em> เพื่อ<strong>ประกาศ</strong>ว่าอาจเกิด
+                        Exception</li>
+                </ul>
+            </div>
+
+            <!-- ==================== COMMON EXCEPTIONS ==================== -->
+            <h2>Exception ที่พบบ่อย</h2>
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Exception</th>
+                        <th>เกิดเมื่อ</th>
+                        <th>ประเภท</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>NullPointerException</code></td>
+                        <td>เรียกใช้ method/attribute ของ <code>null</code></td>
+                        <td><span class="key-tag key-tag-unchecked">Unchecked</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>ArrayIndexOutOfBoundsException</code></td>
+                        <td>เข้าถึง index ที่ไม่มีใน array</td>
+                        <td><span class="key-tag key-tag-unchecked">Unchecked</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>ArithmeticException</code></td>
+                        <td>หารด้วย 0</td>
+                        <td><span class="key-tag key-tag-unchecked">Unchecked</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>NumberFormatException</code></td>
+                        <td>แปลง String เป็นตัวเลขไม่ได้</td>
+                        <td><span class="key-tag key-tag-unchecked">Unchecked</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>ClassCastException</code></td>
+                        <td>Cast Object ผิดชนิด</td>
+                        <td><span class="key-tag key-tag-unchecked">Unchecked</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>IOException</code></td>
+                        <td>ปัญหาเกี่ยวกับ I/O (อ่าน/เขียนไฟล์)</td>
+                        <td><span class="key-tag key-tag-checked">Checked</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ==================== CUSTOM EXCEPTION ==================== -->
+            <h2>สร้าง Custom Exception</h2>
+            <p>สร้าง Exception ของเราเองโดย extends จาก <code>Exception</code>:</p>
+            <pre><code><span class="comment">// สร้าง Custom Exception</span>
+<span class="keyword">public class</span> <span class="class-name">InsufficientBalanceException</span> <span class="keyword">extends</span> Exception {
+    <span class="keyword">public</span> InsufficientBalanceException(String message) {
+        <span class="keyword">super</span>(message);
+    }
+}
+
+<span class="comment">// ใช้งานใน class อื่น</span>
+<span class="keyword">public class</span> <span class="class-name">BankAccount</span> {
+    <span class="keyword">private double</span> balance;
+
+    <span class="keyword">public void</span> <span class="method-name">withdraw</span>(<span class="keyword">double</span> amount) <span class="keyword">throws</span> InsufficientBalanceException {
+        <span class="keyword">if</span> (amount > balance) {
+            <span class="keyword">throw new</span> InsufficientBalanceException(
+                <span class="string">"เงินไม่พอ! ยอดคงเหลือ: "</span> + balance + <span class="string">" ต้องการถอน: "</span> + amount
+            );
+        }
+        balance -= amount;
+    }
+}
+
+<span class="comment">// เรียกใช้</span>
+<span class="keyword">try</span> {
+    BankAccount acc = <span class="keyword">new</span> BankAccount();
+    acc.withdraw(<span class="number">1000</span>);
+} <span class="keyword">catch</span> (InsufficientBalanceException e) {
+    System.out.println(e.getMessage()); <span class="comment">// เงินไม่พอ!...</span>
+}</code></pre>
+
+            <!-- ==================== TRY-WITH-RESOURCES ==================== -->
+            <h2>try-with-resources (Java 7+)</h2>
+            <p>ปิด resource อัตโนมัติเมื่อใช้ <code>AutoCloseable</code>:</p>
+            <pre><code><span class="comment">// ❌ แบบเก่า - ต้องปิดเอง</span>
+FileReader reader = <span class="keyword">null</span>;
+<span class="keyword">try</span> {
+    reader = <span class="keyword">new</span> FileReader(<span class="string">"file.txt"</span>);
+    <span class="comment">// อ่านไฟล์...</span>
+} <span class="keyword">catch</span> (IOException e) {
+    e.printStackTrace();
+} <span class="keyword">finally</span> {
+    <span class="keyword">if</span> (reader != <span class="keyword">null</span>) reader.close(); <span class="comment">// ต้องปิดเอง!</span>
+}
+
+<span class="comment">// ✅ แบบใหม่ - ปิดอัตโนมัติ!</span>
+<span class="keyword">try</span> (FileReader reader = <span class="keyword">new</span> FileReader(<span class="string">"file.txt"</span>)) {
+    <span class="comment">// อ่านไฟล์...</span>
+    <span class="comment">// reader จะถูกปิดอัตโนมัติเมื่อออกจาก try block</span>
+} <span class="keyword">catch</span> (IOException e) {
+    e.printStackTrace();
+}</code></pre>
+
+            <div class="tip-box">
+                <strong>💡 Best Practices สำหรับ Exception Handling</strong>
+                <ul style="margin-top: 10px;">
+                    <li>จับ Exception <strong>เฉพาะเจาะจง</strong> ก่อน แล้วค่อยจับ Exception ทั่วไปทีหลัง</li>
+                    <li>อย่าจับ Exception แล้ว<strong>ไม่ทำอะไร</strong> (empty catch block)</li>
+                    <li>ใช้ <code>finally</code> หรือ try-with-resources เพื่อ<strong>ปิด resource</strong></li>
+                    <li>สร้าง <strong>Custom Exception</strong> เมื่อ Exception ที่มีอยู่ไม่ตรงกับสถานการณ์</li>
+                </ul>
+            </div>
+
+            <div class="summary-box">
+                <h3>📝 สรุปสิ่งที่ต้องจำ</h3>
+                <ul>
+                    <li><code>try-catch</code> = จับ error ไม่ให้โปรแกรมพัง</li>
+                    <li><code>finally</code> = ทำงานเสมอ ไม่ว่าจะ error หรือไม่</li>
+                    <li><code>throw</code> = โยน exception ด้วยตัวเอง</li>
+                    <li><code>throws</code> = ประกาศใน method signature ว่าอาจเกิด exception</li>
+                    <li><strong>Checked</strong> = ต้อง try-catch (compile error ถ้าไม่จัดการ)</li>
+                    <li><strong>Unchecked</strong> = ไม่บังคับ แต่ควรจัดการ (RuntimeException)</li>
+                    <li><strong>Custom Exception</strong> = สร้าง class extends Exception</li>
+                    <li><strong>try-with-resources</strong> = ปิด resource อัตโนมัติ</li>
+                </ul>
+                <p style="margin-top: 20px;">งงตรงไหน? <a href="https://instabio.cc/4021411ZGCpLW" target="_blank"
+                        style="color: #f97316; text-decoration: underline;">ทักมาถามได้เลยนะ! 💬</a></p>
+            </div>
+
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="quiz-10-exceptions.html" class="quiz-btn">🎯 ทำแบบทดสอบบทที่ 10</a>
+            </div>
+
+            <div class="nav-links">
+                <a href="09-class.html">← บทที่ 9: Class ขั้นสูง</a>
+                <a href="index.html">กลับหน้าแรก →</a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>บันทึกการติว | เตรียมสอบกันเถอะ! 📚</p>
+    </footer>
+    <script src="lesson-tracking.js"></script>
+    <script src="music-player.js"></script>
+</body>
+
+</html>

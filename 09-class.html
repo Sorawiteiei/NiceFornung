@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class ขั้นสูง (Abstract, Interface, Class Diagram) | บันทึกการติว Java</title>
+    <meta name="description"
+        content="เรียนรู้ Abstract Class, Interface และ Class Diagram ในภาษา Java พร้อมตัวอย่างโค้ดและแผนภาพ">
+    <link rel="stylesheet" href="lesson-style.css">
+    <link rel="stylesheet" href="music-player.css">
+</head>
+
+<body class="theme-purple" data-lesson-id="lesson-09">
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">📚 บันทึกการติว</a>
+            <nav>
+                <a href="index.html">หน้าแรก</a>
+                <a href="08-inheritance.html">บทที่ 8</a>
+                <a href="09-class.html">บทที่ 9</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <span class="badge badge-purple">📖 บทที่ 9</span>
+            <span class="badge exam-badge">⭐ ออกสอบแน่!</span>
+            <h1>Class ขั้นสูง (Abstract, Interface, Class Diagram)</h1>
+            <p class="meta">
+                <span>📅 <time datetime="2026-02-10">10 กุมภาพันธ์ 2026</time></span>
+                <span>⏱️ อ่าน 25 นาที</span>
+            </p>
+
+            <div class="intro">
+                บทนี้จะเจาะลึกเรื่อง <strong>Abstract Class</strong>, <strong>Interface</strong>
+                และ <strong>Class Diagram</strong> ซึ่งเป็นพื้นฐานสำคัญของการออกแบบ OOP ใน Java
+            </div>
+
+            <!-- ==================== ABSTRACT CLASS ==================== -->
+            <h2>Abstract Class คืออะไร?</h2>
+            <p>Abstract Class คือ Class ที่<strong>ไม่สามารถสร้าง Object ได้โดยตรง</strong>
+                ใช้เป็น "แม่พิมพ์" ให้ Class ลูกมาสืบทอดและ implement ให้สมบูรณ์:</p>
+
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <span class="card-icon">🏷️</span>
+                    <div class="card-title">keyword abstract</div>
+                    <p class="card-desc">ประกาศด้วย <code>abstract class</code></p>
+                </div>
+                <div class="feature-card">
+                    <span class="card-icon">🔀</span>
+                    <div class="card-title">2 แบบ Method</div>
+                    <p class="card-desc">มีทั้ง abstract method (ไม่มี body) และ concrete method (มี body)</p>
+                </div>
+                <div class="feature-card">
+                    <span class="card-icon">🚫</span>
+                    <div class="card-title">new ไม่ได้!</div>
+                    <p class="card-desc">ไม่สามารถสร้าง Object โดยตรง</p>
+                </div>
+                <div class="feature-card">
+                    <span class="card-icon">📝</span>
+                    <div class="card-title">ต้อง implement</div>
+                    <p class="card-desc">Class ลูกต้อง implement ทุก abstract method</p>
+                </div>
+            </div>
+
+            <pre><code><span class="comment">// Abstract Class - แม่พิมพ์</span>
+<span class="keyword">public abstract class</span> <span class="class-name">Shape</span> {
+    <span class="keyword">protected</span> String color;
+
+    <span class="comment">// Constructor ใน abstract class ได้!</span>
+    <span class="keyword">public</span> Shape(String color) {
+        <span class="keyword">this</span>.color = color;
+    }
+
+    <span class="comment">// Abstract method - ไม่มี body, class ลูกต้อง implement</span>
+    <span class="keyword">public abstract double</span> getArea();
+    <span class="keyword">public abstract double</span> getPerimeter();
+
+    <span class="comment">// Concrete method - มี body ปกติ, class ลูกใช้ได้เลย</span>
+    <span class="keyword">public void</span> displayInfo() {
+        System.out.println(<span class="string">"Color: "</span> + color);
+        System.out.println(<span class="string">"Area: "</span> + getArea());
+    }
+}</code></pre>
+
+            <h3>Class ลูกที่สืบทอด Abstract Class</h3>
+            <pre><code><span class="keyword">public class</span> <span class="class-name">Circle</span> <span class="keyword">extends</span> Shape {
+    <span class="keyword">private double</span> radius;
+
+    <span class="keyword">public</span> Circle(String color, <span class="keyword">double</span> radius) {
+        <span class="keyword">super</span>(color);
+        <span class="keyword">this</span>.radius = radius;
+    }
+
+    <span class="keyword">@Override</span>
+    <span class="keyword">public double</span> getArea() {
+        <span class="keyword">return</span> Math.PI * radius * radius;
+    }
+
+    <span class="keyword">@Override</span>
+    <span class="keyword">public double</span> getPerimeter() {
+        <span class="keyword">return</span> <span class="number">2</span> * Math.PI * radius;
+    }
+}
+
+<span class="keyword">public class</span> <span class="class-name">Rectangle</span> <span class="keyword">extends</span> Shape {
+    <span class="keyword">private double</span> width, height;
+
+    <span class="keyword">public</span> Rectangle(String color, <span class="keyword">double</span> w, <span class="keyword">double</span> h) {
+        <span class="keyword">super</span>(color);
+        <span class="keyword">this</span>.width = w;
+        <span class="keyword">this</span>.height = h;
+    }
+
+    <span class="keyword">@Override</span>
+    <span class="keyword">public double</span> getArea() {
+        <span class="keyword">return</span> width * height;
+    }
+
+    <span class="keyword">@Override</span>
+    <span class="keyword">public double</span> getPerimeter() {
+        <span class="keyword">return</span> <span class="number">2</span> * (width + height);
+    }
+}
+
+<span class="comment">// การใช้งาน</span>
+<span class="comment">// Shape s = new Shape("Red"); ❌ Error! new abstract class ไม่ได้</span>
+Shape c = <span class="keyword">new</span> Circle(<span class="string">"Red"</span>, <span class="number">5</span>);
+c.displayInfo(); <span class="comment">// Color: Red, Area: 78.54</span></code></pre>
+
+            <div class="note-box">
+                <strong>⚠️ เมื่อไหร่ใช้ Abstract Class?</strong>
+                <ul style="margin-top: 10px;">
+                    <li>เมื่อ class ลูกมี<strong>โค้ดที่ใช้ร่วมกัน</strong> (shared code)</li>
+                    <li>เมื่อต้องการ<strong>บังคับ</strong>ให้ class ลูก implement บาง method</li>
+                    <li>เมื่อต้องการมี <strong>constructor</strong> และ <strong>instance variable</strong></li>
+                </ul>
+            </div>
+
+            <!-- ==================== INTERFACE ==================== -->
+            <h2>Interface คืออะไร?</h2>
+            <p>Interface คือ "สัญญา" (contract) ที่กำหนดว่า Class ที่ <code>implements</code> จะต้องมี method อะไรบ้าง:
+            </p>
+
+            <div class="concept-box">
+                <ul>
+                    <li>ประกาศด้วย keyword <code>interface</code></li>
+                    <li>ทุก method เป็น <strong>abstract โดยอัตโนมัติ</strong> (ไม่ต้องเขียน abstract)</li>
+                    <li>ตัวแปรใน interface เป็น <code>public static final</code> เสมอ</li>
+                    <li>Class สามารถ <strong>implements หลาย Interface</strong> ได้!</li>
+                </ul>
+            </div>
+
+            <pre><code><span class="comment">// Interface - เหมือนสัญญาที่ต้องทำตาม</span>
+<span class="keyword">public interface</span> <span class="class-name">Drawable</span> {
+    <span class="keyword">void</span> draw();        <span class="comment">// abstract โดยอัตโนมัติ</span>
+    <span class="keyword">void</span> resize(<span class="keyword">double</span> factor);
+}
+
+<span class="keyword">public interface</span> <span class="class-name">Printable</span> {
+    <span class="keyword">void</span> print();
+}
+
+<span class="comment">// Class implements หลาย Interface ได้!</span>
+<span class="keyword">public class</span> <span class="class-name">Circle</span> <span class="keyword">implements</span> Drawable, Printable {
+    <span class="keyword">private double</span> radius;
+
+    <span class="keyword">public</span> Circle(<span class="keyword">double</span> radius) {
+        <span class="keyword">this</span>.radius = radius;
+    }
+
+    <span class="keyword">@Override</span>
+    <span class="keyword">public void</span> draw() {
+        System.out.println(<span class="string">"Drawing circle with radius: "</span> + radius);
+    }
+
+    <span class="keyword">@Override</span>
+    <span class="keyword">public void</span> resize(<span class="keyword">double</span> factor) {
+        radius *= factor;
+    }
+
+    <span class="keyword">@Override</span>
+    <span class="keyword">public void</span> print() {
+        System.out.println(<span class="string">"Printing circle..."</span>);
+    }
+}
+
+<span class="comment">// การใช้งาน</span>
+Circle c = <span class="keyword">new</span> Circle(<span class="number">5</span>);
+c.draw();    <span class="comment">// Drawing circle with radius: 5</span>
+c.resize(<span class="number">2</span>); <span class="comment">// radius = 10</span>
+c.print();   <span class="comment">// Printing circle...</span></code></pre>
+
+            <h3>extends + implements ใช้ร่วมกันได้!</h3>
+            <pre><code><span class="keyword">public abstract class</span> <span class="class-name">Shape</span> {
+    <span class="keyword">protected</span> String color;
+    <span class="keyword">public abstract double</span> getArea();
+}
+
+<span class="keyword">public interface</span> <span class="class-name">Drawable</span> {
+    <span class="keyword">void</span> draw();
+}
+
+<span class="comment">// extends Class + implements Interface พร้อมกัน!</span>
+<span class="keyword">public class</span> <span class="class-name">Circle</span> <span class="keyword">extends</span> Shape <span class="keyword">implements</span> Drawable {
+    <span class="keyword">private double</span> radius;
+
+    <span class="keyword">@Override</span>
+    <span class="keyword">public double</span> getArea() {
+        <span class="keyword">return</span> Math.PI * radius * radius;
+    }
+
+    <span class="keyword">@Override</span>
+    <span class="keyword">public void</span> draw() {
+        System.out.println(<span class="string">"Drawing circle"</span>);
+    }
+}</code></pre>
+
+            <h3>💡 Abstract Class vs Interface</h3>
+            <div class="vs-container">
+                <div class="vs-card vs-card-left">
+                    <h4>🟣 Abstract Class</h4>
+                    <ul>
+                        <li>ใช้ keyword <code>abstract class</code></li>
+                        <li><code>extends</code> ได้ <strong>1 ตัว</strong>เท่านั้น</li>
+                        <li>✅ มี Constructor ได้</li>
+                        <li>✅ มี Method body (concrete) ได้</li>
+                        <li>ตัวแปรได้<strong>ทุกชนิด</strong></li>
+                    </ul>
+                </div>
+                <div class="vs-badge"><span>VS</span></div>
+                <div class="vs-card vs-card-right">
+                    <h4>🔵 Interface</h4>
+                    <ul>
+                        <li>ใช้ keyword <code>interface</code></li>
+                        <li><code>implements</code> ได้ <strong>หลายตัว!</strong></li>
+                        <li>❌ Constructor มีไม่ได้</li>
+                        <li>❌ ไม่มี body (Java 8+ มี default)</li>
+                        <li>ตัวแปรเป็น <code>public static final</code> เท่านั้น</li>
+                    </ul>
+                </div>
+            </div>
+
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>คุณสมบัติ</th>
+                        <th><span class="key-tag key-tag-abstract">Abstract Class</span></th>
+                        <th><span class="key-tag key-tag-interface">Interface</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Keyword</td>
+                        <td><code>abstract class</code></td>
+                        <td><code>interface</code></td>
+                    </tr>
+                    <tr>
+                        <td>สืบทอด</td>
+                        <td><code>extends</code> (ได้ 1 ตัว)</td>
+                        <td><code>implements</code> (ได้หลายตัว)</td>
+                    </tr>
+                    <tr>
+                        <td>Constructor</td>
+                        <td>✅ มีได้</td>
+                        <td>❌ มีไม่ได้</td>
+                    </tr>
+                    <tr>
+                        <td>Method body</td>
+                        <td>✅ มีได้ (concrete)</td>
+                        <td>❌ ไม่มี (Java 8+ มี default ได้)</td>
+                    </tr>
+                    <tr>
+                        <td>ตัวแปร</td>
+                        <td>ได้ทุกชนิด</td>
+                        <td><code>public static final</code> เท่านั้น</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ==================== CLASS DIAGRAM ==================== -->
+            <h2>Class Diagram</h2>
+            <p>Class Diagram คือแผนภาพ UML ที่แสดง<strong>โครงสร้างของ Class</strong>
+                และ<strong>ความสัมพันธ์</strong>ระหว่าง Class:</p>
+
+            <h3>โครงสร้างของ Class ใน Diagram</h3>
+            <div class="concept-box">
+                <p>แต่ละ Class จะแบ่งเป็น 3 ช่อง:</p>
+                <pre
+                    style="background: rgba(0,0,0,0.05); padding: 15px; border-radius: 8px; text-align: center; margin-top: 10px;">
+┌──────────────────────┐
+│     <strong>ClassName</strong>         │  ← ชื่อ Class
+├──────────────────────┤
+│  - name: String      │  ← Attributes
+│  - age: int          │     (- private)
+│  # gpa: double       │     (# protected)
+│  + id: int           │     (+ public)
+├──────────────────────┤
+│  + getName(): String │  ← Methods
+│  + setName(String)   │
+│  + study(): void     │
+└──────────────────────┘</pre>
+            </div>
+
+            <h3>สัญลักษณ์ Access Modifier</h3>
+            <div class="concept-box">
+                <ul>
+                    <li><code>+</code> = <strong>public</strong> (เข้าถึงได้จากทุกที่)</li>
+                    <li><code>-</code> = <strong>private</strong> (เข้าถึงได้เฉพาะ class ตัวเอง)</li>
+                    <li><code>#</code> = <strong>protected</strong> (เข้าถึงได้จาก class ตัวเอง + class ลูก)</li>
+                    <li><code>~</code> = <strong>package-private</strong> / default</li>
+                </ul>
+            </div>
+
+            <h3>ความสัมพันธ์ระหว่าง Class</h3>
+
+            <h4>1. Inheritance (สืบทอด) — เส้นทึบ ▷</h4>
+            <pre><code><span class="comment">// ลูกศรชี้ไปหา Parent</span>
+<span class="comment">//  Dog ──────▷ Animal</span>
+
+<span class="keyword">class</span> Animal { }
+<span class="keyword">class</span> Dog <span class="keyword">extends</span> Animal { }</code></pre>
+
+            <h4>2. Implementation (implement interface) — เส้นประ ▷</h4>
+            <pre><code><span class="comment">// ลูกศรเส้นประชี้ไปหา Interface</span>
+<span class="comment">//  Circle - - -▷ Drawable</span>
+
+<span class="keyword">interface</span> Drawable { <span class="keyword">void</span> draw(); }
+<span class="keyword">class</span> Circle <span class="keyword">implements</span> Drawable {
+    <span class="keyword">public void</span> draw() { }
+}</code></pre>
+
+            <h4>3. Association (ความสัมพันธ์ทั่วไป) — เส้นทึบ</h4>
+            <pre><code><span class="comment">// Student ────── Course</span>
+<span class="comment">// "นักเรียนลงทะเบียนวิชา"</span>
+
+<span class="keyword">class</span> Student {
+    Course enrolledCourse; <span class="comment">// มีความสัมพันธ์กับ Course</span>
+}</code></pre>
+
+            <h4>4. Aggregation (มี แต่แยกกันอยู่ได้) — เส้นทึบ ◇</h4>
+            <pre><code><span class="comment">// Department ◇────── Professor</span>
+<span class="comment">// "ภาควิชามีอาจารย์ แต่ลบภาค อาจารย์ยังอยู่"</span>
+
+<span class="keyword">class</span> Department {
+    List&lt;Professor&gt; professors;
+}</code></pre>
+
+            <h4>5. Composition (มี และขาดกันไม่ได้) — เส้นทึบ ◆</h4>
+            <pre><code><span class="comment">// House ◆────── Room</span>
+<span class="comment">// "บ้านมีห้อง ลบบ้าน ห้องก็หายไปด้วย"</span>
+
+<span class="keyword">class</span> House {
+    List&lt;Room&gt; rooms; <span class="comment">// Room ขึ้นอยู่กับ House</span>
+}</code></pre>
+
+            <div class="note-box">
+                <strong>⚠️ Aggregation vs Composition ระวังสับสน!</strong>
+                <ul style="margin-top: 10px;">
+                    <li><strong>Aggregation ◇</strong>: "มี" แต่<em>แยกกันอยู่ได้</em> (ภาควิชา-อาจารย์)</li>
+                    <li><strong>Composition ◆</strong>: "มี" และ<em>ขาดกันไม่ได้</em> (บ้าน-ห้อง)</li>
+                </ul>
+            </div>
+
+            <h3>ตัวอย่าง Class Diagram แบบเต็ม</h3>
+            <div class="hierarchy-tree">
+                <div class="tree-title">📐 Shape Class Diagram</div>
+                <div class="tree-node tree-node-root">
+                    <span class="tree-node-label">≪abstract≫ Shape</span>
+                </div>
+                <div class="tree-connector">│</div>
+                <div class="tree-connector">├──────────┤</div>
+                <div class="tree-row">
+                    <div class="tree-node tree-node-exception">
+                        <span class="tree-node-label">🔵 Circle</span>
+                    </div>
+                    <div class="tree-node tree-node-runtime">
+                        <span class="tree-node-label">🟢 Rectangle</span>
+                    </div>
+                </div>
+                <div class="tree-connector" style="margin-top: 10px;">────────────────────────</div>
+                <div class="tree-row" style="margin-top: 10px;">
+                    <div class="tree-node tree-node-leaf">
+                        <span class="tree-node-label">- radius: double</span>
+                    </div>
+                    <div class="tree-node tree-node-leaf">
+                        <span class="tree-node-label">- width: double</span>
+                    </div>
+                    <div class="tree-node tree-node-leaf">
+                        <span class="tree-node-label">- height: double</span>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Multiplicity (จำนวน)</h3>
+            <div class="concept-box">
+                <ul>
+                    <li><code>1</code> = มีได้ 1 ตัว</li>
+                    <li><code>0..1</code> = มีได้ 0 หรือ 1 ตัว</li>
+                    <li><code>*</code> หรือ <code>0..*</code> = มีได้หลายตัว (0 ขึ้นไป)</li>
+                    <li><code>1..*</code> = มีได้หลายตัว (อย่างน้อย 1)</li>
+                </ul>
+            </div>
+
+            <pre><code><span class="comment">// ตัวอย่าง: 1 Teacher สอนได้หลาย Course</span>
+<span class="comment">//  Teacher 1 ─────── * Course</span>
+
+<span class="keyword">class</span> Teacher {
+    List&lt;Course&gt; courses; <span class="comment">// 1 คน สอนได้หลายวิชา</span>
+}
+
+<span class="keyword">class</span> Course {
+    Teacher teacher; <span class="comment">// 1 วิชา มี 1 อาจารย์</span>
+}</code></pre>
+
+            <div class="summary-box">
+                <h3>📝 สรุปสิ่งที่ต้องจำ</h3>
+                <ul>
+                    <li><strong>Abstract Class</strong> = class ที่ <code>new</code> ไม่ได้ ต้อง extends ไปใช้</li>
+                    <li><strong>Interface</strong> = สัญญา, ใช้ <code>implements</code>, class เดียว implements
+                        ได้หลายตัว</li>
+                    <li>Abstract Class มี constructor ได้ / Interface ไม่มี</li>
+                    <li>Class Diagram แบ่ง 3 ช่อง: ชื่อ | Attributes | Methods</li>
+                    <li>Access: <code>+</code> public, <code>-</code> private, <code>#</code> protected</li>
+                    <li>▷ เส้นทึบ = extends, ▷ เส้นประ = implements</li>
+                    <li>◇ Aggregation = แยกกันได้, ◆ Composition = ขาดกันไม่ได้</li>
+                </ul>
+                <p style="margin-top: 20px;">งงตรงไหน? <a href="https://instabio.cc/4021411ZGCpLW" target="_blank"
+                        style="color: #8b5cf6; text-decoration: underline;">ทักมาถามได้เลยนะ! 💬</a></p>
+            </div>
+
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="quiz-09-class.html" class="quiz-btn">🎯 ทำแบบทดสอบบทที่ 9</a>
+            </div>
+
+            <div class="nav-links">
+                <a href="08-inheritance.html">← บทที่ 8: Inheritance</a>
+                <a href="10-exceptions.html">บทที่ 10: Exceptions →</a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>บันทึกการติว | เตรียมสอบกันเถอะ! 📚</p>
+    </footer>
+    <script src="lesson-tracking.js"></script>
+    <script src="music-player.js"></script>
+</body>
+
+</html>

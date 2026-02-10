@@ -833,6 +833,467 @@ li::marker {
 }
 
 /* =====================================================
+   🆚 COMPARISON CARDS
+   ===================================================== */
+.vs-container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0;
+    margin: 30px 0;
+    align-items: stretch;
+}
+
+.vs-card {
+    padding: 28px 25px;
+    border-radius: 18px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.vs-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.vs-card h4 {
+    font-size: 1.15rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.vs-card ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.vs-card li {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.vs-card-left {
+    background: linear-gradient(145deg, #ede9fe, #ddd6fe);
+    border: 2px solid rgba(139, 92, 246, 0.25);
+}
+
+.vs-card-left h4 {
+    color: #7c3aed;
+}
+
+.vs-card-right {
+    background: linear-gradient(145deg, #dbeafe, #bfdbfe);
+    border: 2px solid rgba(59, 130, 246, 0.25);
+}
+
+.vs-card-right h4 {
+    color: #2563eb;
+}
+
+.vs-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.vs-badge span {
+    background: linear-gradient(135deg, #f59e0b, #ef4444);
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.1rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+    animation: vsPulse 2s infinite ease-in-out;
+}
+
+@keyframes vsPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* Theme-specific vs-cards */
+.theme-orange .vs-card-left {
+    background: linear-gradient(145deg, #fef3c7, #fde68a);
+    border-color: rgba(245, 158, 11, 0.3);
+}
+
+.theme-orange .vs-card-left h4 {
+    color: #d97706;
+}
+
+.theme-orange .vs-card-right {
+    background: linear-gradient(145deg, #fee2e2, #fecaca);
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.theme-orange .vs-card-right h4 {
+    color: #dc2626;
+}
+
+/* =====================================================
+   🌊 VISUAL FLOW DIAGRAM
+   ===================================================== */
+.flow-diagram {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 30px 0;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+.flow-step {
+    background: linear-gradient(145deg, #f8fafc, #f1f5f9);
+    border: 2px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 18px 22px;
+    text-align: center;
+    min-width: 140px;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.flow-step:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.flow-step .flow-icon {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.flow-step .flow-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #374151;
+}
+
+.flow-step .flow-desc {
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin-top: 4px;
+}
+
+.flow-step.flow-try {
+    border-color: rgba(59, 130, 246, 0.4);
+    background: linear-gradient(145deg, #eff6ff, #dbeafe);
+}
+
+.flow-step.flow-catch {
+    border-color: rgba(239, 68, 68, 0.4);
+    background: linear-gradient(145deg, #fef2f2, #fee2e2);
+}
+
+.flow-step.flow-finally {
+    border-color: rgba(16, 185, 129, 0.4);
+    background: linear-gradient(145deg, #ecfdf5, #d1fae5);
+}
+
+.flow-step.flow-success {
+    border-color: rgba(34, 197, 94, 0.4);
+    background: linear-gradient(145deg, #f0fdf4, #dcfce7);
+}
+
+.flow-arrow {
+    font-size: 1.5rem;
+    color: #9ca3af;
+    flex-shrink: 0;
+    padding: 0 5px;
+    animation: arrowBounce 1.5s infinite ease-in-out;
+}
+
+@keyframes arrowBounce {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(4px);
+    }
+}
+
+/* =====================================================
+   🎴 FEATURE CARDS GRID
+   ===================================================== */
+.feature-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 25px 0;
+}
+
+.feature-card {
+    background: linear-gradient(145deg, #f8fafc, #f1f5f9);
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 22px;
+    text-align: center;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-purple), var(--primary-pink));
+    transform: scaleX(0);
+    transition: transform 0.3s;
+    transform-origin: left;
+}
+
+.feature-card:hover::before {
+    transform: scaleX(1);
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+    border-color: rgba(139, 92, 246, 0.3);
+}
+
+.theme-orange .feature-card::before {
+    background: linear-gradient(90deg, var(--primary-orange), #ef4444);
+}
+
+.theme-orange .feature-card:hover {
+    border-color: rgba(245, 158, 11, 0.3);
+}
+
+.feature-card .card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.feature-card .card-title {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #1f2937;
+    margin-bottom: 6px;
+}
+
+.feature-card .card-desc {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* =====================================================
+   🌳 VISUAL HIERARCHY TREE
+   ===================================================== */
+.hierarchy-tree {
+    background: linear-gradient(145deg, #1a1a2e 0%, #12122a 100%);
+    border-radius: 20px;
+    padding: 35px 30px;
+    margin: 30px 0;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.hierarchy-tree::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-cyan), var(--primary-purple), var(--primary-pink));
+}
+
+.theme-orange .hierarchy-tree::before {
+    background: linear-gradient(90deg, var(--primary-orange), #ef4444, var(--primary-pink));
+}
+
+.tree-title {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.tree-node {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.tree-node-label {
+    display: inline-block;
+    padding: 10px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+    cursor: default;
+}
+
+.tree-node-label:hover {
+    transform: scale(1.05);
+}
+
+.tree-node-root .tree-node-label {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+}
+
+.tree-node-error .tree-node-label {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+.tree-node-exception .tree-node-label {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+}
+
+.tree-node-runtime .tree-node-label {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.tree-node-checked .tree-node-label {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.tree-node-leaf .tree-node-label {
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: 0.85rem;
+    padding: 7px 16px;
+}
+
+.tree-connector {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 1.2rem;
+    margin: 5px 0;
+    letter-spacing: 2px;
+}
+
+.tree-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* =====================================================
+   📊 STYLED TABLE
+   ===================================================== */
+.styled-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 25px 0;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.styled-table thead th {
+    padding: 14px 18px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.theme-purple .styled-table thead th {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    color: #fff;
+}
+
+.theme-orange .styled-table thead th {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: #fff;
+}
+
+.styled-table tbody td {
+    padding: 12px 18px;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.95rem;
+    color: #4b5563;
+    background: #fff;
+    transition: background 0.2s;
+}
+
+.styled-table tbody tr:hover td {
+    background: #f8fafc;
+}
+
+.styled-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* =====================================================
+   🏷️ KEY TAGS
+   ===================================================== */
+.key-tag {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.key-tag-checked {
+    background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+    color: #166534;
+    border: 1px solid #86efac;
+}
+
+.key-tag-unchecked {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+}
+
+.key-tag-abstract {
+    background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+    color: #5b21b6;
+    border: 1px solid #c4b5fd;
+}
+
+.key-tag-interface {
+    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    color: #1e40af;
+    border: 1px solid #93c5fd;
+}
+
+/* =====================================================
    🦶 FOOTER
    ===================================================== */
 footer {
@@ -885,5 +1346,33 @@ footer {
     .meta {
         flex-direction: column;
         gap: 10px;
+    }
+
+    .vs-container {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .vs-badge {
+        transform: rotate(90deg);
+    }
+
+    .flow-diagram {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .flow-arrow {
+        transform: rotate(90deg);
+        text-align: center;
+    }
+
+    .feature-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .tree-row {
+        flex-direction: column;
+        align-items: center;
     }
 }

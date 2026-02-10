@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แบบทดสอบ บทที่ 10: Exceptions | บันทึกการติว</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="premium-style.css">
+    <link rel="stylesheet" href="music-player.css">
+    <script src="quiz.js" defer></script>
+</head>
+
+<body>
+    <div class="bg-particles"></div>
+    <div class="glow-orb orb-purple"></div>
+    <div class="glow-orb orb-pink"></div>
+
+    <header class="premium-header">
+        <div class="header-content">
+            <a href="index.html" class="logo">📚 บันทึกการติว</a>
+            <nav>
+                <a href="10-exceptions.html">📖 บทเรียน</a>
+                <a href="index.html#quizzes">🎯 แบบทดสอบทั้งหมด</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="premium-main quiz-container">
+        <div class="premium-article">
+            <span class="badge">เฉลยละเอียดทุกข้อ!</span>
+            <h1>🎯 แบบทดสอบ: Exceptions</h1>
+            <p style="margin-bottom: 30px;">30 ข้อ | try-catch, throw, throws, finally</p>
+
+            <div class="score-display">
+                <span>🏆 คะแนน: <strong id="current-score">0</strong> / 30</span>
+                <span>✅ ตอบแล้ว: <strong id="answered">0</strong> ข้อ</span>
+            </div>
+
+            <form id="quiz-form">
+                <!-- ง่าย 1-10 -->
+                <div class="question easy" data-answer="b">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 1</div>
+                    <div class="q-text">Exception คืออะไร?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q1" value="a"><span
+                                class="option-letter">A</span><span>ข้อผิดพลาดตอน compile</span></label>
+                        <label class="option"><input type="radio" name="q1" value="b"><span
+                                class="option-letter">B</span><span>ข้อผิดพลาดตอน runtime</span></label>
+                        <label class="option"><input type="radio" name="q1" value="c"><span
+                                class="option-letter">C</span><span>ข้อผิดพลาดทาง logic</span></label>
+                        <label class="option"><input type="radio" name="q1" value="d"><span
+                                class="option-letter">D</span><span>ข้อผิดพลาดทาง syntax</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Exception คือ<strong>ข้อผิดพลาดที่เกิดระหว่างโปรแกรมทำงาน (runtime)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="c">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 2</div>
+                    <div class="q-text">Block ใดใช้จับ Exception?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q2" value="a"><span
+                                class="option-letter">A</span><span>if-else</span></label>
+                        <label class="option"><input type="radio" name="q2" value="b"><span
+                                class="option-letter">B</span><span>for loop</span></label>
+                        <label class="option"><input type="radio" name="q2" value="c"><span
+                                class="option-letter">C</span><span>try-catch</span></label>
+                        <label class="option"><input type="radio" name="q2" value="d"><span
+                                class="option-letter">D</span><span>switch-case</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>ใช้ <code>try-catch</code> block ในการจับ Exception</p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="a">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 3</div>
+                    <div class="q-text">finally block ทำงานเมื่อไหร่?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q3" value="a"><span
+                                class="option-letter">A</span><span>ทำงานเสมอ ไม่ว่าจะเกิด error หรือไม่</span></label>
+                        <label class="option"><input type="radio" name="q3" value="b"><span
+                                class="option-letter">B</span><span>ทำงานเมื่อเกิด error เท่านั้น</span></label>
+                        <label class="option"><input type="radio" name="q3" value="c"><span
+                                class="option-letter">C</span><span>ทำงานเมื่อไม่เกิด error</span></label>
+                        <label class="option"><input type="radio" name="q3" value="d"><span
+                                class="option-letter">D</span><span>ไม่ทำงานเลย</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><code>finally</code> จะ<strong>ทำงานเสมอ</strong>ไม่ว่าจะเกิด exception หรือไม่ก็ตาม</p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="d">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 4</div>
+                    <div class="q-text">10 / 0 จะเกิด Exception อะไร?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q4" value="a"><span
+                                class="option-letter">A</span><span>NullPointerException</span></label>
+                        <label class="option"><input type="radio" name="q4" value="b"><span
+                                class="option-letter">B</span><span>ArrayIndexOutOfBoundsException</span></label>
+                        <label class="option"><input type="radio" name="q4" value="c"><span
+                                class="option-letter">C</span><span>NumberFormatException</span></label>
+                        <label class="option"><input type="radio" name="q4" value="d"><span
+                                class="option-letter">D</span><span>ArithmeticException</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>การหารด้วย 0 จะเกิด <strong>ArithmeticException</strong></p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="b">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 5</div>
+                    <div class="q-text">throw ใช้ทำอะไร?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q5" value="a"><span
+                                class="option-letter">A</span><span>จับ exception</span></label>
+                        <label class="option"><input type="radio" name="q5" value="b"><span
+                                class="option-letter">B</span><span>โยน exception ด้วยตัวเอง</span></label>
+                        <label class="option"><input type="radio" name="q5" value="c"><span
+                                class="option-letter">C</span><span>ประกาศว่า method อาจเกิด exception</span></label>
+                        <label class="option"><input type="radio" name="q5" value="d"><span
+                                class="option-letter">D</span><span>ลบ exception</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><code>throw</code> ใช้<strong>โยน exception ด้วยตัวเอง</strong>ภายใน method</p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="c">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 6</div>
+                    <div class="q-text">throws ใช้ที่ไหน?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q6" value="a"><span
+                                class="option-letter">A</span><span>ในตัว method</span></label>
+                        <label class="option"><input type="radio" name="q6" value="b"><span
+                                class="option-letter">B</span><span>ใน catch block</span></label>
+                        <label class="option"><input type="radio" name="q6" value="c"><span
+                                class="option-letter">C</span><span>ใน method signature</span></label>
+                        <label class="option"><input type="radio" name="q6" value="d"><span
+                                class="option-letter">D</span><span>ใน finally block</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><code>throws</code> ใช้ใน<strong>method signature</strong> เพื่อประกาศว่า method อาจโยน
+                            exception</p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="a">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 7</div>
+                    <div class="q-text">NullPointerException เกิดเมื่อ?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q7" value="a"><span
+                                class="option-letter">A</span><span>เรียกใช้ method/attribute ของ null</span></label>
+                        <label class="option"><input type="radio" name="q7" value="b"><span
+                                class="option-letter">B</span><span>หารด้วย 0</span></label>
+                        <label class="option"><input type="radio" name="q7" value="c"><span
+                                class="option-letter">C</span><span>index เกิน array</span></label>
+                        <label class="option"><input type="radio" name="q7" value="d"><span
+                                class="option-letter">D</span><span>แปลง String เป็นตัวเลขไม่ได้</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><strong>NullPointerException</strong> เกิดเมื่อเรียกใช้ method หรือ attribute
+                            ของตัวแปรที่เป็น null</p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="d">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 8</div>
+                    <div class="q-text">ถ้าไม่จัดการ Exception จะเกิดอะไร?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q8" value="a"><span
+                                class="option-letter">A</span><span>โปรแกรมทำงานปกติ</span></label>
+                        <label class="option"><input type="radio" name="q8" value="b"><span
+                                class="option-letter">B</span><span>โปรแกรมข้ามบรรทัดนั้น</span></label>
+                        <label class="option"><input type="radio" name="q8" value="c"><span
+                                class="option-letter">C</span><span>โปรแกรมทำงานช้าลง</span></label>
+                        <label class="option"><input type="radio" name="q8" value="d"><span
+                                class="option-letter">D</span><span>โปรแกรมหยุดทำงานทันที</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>ถ้าไม่จัดการ Exception <strong>โปรแกรมจะหยุดทำงานทันที (crash)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="b">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 9</div>
+                    <div class="q-text">Integer.parseInt("abc") จะเกิด Exception อะไร?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q9" value="a"><span
+                                class="option-letter">A</span><span>ArithmeticException</span></label>
+                        <label class="option"><input type="radio" name="q9" value="b"><span
+                                class="option-letter">B</span><span>NumberFormatException</span></label>
+                        <label class="option"><input type="radio" name="q9" value="c"><span
+                                class="option-letter">C</span><span>NullPointerException</span></label>
+                        <label class="option"><input type="radio" name="q9" value="d"><span
+                                class="option-letter">D</span><span>ClassCastException</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>แปลง String ที่ไม่ใช่ตัวเลขจะเกิด <strong>NumberFormatException</strong></p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="c">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 10</div>
+                    <div class="q-text">arr[100] เมื่อ array มีแค่ 3 ช่อง จะเกิด?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q10" value="a"><span
+                                class="option-letter">A</span><span>NullPointerException</span></label>
+                        <label class="option"><input type="radio" name="q10" value="b"><span
+                                class="option-letter">B</span><span>ArithmeticException</span></label>
+                        <label class="option"><input type="radio" name="q10" value="c"><span
+                                class="option-letter">C</span><span>ArrayIndexOutOfBoundsException</span></label>
+                        <label class="option"><input type="radio" name="q10" value="d"><span
+                                class="option-letter">D</span><span>StackOverflowError</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>เข้าถึง index ที่เกินขอบเขตจะเกิด <strong>ArrayIndexOutOfBoundsException</strong></p>
+                    </div>
+                </div>
+
+                <!-- ปานกลาง 11-20 -->
+                <div class="question medium" data-answer="a">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 11</div>
+                    <div class="q-text">Checked Exception คืออะไร?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q11" value="a"><span
+                                class="option-letter">A</span><span>Exception ที่ต้อง try-catch หรือ throws
+                                (บังคับ)</span></label>
+                        <label class="option"><input type="radio" name="q11" value="b"><span
+                                class="option-letter">B</span><span>Exception ที่ไม่ต้องจัดการ</span></label>
+                        <label class="option"><input type="radio" name="q11" value="c"><span
+                                class="option-letter">C</span><span>Exception ที่เกิดจาก logic error</span></label>
+                        <label class="option"><input type="radio" name="q11" value="d"><span
+                                class="option-letter">D</span><span>Error ที่ร้ายแรง</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Checked Exception <strong>ต้อง try-catch หรือ throws</strong> ไม่งั้น compile ไม่ผ่าน (เช่น
+                            IOException)</p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="d">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 12</div>
+                    <div class="q-text">ข้อใดเป็น Unchecked Exception?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q12" value="a"><span
+                                class="option-letter">A</span><span>IOException</span></label>
+                        <label class="option"><input type="radio" name="q12" value="b"><span
+                                class="option-letter">B</span><span>FileNotFoundException</span></label>
+                        <label class="option"><input type="radio" name="q12" value="c"><span
+                                class="option-letter">C</span><span>SQLException</span></label>
+                        <label class="option"><input type="radio" name="q12" value="d"><span
+                                class="option-letter">D</span><span>NullPointerException</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><strong>NullPointerException</strong> เป็น Unchecked Exception (extends RuntimeException)
+                            ไม่บังคับจัดการ</p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="b">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 13</div>
+                    <div class="q-text">สร้าง Custom Exception ต้อง extends จาก?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q13" value="a"><span
+                                class="option-letter">A</span><span>Object</span></label>
+                        <label class="option"><input type="radio" name="q13" value="b"><span
+                                class="option-letter">B</span><span>Exception หรือ RuntimeException</span></label>
+                        <label class="option"><input type="radio" name="q13" value="c"><span
+                                class="option-letter">C</span><span>Error</span></label>
+                        <label class="option"><input type="radio" name="q13" value="d"><span
+                                class="option-letter">D</span><span>Throwable เท่านั้น</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>สร้าง Custom Exception โดย extends จาก <strong>Exception</strong> (checked) หรือ
+                            <strong>RuntimeException</strong> (unchecked)</p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="a">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 14</div>
+                    <div class="q-text">try-with-resources ใช้กับ class ที่ implements อะไร?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q14" value="a"><span
+                                class="option-letter">A</span><span>AutoCloseable</span></label>
+                        <label class="option"><input type="radio" name="q14" value="b"><span
+                                class="option-letter">B</span><span>Serializable</span></label>
+                        <label class="option"><input type="radio" name="q14" value="c"><span
+                                class="option-letter">C</span><span>Comparable</span></label>
+                        <label class="option"><input type="radio" name="q14" value="d"><span
+                                class="option-letter">D</span><span>Iterable</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>try-with-resources ใช้กับ class ที่ implements <strong>AutoCloseable</strong> (หรือ
+                            Closeable)</p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="c">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 15</div>
+                    <div class="q-text">e.getMessage() คืนค่าอะไร?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q15" value="a"><span
+                                class="option-letter">A</span><span>ชื่อ class ของ exception</span></label>
+                        <label class="option"><input type="radio" name="q15" value="b"><span
+                                class="option-letter">B</span><span>stack trace ทั้งหมด</span></label>
+                        <label class="option"><input type="radio" name="q15" value="c"><span
+                                class="option-letter">C</span><span>ข้อความอธิบาย error</span></label>
+                        <label class="option"><input type="radio" name="q15" value="d"><span
+                                class="option-letter">D</span><span>หมายเลข error code</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><code>getMessage()</code> คืนค่า<strong>ข้อความอธิบาย error</strong> ที่ส่งมาตอนสร้าง
+                            exception</p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="b">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 16</div>
+                    <div class="q-text">จับหลาย Exception ต้องเรียงอย่างไร?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q16" value="a"><span
+                                class="option-letter">A</span><span>Exception ทั่วไปก่อน เจาะจงทีหลัง</span></label>
+                        <label class="option"><input type="radio" name="q16" value="b"><span
+                                class="option-letter">B</span><span>เจาะจงก่อน ทั่วไปทีหลัง</span></label>
+                        <label class="option"><input type="radio" name="q16" value="c"><span
+                                class="option-letter">C</span><span>ลำดับไม่สำคัญ</span></label>
+                        <label class="option"><input type="radio" name="q16" value="d"><span
+                                class="option-letter">D</span><span>ตามตัวอักษร A-Z</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>ต้องจับ Exception <strong>เจาะจงก่อน แล้วค่อยทั่วไปทีหลัง</strong> (ไม่งั้น compile error)
+                        </p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="d">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 17</div>
+                    <div class="q-text">Multi-catch ใน Java 7+ ใช้สัญลักษณ์ใด?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q17" value="a"><span
+                                class="option-letter">A</span><span>&& (and)</span></label>
+                        <label class="option"><input type="radio" name="q17" value="b"><span
+                                class="option-letter">B</span><span>|| (or)</span></label>
+                        <label class="option"><input type="radio" name="q17" value="c"><span
+                                class="option-letter">C</span><span>, (comma)</span></label>
+                        <label class="option"><input type="radio" name="q17" value="d"><span
+                                class="option-letter">D</span><span>| (pipe)</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Multi-catch ใช้เครื่องหมาย <strong>| (pipe)</strong> เช่น
+                            <code>catch (IOException | SQLException e)</code></p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="a">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 18</div>
+                    <div class="q-text">ข้อใดเป็น Checked Exception?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q18" value="a"><span
+                                class="option-letter">A</span><span>IOException</span></label>
+                        <label class="option"><input type="radio" name="q18" value="b"><span
+                                class="option-letter">B</span><span>NullPointerException</span></label>
+                        <label class="option"><input type="radio" name="q18" value="c"><span
+                                class="option-letter">C</span><span>ArithmeticException</span></label>
+                        <label class="option"><input type="radio" name="q18" value="d"><span
+                                class="option-letter">D</span><span>ArrayIndexOutOfBoundsException</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><strong>IOException</strong> เป็น Checked Exception ที่ต้องจัดการ (try-catch หรือ throws)</p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="c">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 19</div>
+                    <div class="q-text">e.printStackTrace() ทำอะไร?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q19" value="a"><span
+                                class="option-letter">A</span><span>ลบ exception</span></label>
+                        <label class="option"><input type="radio" name="q19" value="b"><span
+                                class="option-letter">B</span><span>แสดงข้อความ error สั้นๆ</span></label>
+                        <label class="option"><input type="radio" name="q19" value="c"><span
+                                class="option-letter">C</span><span>แสดง stack trace ทั้งหมด</span></label>
+                        <label class="option"><input type="radio" name="q19" value="d"><span
+                                class="option-letter">D</span><span>หยุดโปรแกรม</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><code>printStackTrace()</code> จะ<strong>แสดง stack trace ทั้งหมด</strong> บอกว่า error
+                            เกิดที่บรรทัดไหนบ้าง</p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="b">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 20</div>
+                    <div class="q-text">finally ไม่มี catch ได้หรือไม่?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q20" value="a"><span
+                                class="option-letter">A</span><span>ไม่ได้</span></label>
+                        <label class="option"><input type="radio" name="q20" value="b"><span
+                                class="option-letter">B</span><span>ได้ (try-finally)</span></label>
+                        <label class="option"><input type="radio" name="q20" value="c"><span
+                                class="option-letter">C</span><span>ได้เฉพาะ Java 8+</span></label>
+                        <label class="option"><input type="radio" name="q20" value="d"><span
+                                class="option-letter">D</span><span>ได้เฉพาะ static method</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>ใช้ <strong>try-finally โดยไม่มี catch ได้</strong> exception จะถูกโยนต่อแต่ finally ยังทำงาน
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ยาก 21-30 -->
+                <div class="question hard" data-answer="c">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 21</div>
+                    <div class="q-text">ข้อใดถูกต้องเกี่ยวกับ Error?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q21" value="a"><span
+                                class="option-letter">A</span><span>Error เป็น Checked Exception</span></label>
+                        <label class="option"><input type="radio" name="q21" value="b"><span
+                                class="option-letter">B</span><span>Error ต้อง try-catch เสมอ</span></label>
+                        <label class="option"><input type="radio" name="q21" value="c"><span
+                                class="option-letter">C</span><span>Error
+                                เป็นปัญหาร้ายแรงที่ปกติไม่ต้องจัดการ</span></label>
+                        <label class="option"><input type="radio" name="q21" value="d"><span
+                                class="option-letter">D</span><span>Error เหมือน RuntimeException
+                                ทุกอย่าง</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Error เป็น<strong>ปัญหาร้ายแรงที่ปกติไม่ต้องจัดการ</strong> เช่น OutOfMemoryError,
+                            StackOverflowError</p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="a">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 22</div>
+                    <div class="q-text">Class ใดเป็น root ของ Exception hierarchy?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q22" value="a"><span
+                                class="option-letter">A</span><span>Throwable</span></label>
+                        <label class="option"><input type="radio" name="q22" value="b"><span
+                                class="option-letter">B</span><span>Exception</span></label>
+                        <label class="option"><input type="radio" name="q22" value="c"><span
+                                class="option-letter">C</span><span>Object</span></label>
+                        <label class="option"><input type="radio" name="q22" value="d"><span
+                                class="option-letter">D</span><span>Error</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><strong>Throwable</strong> เป็น root ของ hierarchy โดย Exception และ Error ต่างก็ extends
+                            Throwable</p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="d">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 23</div>
+                    <div class="q-text">ถ้า try มี return แล้ว finally จะทำงานหรือไม่?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q23" value="a"><span
+                                class="option-letter">A</span><span>ไม่ทำงาน</span></label>
+                        <label class="option"><input type="radio" name="q23" value="b"><span
+                                class="option-letter">B</span><span>ทำงานก่อน return</span></label>
+                        <label class="option"><input type="radio" name="q23" value="c"><span
+                                class="option-letter">C</span><span>ขึ้นอยู่กับ JVM</span></label>
+                        <label class="option"><input type="radio" name="q23" value="d"><span
+                                class="option-letter">D</span><span>ทำงานเสมอ (ก่อน return จริง)</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>finally <strong>ทำงานเสมอ แม้จะมี return ใน try</strong> โดย finally จะทำงานก่อนที่ค่าจะถูก
+                            return</p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="b">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 24</div>
+                    <div class="q-text">Override method สามารถ throws exception ที่กว้างกว่า Parent ได้หรือไม่?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q24" value="a"><span
+                                class="option-letter">A</span><span>ได้</span></label>
+                        <label class="option"><input type="radio" name="q24" value="b"><span
+                                class="option-letter">B</span><span>ไม่ได้ (ต้องเท่าหรือแคบกว่า)</span></label>
+                        <label class="option"><input type="radio" name="q24" value="c"><span
+                                class="option-letter">C</span><span>ได้เฉพาะ Unchecked Exception</span></label>
+                        <label class="option"><input type="radio" name="q24" value="d"><span
+                                class="option-letter">D</span><span>ได้ถ้าเป็น public</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Override method <strong>ไม่สามารถ throws checked exception ที่กว้างกว่า Parent ได้</strong>
+                            ต้องเท่าหรือแคบกว่า</p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="c">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 25</div>
+                    <div class="q-text">catch(Exception e) จับอะไรได้บ้าง?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q25" value="a"><span
+                                class="option-letter">A</span><span>จับได้เฉพาะ Checked Exception</span></label>
+                        <label class="option"><input type="radio" name="q25" value="b"><span
+                                class="option-letter">B</span><span>จับได้เฉพาะ Unchecked Exception</span></label>
+                        <label class="option"><input type="radio" name="q25" value="c"><span
+                                class="option-letter">C</span><span>จับได้ทั้ง Checked และ Unchecked
+                                Exception</span></label>
+                        <label class="option"><input type="radio" name="q25" value="d"><span
+                                class="option-letter">D</span><span>จับได้ทั้ง Exception และ Error</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><code>catch(Exception e)</code> จับได้<strong>ทั้ง Checked และ Unchecked Exception</strong>
+                            แต่ไม่จับ Error</p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="a">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 26</div>
+                    <div class="q-text">ข้อใดเป็น Best Practice?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q26" value="a"><span
+                                class="option-letter">A</span><span>จับ Exception เจาะจงก่อน ทั่วไปทีหลัง</span></label>
+                        <label class="option"><input type="radio" name="q26" value="b"><span
+                                class="option-letter">B</span><span>catch(Exception e) {} (ปล่อยว่าง)</span></label>
+                        <label class="option"><input type="radio" name="q26" value="c"><span
+                                class="option-letter">C</span><span>ใช้ throws ทุก method</span></label>
+                        <label class="option"><input type="radio" name="q26" value="d"><span
+                                class="option-letter">D</span><span>catch(Throwable e) เสมอ</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Best practice คือ<strong>จับ Exception เจาะจงก่อน แล้วค่อยทั่วไปทีหลัง</strong> อย่าปล่อย
+                            catch block ว่าง</p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="d">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 27</div>
+                    <div class="q-text">try-with-resources มีข้อดีอะไร?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q27" value="a"><span
+                                class="option-letter">A</span><span>ทำให้โค้ดยาวขึ้น</span></label>
+                        <label class="option"><input type="radio" name="q27" value="b"><span
+                                class="option-letter">B</span><span>ไม่ต้องใช้ catch</span></label>
+                        <label class="option"><input type="radio" name="q27" value="c"><span
+                                class="option-letter">C</span><span>ไม่เกิด exception เลย</span></label>
+                        <label class="option"><input type="radio" name="q27" value="d"><span
+                                class="option-letter">D</span><span>ปิด resource อัตโนมัติ</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>try-with-resources จะ<strong>ปิด resource อัตโนมัติ</strong>เมื่อออกจาก try block
+                            ไม่ต้องปิดเองใน finally</p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="b">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 28</div>
+                    <div class="q-text">ClassCastException เกิดเมื่อ?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q28" value="a"><span
+                                class="option-letter">A</span><span>เรียก method ของ null</span></label>
+                        <label class="option"><input type="radio" name="q28" value="b"><span
+                                class="option-letter">B</span><span>Cast object ผิดชนิด</span></label>
+                        <label class="option"><input type="radio" name="q28" value="c"><span
+                                class="option-letter">C</span><span>หารด้วย 0</span></label>
+                        <label class="option"><input type="radio" name="q28" value="d"><span
+                                class="option-letter">D</span><span>เข้าถึง index เกิน</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><strong>ClassCastException</strong> เกิดเมื่อ<strong>cast object
+                                ไปเป็นชนิดที่ไม่ถูกต้อง</strong></p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="a">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 29</div>
+                    <div class="q-text">ถ้า finally มี return จะเกิดอะไร?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q29" value="a"><span
+                                class="option-letter">A</span><span>ค่า return ของ finally จะ override ค่าจาก
+                                try/catch</span></label>
+                        <label class="option"><input type="radio" name="q29" value="b"><span
+                                class="option-letter">B</span><span>Compile error</span></label>
+                        <label class="option"><input type="radio" name="q29" value="c"><span
+                                class="option-letter">C</span><span>ใช้ค่า return จาก try</span></label>
+                        <label class="option"><input type="radio" name="q29" value="d"><span
+                                class="option-letter">D</span><span>ไม่ return อะไรเลย</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>ถ้า finally มี return <strong>ค่า return ของ finally จะ override</strong> ค่าจาก try/catch
+                            (ไม่แนะนำให้ทำ!)</p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="c">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 30</div>
+                    <div class="q-text">throw new Exception() vs throw new RuntimeException() ต่างกันอย่างไร?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q30" value="a"><span
+                                class="option-letter">A</span><span>ไม่ต่างกัน</span></label>
+                        <label class="option"><input type="radio" name="q30" value="b"><span
+                                class="option-letter">B</span><span>RuntimeException ร้ายแรงกว่า</span></label>
+                        <label class="option"><input type="radio" name="q30" value="c"><span
+                                class="option-letter">C</span><span>Exception ต้อง try-catch/throws แต่ RuntimeException
+                                ไม่บังคับ</span></label>
+                        <label class="option"><input type="radio" name="q30" value="d"><span
+                                class="option-letter">D</span><span>Exception ไม่สามารถ catch ได้</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><strong>Exception ต้อง try-catch หรือ throws</strong> (checked) แต่ <strong>RuntimeException
+                                ไม่บังคับ</strong> (unchecked)</p>
+                    </div>
+                </div>
+
+                <button type="button" class="btn-submit" onclick="submitQuiz()">🎯 ตรวจคำตอบ</button>
+            </form>
+
+            <div class="result" id="result">
+                <h2>🎉 ผลการทำแบบทดสอบ</h2>
+                <div class="score-big" id="final-score">0/30</div>
+                <p id="result-text" style="font-size: 1.3rem; margin-top: 15px;"></p>
+                <a href="index.html#quizzes" class="btn-primary" style="margin-top: 25px;">กลับหน้าแบบทดสอบ</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="premium-footer">
+        <p class="footer-text">งงตรงไหน? ทักมาถามได้เลย!</p>
+        <a href="https://instabio.cc/4021411ZGCpLW" target="_blank" class="contact-btn">💬 ติดต่อผู้สอน</a>
+    </footer>
+    <script src="music-player.js"></script>
+</body>
+
+</html>

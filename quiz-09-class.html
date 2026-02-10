@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แบบทดสอบ บทที่ 9: Class ขั้นสูง | บันทึกการติว</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="premium-style.css">
+    <link rel="stylesheet" href="music-player.css">
+    <script src="quiz.js" defer></script>
+</head>
+
+<body>
+    <div class="bg-particles"></div>
+    <div class="glow-orb orb-purple"></div>
+    <div class="glow-orb orb-pink"></div>
+
+    <header class="premium-header">
+        <div class="header-content">
+            <a href="index.html" class="logo">📚 บันทึกการติว</a>
+            <nav>
+                <a href="09-class.html">📖 บทเรียน</a>
+                <a href="index.html#quizzes">🎯 แบบทดสอบทั้งหมด</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="premium-main quiz-container">
+        <div class="premium-article">
+            <span class="badge">เฉลยละเอียดทุกข้อ!</span>
+            <h1>🎯 แบบทดสอบ: Class ขั้นสูง</h1>
+            <p style="margin-bottom: 30px;">30 ข้อ | Abstract Class, Interface, Class Diagram</p>
+
+            <div class="score-display">
+                <span>🏆 คะแนน: <strong id="current-score">0</strong> / 30</span>
+                <span>✅ ตอบแล้ว: <strong id="answered">0</strong> ข้อ</span>
+            </div>
+
+            <form id="quiz-form">
+                <!-- ง่าย 1-10 -->
+                <div class="question easy" data-answer="b">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 1</div>
+                    <div class="q-text">Abstract class สามารถสร้าง Object ได้โดยตรงหรือไม่?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q1" value="a"><span
+                                class="option-letter">A</span><span>ได้</span></label>
+                        <label class="option"><input type="radio" name="q1" value="b"><span
+                                class="option-letter">B</span><span>ไม่ได้</span></label>
+                        <label class="option"><input type="radio" name="q1" value="c"><span
+                                class="option-letter">C</span><span>ได้ถ้าเป็น public</span></label>
+                        <label class="option"><input type="radio" name="q1" value="d"><span
+                                class="option-letter">D</span><span>ได้ถ้ามี constructor</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Abstract class <strong>ไม่สามารถสร้าง Object ได้โดยตรง</strong> ต้องถูกสืบทอดไปใช้</p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="c">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 2</div>
+                    <div class="q-text">Keyword ใดใช้สำหรับ implements interface?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q2" value="a"><span
+                                class="option-letter">A</span><span>extends</span></label>
+                        <label class="option"><input type="radio" name="q2" value="b"><span
+                                class="option-letter">B</span><span>inherits</span></label>
+                        <label class="option"><input type="radio" name="q2" value="c"><span
+                                class="option-letter">C</span><span>implements</span></label>
+                        <label class="option"><input type="radio" name="q2" value="d"><span
+                                class="option-letter">D</span><span>interface</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>ใช้ keyword <code>implements</code> เพื่อให้ class ทำตาม interface</p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="a">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 3</div>
+                    <div class="q-text">ใน Class Diagram สัญลักษณ์ + หมายถึง?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q3" value="a"><span
+                                class="option-letter">A</span><span>public</span></label>
+                        <label class="option"><input type="radio" name="q3" value="b"><span
+                                class="option-letter">B</span><span>private</span></label>
+                        <label class="option"><input type="radio" name="q3" value="c"><span
+                                class="option-letter">C</span><span>protected</span></label>
+                        <label class="option"><input type="radio" name="q3" value="d"><span
+                                class="option-letter">D</span><span>static</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>ใน Class Diagram: <code>+</code> = <strong>public</strong>, <code>-</code> = private,
+                            <code>#</code> = protected</p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="d">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 4</div>
+                    <div class="q-text">Class สามารถ implements กี่ interface?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q4" value="a"><span
+                                class="option-letter">A</span><span>1 ตัว</span></label>
+                        <label class="option"><input type="radio" name="q4" value="b"><span
+                                class="option-letter">B</span><span>2 ตัว</span></label>
+                        <label class="option"><input type="radio" name="q4" value="c"><span
+                                class="option-letter">C</span><span>3 ตัว</span></label>
+                        <label class="option"><input type="radio" name="q4" value="d"><span
+                                class="option-letter">D</span><span>ได้หลายตัว (ไม่จำกัด)</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Java อนุญาตให้ class <strong>implements ได้หลาย interface ไม่จำกัดจำนวน</strong></p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="b">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 5</div>
+                    <div class="q-text">สัญลักษณ์ - ใน Class Diagram หมายถึง?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q5" value="a"><span
+                                class="option-letter">A</span><span>public</span></label>
+                        <label class="option"><input type="radio" name="q5" value="b"><span
+                                class="option-letter">B</span><span>private</span></label>
+                        <label class="option"><input type="radio" name="q5" value="c"><span
+                                class="option-letter">C</span><span>protected</span></label>
+                        <label class="option"><input type="radio" name="q5" value="d"><span
+                                class="option-letter">D</span><span>default</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><code>-</code> ใน Class Diagram หมายถึง <strong>private</strong></p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="a">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 6</div>
+                    <div class="q-text">ตัวแปรใน Interface เป็นอะไรโดยอัตโนมัติ?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q6" value="a"><span
+                                class="option-letter">A</span><span>public static final</span></label>
+                        <label class="option"><input type="radio" name="q6" value="b"><span
+                                class="option-letter">B</span><span>private</span></label>
+                        <label class="option"><input type="radio" name="q6" value="c"><span
+                                class="option-letter">C</span><span>protected</span></label>
+                        <label class="option"><input type="radio" name="q6" value="d"><span
+                                class="option-letter">D</span><span>public</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>ตัวแปรใน Interface จะเป็น <strong>public static final</strong> โดยอัตโนมัติเสมอ</p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="c">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 7</div>
+                    <div class="q-text">Abstract method คือ method ที่?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q7" value="a"><span
+                                class="option-letter">A</span><span>มี body ปกติ</span></label>
+                        <label class="option"><input type="radio" name="q7" value="b"><span
+                                class="option-letter">B</span><span>เป็น static</span></label>
+                        <label class="option"><input type="radio" name="q7" value="c"><span
+                                class="option-letter">C</span><span>ไม่มี body</span></label>
+                        <label class="option"><input type="radio" name="q7" value="d"><span
+                                class="option-letter">D</span><span>เป็น final</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Abstract method คือ method ที่<strong>ไม่มี body</strong> มีแค่ signature</p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="d">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 8</div>
+                    <div class="q-text">Class Diagram แบ่งเป็นกี่ช่อง?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q8" value="a"><span
+                                class="option-letter">A</span><span>1 ช่อง</span></label>
+                        <label class="option"><input type="radio" name="q8" value="b"><span
+                                class="option-letter">B</span><span>2 ช่อง</span></label>
+                        <label class="option"><input type="radio" name="q8" value="c"><span
+                                class="option-letter">C</span><span>4 ช่อง</span></label>
+                        <label class="option"><input type="radio" name="q8" value="d"><span
+                                class="option-letter">D</span><span>3 ช่อง</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Class Diagram แบ่งเป็น <strong>3 ช่อง</strong>: ชื่อ Class, Attributes, Methods</p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="b">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 9</div>
+                    <div class="q-text">Interface มี Constructor ได้หรือไม่?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q9" value="a"><span
+                                class="option-letter">A</span><span>ได้</span></label>
+                        <label class="option"><input type="radio" name="q9" value="b"><span
+                                class="option-letter">B</span><span>ไม่ได้</span></label>
+                        <label class="option"><input type="radio" name="q9" value="c"><span
+                                class="option-letter">C</span><span>ได้ถ้าเป็น public</span></label>
+                        <label class="option"><input type="radio" name="q9" value="d"><span
+                                class="option-letter">D</span><span>ได้ถ้าเป็น default</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Interface <strong>ไม่สามารถมี Constructor ได้</strong> ต่างจาก Abstract Class ที่มีได้</p>
+                    </div>
+                </div>
+
+                <div class="question easy" data-answer="c">
+                    <span class="difficulty">ง่าย</span>
+                    <div class="q-number">ข้อ 10</div>
+                    <div class="q-text">สัญลักษณ์ # ใน Class Diagram หมายถึง?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q10" value="a"><span
+                                class="option-letter">A</span><span>public</span></label>
+                        <label class="option"><input type="radio" name="q10" value="b"><span
+                                class="option-letter">B</span><span>private</span></label>
+                        <label class="option"><input type="radio" name="q10" value="c"><span
+                                class="option-letter">C</span><span>protected</span></label>
+                        <label class="option"><input type="radio" name="q10" value="d"><span
+                                class="option-letter">D</span><span>static</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><code>#</code> ใน Class Diagram หมายถึง <strong>protected</strong></p>
+                    </div>
+                </div>
+
+                <!-- ปานกลาง 11-20 -->
+                <div class="question medium" data-answer="a">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 11</div>
+                    <div class="q-text">Abstract class มี concrete method (มี body) ได้หรือไม่?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q11" value="a"><span
+                                class="option-letter">A</span><span>ได้</span></label>
+                        <label class="option"><input type="radio" name="q11" value="b"><span
+                                class="option-letter">B</span><span>ไม่ได้</span></label>
+                        <label class="option"><input type="radio" name="q11" value="c"><span
+                                class="option-letter">C</span><span>ได้เฉพาะ static</span></label>
+                        <label class="option"><input type="radio" name="q11" value="d"><span
+                                class="option-letter">D</span><span>ได้เฉพาะ final</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Abstract class <strong>สามารถมี concrete method</strong> (method ที่มี body ปกติ) ได้</p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="d">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 12</div>
+                    <div class="q-text">Composition ◆ หมายถึงอะไร?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q12" value="a"><span
+                                class="option-letter">A</span><span>สืบทอด class</span></label>
+                        <label class="option"><input type="radio" name="q12" value="b"><span
+                                class="option-letter">B</span><span>implements interface</span></label>
+                        <label class="option"><input type="radio" name="q12" value="c"><span
+                                class="option-letter">C</span><span>มี แต่แยกกันอยู่ได้</span></label>
+                        <label class="option"><input type="radio" name="q12" value="d"><span
+                                class="option-letter">D</span><span>มี และขาดกันไม่ได้</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><strong>Composition ◆</strong> หมายถึง "มี และขาดกันไม่ได้" เช่น บ้านกับห้อง (ลบบ้าน
+                            ห้องก็หาย)</p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="c">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 13</div>
+                    <div class="q-text">Aggregation ◇ หมายถึงอะไร?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q13" value="a"><span
+                                class="option-letter">A</span><span>สืบทอด class</span></label>
+                        <label class="option"><input type="radio" name="q13" value="b"><span
+                                class="option-letter">B</span><span>มี และขาดกันไม่ได้</span></label>
+                        <label class="option"><input type="radio" name="q13" value="c"><span
+                                class="option-letter">C</span><span>มี แต่แยกกันอยู่ได้</span></label>
+                        <label class="option"><input type="radio" name="q13" value="d"><span
+                                class="option-letter">D</span><span>implements interface</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><strong>Aggregation ◇</strong> หมายถึง "มี แต่แยกกันอยู่ได้" เช่น ภาควิชากับอาจารย์</p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="b">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 14</div>
+                    <div class="q-text">Multiplicity 1..* หมายถึง?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q14" value="a"><span
+                                class="option-letter">A</span><span>มีได้ 0 หรือมากกว่า</span></label>
+                        <label class="option"><input type="radio" name="q14" value="b"><span
+                                class="option-letter">B</span><span>มีได้ 1 หรือมากกว่า</span></label>
+                        <label class="option"><input type="radio" name="q14" value="c"><span
+                                class="option-letter">C</span><span>มีได้แค่ 1</span></label>
+                        <label class="option"><input type="radio" name="q14" value="d"><span
+                                class="option-letter">D</span><span>มีได้ 0 หรือ 1</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><code>1..*</code> หมายถึง<strong>มีได้ 1 ตัวหรือมากกว่า</strong> (อย่างน้อย 1)</p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="a">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 15</div>
+                    <div class="q-text">ข้อใดถูกต้อง?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q15" value="a"><span
+                                class="option-letter">A</span><span>class สามารถ extends + implements
+                                พร้อมกันได้</span></label>
+                        <label class="option"><input type="radio" name="q15" value="b"><span
+                                class="option-letter">B</span><span>class ไม่สามารถ extends + implements
+                                พร้อมกัน</span></label>
+                        <label class="option"><input type="radio" name="q15" value="c"><span
+                                class="option-letter">C</span><span>class สามารถ extends หลายตัว</span></label>
+                        <label class="option"><input type="radio" name="q15" value="d"><span
+                                class="option-letter">D</span><span>interface สามารถ extends class ได้</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Java อนุญาตให้ <strong>extends 1 class + implements หลาย interface พร้อมกัน</strong>ได้</p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="c">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 16</div>
+                    <div class="q-text">เส้นทึบ ▷ ใน Class Diagram หมายถึง?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q16" value="a"><span
+                                class="option-letter">A</span><span>implements</span></label>
+                        <label class="option"><input type="radio" name="q16" value="b"><span
+                                class="option-letter">B</span><span>association</span></label>
+                        <label class="option"><input type="radio" name="q16" value="c"><span
+                                class="option-letter">C</span><span>inheritance (extends)</span></label>
+                        <label class="option"><input type="radio" name="q16" value="d"><span
+                                class="option-letter">D</span><span>composition</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>เส้นทึบ ▷ หมายถึง <strong>Inheritance (extends)</strong> ส่วนเส้นประ ▷ หมายถึง implements</p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="b">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 17</div>
+                    <div class="q-text">Method ใน Interface เป็นอะไรโดยอัตโนมัติ?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q17" value="a"><span
+                                class="option-letter">A</span><span>private</span></label>
+                        <label class="option"><input type="radio" name="q17" value="b"><span
+                                class="option-letter">B</span><span>public abstract</span></label>
+                        <label class="option"><input type="radio" name="q17" value="c"><span
+                                class="option-letter">C</span><span>protected</span></label>
+                        <label class="option"><input type="radio" name="q17" value="d"><span
+                                class="option-letter">D</span><span>static</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Method ใน Interface เป็น <strong>public abstract</strong> โดยอัตโนมัติ</p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="a">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 18</div>
+                    <div class="q-text">Abstract class มี constructor ได้หรือไม่?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q18" value="a"><span
+                                class="option-letter">A</span><span>ได้</span></label>
+                        <label class="option"><input type="radio" name="q18" value="b"><span
+                                class="option-letter">B</span><span>ไม่ได้</span></label>
+                        <label class="option"><input type="radio" name="q18" value="c"><span
+                                class="option-letter">C</span><span>ได้เฉพาะ default constructor</span></label>
+                        <label class="option"><input type="radio" name="q18" value="d"><span
+                                class="option-letter">D</span><span>ได้เฉพาะ private</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Abstract class <strong>สามารถมี constructor ได้</strong> ใช้สำหรับให้ subclass เรียกผ่าน
+                            super()</p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="d">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 19</div>
+                    <div class="q-text">เส้นประ ▷ ใน Class Diagram หมายถึง?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q19" value="a"><span
+                                class="option-letter">A</span><span>inheritance</span></label>
+                        <label class="option"><input type="radio" name="q19" value="b"><span
+                                class="option-letter">B</span><span>association</span></label>
+                        <label class="option"><input type="radio" name="q19" value="c"><span
+                                class="option-letter">C</span><span>aggregation</span></label>
+                        <label class="option"><input type="radio" name="q19" value="d"><span
+                                class="option-letter">D</span><span>implementation (implements)</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>เส้นประ ▷ หมายถึง <strong>Implementation (implements interface)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question medium" data-answer="c">
+                    <span class="difficulty">ปานกลาง</span>
+                    <div class="q-number">ข้อ 20</div>
+                    <div class="q-text">Multiplicity 0..1 หมายถึง?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q20" value="a"><span
+                                class="option-letter">A</span><span>มีได้ 1 ตัวเท่านั้น</span></label>
+                        <label class="option"><input type="radio" name="q20" value="b"><span
+                                class="option-letter">B</span><span>มีได้ 0 หรือหลายตัว</span></label>
+                        <label class="option"><input type="radio" name="q20" value="c"><span
+                                class="option-letter">C</span><span>มีได้ 0 หรือ 1 ตัว</span></label>
+                        <label class="option"><input type="radio" name="q20" value="d"><span
+                                class="option-letter">D</span><span>มีได้ 1 หรือมากกว่า</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><code>0..1</code> หมายถึง<strong>มีได้ 0 หรือ 1 ตัว</strong> (optional)</p>
+                    </div>
+                </div>
+
+                <!-- ยาก 21-30 -->
+                <div class="question hard" data-answer="b">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 21</div>
+                    <div class="q-text">ถ้า class ไม่ implement abstract method ทั้งหมดจาก interface จะเกิดอะไร?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q21" value="a"><span
+                                class="option-letter">A</span><span>Runtime error</span></label>
+                        <label class="option"><input type="radio" name="q21" value="b"><span
+                                class="option-letter">B</span><span>Compile error (ต้องเป็น abstract
+                                class)</span></label>
+                        <label class="option"><input type="radio" name="q21" value="c"><span
+                                class="option-letter">C</span><span>ใช้ default implementation</span></label>
+                        <label class="option"><input type="radio" name="q21" value="d"><span
+                                class="option-letter">D</span><span>ไม่เกิดอะไร</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>ถ้าไม่ implement ทุก method จาก interface <strong>class นั้นต้องประกาศเป็น abstract</strong>
+                            ไม่งั้น compile ไม่ผ่าน</p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="a">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 22</div>
+                    <div class="q-text">Java 8+ อนุญาตให้ interface มีอะไรเพิ่ม?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q22" value="a"><span
+                                class="option-letter">A</span><span>default method (มี body ได้)</span></label>
+                        <label class="option"><input type="radio" name="q22" value="b"><span
+                                class="option-letter">B</span><span>constructor</span></label>
+                        <label class="option"><input type="radio" name="q22" value="c"><span
+                                class="option-letter">C</span><span>instance variable</span></label>
+                        <label class="option"><input type="radio" name="q22" value="d"><span
+                                class="option-letter">D</span><span>private field</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Java 8+ อนุญาตให้ interface มี <strong>default method</strong> ที่มี body ได้</p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="d">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 23</div>
+                    <div class="q-text">ข้อใดเป็นความแตกต่างระหว่าง Abstract Class กับ Interface?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q23" value="a"><span
+                                class="option-letter">A</span><span>ทั้งคู่ extends ได้หลายตัว</span></label>
+                        <label class="option"><input type="radio" name="q23" value="b"><span
+                                class="option-letter">B</span><span>ทั้งคู่มี constructor ได้</span></label>
+                        <label class="option"><input type="radio" name="q23" value="c"><span
+                                class="option-letter">C</span><span>ทั้งคู่สร้าง Object ได้โดยตรง</span></label>
+                        <label class="option"><input type="radio" name="q23" value="d"><span
+                                class="option-letter">D</span><span>Abstract Class มี constructor ได้ แต่ Interface
+                                ไม่ได้</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p><strong>Abstract Class มี constructor ได้</strong> แต่ Interface ไม่สามารถมี constructor ได้
+                        </p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="c">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 24</div>
+                    <div class="q-text">ข้อใดเป็นตัวอย่างของ Composition?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q24" value="a"><span
+                                class="option-letter">A</span><span>ภาควิชา มี อาจารย์</span></label>
+                        <label class="option"><input type="radio" name="q24" value="b"><span
+                                class="option-letter">B</span><span>นักเรียน ลงทะเบียน วิชา</span></label>
+                        <label class="option"><input type="radio" name="q24" value="c"><span
+                                class="option-letter">C</span><span>บ้าน มี ห้อง</span></label>
+                        <label class="option"><input type="radio" name="q24" value="d"><span
+                                class="option-letter">D</span><span>อาจารย์ สอน วิชา</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>บ้านมีห้อง เป็น <strong>Composition</strong> เพราะถ้าลบบ้าน ห้องก็หายไปด้วย (ขาดกันไม่ได้)
+                        </p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="a">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 25</div>
+                    <div class="q-text">Interface สามารถ extends interface อื่นได้หรือไม่?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q25" value="a"><span
+                                class="option-letter">A</span><span>ได้ และได้หลายตัว</span></label>
+                        <label class="option"><input type="radio" name="q25" value="b"><span
+                                class="option-letter">B</span><span>ไม่ได้</span></label>
+                        <label class="option"><input type="radio" name="q25" value="c"><span
+                                class="option-letter">C</span><span>ได้แค่ 1 ตัว</span></label>
+                        <label class="option"><input type="radio" name="q25" value="d"><span
+                                class="option-letter">D</span><span>ต้องใช้ implements แทน</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Interface <strong>สามารถ extends interface อื่นได้ และได้หลายตัว</strong>ด้วย</p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="b">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 26</div>
+                    <div class="q-text">ข้อใดเป็นตัวอย่างของ Aggregation?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q26" value="a"><span
+                                class="option-letter">A</span><span>บ้าน มี ห้อง</span></label>
+                        <label class="option"><input type="radio" name="q26" value="b"><span
+                                class="option-letter">B</span><span>ภาควิชา มี อาจารย์</span></label>
+                        <label class="option"><input type="radio" name="q26" value="c"><span
+                                class="option-letter">C</span><span>Dog extends Animal</span></label>
+                        <label class="option"><input type="radio" name="q26" value="d"><span
+                                class="option-letter">D</span><span>Circle implements Drawable</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>ภาควิชามีอาจารย์ เป็น <strong>Aggregation</strong> เพราะลบภาควิชา อาจารย์ยังอยู่ได้
+                            (แยกกันอยู่ได้)</p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="c">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 27</div>
+                    <div class="q-text">Abstract class สามารถมี abstract method กี่ตัว?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q27" value="a"><span
+                                class="option-letter">A</span><span>ต้องมีอย่างน้อย 1 ตัว</span></label>
+                        <label class="option"><input type="radio" name="q27" value="b"><span
+                                class="option-letter">B</span><span>ต้องมีเท่านั้น</span></label>
+                        <label class="option"><input type="radio" name="q27" value="c"><span
+                                class="option-letter">C</span><span>มีกี่ตัวก็ได้ (แม้แต่ 0)</span></label>
+                        <label class="option"><input type="radio" name="q27" value="d"><span
+                                class="option-letter">D</span><span>ได้สูงสุด 1 ตัว</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Abstract class <strong>มี abstract method กี่ตัวก็ได้ แม้แต่ 0 ตัว</strong>ก็ยังประกาศเป็น
+                            abstract class ได้</p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="d">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 28</div>
+                    <div class="q-text">ข้อใดผิดเกี่ยวกับ Interface?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q28" value="a"><span
+                                class="option-letter">A</span><span>ตัวแปรเป็น public static final</span></label>
+                        <label class="option"><input type="radio" name="q28" value="b"><span
+                                class="option-letter">B</span><span>method เป็น public abstract</span></label>
+                        <label class="option"><input type="radio" name="q28" value="c"><span
+                                class="option-letter">C</span><span>implements ได้หลายตัว</span></label>
+                        <label class="option"><input type="radio" name="q28" value="d"><span
+                                class="option-letter">D</span><span>Interface มี instance variable ได้</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>Interface <strong>ไม่สามารถมี instance variable ได้</strong> ตัวแปรทั้งหมดเป็น public static
+                            final</p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="a">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 29</div>
+                    <div class="q-text">เมื่อไหร่ควรใช้ Abstract Class แทน Interface?</div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q29" value="a"><span
+                                class="option-letter">A</span><span>เมื่อมีโค้ดที่ใช้ร่วมกัน (shared
+                                code)</span></label>
+                        <label class="option"><input type="radio" name="q29" value="b"><span
+                                class="option-letter">B</span><span>เมื่อต้องการ multiple inheritance</span></label>
+                        <label class="option"><input type="radio" name="q29" value="c"><span
+                                class="option-letter">C</span><span>เมื่อต้องการ public method เท่านั้น</span></label>
+                        <label class="option"><input type="radio" name="q29" value="d"><span
+                                class="option-letter">D</span><span>เมื่อไม่ต้องการ constructor</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>ใช้ Abstract Class เมื่อ<strong>มีโค้ดที่ใช้ร่วมกัน</strong> (shared implementation) ระหว่าง
+                            class ลูก</p>
+                    </div>
+                </div>
+
+                <div class="question hard" data-answer="b">
+                    <span class="difficulty">ยาก</span>
+                    <div class="q-number">ข้อ 30</div>
+                    <div class="q-text">ถ้า 2 interface มี method ชื่อเดียวกัน และ class implements ทั้งคู่ จะเกิดอะไร?
+                    </div>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q30" value="a"><span
+                                class="option-letter">A</span><span>Compile error ทันที</span></label>
+                        <label class="option"><input type="radio" name="q30" value="b"><span
+                                class="option-letter">B</span><span>class ต้อง implement method นั้น 1
+                                ครั้ง</span></label>
+                        <label class="option"><input type="radio" name="q30" value="c"><span
+                                class="option-letter">C</span><span>ต้อง implement 2 ครั้ง</span></label>
+                        <label class="option"><input type="radio" name="q30" value="d"><span
+                                class="option-letter">D</span><span>Java เลือก method จาก interface แรก</span></label>
+                    </div>
+                    <div class="explanation">
+                        <strong>📝 คำอธิบาย:</strong>
+                        <p>ถ้า 2 interface มี method ชื่อเดียวกัน <strong>class ต้อง implement method นั้นแค่ 1
+                                ครั้ง</strong> (เพราะ signature เหมือนกัน)</p>
+                    </div>
+                </div>
+
+                <button type="button" class="btn-submit" onclick="submitQuiz()">🎯 ตรวจคำตอบ</button>
+            </form>
+
+            <div class="result" id="result">
+                <h2>🎉 ผลการทำแบบทดสอบ</h2>
+                <div class="score-big" id="final-score">0/30</div>
+                <p id="result-text" style="font-size: 1.3rem; margin-top: 15px;"></p>
+                <a href="index.html#quizzes" class="btn-primary" style="margin-top: 25px;">กลับหน้าแบบทดสอบ</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="premium-footer">
+        <p class="footer-text">งงตรงไหน? ทักมาถามได้เลย!</p>
+        <a href="https://instabio.cc/4021411ZGCpLW" target="_blank" class="contact-btn">💬 ติดต่อผู้สอน</a>
+    </footer>
+    <script src="music-player.js"></script>
+</body>
+
+</html>

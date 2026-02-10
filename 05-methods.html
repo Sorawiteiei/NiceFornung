@@ -29,7 +29,7 @@
             <h1>Methods (ฟังก์ชัน)</h1>
             <p class="meta">
                 <span>📅 <time datetime="2026-02-02">2 กุมภาพันธ์ 2026</time></span>
-                <span>⏱️ อ่าน 12 นาที</span>
+                <span>⏱️ อ่าน 20 นาที</span>
             </p>
 
             <div class="intro">
@@ -125,6 +125,115 @@ add(<span class="number">2</span>, <span class="number">3</span>);        <span 
 add(<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>);     <span class="comment">// เรียก add(int, int, int)</span>
 add(<span class="number">2.5</span>, <span class="number">3.5</span>);    <span class="comment">// เรียก add(double, double)</span></code></pre>
 
+            <h2>Constructor Methods (เมธอดสร้าง Object)</h2>
+            <p>Constructor คือ Method พิเศษที่ <strong>ทำงานอัตโนมัติตอนสร้าง Object</strong> ด้วย <code>new</code>:</p>
+            <ul>
+                <li>ชื่อ<strong>เหมือนชื่อ Class</strong> เป๊ะๆ</li>
+                <li><strong>ไม่มี return type</strong> (แม้แต่ <code>void</code> ก็ไม่ใส่)</li>
+                <li>ใช้กำหนดค่าเริ่มต้นให้กับ Object</li>
+            </ul>
+            <pre><code><span class="keyword">public class</span> Student {
+    String name;
+    <span class="keyword">int</span> age;
+
+    <span class="comment">// Constructor (ไม่มี return type!)</span>
+    <span class="keyword">public</span> <span class="method-name">Student</span>(String name, <span class="keyword">int</span> age) {
+        <span class="keyword">this</span>.name = name;
+        <span class="keyword">this</span>.age = age;
+    }
+}
+
+<span class="comment">// การใช้งาน</span>
+Student s1 = <span class="keyword">new</span> Student(<span class="string">"สมชาย"</span>, <span class="number">20</span>);
+Student s2 = <span class="keyword">new</span> Student(<span class="string">"สมหญิง"</span>, <span class="number">19</span>);
+System.out.println(s1.name); <span class="comment">// สมชาย</span></code></pre>
+
+            <div class="tip-box">
+                <strong>💡 Default Constructor:</strong>
+                <p style="margin-top: 10px;">ถ้าไม่เขียน Constructor เลย Java จะสร้าง Default Constructor ให้อัตโนมัติ
+                    (ไม่มี parameter)</p>
+            </div>
+
+            <h2>Static Methods (เมธอดระดับ Class)</h2>
+            <p>Method ที่มี <code>static</code> สามารถ<strong>เรียกใช้ได้เลย</strong>โดยไม่ต้องสร้าง Object:</p>
+            <pre><code><span class="keyword">public class</span> MathHelper {
+    <span class="comment">// Static Method - เรียกผ่านชื่อ Class ได้เลย</span>
+    <span class="keyword">public static int</span> <span class="method-name">square</span>(<span class="keyword">int</span> n) {
+        <span class="keyword">return</span> n * n;
+    }
+}
+
+<span class="comment">// เรียกใช้ผ่านชื่อ Class โดยตรง (ไม่ต้อง new!)</span>
+<span class="keyword">int</span> result = MathHelper.square(<span class="number">5</span>); <span class="comment">// 25</span></code></pre>
+
+            <h2>Instance Methods (เมธอดระดับ Object)</h2>
+            <p>Method ที่<strong>ไม่มี</strong> <code>static</code> ต้อง<strong>สร้าง Object
+                    ก่อน</strong>ถึงจะเรียกใช้ได้:</p>
+            <pre><code><span class="keyword">public class</span> Dog {
+    String name;
+
+    <span class="keyword">public</span> <span class="method-name">Dog</span>(String name) {
+        <span class="keyword">this</span>.name = name;
+    }
+
+    <span class="comment">// Instance Method - ต้องสร้าง Object ก่อนเรียก</span>
+    <span class="keyword">public void</span> <span class="method-name">bark</span>() {
+        System.out.println(name + <span class="string">" says: Woof!"</span>);
+    }
+}
+
+<span class="comment">// ต้อง new ก่อนเรียก</span>
+Dog myDog = <span class="keyword">new</span> Dog(<span class="string">"บัดดี้"</span>);
+myDog.bark(); <span class="comment">// บัดดี้ says: Woof!</span></code></pre>
+
+            <div class="note-box">
+                <strong>⚠️ Static vs Instance:</strong>
+                <ul style="margin-top: 10px;">
+                    <li><strong>Static</strong>: เรียกผ่าน <code>ClassName.method()</code> → ไม่ต้อง new</li>
+                    <li><strong>Instance</strong>: เรียกผ่าน <code>object.method()</code> → ต้อง new ก่อน</li>
+                </ul>
+            </div>
+
+            <h2>Override Methods (การเขียนทับเมธอด)</h2>
+            <p>เมื่อ class ลูก <strong>สืบทอด (extends)</strong> จาก class แม่ สามารถ<strong>เขียนทับ</strong> method
+                เดิมได้:</p>
+            <pre><code><span class="keyword">class</span> Animal {
+    <span class="keyword">void</span> <span class="method-name">sound</span>() {
+        System.out.println(<span class="string">"Animal makes a sound"</span>);
+    }
+}
+
+<span class="keyword">class</span> Cat <span class="keyword">extends</span> Animal {
+    <span class="comment">// Override - เขียนทับ method ของแม่</span>
+    @Override
+    <span class="keyword">void</span> <span class="method-name">sound</span>() {
+        System.out.println(<span class="string">"Meow! 🐱"</span>);
+    }
+}
+
+<span class="keyword">class</span> Dog <span class="keyword">extends</span> Animal {
+    @Override
+    <span class="keyword">void</span> <span class="method-name">sound</span>() {
+        System.out.println(<span class="string">"Woof! 🐶"</span>);
+    }
+}
+
+<span class="comment">// เรียกใช้</span>
+Animal a = <span class="keyword">new</span> Cat();
+a.sound(); <span class="comment">// Meow! 🐱 (ใช้ของ Cat ไม่ใช่ Animal)</span></code></pre>
+
+            <div class="note-box">
+                <strong>⚠️ Overloading vs Overriding ระวังสับสน!</strong>
+                <ul style="margin-top: 10px;">
+                    <li><strong>Overloading</strong>: ชื่อเหมือน แต่ <em>parameter ต่างกัน</em> → ใน class
+                        <strong>เดียวกัน</strong>
+                    </li>
+                    <li><strong>Overriding</strong>: ชื่อเหมือน parameter <em>เหมือนกัน</em> → class
+                        <strong>แม่-ลูก</strong>
+                    </li>
+                </ul>
+            </div>
+
             <div class="tip-box">
                 <strong>💡 ทำไมต้องใช้ Method?</strong>
                 <ul style="margin-top: 10px;">
@@ -140,7 +249,11 @@ add(<span class="number">2.5</span>, <span class="number">3.5</span>);    <span 
                     <li><code>void</code> = ไม่ return ค่า</li>
                     <li>Parameters คือตัวแปรที่รับเข้ามา</li>
                     <li><code>return</code> ส่งค่ากลับและจบ method</li>
-                    <li>Overloading = ชื่อเดียวกัน parameters ต่างกัน</li>
+                    <li><strong>Constructor</strong> = method พิเศษ ชื่อเหมือน class, ไม่มี return type</li>
+                    <li><strong>Static</strong> = เรียกผ่าน Class ได้เลย ไม่ต้อง new</li>
+                    <li><strong>Instance</strong> = ต้อง new Object ก่อนเรียก</li>
+                    <li><strong>Overloading</strong> = ชื่อเดียวกัน parameters ต่างกัน</li>
+                    <li><strong>Overriding</strong> = เขียนทับ method ของ class แม่</li>
                 </ul>
                 <p style="margin-top: 20px; opacity: 0.8;">งงตรงไหน? <a href="https://instabio.cc/4021411ZGCpLW"
                         target="_blank" style="color: #14b8a6; text-decoration: underline;">ทักมาถามได้เลยนะ! 💬</a></p>

@@ -16,6 +16,10 @@
         else if (path.includes('04-')) lessonId = 'lesson-04';
         else if (path.includes('05-')) lessonId = 'lesson-05';
         else if (path.includes('06-')) lessonId = 'lesson-06';
+        else if (path.includes('07-')) lessonId = 'lesson-07';
+        else if (path.includes('08-')) lessonId = 'lesson-08';
+        else if (path.includes('09-')) lessonId = 'lesson-09';
+        else if (path.includes('10-')) lessonId = 'lesson-10';
     }
 
     if (lessonId) {
